@@ -18,7 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://c1s8fa44ee874" path="res://kuy/car_hatchback.tscn" id="10_seu75"]
 [ext_resource type="PackedScene" uid="uid://dswx0hkm5md6x" path="res://kuy/car_sedan.tscn" id="11_htxhm"]
 [ext_resource type="PackedScene" uid="uid://bmgfn5dtkbj4s" path="res://kuy/streetlight.tscn" id="12_jq2sk"]
-[ext_resource type="PackedScene" uid="uid://cmaqtn4umro2p" path="res://city/Tiny_Treats_Pretty_Park_1.0_FREE/Assets/fbx/floor_grass_sliced_base.fbx" id="12_yaehf"]
+[ext_resource type="PackedScene" uid="uid://bqotif6uucwao" path="res://city/Tiny_Treats_Pretty_Park_1.0_FREE/Assets/fbx/floor_grass_sliced_base.fbx" id="12_yaehf"]
 [ext_resource type="PackedScene" uid="uid://idx35581iicu" path="res://kuy/trafficlight_a.tscn" id="13_4k2k6"]
 [ext_resource type="PackedScene" uid="uid://dswtfq55yo5bq" path="res://kuy/road_junction.tscn" id="13_074og"]
 [ext_resource type="PackedScene" uid="uid://36acs68ac7cg" path="res://kuy/road_corner_curved.tscn" id="14_cegan"]
@@ -845,3 +845,6 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.037,
 
 [node name="Tree_1_C_Color8" parent="tree" instance=ExtResource("34_b1qrp")]
 transform = Transform3D(-0.940881, 0, -0.338738, 0, 1, 0, 0.338738, 0, -0.940881, 6.68283, -1.25392, 7.98167)
+
+[node name="box_A" parent="." instance=ExtResource("16_ok6jj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.09778, 0.914701, -2.0794)
