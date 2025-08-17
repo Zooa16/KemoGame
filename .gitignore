@@ -1,0 +1,20 @@
+# Godot 4+ specific ignores
+.godot/
+/android/# Godot generated files
+.godot/
+.import/
+# Export templates
+export/
+# User-specific settings
+*.cfg
+# Editor-specific settings
+editor/
+# Temporary files
+*.gdc
+*.gltf.s3tc
+*.obj.mesh
+# Ignore all files in the asset pipeline that might be temporary
+*.import
+# OS generated files
+.DS_Store
+Thumbs.db
