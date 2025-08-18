@@ -1,0 +1,291 @@
+[gd_scene load_steps=45 format=3 uid="uid://ddycy50qixeaj"]
+
+[ext_resource type="Texture2D" uid="uid://c75ymta7txyvs" path="res://Asset 2D/Player/Idle/ตัว/1.png" id="2_7wa31"]
+[ext_resource type="Texture2D" uid="uid://k6qvln5derbk" path="res://Asset 2D/Player/Idle/ตัว/2.png" id="3_a8ocn"]
+[ext_resource type="Texture2D" uid="uid://di2w8pqa0aovw" path="res://Asset 2D/Player/Idle/ตัว/3.png" id="4_8ysjl"]
+[ext_resource type="Texture2D" uid="uid://bp3368avdtcfy" path="res://Asset 2D/Player/Idle/ตัว/4.png" id="5_3o8e2"]
+[ext_resource type="Texture2D" uid="uid://cmiqn8nb160vn" path="res://Asset 2D/Player/Idle/ตัว/5.png" id="6_ikxxx"]
+[ext_resource type="Texture2D" uid="uid://b1rc0mwtap2k6" path="res://Asset 2D/Player/Idle/ตัว/6.png" id="7_din3f"]
+[ext_resource type="Texture2D" uid="uid://6bph54hbmk7u" path="res://Asset 2D/Player/Run/ตัว/1.png" id="8_tkc6r"]
+[ext_resource type="Texture2D" uid="uid://7vnqo3lowjjl" path="res://Asset 2D/Player/Run/ตัว/2.png" id="9_dbicu"]
+[ext_resource type="Texture2D" uid="uid://d1d836yw27sp1" path="res://Asset 2D/Player/Run/ตัว/3.png" id="10_vsing"]
+[ext_resource type="Texture2D" uid="uid://bxbwvvpfqo8v" path="res://Asset 2D/Player/Run/ตัว/4.png" id="11_p2mqb"]
+[ext_resource type="Texture2D" uid="uid://cl3vihoqw3wwf" path="res://Asset 2D/Player/Run/ตัว/5.png" id="12_pxgte"]
+[ext_resource type="Texture2D" uid="uid://b3pipvoi01a2q" path="res://Asset 2D/Player/Run/ตัว/6.png" id="13_gaal5"]
+[ext_resource type="Texture2D" uid="uid://dder8hnhpoc8y" path="res://Asset 2D/Player/Run/ตัว/7.png" id="14_rtw4s"]
+[ext_resource type="Texture2D" uid="uid://iewstlnyupmw" path="res://Asset 2D/Player/Run/ตัว/8.png" id="15_wlasy"]
+[ext_resource type="Texture2D" uid="uid://dm5jfobblsxmy" path="res://Asset 2D/Player/Run/ตัว/9.png" id="16_nthse"]
+[ext_resource type="Texture2D" uid="uid://cjmnnlqyrir1s" path="res://Asset 2D/Player/Run/ตัว/10.png" id="17_wav2v"]
+[ext_resource type="Texture2D" uid="uid://dnx75gae7282b" path="res://Asset 2D/Player/Slide/ตัว/1.png" id="18_c3hu4"]
+[ext_resource type="Texture2D" uid="uid://bo8bw1pqxnhm3" path="res://Asset 2D/Player/Slide/ตัว/2.png" id="19_hodtm"]
+[ext_resource type="Texture2D" uid="uid://0mgkmfy3ttkp" path="res://Asset 2D/Player/Slide/ตัว/3.png" id="20_g2gho"]
+[ext_resource type="Texture2D" uid="uid://b6ug4g4y0ps6k" path="res://Asset 2D/Player/Slide/ตัว/4.png" id="21_lp70c"]
+[ext_resource type="Texture2D" uid="uid://cv0gowvghavdy" path="res://Asset 2D/Player/Idle/สี/ไม่มีชื่อ 12_20250817171242.png" id="22_q5jaq"]
+[ext_resource type="Texture2D" uid="uid://baqm3giyjci14" path="res://Asset 2D/Player/Idle/สี/ไม่มีชื่อ 12_20250817171245.png" id="23_10mjv"]
+[ext_resource type="Texture2D" uid="uid://c8xg7nsbytr3a" path="res://Asset 2D/Player/Idle/สี/ไม่มีชื่อ 12_20250817171248.png" id="24_dxadp"]
+[ext_resource type="Texture2D" uid="uid://wtawqtxwgqjj" path="res://Asset 2D/Player/Idle/สี/ไม่มีชื่อ 12_20250817171250.png" id="25_ixcc3"]
+[ext_resource type="Texture2D" uid="uid://bvdfab2a07xq4" path="res://Asset 2D/Player/Idle/สี/ไม่มีชื่อ 12_20250817171252.png" id="26_5ooba"]
+[ext_resource type="Texture2D" uid="uid://b3gx6vqgv4tvg" path="res://Asset 2D/Player/Idle/สี/ไม่มีชื่อ 12_20250817171255.png" id="27_qypgu"]
+[ext_resource type="Texture2D" uid="uid://bdq17vxwhl1i5" path="res://Asset 2D/Player/Run/สี/1.png" id="28_1e1jc"]
+[ext_resource type="Texture2D" uid="uid://hjjh3o1xxx4t" path="res://Asset 2D/Player/Run/สี/2.png" id="29_6nmqp"]
+[ext_resource type="Texture2D" uid="uid://c0ncvam0i51tt" path="res://Asset 2D/Player/Run/สี/3.png" id="30_mi60i"]
+[ext_resource type="Texture2D" uid="uid://xh1lyiakorfw" path="res://Asset 2D/Player/Run/สี/4.png" id="31_oflaj"]
+[ext_resource type="Texture2D" uid="uid://wac8nmaj46lc" path="res://Asset 2D/Player/Run/สี/5.png" id="32_q5fno"]
+[ext_resource type="Texture2D" uid="uid://lbxvsnh43r2s" path="res://Asset 2D/Player/Run/สี/6.png" id="33_72o11"]
+[ext_resource type="Texture2D" uid="uid://cbm52okikkqwt" path="res://Asset 2D/Player/Run/สี/7.png" id="34_pfb01"]
+[ext_resource type="Texture2D" uid="uid://cueqf1qka1jj7" path="res://Asset 2D/Player/Run/สี/8.png" id="35_ekjd2"]
+[ext_resource type="Texture2D" uid="uid://cuhp5akhsbhdu" path="res://Asset 2D/Player/Run/สี/9.png" id="36_810wb"]
+[ext_resource type="Texture2D" uid="uid://c5nouq67fa7v1" path="res://Asset 2D/Player/Run/สี/10.png" id="37_0rwnq"]
+[ext_resource type="Texture2D" uid="uid://bp7fn2ucj4sya" path="res://Asset 2D/Player/Slide/สี/1.png" id="38_rdx65"]
+[ext_resource type="Texture2D" uid="uid://do8ybnmfjr4xr" path="res://Asset 2D/Player/Slide/สี/2.png" id="39_jxy5c"]
+[ext_resource type="Texture2D" uid="uid://uop6f88oycdp" path="res://Asset 2D/Player/Slide/สี/3.png" id="40_dj4p3"]
+[ext_resource type="Texture2D" uid="uid://cwr1redbbqgx2" path="res://Asset 2D/Player/Slide/สี/4.png" id="41_ntcwl"]
+
+[sub_resource type="GDScript" id="GDScript_w43ny"]
+script/source = "extends CharacterBody3D
+
+const SPEED = 5.0
+const SPEED_SLIDE = 10.0
+const JUMP_VELOCITY = 9.0
+const SLIDE_TIME = 1.0   
+const SLIDE_COOLDOWN = 1.5 
+
+@onready var animation_body = $body
+@onready var animation_color = $color
+
+var is_sliding = false
+var slide_timer = 0.0
+var slide_cooldown_timer = 0.0  
+
+func _physics_process(delta: float) -> void:
+	# Update cooldown
+	if slide_cooldown_timer > 0:
+		slide_cooldown_timer -= delta
+
+	# Gravity
+	if not is_on_floor():
+		velocity += get_gravity() * delta
+	
+	var input_dir := Input.get_vector(\"left\", \"right\", \"forward\", \"back\")
+	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+
+	# Slide start (เช็กเงื่อนไข 3 อย่าง: on_floor, มี direction, cooldown หมด)
+	if Input.is_action_just_pressed(\"slide\") and is_on_floor() and direction and not is_sliding and slide_cooldown_timer <= 0:
+		is_sliding = true
+		slide_timer = SLIDE_TIME
+		slide_cooldown_timer = SLIDE_COOLDOWN
+		velocity.x = direction.x * SPEED_SLIDE
+		velocity.z = direction.z * SPEED_SLIDE
+		animation_body.play(\"slide\")
+		animation_color.play(\"slide\")
+	
+	# Slide update
+	if is_sliding:
+		slide_timer -= delta
+		if slide_timer <= 0:
+			is_sliding = false
+	else:
+		if direction:
+			velocity.x = direction.x * SPEED
+			velocity.z = direction.z * SPEED
+			
+			if direction.x > 0:
+				animation_body.flip_h = true
+				animation_color.flip_h = true
+			elif direction.x < 0:
+				animation_body.flip_h = false
+				animation_color.flip_h = false
+				
+			animation_body.play(\"run\")
+			animation_color.play(\"run\")
+		else:
+			velocity.x = move_toward(velocity.x, 0, SPEED)
+			velocity.z = move_toward(velocity.z, 0, SPEED)
+			animation_body.play(\"idle\")
+			animation_color.play(\"idle\")
+
+	move_and_slide()
+"
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_w43ny"]
+size = Vector3(1, 2.75842, 1)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3354g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_7wa31")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_a8ocn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_8ysjl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_3o8e2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ikxxx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_din3f")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_tkc6r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_dbicu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_vsing")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_p2mqb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_pxgte")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_gaal5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_rtw4s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_wlasy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_nthse")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_wav2v")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("18_c3hu4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_hodtm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_g2gho")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_lp70c")
+}],
+"loop": true,
+"name": &"slide",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pn42v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("22_q5jaq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_10mjv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_dxadp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_ixcc3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_5ooba")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_qypgu")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("28_1e1jc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_6nmqp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_mi60i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_oflaj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_q5fno")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_72o11")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_pfb01")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_ekjd2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_810wb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_0rwnq")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("38_rdx65")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_jxy5c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_dj4p3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_ntcwl")
+}],
+"loop": true,
+"name": &"slide",
+"speed": 5.0
+}]
+
+[node name="player" type="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0120827, 0)
+script = SubResource("GDScript_w43ny")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(2.43672, 0, 0, 0, 1.24704, 0, 0, 0, 1.51596, 0, -0.311194, -1.21785)
+shape = SubResource("BoxShape3D_w43ny")
+
+[node name="body" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.906308, 0.422618, 0, -0.422618, 0.906308, 0, 0, 0)
+alpha_cut = 2
+sprite_frames = SubResource("SpriteFrames_3354g")
+animation = &"idle"
+
+[node name="Camera3D" type="Camera3D" parent="body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 25)
+
+[node name="color" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.906308, 0.422618, 0, -0.422618, 0.906308, 0, 0, 0)
+modulate = Color(0, 0.752941, 1, 1)
+alpha_cut = 2
+sprite_frames = SubResource("SpriteFrames_pn42v")
+animation = &"idle"
