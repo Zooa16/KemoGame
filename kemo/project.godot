@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="my map game"
-run/main_scene="uid://bjud5lic67h0u"
+run/main_scene="uid://bqpr3mnaoxh4"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[filesystem]
+
+import/blender/enabled=false
 
 [input]
 

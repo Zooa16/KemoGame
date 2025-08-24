@@ -1,45 +1,45 @@
 [gd_scene load_steps=45 format=3 uid="uid://ddycy50qixeaj"]
 
-[ext_resource type="Texture2D" uid="uid://c75ymta7txyvs" path="res://Asset 2D/Player/Idle/ตัว/1.png" id="2_7wa31"]
-[ext_resource type="Texture2D" uid="uid://k6qvln5derbk" path="res://Asset 2D/Player/Idle/ตัว/2.png" id="3_a8ocn"]
-[ext_resource type="Texture2D" uid="uid://di2w8pqa0aovw" path="res://Asset 2D/Player/Idle/ตัว/3.png" id="4_8ysjl"]
-[ext_resource type="Texture2D" uid="uid://bp3368avdtcfy" path="res://Asset 2D/Player/Idle/ตัว/4.png" id="5_3o8e2"]
-[ext_resource type="Texture2D" uid="uid://cmiqn8nb160vn" path="res://Asset 2D/Player/Idle/ตัว/5.png" id="6_ikxxx"]
-[ext_resource type="Texture2D" uid="uid://b1rc0mwtap2k6" path="res://Asset 2D/Player/Idle/ตัว/6.png" id="7_din3f"]
-[ext_resource type="Texture2D" uid="uid://6bph54hbmk7u" path="res://Asset 2D/Player/Run/ตัว/1.png" id="8_tkc6r"]
-[ext_resource type="Texture2D" uid="uid://7vnqo3lowjjl" path="res://Asset 2D/Player/Run/ตัว/2.png" id="9_dbicu"]
-[ext_resource type="Texture2D" uid="uid://d1d836yw27sp1" path="res://Asset 2D/Player/Run/ตัว/3.png" id="10_vsing"]
-[ext_resource type="Texture2D" uid="uid://bxbwvvpfqo8v" path="res://Asset 2D/Player/Run/ตัว/4.png" id="11_p2mqb"]
-[ext_resource type="Texture2D" uid="uid://cl3vihoqw3wwf" path="res://Asset 2D/Player/Run/ตัว/5.png" id="12_pxgte"]
-[ext_resource type="Texture2D" uid="uid://b3pipvoi01a2q" path="res://Asset 2D/Player/Run/ตัว/6.png" id="13_gaal5"]
-[ext_resource type="Texture2D" uid="uid://dder8hnhpoc8y" path="res://Asset 2D/Player/Run/ตัว/7.png" id="14_rtw4s"]
-[ext_resource type="Texture2D" uid="uid://iewstlnyupmw" path="res://Asset 2D/Player/Run/ตัว/8.png" id="15_wlasy"]
-[ext_resource type="Texture2D" uid="uid://dm5jfobblsxmy" path="res://Asset 2D/Player/Run/ตัว/9.png" id="16_nthse"]
-[ext_resource type="Texture2D" uid="uid://cjmnnlqyrir1s" path="res://Asset 2D/Player/Run/ตัว/10.png" id="17_wav2v"]
-[ext_resource type="Texture2D" uid="uid://dnx75gae7282b" path="res://Asset 2D/Player/Slide/ตัว/1.png" id="18_c3hu4"]
-[ext_resource type="Texture2D" uid="uid://bo8bw1pqxnhm3" path="res://Asset 2D/Player/Slide/ตัว/2.png" id="19_hodtm"]
-[ext_resource type="Texture2D" uid="uid://0mgkmfy3ttkp" path="res://Asset 2D/Player/Slide/ตัว/3.png" id="20_g2gho"]
-[ext_resource type="Texture2D" uid="uid://b6ug4g4y0ps6k" path="res://Asset 2D/Player/Slide/ตัว/4.png" id="21_lp70c"]
-[ext_resource type="Texture2D" uid="uid://cv0gowvghavdy" path="res://Asset 2D/Player/Idle/สี/ไม่มีชื่อ 12_20250817171242.png" id="22_q5jaq"]
-[ext_resource type="Texture2D" uid="uid://baqm3giyjci14" path="res://Asset 2D/Player/Idle/สี/ไม่มีชื่อ 12_20250817171245.png" id="23_10mjv"]
-[ext_resource type="Texture2D" uid="uid://c8xg7nsbytr3a" path="res://Asset 2D/Player/Idle/สี/ไม่มีชื่อ 12_20250817171248.png" id="24_dxadp"]
-[ext_resource type="Texture2D" uid="uid://wtawqtxwgqjj" path="res://Asset 2D/Player/Idle/สี/ไม่มีชื่อ 12_20250817171250.png" id="25_ixcc3"]
-[ext_resource type="Texture2D" uid="uid://bvdfab2a07xq4" path="res://Asset 2D/Player/Idle/สี/ไม่มีชื่อ 12_20250817171252.png" id="26_5ooba"]
-[ext_resource type="Texture2D" uid="uid://b3gx6vqgv4tvg" path="res://Asset 2D/Player/Idle/สี/ไม่มีชื่อ 12_20250817171255.png" id="27_qypgu"]
-[ext_resource type="Texture2D" uid="uid://bdq17vxwhl1i5" path="res://Asset 2D/Player/Run/สี/1.png" id="28_1e1jc"]
-[ext_resource type="Texture2D" uid="uid://hjjh3o1xxx4t" path="res://Asset 2D/Player/Run/สี/2.png" id="29_6nmqp"]
-[ext_resource type="Texture2D" uid="uid://c0ncvam0i51tt" path="res://Asset 2D/Player/Run/สี/3.png" id="30_mi60i"]
-[ext_resource type="Texture2D" uid="uid://xh1lyiakorfw" path="res://Asset 2D/Player/Run/สี/4.png" id="31_oflaj"]
-[ext_resource type="Texture2D" uid="uid://wac8nmaj46lc" path="res://Asset 2D/Player/Run/สี/5.png" id="32_q5fno"]
-[ext_resource type="Texture2D" uid="uid://lbxvsnh43r2s" path="res://Asset 2D/Player/Run/สี/6.png" id="33_72o11"]
-[ext_resource type="Texture2D" uid="uid://cbm52okikkqwt" path="res://Asset 2D/Player/Run/สี/7.png" id="34_pfb01"]
-[ext_resource type="Texture2D" uid="uid://cueqf1qka1jj7" path="res://Asset 2D/Player/Run/สี/8.png" id="35_ekjd2"]
-[ext_resource type="Texture2D" uid="uid://cuhp5akhsbhdu" path="res://Asset 2D/Player/Run/สี/9.png" id="36_810wb"]
-[ext_resource type="Texture2D" uid="uid://c5nouq67fa7v1" path="res://Asset 2D/Player/Run/สี/10.png" id="37_0rwnq"]
-[ext_resource type="Texture2D" uid="uid://bp7fn2ucj4sya" path="res://Asset 2D/Player/Slide/สี/1.png" id="38_rdx65"]
-[ext_resource type="Texture2D" uid="uid://do8ybnmfjr4xr" path="res://Asset 2D/Player/Slide/สี/2.png" id="39_jxy5c"]
-[ext_resource type="Texture2D" uid="uid://uop6f88oycdp" path="res://Asset 2D/Player/Slide/สี/3.png" id="40_dj4p3"]
-[ext_resource type="Texture2D" uid="uid://cwr1redbbqgx2" path="res://Asset 2D/Player/Slide/สี/4.png" id="41_ntcwl"]
+[ext_resource type="Texture2D" uid="uid://cay3vvx873y6g" path="res://Asset 2D/Player/Idle/ตัว/1.png" id="2_7wa31"]
+[ext_resource type="Texture2D" uid="uid://dcimxmh5sxgb3" path="res://Asset 2D/Player/Idle/ตัว/2.png" id="3_a8ocn"]
+[ext_resource type="Texture2D" uid="uid://lx4hbcml76we" path="res://Asset 2D/Player/Idle/ตัว/3.png" id="4_8ysjl"]
+[ext_resource type="Texture2D" uid="uid://br6h1oq03xrxh" path="res://Asset 2D/Player/Idle/ตัว/4.png" id="5_3o8e2"]
+[ext_resource type="Texture2D" uid="uid://c5v6u52bscl7j" path="res://Asset 2D/Player/Idle/ตัว/5.png" id="6_ikxxx"]
+[ext_resource type="Texture2D" uid="uid://b24brjo6fqe5o" path="res://Asset 2D/Player/Idle/ตัว/6.png" id="7_din3f"]
+[ext_resource type="Texture2D" uid="uid://c3yhg7sxxel4s" path="res://Asset 2D/Player/Run/ตัว/1.png" id="8_tkc6r"]
+[ext_resource type="Texture2D" uid="uid://do4185naevj5r" path="res://Asset 2D/Player/Run/ตัว/2.png" id="9_dbicu"]
+[ext_resource type="Texture2D" uid="uid://bwtmyps0s8p4x" path="res://Asset 2D/Player/Run/ตัว/3.png" id="10_vsing"]
+[ext_resource type="Texture2D" uid="uid://de70p4q2e83rl" path="res://Asset 2D/Player/Run/ตัว/4.png" id="11_p2mqb"]
+[ext_resource type="Texture2D" uid="uid://gxjbtwgqd7s6" path="res://Asset 2D/Player/Run/ตัว/5.png" id="12_pxgte"]
+[ext_resource type="Texture2D" uid="uid://cbvmptx3vj4ol" path="res://Asset 2D/Player/Run/ตัว/6.png" id="13_gaal5"]
+[ext_resource type="Texture2D" uid="uid://cfs6ja5rvt2av" path="res://Asset 2D/Player/Run/ตัว/7.png" id="14_rtw4s"]
+[ext_resource type="Texture2D" uid="uid://iu15vmwbck86" path="res://Asset 2D/Player/Run/ตัว/8.png" id="15_wlasy"]
+[ext_resource type="Texture2D" uid="uid://cn3b4ql7etrgv" path="res://Asset 2D/Player/Run/ตัว/9.png" id="16_nthse"]
+[ext_resource type="Texture2D" uid="uid://be6fgimj28dx0" path="res://Asset 2D/Player/Run/ตัว/10.png" id="17_wav2v"]
+[ext_resource type="Texture2D" uid="uid://dsdhbcl1jm7im" path="res://Asset 2D/Player/Slide/ตัว/1.png" id="18_c3hu4"]
+[ext_resource type="Texture2D" uid="uid://dcjgta41hj6ms" path="res://Asset 2D/Player/Slide/ตัว/2.png" id="19_hodtm"]
+[ext_resource type="Texture2D" uid="uid://cn41o0g7541kc" path="res://Asset 2D/Player/Slide/ตัว/3.png" id="20_g2gho"]
+[ext_resource type="Texture2D" uid="uid://bvxsrxtl1lv8j" path="res://Asset 2D/Player/Slide/ตัว/4.png" id="21_lp70c"]
+[ext_resource type="Texture2D" uid="uid://bavmcxubfrl1m" path="res://Asset 2D/Player/Idle/สี/ไม่มีชื่อ 12_20250817171242.png" id="22_q5jaq"]
+[ext_resource type="Texture2D" uid="uid://dgjd7ggf6nr68" path="res://Asset 2D/Player/Idle/สี/ไม่มีชื่อ 12_20250817171245.png" id="23_10mjv"]
+[ext_resource type="Texture2D" uid="uid://cl8bpjvq2yqwr" path="res://Asset 2D/Player/Idle/สี/ไม่มีชื่อ 12_20250817171248.png" id="24_dxadp"]
+[ext_resource type="Texture2D" uid="uid://buq3ahel2jyu7" path="res://Asset 2D/Player/Idle/สี/ไม่มีชื่อ 12_20250817171250.png" id="25_ixcc3"]
+[ext_resource type="Texture2D" uid="uid://3o0ftsfjot16" path="res://Asset 2D/Player/Idle/สี/ไม่มีชื่อ 12_20250817171252.png" id="26_5ooba"]
+[ext_resource type="Texture2D" uid="uid://bdfnnf5ha7b63" path="res://Asset 2D/Player/Idle/สี/ไม่มีชื่อ 12_20250817171255.png" id="27_qypgu"]
+[ext_resource type="Texture2D" uid="uid://d2g3uwre1nfwu" path="res://Asset 2D/Player/Run/สี/1.png" id="28_1e1jc"]
+[ext_resource type="Texture2D" uid="uid://b2u46wev3y4e7" path="res://Asset 2D/Player/Run/สี/2.png" id="29_6nmqp"]
+[ext_resource type="Texture2D" uid="uid://vgkc52tbn386" path="res://Asset 2D/Player/Run/สี/3.png" id="30_mi60i"]
+[ext_resource type="Texture2D" uid="uid://cd3m2bv437d02" path="res://Asset 2D/Player/Run/สี/4.png" id="31_oflaj"]
+[ext_resource type="Texture2D" uid="uid://c2atw1skoaw6l" path="res://Asset 2D/Player/Run/สี/5.png" id="32_q5fno"]
+[ext_resource type="Texture2D" uid="uid://sr5locpnhedi" path="res://Asset 2D/Player/Run/สี/6.png" id="33_72o11"]
+[ext_resource type="Texture2D" uid="uid://cew1u7h8rh1ky" path="res://Asset 2D/Player/Run/สี/7.png" id="34_pfb01"]
+[ext_resource type="Texture2D" uid="uid://cporm2qyvrann" path="res://Asset 2D/Player/Run/สี/8.png" id="35_ekjd2"]
+[ext_resource type="Texture2D" uid="uid://cmnrui6fsjef7" path="res://Asset 2D/Player/Run/สี/9.png" id="36_810wb"]
+[ext_resource type="Texture2D" uid="uid://bk84oh3blsqmb" path="res://Asset 2D/Player/Run/สี/10.png" id="37_0rwnq"]
+[ext_resource type="Texture2D" uid="uid://daa5ccl4mbvn" path="res://Asset 2D/Player/Slide/สี/1.png" id="38_rdx65"]
+[ext_resource type="Texture2D" uid="uid://mls01l567syj" path="res://Asset 2D/Player/Slide/สี/2.png" id="39_jxy5c"]
+[ext_resource type="Texture2D" uid="uid://nxe2nl20pweo" path="res://Asset 2D/Player/Slide/สี/3.png" id="40_dj4p3"]
+[ext_resource type="Texture2D" uid="uid://dola3b1tcouod" path="res://Asset 2D/Player/Slide/สี/4.png" id="41_ntcwl"]
 
 [sub_resource type="GDScript" id="GDScript_w43ny"]
 script/source = "extends CharacterBody3D
@@ -275,7 +275,7 @@ transform = Transform3D(2.43672, 0, 0, 0, 1.24704, 0, 0, 0, 1.51596, 0, -0.31119
 shape = SubResource("BoxShape3D_w43ny")
 
 [node name="body" type="AnimatedSprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573577, 0, -0.573577, 0.819152, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 0.34202, 0.939693, 0, -0.939693, 0.34202, 0, 0, 0)
 alpha_cut = 2
 sprite_frames = SubResource("SpriteFrames_3354g")
 animation = &"slide"
@@ -284,7 +284,7 @@ animation = &"slide"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 25)
 
 [node name="color" type="AnimatedSprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573577, 0, -0.573577, 0.819152, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 0.34202, 0.939693, 0, -0.939693, 0.34202, 0, 0, 0)
 modulate = Color(0, 0.752941, 1, 1)
 alpha_cut = 2
 sprite_frames = SubResource("SpriteFrames_pn42v")

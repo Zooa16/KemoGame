@@ -1,0 +1,44 @@
+# Blender 4.5.1 LTS MTL File: 'camera_1.blend'
+# www.blender.org
+
+newmtl Glass
+Kd 0.644307 0.619080 0.549914
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 2.000000
+d 1.000000
+illum 3
+Pr 0.500000
+Pm 1.000000
+Ps 0.000000
+Pc 0.000000
+Pcr 0.030000
+aniso 0.000000
+anisor 0.000000
+map_Bump -bm 0.210000 textures/garage_floor_nor_gl_4k.jpg
+
+newmtl Multicoated_glass
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+Pr 0.400000
+Pm 0.000000
+
+newmtl White_matte_metal
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+Pr 0.500000
+Ps 0.000000
+Pc 0.000000
+Pcr 0.030000
+aniso 0.000000
+anisor 0.000000
+map_Kd textures/painted_metal09_diffuse.jpg
+map_Pm textures/painted_metal_metallic.jpg
+map_Ks textures/painted_metal_specular.jpg
+map_Bump -bm 1.000000 textures/painted_metal_normal_opengl.jpg
