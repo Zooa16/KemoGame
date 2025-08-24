@@ -71,49 +71,35 @@
 [ext_resource type="PackedScene" uid="uid://djdoe57ix8dh5" path="res://Asset 3D/city/use this for builder/monkeybar_b.tscn" id="69_r5sql"]
 [ext_resource type="PackedScene" uid="uid://dkrnxuv51eyh0" path="res://Asset 3D/city/use this for builder/coin_stack_medium.tscn" id="70_skj12"]
 [ext_resource type="PackedScene" uid="uid://hhtygqdo4htb" path="res://Asset 3D/city/use this for builder/walkbase.tscn" id="71_nbn0i"]
-[ext_resource type="PackedScene" uid="uid://caxvk7brnadbu" path="res://Asset 3D/city/KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx/wall_doorway.fbx" id="72_mn7xf"]
+[ext_resource type="PackedScene" uid="uid://xud6q83cwb4q" path="res://Asset 3D/city/KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx/wall_doorway.fbx" id="72_mn7xf"]
 [ext_resource type="PackedScene" uid="uid://b6k6shru5q68j" path="res://Asset 3D/city/use this for builder/wall.tscn" id="73_hl8j4"]
-[ext_resource type="Texture2D" uid="uid://bjtn6h6xq5pj4" path="res://Asset 3D/city/Chairs/Office_Chair_Black_01.png" id="74_nbn0i"]
+[ext_resource type="Texture2D" uid="uid://ccw1xja5p5nij" path="res://Asset 3D/city/Chairs/Office_Chair_Black_01.png" id="74_nbn0i"]
 [ext_resource type="PackedScene" uid="uid://oc7worcxpecy" path="res://Asset 3D/city/use this for builder/cabinet_bathroom.tscn" id="75_skj12"]
-[ext_resource type="ArrayMesh" uid="uid://bfdawool33aic" path="res://Asset 3D/city/Chairs/Office_Chair_Black_01.obj" id="75_xba0b"]
-[ext_resource type="ArrayMesh" uid="uid://dw02110lvc66k" path="res://Asset 3D/city/Cubicles/Office_Cubicle_Dark_01.obj" id="76_gyxgd"]
+[ext_resource type="ArrayMesh" uid="uid://vjou808m2laa" path="res://Asset 3D/city/Chairs/Office_Chair_Black_01.obj" id="75_xba0b"]
+[ext_resource type="ArrayMesh" uid="uid://cwci28b4u8y0c" path="res://Asset 3D/city/Cubicles/Office_Cubicle_Dark_01.obj" id="76_gyxgd"]
 [ext_resource type="PackedScene" uid="uid://bjnve28vk53s" path="res://Asset 3D/city/use this for builder/mirror.tscn" id="76_x4feq"]
 [ext_resource type="PackedScene" uid="uid://cyexhh7njuiba" path="res://Asset 3D/city/use this for builder/plant.tscn" id="77_5uoka"]
-[ext_resource type="ArrayMesh" uid="uid://28plo3drvxg5" path="res://Asset 3D/city/Tables/Office_Table_Brown_1x1_01.obj" id="77_8b8wj"]
-[ext_resource type="ArrayMesh" uid="uid://lwdgt60fdahk" path="res://Asset 3D/city/Tables/Office_Table_Brown_1x1_02.obj" id="78_0dck2"]
+[ext_resource type="ArrayMesh" uid="uid://lxuwc00kcela" path="res://Asset 3D/city/Tables/Office_Table_Brown_1x1_01.obj" id="77_8b8wj"]
+[ext_resource type="ArrayMesh" uid="uid://dfmmg4am86dfr" path="res://Asset 3D/city/Tables/Office_Table_Brown_1x1_02.obj" id="78_0dck2"]
 [ext_resource type="PackedScene" uid="uid://evxf45rpq1tj" path="res://Asset 3D/city/use this for builder/toothbrush_cup_decorated.tscn" id="78_fffk1"]
-[ext_resource type="ArrayMesh" uid="uid://b0j3geyaww53t" path="res://Asset 3D/city/Tables/Office_Table_Brown_2x2_01.obj" id="79_6dml1"]
-[ext_resource type="ArrayMesh" uid="uid://bclrpyjfyi4s3" path="res://Asset 3D/city/Tables/Office_Table_Brown_2x2_02.obj" id="80_5l8e3"]
+[ext_resource type="ArrayMesh" uid="uid://ddwms4quy64jk" path="res://Asset 3D/city/Tables/Office_Table_Brown_2x2_01.obj" id="79_6dml1"]
+[ext_resource type="ArrayMesh" uid="uid://dihknhgnoiyso" path="res://Asset 3D/city/Tables/Office_Table_Brown_2x2_02.obj" id="80_5l8e3"]
 [ext_resource type="PackedScene" uid="uid://nngxvpxyvwt8" path="res://Asset 3D/city/use this for builder/wall_tiled_straight.tscn" id="80_uul5q"]
-[ext_resource type="ArrayMesh" uid="uid://b7jc4cjm2ngay" path="res://Asset 3D/city/Chairs/Office_Couch_White_01.obj" id="81_odxky"]
+[ext_resource type="ArrayMesh" uid="uid://bwc80e8lu7tqw" path="res://Asset 3D/city/Chairs/Office_Couch_White_01.obj" id="81_odxky"]
 [ext_resource type="PackedScene" uid="uid://bhquf8uiv8ul3" path="res://Asset 3D/city/use this for builder/wall_tiled_doorway.tscn" id="81_qanv5"]
-[ext_resource type="ArrayMesh" uid="uid://wfaki1j6hkpb" path="res://Asset 3D/city/Chairs/Misc/Trashcans/Office_Misc_Traschcan_Recycle_Blue.obj" id="82_aapoy"]
+[ext_resource type="ArrayMesh" uid="uid://bqsmosr7ilmka" path="res://Asset 3D/city/Chairs/Misc/Trashcans/Office_Misc_Traschcan_Recycle_Blue.obj" id="82_aapoy"]
 [ext_resource type="PackedScene" uid="uid://cjwvrvutvk3vx" path="res://Asset 3D/city/use this for builder/container_bathroom_a_yellow.tscn" id="82_hc4xs"]
-[ext_resource type="ArrayMesh" uid="uid://b014sv43berov" path="res://Asset 3D/city/Chairs/Misc/Fragments/Office_Misc_Piece_Door_Frame_01.obj" id="83_iicdl"]
-[ext_resource type="ArrayMesh" uid="uid://d17vw0f3mgsai" path="res://Asset 3D/city/Chairs/Misc/Electronics/Office_Misc_Console_GameQoob.obj" id="84_ww0ja"]
-[ext_resource type="ArrayMesh" uid="uid://der5a74t62y7s" path="res://Asset 3D/city/Chairs/Misc/Electronics/Office_Misc_TV_Stand_02.obj" id="85_spgun"]
-[ext_resource type="ArrayMesh" uid="uid://di4cfe86h5i0d" path="res://Asset 3D/city/Chairs/Misc/Electronics/Office_Misc_TV_Stand_03.obj" id="86_ubbec"]
+[ext_resource type="ArrayMesh" uid="uid://f3s4r4w30pl5" path="res://Asset 3D/city/Chairs/Misc/Fragments/Office_Misc_Piece_Door_Frame_01.obj" id="83_iicdl"]
+[ext_resource type="ArrayMesh" uid="uid://cbs4tlek0u1aj" path="res://Asset 3D/city/Chairs/Misc/Electronics/Office_Misc_Console_GameQoob.obj" id="84_ww0ja"]
+[ext_resource type="ArrayMesh" uid="uid://ci3e7he5bkrek" path="res://Asset 3D/city/Chairs/Misc/Electronics/Office_Misc_TV_Stand_02.obj" id="85_spgun"]
+[ext_resource type="ArrayMesh" uid="uid://c420mpm7r5dem" path="res://Asset 3D/city/Chairs/Misc/Electronics/Office_Misc_TV_Stand_03.obj" id="86_ubbec"]
 [ext_resource type="PackedScene" uid="uid://ch6dv5hfeuq6r" path="res://Asset 3D/city/use this for builder/container_bathroom_a_pink.tscn" id="94_rlkvr"]
 [ext_resource type="PackedScene" uid="uid://cimeeccyp0dxc" path="res://Asset 3D/city/use this for builder/ducky.tscn" id="95_qlbwa"]
 [ext_resource type="PackedScene" uid="uid://dx1xprt5c1i43" path="res://Asset 3D/city/use this for builder/candle.tscn" id="96_lg5o8"]
 [ext_resource type="PackedScene" uid="uid://8qre63omj1st" path="res://Asset 3D/city/use this for builder/bath.tscn" id="97_p00d4"]
-[ext_resource type="PackedScene" uid="uid://c65xybn7idcr" path="res://Asset 3D/city/Tiny_Treats_Bubbly_Bathroom_1.0_FREE/Assets/fbx/slippers.fbx" id="98_gk27w"]
+[ext_resource type="PackedScene" uid="uid://cyatlytm2x4ji" path="res://Asset 3D/city/Tiny_Treats_Bubbly_Bathroom_1.0_FREE/Assets/fbx/slippers.fbx" id="98_gk27w"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tgafm"]
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_qt1ir"]
-_surfaces = [{
-"aabb": AABB(-5, -0.5, -5, 10, 1, 10),
-"attribute_data": PackedByteArray("AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/"),
-"format": 34359738391,
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 36,
-"vertex_data": PackedByteArray("AACgwAAAAL8AAKBAAACgwAAAAL8AAKDAAACgwAAAAD8AAKDAAACgQAAAAL8AAKDAAACgwAAAAL8AAKDAAACgwAAAAL8AAKBAAACgwAAAAD8AAKDAAACgwAAAAL8AAKDAAACgQAAAAL8AAKDAAACgwAAAAD8AAKDAAACgwAAAAD8AAKBAAACgwAAAAL8AAKBAAACgwAAAAL8AAKBAAACgwAAAAD8AAKBAAACgQAAAAD8AAKBAAACgQAAAAD8AAKBAAACgwAAAAD8AAKBAAACgwAAAAD8AAKDAAACgwAAAAL8AAKBAAACgQAAAAL8AAKBAAACgQAAAAL8AAKDAAACgQAAAAD8AAKBAAACgQAAAAL8AAKBAAACgwAAAAL8AAKBAAACgQAAAAL8AAKDAAACgQAAAAL8AAKBAAACgQAAAAD8AAKBAAACgQAAAAL8AAKDAAACgQAAAAD8AAKDAAACgwAAAAD8AAKDAAACgwAAAAD8AAKDAAACgQAAAAD8AAKDAAACgQAAAAD8AAKBAAACgQAAAAD8AAKBAAACgQAAAAD8AAKDAAACgQAAAAL8AAKDAAAD/f/9//n8AAP9//3/+fwAA/3//f/5//38AAP//AAD/fwAA//8AAP9/AAD//wAA/////wAA/z//////AAD/P/////8AAP8/AAD/f/9//n8AAP9//3/+fwAA/3//f/5//3//fwAA/z//f/9/AAD/P/9//38AAP8//3//////AAD/f/////8AAP9//////wAA/38AAP//AAD/fwAA//8AAP9/AAD//wAA/3//fwAA/z//f/9/AAD/P/9//38AAP8/////f/9//n////9//3/+f////3//f/5//////wAA/z//////AAD/P/////8AAP8//3//////AAD/f/////8AAP9//////wAA////f/9//n////9//3/+f////3//f/5/")
-}]
-
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_w56bi"]
-data = PackedVector3Array(-5, -0.5, 5, -5, -0.5, -5, -5, 0.5, -5, 5, -0.5, -5, -5, -0.5, -5, -5, -0.5, 5, -5, 0.5, -5, -5, -0.5, -5, 5, -0.5, -5, -5, 0.5, -5, -5, 0.5, 5, -5, -0.5, 5, -5, -0.5, 5, -5, 0.5, 5, 5, 0.5, 5, 5, 0.5, 5, -5, 0.5, 5, -5, 0.5, -5, -5, -0.5, 5, 5, -0.5, 5, 5, -0.5, -5, 5, 0.5, 5, 5, -0.5, 5, -5, -0.5, 5, 5, -0.5, -5, 5, -0.5, 5, 5, 0.5, 5, 5, -0.5, -5, 5, 0.5, -5, -5, 0.5, -5, -5, 0.5, -5, 5, 0.5, -5, 5, 0.5, 5, 5, 0.5, 5, 5, 0.5, -5, 5, -0.5, -5)
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_rdmtg"]
 _surfaces = [{
@@ -129,6 +115,20 @@ _surfaces = [{
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_34ljy"]
 data = PackedVector3Array(-50, -0.5, 50, -50, -0.5, -50, -50, 0.5, -50, 50, -0.5, -50, -50, -0.5, -50, -50, -0.5, 50, -50, 0.5, -50, -50, -0.5, -50, 50, -0.5, -50, -50, 0.5, -50, -50, 0.5, 50, -50, -0.5, 50, -50, -0.5, 50, -50, 0.5, 50, 50, 0.5, 50, 50, 0.5, 50, -50, 0.5, 50, -50, 0.5, -50, -50, -0.5, 50, 50, -0.5, 50, 50, -0.5, -50, 50, 0.5, 50, 50, -0.5, 50, -50, -0.5, 50, 50, -0.5, -50, 50, -0.5, 50, 50, 0.5, 50, 50, -0.5, -50, 50, 0.5, -50, -50, 0.5, -50, -50, 0.5, -50, 50, 0.5, -50, 50, 0.5, 50, 50, 0.5, 50, 50, 0.5, -50, 50, -0.5, -50)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_qt1ir"]
+_surfaces = [{
+"aabb": AABB(-5, -0.5, -5, 10, 1, 10),
+"attribute_data": PackedByteArray("AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/"),
+"format": 34359738391,
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 36,
+"vertex_data": PackedByteArray("AACgwAAAAL8AAKBAAACgwAAAAL8AAKDAAACgwAAAAD8AAKDAAACgQAAAAL8AAKDAAACgwAAAAL8AAKDAAACgwAAAAL8AAKBAAACgwAAAAD8AAKDAAACgwAAAAL8AAKDAAACgQAAAAL8AAKDAAACgwAAAAD8AAKDAAACgwAAAAD8AAKBAAACgwAAAAL8AAKBAAACgwAAAAL8AAKBAAACgwAAAAD8AAKBAAACgQAAAAD8AAKBAAACgQAAAAD8AAKBAAACgwAAAAD8AAKBAAACgwAAAAD8AAKDAAACgwAAAAL8AAKBAAACgQAAAAL8AAKBAAACgQAAAAL8AAKDAAACgQAAAAD8AAKBAAACgQAAAAL8AAKBAAACgwAAAAL8AAKBAAACgQAAAAL8AAKDAAACgQAAAAL8AAKBAAACgQAAAAD8AAKBAAACgQAAAAL8AAKDAAACgQAAAAD8AAKDAAACgwAAAAD8AAKDAAACgwAAAAD8AAKDAAACgQAAAAD8AAKDAAACgQAAAAD8AAKBAAACgQAAAAD8AAKBAAACgQAAAAD8AAKDAAACgQAAAAL8AAKDAAAD/f/9//n8AAP9//3/+fwAA/3//f/5//38AAP//AAD/fwAA//8AAP9/AAD//wAA/////wAA/z//////AAD/P/////8AAP8/AAD/f/9//n8AAP9//3/+fwAA/3//f/5//3//fwAA/z//f/9/AAD/P/9//38AAP8//3//////AAD/f/////8AAP9//////wAA/38AAP//AAD/fwAA//8AAP9/AAD//wAA/3//fwAA/z//f/9/AAD/P/9//38AAP8/////f/9//n////9//3/+f////3//f/5//////wAA/z//////AAD/P/////8AAP8//3//////AAD/f/////8AAP9//////wAA////f/9//n////9//3/+f////3//f/5/")
+}]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_w56bi"]
+data = PackedVector3Array(-5, -0.5, 5, -5, -0.5, -5, -5, 0.5, -5, 5, -0.5, -5, -5, -0.5, -5, -5, -0.5, 5, -5, 0.5, -5, -5, -0.5, -5, 5, -0.5, -5, -5, 0.5, -5, -5, 0.5, 5, -5, -0.5, 5, -5, -0.5, 5, -5, 0.5, 5, 5, 0.5, 5, 5, 0.5, 5, -5, 0.5, 5, -5, 0.5, -5, -5, -0.5, 5, 5, -0.5, 5, 5, -0.5, -5, 5, 0.5, 5, 5, -0.5, 5, -5, -0.5, 5, 5, -0.5, -5, 5, -0.5, 5, 5, 0.5, 5, 5, -0.5, -5, 5, 0.5, -5, -5, 0.5, -5, -5, 0.5, -5, 5, 0.5, -5, 5, 0.5, 5, 5, 0.5, 5, 5, 0.5, -5, 5, -0.5, -5)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1moa5"]
 albedo_texture = ExtResource("74_nbn0i")
@@ -198,15 +198,6 @@ material = SubResource("StandardMaterial3D_tgafm")
 [node name="CSGBox3D2" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 185.697, -5.25566, 0)
 size = Vector3(10, 1, 10)
-
-[node name="CSGBakedMeshInstance3D2" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 185.697, -5.24489, 0)
-mesh = SubResource("ArrayMesh_qt1ir")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="CSGBakedMeshInstance3D2"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CSGBakedMeshInstance3D2/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_w56bi")
 
 [node name="CSGBakedMeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -0.264534, 0)
@@ -2298,16 +2289,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.106918, 0.0224271, 9.85941
 transform = Transform3D(1.6, 0, 0, 0, 1, 0, 0, 0, 1, 4.87407, 0, 0.0216665)
 
 [node name="wall3" parent="com/wall_doorway" instance=ExtResource("73_hl8j4")]
-transform = Transform3D(2.5, 0, 0, 0, 1, 0, 0, 0, 1, 3.09116, -0.199924, -10.1758)
+transform = Transform3D(4.19512, 0, 0, 0, 1, 0, 0, 0, 1, 6.16905, -0.199924, -10.1758)
 
 [node name="wall4" parent="com/wall_doorway" instance=ExtResource("73_hl8j4")]
 transform = Transform3D(-1.18021e-07, 0, 1, 0, 1, 0, -2.7, 0, -4.37114e-08, -2.11987, -0.199924, -5.13797)
 
 [node name="wall5" parent="com/wall_doorway" instance=ExtResource("73_hl8j4")]
-transform = Transform3D(-1.18021e-07, 0, 1, 0, 1, 0, -2.7, 0, -4.37114e-08, 7.9201, -0.199924, -5.13797)
+transform = Transform3D(-1.18021e-07, 0, 1, 0, 1, 0, -2.7, 0, -4.37114e-08, 14.1941, -0.199924, -5.13797)
+
+[node name="wall6" parent="com/wall_doorway" instance=ExtResource("73_hl8j4")]
+transform = Transform3D(1.90398, 0, 0, 0, 1, 0, 0, 0, 1, 10.5884, 0, 0.0216665)
 
 [node name="OfficeChairBlack01" type="MeshInstance3D" parent="com"]
-transform = Transform3D(-0.99805, 0, -0.0624246, 0, 1, 0, 0.0624246, 0, -0.99805, 6.10378, -0.0715547, 2.20343)
+transform = Transform3D(-0.884092, 0, -0.467313, 0, 1, 0, 0.467313, 0, -0.884092, 12.2887, -0.0715547, 2.46708)
 material_override = SubResource("StandardMaterial3D_1moa5")
 mesh = ExtResource("75_xba0b")
 skeleton = NodePath("../..")
@@ -2318,7 +2312,7 @@ skeleton = NodePath("../..")
 shape = SubResource("ConcavePolygonShape3D_mx4bu")
 
 [node name="OfficeCubicleDark01" type="MeshInstance3D" parent="com"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5.96869, -4.76837e-07, 1.58115)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 12.276, -4.76837e-07, 1.58115)
 mesh = ExtResource("76_gyxgd")
 skeleton = NodePath("../..")
 
@@ -2328,7 +2322,7 @@ skeleton = NodePath("../..")
 shape = SubResource("ConcavePolygonShape3D_jkdc3")
 
 [node name="OfficeTableBrown1x101" type="MeshInstance3D" parent="com"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.88914, 0, 0.985472)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.0646, 0, 0.985472)
 mesh = ExtResource("77_8b8wj")
 skeleton = NodePath("../..")
 
@@ -2420,7 +2414,7 @@ skeleton = NodePath("../..")
 shape = SubResource("ConcavePolygonShape3D_w6xfi")
 
 [node name="OfficeMiscConsoleGameQoob" type="MeshInstance3D" parent="com"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.98749, 1.10451, 0.335655)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.22218, 1.10451, 1.91999)
 mesh = ExtResource("84_ww0ja")
 skeleton = NodePath("../..")
 
@@ -2440,7 +2434,7 @@ skeleton = NodePath("../..")
 shape = SubResource("ConcavePolygonShape3D_gmepi")
 
 [node name="OfficeMiscTvStand03" type="MeshInstance3D" parent="com"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.95297, 1.06955, 1.05899)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.0638, 1.06955, 1.05899)
 mesh = ExtResource("86_ubbec")
 skeleton = NodePath("../..")
 
@@ -2493,8 +2487,67 @@ shape = SubResource("ConcavePolygonShape3D_a6aey")
 [node name="wall_tiled_doorway2" parent="com" instance=ExtResource("81_qanv5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.131927, -0.102304, 9.98846)
 
+[node name="floor" type="MeshInstance3D" parent="com"]
+transform = Transform3D(1.67181, 0, 0, 0, 1, 0, 0, 0, 1, 5.69081, -0.5, 4.73549)
+mesh = SubResource("ArrayMesh_qt1ir")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="com/floor"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="com/floor/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_w56bi")
+
+[node name="OfficeTableBrown2x204" type="MeshInstance3D" parent="com"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.04492, 0, 1.33402)
+mesh = ExtResource("80_5l8e3")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="com/OfficeTableBrown2x204"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="com/OfficeTableBrown2x204/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_8gnwn")
+
+[node name="OfficeTableBrown2x205" type="MeshInstance3D" parent="com"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.00743, 0, 1.33402)
+mesh = ExtResource("80_5l8e3")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="com/OfficeTableBrown2x205"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="com/OfficeTableBrown2x205/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_8gnwn")
+
+[node name="OfficeMiscTvStand08" type="MeshInstance3D" parent="com"]
+transform = Transform3D(0.99945, 0, 0.0331532, 0, 1, 0, -0.0331532, 0, 0.99945, 2.35468, 1.15955, 0.936614)
+mesh = ExtResource("86_ubbec")
+skeleton = NodePath("../OfficeMiscTvStand07")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="com/OfficeMiscTvStand08"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="com/OfficeMiscTvStand08/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_a6aey")
+
+[node name="OfficeMiscTvStand07" type="MeshInstance3D" parent="com"]
+transform = Transform3D(0.999863, 0, 0.0165789, 0, 1, 0, -0.0165789, 0, 0.999863, 8.76379, 1.06966, 0.597751)
+mesh = ExtResource("86_ubbec")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="com/OfficeMiscTvStand07"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="com/OfficeMiscTvStand07/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_a6aey")
+
+[node name="OfficeMiscTvStand06" type="MeshInstance3D" parent="com"]
+transform = Transform3D(0.999966, 0, 0.00828972, 0, 1, 0, -0.00828972, 0, 0.999966, 5.4903, 1.05477, 0.730211)
+mesh = ExtResource("86_ubbec")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="com/OfficeMiscTvStand06"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="com/OfficeMiscTvStand06/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_a6aey")
+
 [node name="bathroom" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 182.652, -4.74489, -4.73549)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 182.565, -4.74489, -4.73549)
 
 [node name="cabinet_bathroom" parent="bathroom" instance=ExtResource("75_skj12")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.5953, -9.53674e-07, 0.599792)
@@ -2537,9 +2590,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.8112, -9.53674e-07, 0.5997
 
 [node name="mirror2" parent="bathroom" instance=ExtResource("76_x4feq")]
 transform = Transform3D(-0.0962627, 0.995356, 0, -0.995356, -0.0962627, 0, 0, 0, 1, 26.731, 2.53675, 0.0237489)
-
-[node name="coin_stack_medium" parent="bathroom" instance=ExtResource("70_skj12")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.91353, 1.13898, 4.78483)
 
 [node name="coin_stack_medium2" parent="bathroom" instance=ExtResource("70_skj12")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.0115, 0, 3.10233)

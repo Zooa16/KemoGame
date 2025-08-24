@@ -133,7 +133,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
-"speed": 5.0
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -168,7 +168,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"run",
-"speed": 5.0
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -185,7 +185,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"slide",
-"speed": 5.0
+"speed": 12.0
 }]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_pn42v"]
@@ -211,7 +211,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
-"speed": 5.0
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -246,7 +246,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"run",
-"speed": 5.0
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -263,7 +263,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"slide",
-"speed": 5.0
+"speed": 12.0
 }]
 
 [node name="player" type="CharacterBody3D"]
@@ -275,16 +275,16 @@ transform = Transform3D(2.43672, 0, 0, 0, 1.24704, 0, 0, 0, 1.51596, 0, -0.31119
 shape = SubResource("BoxShape3D_w43ny")
 
 [node name="body" type="AnimatedSprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.906308, 0.422618, 0, -0.422618, 0.906308, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573577, 0, -0.573577, 0.819152, 0, 0, 0)
 alpha_cut = 2
 sprite_frames = SubResource("SpriteFrames_3354g")
-animation = &"idle"
+animation = &"slide"
 
 [node name="Camera3D" type="Camera3D" parent="body"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 25)
 
 [node name="color" type="AnimatedSprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.906308, 0.422618, 0, -0.422618, 0.906308, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573577, 0, -0.573577, 0.819152, 0, 0, 0)
 modulate = Color(0, 0.752941, 1, 1)
 alpha_cut = 2
 sprite_frames = SubResource("SpriteFrames_pn42v")
