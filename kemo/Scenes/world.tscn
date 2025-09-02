@@ -1,4 +1,4 @@
-[gd_scene load_steps=155 format=4 uid="uid://bqpr3mnaoxh4"]
+[gd_scene load_steps=164 format=4 uid="uid://bqpr3mnaoxh4"]
 
 [ext_resource type="PackedScene" uid="uid://cwn87tw3xwuj2" path="res://Asset 3D/city/use this for builder/building_b_without_base.tscn" id="1_355yf"]
 [ext_resource type="PackedScene" uid="uid://benqb0nbxpx4u" path="res://Asset 3D/city/use this for builder/building_c_without_base.tscn" id="2_4ke1i"]
@@ -111,6 +111,142 @@
 [ext_resource type="ArrayMesh" uid="uid://d1iflf1qbh0vd" path="res://Asset 3D/city/Chairs/Misc/Electronics/Office_Misc_TV_Wall_02.obj" id="109_wteqa"]
 [ext_resource type="ArrayMesh" uid="uid://dv2slibn6trl5" path="res://Asset 3D/city/Chairs/Misc/Electronics/Office_Misc_TV_Wall_03.obj" id="110_jlmp8"]
 [ext_resource type="PackedScene" uid="uid://cvxrjvv36kwrd" path="res://Asset 3D/city/camera_1/camera_1.fbx" id="111_fv0bq"]
+
+[sub_resource type="Shader" id="Shader_fv0bq"]
+code = "
+// NOTE: Shader automatically converted from Godot Engine 4.4.1.stable's ProceduralSkyMaterial.
+
+shader_type sky;
+render_mode use_debanding;
+
+uniform vec4 sky_top_color : source_color = vec4(0.385, 0.454, 0.55, 1.0);
+uniform vec4 sky_horizon_color : source_color = vec4(0.646, 0.656, 0.67, 1.0);
+uniform float sky_curve : hint_range(0, 1) = 0.15;
+uniform float sky_energy = 1.0; // In Lux.
+uniform sampler2D sky_cover : filter_linear, source_color, hint_default_black;
+uniform vec4 sky_cover_modulate : source_color = vec4(1.0, 1.0, 1.0, 1.0);
+uniform vec4 ground_bottom_color : source_color = vec4(0.2, 0.169, 0.133, 1.0);
+uniform vec4 ground_horizon_color : source_color = vec4(0.646, 0.656, 0.67, 1.0);
+uniform float ground_curve : hint_range(0, 1) = 0.02;
+uniform float ground_energy = 1.0;
+uniform float sun_angle_max = 30.0;
+uniform float sun_curve : hint_range(0, 1) = 0.15;
+uniform float exposure : hint_range(0, 128) = 1.0;
+
+uniform sampler2D cloud_texture;
+uniform sampler2D cloud_texture2;
+uniform vec2 cloud_direotion;
+uniform vec2 cloud_direotion2;
+uniform vec2 cloud_scalo;
+uniform float cloud_disteanec;
+
+
+void sky() {
+	float v_angle = acos(clamp(EYEDIR.y, -1.0, 1.0));
+	float c = (1.0 - v_angle / (PI * 0.5));
+	vec3 sky = mix(sky_horizon_color.rgb, sky_top_color.rgb, clamp(1.0 - pow(1.0 - c, 1.0 / sky_curve), 0.0, 1.0));
+	sky *= sky_energy;
+
+	if (LIGHT0_ENABLED) {
+		float sun_angle = acos(dot(LIGHT0_DIRECTION, EYEDIR));
+		if (sun_angle < LIGHT0_SIZE) {
+			sky = LIGHT0_COLOR * LIGHT0_ENERGY;
+		} else if (sun_angle < sun_angle_max) {
+			float c2 = (sun_angle - LIGHT0_SIZE) / (sun_angle_max - LIGHT0_SIZE);
+			sky = mix(LIGHT0_COLOR * LIGHT0_ENERGY, sky, clamp(1.0 - pow(1.0 - c2, 1.0 / sun_curve), 0.0, 1.0));
+		}
+	}
+
+	if (LIGHT1_ENABLED) {
+		float sun_angle = acos(dot(LIGHT1_DIRECTION, EYEDIR));
+		if (sun_angle < LIGHT1_SIZE) {
+			sky = LIGHT1_COLOR * LIGHT1_ENERGY;
+		} else if (sun_angle < sun_angle_max) {
+			float c2 = (sun_angle - LIGHT1_SIZE) / (sun_angle_max - LIGHT1_SIZE);
+			sky = mix(LIGHT1_COLOR * LIGHT1_ENERGY, sky, clamp(1.0 - pow(1.0 - c2, 1.0 / sun_curve), 0.0, 1.0));
+		}
+	}
+
+	if (LIGHT2_ENABLED) {
+		float sun_angle = acos(dot(LIGHT2_DIRECTION, EYEDIR));
+		if (sun_angle < LIGHT2_SIZE) {
+			sky = LIGHT2_COLOR * LIGHT2_ENERGY;
+		} else if (sun_angle < sun_angle_max) {
+			float c2 = (sun_angle - LIGHT2_SIZE) / (sun_angle_max - LIGHT2_SIZE);
+			sky = mix(LIGHT2_COLOR * LIGHT2_ENERGY, sky, clamp(1.0 - pow(1.0 - c2, 1.0 / sun_curve), 0.0, 1.0));
+		}
+	}
+
+	if (LIGHT3_ENABLED) {
+		float sun_angle = acos(dot(LIGHT3_DIRECTION, EYEDIR));
+		if (sun_angle < LIGHT3_SIZE) {
+			sky = LIGHT3_COLOR * LIGHT3_ENERGY;
+		} else if (sun_angle < sun_angle_max) {
+			float c2 = (sun_angle - LIGHT3_SIZE) / (sun_angle_max - LIGHT3_SIZE);
+			sky = mix(LIGHT3_COLOR * LIGHT3_ENERGY, sky, clamp(1.0 - pow(1.0 - c2, 1.0 / sun_curve), 0.0, 1.0));
+		}
+	}
+
+	vec4 sky_cover_texture = texture(sky_cover, SKY_COORDS);
+	sky += (sky_cover_texture.rgb * sky_cover_modulate.rgb) * sky_cover_texture.a * sky_cover_modulate.a * sky_energy;
+
+	c = (v_angle - (PI * 0.5)) / (PI * 0.5);
+	vec3 ground = mix(ground_horizon_color.rgb, ground_bottom_color.rgb, clamp(1.0 - pow(1.0 - c, 1.0 / ground_curve), 0.0, 1.0));
+	ground *= ground_energy;
+	
+	vec2 sky_uv = EYEDIR.xz / EYEDIR.y;
+	
+	
+	COLOR = mix(ground, sky, step(0.0, EYEDIR.y)) * exposure;
+}
+"
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_nr0x8"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_rly0l"]
+width = 840
+height = 840
+seamless = true
+noise = SubResource("FastNoiseLite_nr0x8")
+
+[sub_resource type="Gradient" id="Gradient_hgwoq"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_pgekd"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_vjs6b"]
+width = 840
+height = 840
+seamless = true
+color_ramp = SubResource("Gradient_hgwoq")
+noise = SubResource("FastNoiseLite_pgekd")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yoesh"]
+shader = SubResource("Shader_fv0bq")
+shader_parameter/sky_top_color = Color(0.413412, 0.762408, 0.884437, 1)
+shader_parameter/sky_horizon_color = Color(0.580706, 0.78393, 0.921231, 1)
+shader_parameter/sky_curve = 0.15
+shader_parameter/sky_energy = 1.0
+shader_parameter/sky_cover_modulate = Color(1, 1, 1, 1)
+shader_parameter/ground_bottom_color = Color(0.411765, 0.760784, 0.886275, 1)
+shader_parameter/ground_horizon_color = Color(0.580392, 0.784314, 0.921569, 1)
+shader_parameter/ground_curve = 0.02
+shader_parameter/ground_energy = 1.0
+shader_parameter/sun_angle_max = 0.523599
+shader_parameter/sun_curve = 0.15
+shader_parameter/exposure = 1.0
+shader_parameter/cloud_texture = SubResource("NoiseTexture2D_rly0l")
+shader_parameter/cloud_texture2 = SubResource("NoiseTexture2D_vjs6b")
+shader_parameter/cloud_direotion = Vector2(0, 0)
+shader_parameter/cloud_direotion2 = Vector2(0, 0)
+shader_parameter/cloud_scalo = Vector2(0, 0)
+shader_parameter/cloud_disteanec = 0.0
+
+[sub_resource type="Sky" id="Sky_nr0x8"]
+sky_material = SubResource("ShaderMaterial_yoesh")
+
+[sub_resource type="Environment" id="Environment_rly0l"]
+background_mode = 2
+sky = SubResource("Sky_nr0x8")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tgafm"]
 
@@ -276,6 +412,9 @@ data = PackedVector3Array(-1.1, 0.2, -0.6, -1.1, 0.3, -0.5, -1.1, 0.2, -0.5, -1.
 
 [node name="world" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.72246, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_rly0l")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.776988, -0.589267, 0.221482, 0.0510309, 0.291712, 0.955144, -0.627443, 0.753438, -0.196586, -56.1113, 49.8923, -61.708)
