@@ -1,0 +1,125 @@
+[gd_scene load_steps=14 format=4 uid="uid://d0sqs4ale8tn4"]
+
+[ext_resource type="PackedScene" uid="uid://jcibfko1k5sd" path="res://Asset 3D/city/use this for builder/fountain.tscn" id="1_avk8s"]
+[ext_resource type="PackedScene" uid="uid://cimeeccyp0dxc" path="res://Asset 3D/city/use this for builder/ducky.tscn" id="2_ruji2"]
+[ext_resource type="PackedScene" uid="uid://gl1d5drvwofr" path="res://Asset 3D/city/use this for builder/slide_a.tscn" id="3_jigxi"]
+[ext_resource type="PackedScene" uid="uid://dw1q4s5r7uccs" path="res://Asset 3D/city/use this for builder/bench.tscn" id="4_4233d"]
+[ext_resource type="PackedScene" uid="uid://dx1xprt5c1i43" path="res://Asset 3D/city/use this for builder/candle.tscn" id="5_1updj"]
+[ext_resource type="PackedScene" uid="uid://dwm8j4iq8ja8t" path="res://Asset 3D/city/use this for builder/cobble_stones_large.tscn" id="6_5ndqc"]
+[ext_resource type="PackedScene" uid="uid://bjnve28vk53s" path="res://Asset 3D/city/use this for builder/mirror.tscn" id="7_gdlty"]
+[ext_resource type="PackedScene" uid="uid://q0ep72jbvrss" path="res://Asset 3D/city/use this for builder/picnic_table.tscn" id="8_jjrc4"]
+[ext_resource type="PackedScene" uid="uid://cyexhh7njuiba" path="res://Asset 3D/city/use this for builder/plant.tscn" id="9_pvv31"]
+[ext_resource type="PackedScene" uid="uid://bishyfe8imvfr" path="res://Asset 3D/city/use this for builder/sandbox_square_decorated.tscn" id="10_sqxuf"]
+[ext_resource type="PackedScene" uid="uid://ybguvc2khiaq" path="res://Asset 3D/city/use this for builder/table_medium.tscn" id="11_a2vla"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_x4164"]
+_surfaces = [{
+"aabb": AABB(-0.5, -0.578094, -0.5, 1, 1.15619, 1),
+"attribute_data": PackedByteArray("AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/"),
+"format": 34359738391,
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 36,
+"vertex_data": PackedByteArray("AAAAvwD+E78AAAA/AAAAvwD+E78AAAC/AAAAvwD+Ez8AAAC/AAAAPwD+E78AAAC/AAAAvwD+E78AAAC/AAAAvwD+E78AAAA/AAAAvwD+Ez8AAAC/AAAAvwD+E78AAAC/AAAAPwD+E78AAAC/AAAAvwD+Ez8AAAC/AAAAvwD+Ez8AAAA/AAAAvwD+E78AAAA/AAAAvwD+E78AAAA/AAAAvwD+Ez8AAAA/AAAAPwD+Ez8AAAA/AAAAPwD+Ez8AAAA/AAAAvwD+Ez8AAAA/AAAAvwD+Ez8AAAC/AAAAvwD+E78AAAA/AAAAPwD+E78AAAA/AAAAPwD+E78AAAC/AAAAPwD+Ez8AAAA/AAAAPwD+E78AAAA/AAAAvwD+E78AAAA/AAAAPwD+E78AAAC/AAAAPwD+E78AAAA/AAAAPwD+Ez8AAAA/AAAAPwD+E78AAAC/AAAAPwD+Ez8AAAC/AAAAvwD+Ez8AAAC/AAAAvwD+Ez8AAAC/AAAAPwD+Ez8AAAC/AAAAPwD+Ez8AAAA/AAAAPwD+Ez8AAAA/AAAAPwD+Ez8AAAC/AAAAPwD+E78AAAC/AAD/f/9//n8AAP9//3/+fwAA/3//f/5//38AAP//AAD/fwAA//8AAP9/AAD//wAA/////wAA/z//////AAD/P/////8AAP8/AAD/f/9//n8AAP9//3/+fwAA/3//f/5//3//fwAA/z//f/9/AAD/P/9//38AAP8//3//////AAD/f/////8AAP9//////wAA/38AAP//AAD/fwAA//8AAP9/AAD//wAA/3//fwAA/z//f/9/AAD/P/9//38AAP8/////f/9//n////9//3/+f////3//f/5//////wAA/z//////AAD/P/////8AAP8//3//////AAD/f/////8AAP9//////wAA////f/9//n////9//3/+f////3//f/5/")
+}]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_8ldoj"]
+data = PackedVector3Array(-0.5, -0.5781, 0.5, -0.5, -0.5781, -0.5, -0.5, 0.5781, -0.5, 0.5, -0.5781, -0.5, -0.5, -0.5781, -0.5, -0.5, -0.5781, 0.5, -0.5, 0.5781, -0.5, -0.5, -0.5781, -0.5, 0.5, -0.5781, -0.5, -0.5, 0.5781, -0.5, -0.5, 0.5781, 0.5, -0.5, -0.5781, 0.5, -0.5, -0.5781, 0.5, -0.5, 0.5781, 0.5, 0.5, 0.5781, 0.5, 0.5, 0.5781, 0.5, -0.5, 0.5781, 0.5, -0.5, 0.5781, -0.5, -0.5, -0.5781, 0.5, 0.5, -0.5781, 0.5, 0.5, -0.5781, -0.5, 0.5, 0.5781, 0.5, 0.5, -0.5781, 0.5, -0.5, -0.5781, 0.5, 0.5, -0.5781, -0.5, 0.5, -0.5781, 0.5, 0.5, 0.5781, 0.5, 0.5, -0.5781, -0.5, 0.5, 0.5781, -0.5, -0.5, 0.5781, -0.5, -0.5, 0.5781, -0.5, 0.5, 0.5781, -0.5, 0.5, 0.5781, 0.5, 0.5, 0.5781, 0.5, 0.5, 0.5781, -0.5, 0.5, -0.5781, -0.5)
+
+[node name="lobby" type="Node3D"]
+
+[node name="CSGBakedMeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 10, -0.00451326, -0.565271, -0.00972509)
+mesh = SubResource("ArrayMesh_x4164")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="CSGBakedMeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CSGBakedMeshInstance3D/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_8ldoj")
+
+[node name="fountain" parent="." instance=ExtResource("1_avk8s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0238115, 0.0128286, -0.156434)
+
+[node name="CSGBakedMeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-09, 0, 10, 0, 5, 0, -0.1, 0, -4.37114e-07, 0.0883739, -0.565271, 4.96029)
+mesh = SubResource("ArrayMesh_x4164")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="CSGBakedMeshInstance3D3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CSGBakedMeshInstance3D3/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_8ldoj")
+
+[node name="CSGBakedMeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 5, 0, 0, 0, 10, 4.93899, -0.565271, -0.00972509)
+mesh = SubResource("ArrayMesh_x4164")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="CSGBakedMeshInstance3D4"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CSGBakedMeshInstance3D4/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_8ldoj")
+
+[node name="CSGBakedMeshInstance3D5" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-09, 0, 10, 0, 5, 0, -0.1, 0, -4.37114e-07, -0.0123723, -0.565271, -4.96844)
+mesh = SubResource("ArrayMesh_x4164")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="CSGBakedMeshInstance3D5"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CSGBakedMeshInstance3D5/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_8ldoj")
+
+[node name="CSGBakedMeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 5, 0, 0, 0, 10, -4.96417, -0.565271, -0.00972509)
+mesh = SubResource("ArrayMesh_x4164")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="CSGBakedMeshInstance3D2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CSGBakedMeshInstance3D2/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_8ldoj")
+
+[node name="ducky" parent="." instance=ExtResource("2_ruji2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.145141, 0.740708, -1.70646)
+
+[node name="ducky2" parent="." instance=ExtResource("2_ruji2")]
+transform = Transform3D(0.669584, 0, -0.742736, 0, 1, 0, 0.742736, 0, 0.669584, -1.50106, 0.843139, 0.235416)
+
+[node name="ducky3" parent="." instance=ExtResource("2_ruji2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.456025, 1.62283, 0.184583)
+
+[node name="ducky4" parent="." instance=ExtResource("2_ruji2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0256055, 0.322829, 0.869235)
+
+[node name="slide_A" parent="." instance=ExtResource("3_jigxi")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -3.79005, 0, -3.19872)
+
+[node name="bench" parent="." instance=ExtResource("4_4233d")]
+transform = Transform3D(-4.37114e-08, 0, 0.5, 0, 0.5, 0, -1, 0, -2.18557e-08, -4.59447, 0.012829, 2.09305)
+
+[node name="candle" parent="." instance=ExtResource("5_1updj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.20385, 0.815822, 0.557415)
+
+[node name="cobble_stones_large" parent="." instance=ExtResource("6_5ndqc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.40197, 0.0231071, -0.082809)
+
+[node name="mirror" parent="." instance=ExtResource("7_gdlty")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.221082, 1.18103, -4.91844)
+
+[node name="picnic_table" parent="." instance=ExtResource("8_jjrc4")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 3.56198, 0.0128287, -3.42889)
+
+[node name="plant" parent="." instance=ExtResource("9_pvv31")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.48469, 0.0128287, 1.05216)
+
+[node name="plant2" parent="." instance=ExtResource("9_pvv31")]
+transform = Transform3D(0.999105, 0.0422942, 0, -0.0422942, 0.999105, 0, 0, 0, 1, 1.34076, 0, 1.04753)
+
+[node name="plant3" parent="." instance=ExtResource("9_pvv31")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.32273, 0.0128287, -1.56047)
+
+[node name="plant4" parent="." instance=ExtResource("9_pvv31")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.31438, 0.0128287, -1.48687)
+
+[node name="sandbox_square_decorated" parent="." instance=ExtResource("10_sqxuf")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 3.2865, 0.0128291, 3.39284)
+
+[node name="table_medium" parent="." instance=ExtResource("11_a2vla")]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.881704, 0.012828, 4.42682)
