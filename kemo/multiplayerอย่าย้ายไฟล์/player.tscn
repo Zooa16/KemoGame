@@ -1,0 +1,250 @@
+[gd_scene load_steps=46 format=3 uid="uid://cxrrxf305rbhf"]
+
+[ext_resource type="Script" uid="uid://cmfwr1aifmv7n" path="res://Player.gd" id="1_2v3wm"]
+[ext_resource type="Texture2D" uid="uid://cfeswydqc1kk5" path="res://asset/Asset 2D/Player/Idle/ตัว/1.png" id="2_ny14h"]
+[ext_resource type="Texture2D" uid="uid://b42hdd6geic8k" path="res://asset/Asset 2D/Player/Idle/ตัว/2.png" id="3_ibah8"]
+[ext_resource type="Texture2D" uid="uid://cdn7y22tdxtfg" path="res://asset/Asset 2D/Player/Idle/ตัว/3.png" id="4_3iwfv"]
+[ext_resource type="Texture2D" uid="uid://bjrm8mdvrllv8" path="res://asset/Asset 2D/Player/Idle/ตัว/4.png" id="5_qwsg1"]
+[ext_resource type="Texture2D" uid="uid://djadishhk4462" path="res://asset/Asset 2D/Player/Idle/ตัว/5.png" id="6_1xqrm"]
+[ext_resource type="Texture2D" uid="uid://ih32c65ucbpr" path="res://asset/Asset 2D/Player/Idle/ตัว/6.png" id="7_bfour"]
+[ext_resource type="Texture2D" uid="uid://cmvmj1tdeh78b" path="res://asset/Asset 2D/Player/Run/ตัว/1.png" id="8_8gr2b"]
+[ext_resource type="Texture2D" uid="uid://rlc0gspccl7m" path="res://asset/Asset 2D/Player/Run/ตัว/2.png" id="9_vl8ci"]
+[ext_resource type="Texture2D" uid="uid://r5rdjcdkyg8j" path="res://asset/Asset 2D/Player/Run/ตัว/3.png" id="10_ieltc"]
+[ext_resource type="Texture2D" uid="uid://yrdawrl5605h" path="res://asset/Asset 2D/Player/Run/ตัว/4.png" id="11_fddr8"]
+[ext_resource type="Texture2D" uid="uid://0sfx2djoxfji" path="res://asset/Asset 2D/Player/Run/ตัว/5.png" id="12_oybyf"]
+[ext_resource type="Texture2D" uid="uid://dxh0j55yvw8ks" path="res://asset/Asset 2D/Player/Run/ตัว/6.png" id="13_ajfva"]
+[ext_resource type="Texture2D" uid="uid://csc0mqvawbk1" path="res://asset/Asset 2D/Player/Run/ตัว/7.png" id="14_5ef02"]
+[ext_resource type="Texture2D" uid="uid://cc8ym1dtcy35m" path="res://asset/Asset 2D/Player/Run/ตัว/8.png" id="15_pfmca"]
+[ext_resource type="Texture2D" uid="uid://dvploxb82awfm" path="res://asset/Asset 2D/Player/Run/ตัว/9.png" id="16_76oay"]
+[ext_resource type="Texture2D" uid="uid://cumctgg302y4b" path="res://asset/Asset 2D/Player/Run/ตัว/10.png" id="17_b4uyv"]
+[ext_resource type="Texture2D" uid="uid://dhfqatgwwwu6p" path="res://asset/Asset 2D/Player/Slide/ตัว/1.png" id="18_tw8ou"]
+[ext_resource type="Texture2D" uid="uid://dewnt443wdg23" path="res://asset/Asset 2D/Player/Slide/ตัว/2.png" id="19_ygbnx"]
+[ext_resource type="Texture2D" uid="uid://bql5tyk1eyl6m" path="res://asset/Asset 2D/Player/Slide/ตัว/3.png" id="20_v2t6f"]
+[ext_resource type="Texture2D" uid="uid://dv3o7kynebp88" path="res://asset/Asset 2D/Player/Slide/ตัว/4.png" id="21_l3lcn"]
+[ext_resource type="Texture2D" uid="uid://cv65fduy6b7ad" path="res://asset/Asset 2D/Player/Idle/สี/ไม่มีชื่อ 12_20250817171242.png" id="22_xry5e"]
+[ext_resource type="Texture2D" uid="uid://cw7t1euf8y0y5" path="res://asset/Asset 2D/Player/Idle/สี/ไม่มีชื่อ 12_20250817171245.png" id="23_h6w8y"]
+[ext_resource type="Texture2D" uid="uid://o4oh4mgf520a" path="res://asset/Asset 2D/Player/Idle/สี/ไม่มีชื่อ 12_20250817171248.png" id="24_yem3p"]
+[ext_resource type="Texture2D" uid="uid://bnk7wjydjlvno" path="res://asset/Asset 2D/Player/Idle/สี/ไม่มีชื่อ 12_20250817171250.png" id="25_86rna"]
+[ext_resource type="Texture2D" uid="uid://dqnrgjahbhlvo" path="res://asset/Asset 2D/Player/Idle/สี/ไม่มีชื่อ 12_20250817171252.png" id="26_xg1a7"]
+[ext_resource type="Texture2D" uid="uid://du2g8gwmu4ofo" path="res://asset/Asset 2D/Player/Idle/สี/ไม่มีชื่อ 12_20250817171255.png" id="27_ob4mi"]
+[ext_resource type="Texture2D" uid="uid://ddav87o670t6d" path="res://asset/Asset 2D/Player/Run/สี/1.png" id="28_ax26h"]
+[ext_resource type="Texture2D" uid="uid://bebx14kb8dhfn" path="res://asset/Asset 2D/Player/Run/สี/2.png" id="29_kh4g0"]
+[ext_resource type="Texture2D" uid="uid://65res12o1kuh" path="res://asset/Asset 2D/Player/Run/สี/3.png" id="30_mgmjd"]
+[ext_resource type="Texture2D" uid="uid://cgbjeo7tgsakb" path="res://asset/Asset 2D/Player/Run/สี/4.png" id="31_va2xi"]
+[ext_resource type="Texture2D" uid="uid://dvinaiikq28g1" path="res://asset/Asset 2D/Player/Run/สี/5.png" id="32_fkf2u"]
+[ext_resource type="Texture2D" uid="uid://bi25wl4m4kad4" path="res://asset/Asset 2D/Player/Run/สี/6.png" id="33_s7jk6"]
+[ext_resource type="Texture2D" uid="uid://mx644y2nlpqx" path="res://asset/Asset 2D/Player/Run/สี/7.png" id="34_feeoa"]
+[ext_resource type="Texture2D" uid="uid://bngbln5gn7j7g" path="res://asset/Asset 2D/Player/Run/สี/8.png" id="35_m6nxt"]
+[ext_resource type="Texture2D" uid="uid://dfb13bvvychor" path="res://asset/Asset 2D/Player/Run/สี/9.png" id="36_ym00c"]
+[ext_resource type="Texture2D" uid="uid://5aqybajeprmo" path="res://asset/Asset 2D/Player/Run/สี/10.png" id="37_ee2o4"]
+[ext_resource type="Texture2D" uid="uid://dabpn2kbr5k8s" path="res://asset/Asset 2D/Player/Slide/สี/1.png" id="38_vie4p"]
+[ext_resource type="Texture2D" uid="uid://7x0fj0lrfwsf" path="res://asset/Asset 2D/Player/Slide/สี/2.png" id="39_0jj5r"]
+[ext_resource type="Texture2D" uid="uid://dc0qoc5gwvha" path="res://asset/Asset 2D/Player/Slide/สี/3.png" id="40_77e46"]
+[ext_resource type="Texture2D" uid="uid://co2vo3o2sjuwc" path="res://asset/Asset 2D/Player/Slide/สี/4.png" id="41_cy2ki"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_04cqw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ny14h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ibah8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_3iwfv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_qwsg1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_1xqrm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_bfour")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_8gr2b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_vl8ci")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_ieltc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_fddr8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_oybyf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_ajfva")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_5ef02")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_pfmca")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_76oay")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_b4uyv")
+}],
+"loop": true,
+"name": &"run",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("18_tw8ou")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_ygbnx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_v2t6f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_l3lcn")
+}],
+"loop": true,
+"name": &"slide",
+"speed": 12.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vihdy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("22_xry5e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_h6w8y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_yem3p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_86rna")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_xg1a7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_ob4mi")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("28_ax26h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_kh4g0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_mgmjd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_va2xi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_fkf2u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_s7jk6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_feeoa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_m6nxt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_ym00c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_ee2o4")
+}],
+"loop": true,
+"name": &"run",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("38_vie4p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_0jj5r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_77e46")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_cy2ki")
+}],
+"loop": true,
+"name": &"slide",
+"speed": 12.0
+}]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ny14h"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_hn37q"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath(".:rotation")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+properties/2/path = NodePath("body:animation")
+properties/2/spawn = true
+properties/2/replication_mode = 1
+properties/3/path = NodePath("body:frame")
+properties/3/spawn = true
+properties/3/replication_mode = 1
+properties/4/path = NodePath("color:animation")
+properties/4/spawn = true
+properties/4/replication_mode = 1
+properties/5/path = NodePath("color:frame")
+properties/5/spawn = true
+properties/5/replication_mode = 1
+
+[node name="Player" type="CharacterBody3D"]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+collision_layer = 2
+script = ExtResource("1_2v3wm")
+
+[node name="body" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.642788, 0.766045, 0, -0.766045, 0.642788, 0, 0, 0)
+billboard = 1
+alpha_cut = 2
+sprite_frames = SubResource("SpriteFrames_04cqw")
+animation = &"idle"
+
+[node name="Camera3D" type="Camera3D" parent="body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 30)
+
+[node name="color" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.642788, 0.766045, 0, -0.766045, 0.642788, 0, 0, 0)
+billboard = 1
+alpha_cut = 2
+sprite_frames = SubResource("SpriteFrames_vihdy")
+animation = &"idle"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(2.1829, 0, 0, 0, 1.80878, 0, 0, 0, 1, 0, -0.654208, -0.408761)
+shape = SubResource("BoxShape3D_ny14h")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_hn37q")

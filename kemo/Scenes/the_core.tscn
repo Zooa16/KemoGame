@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://bpharn5x0y5bc"]
+[gd_scene load_steps=5 format=3 uid="uid://bpharn5x0y5bc"]
 
 [ext_resource type="PackedScene" uid="uid://blnjd31uociag" path="res://Scenes/server_box.tscn" id="1_uyt0q"]
-[ext_resource type="PackedScene" uid="uid://ddycy50qixeaj" path="res://Scenes/player.tscn" id="2_shejs"]
-[ext_resource type="ArrayMesh" uid="uid://d06dbw5h5xgst" path="res://Asset 3D/city/Chairs/Misc/Electronics/Office_Misc_PC_01.obj" id="3_5grkw"]
+[ext_resource type="ArrayMesh" uid="uid://bpcwtmwx8h0v1" path="res://Asset 3D/city/Chairs/Misc/Electronics/Office_Misc_PC_01.obj" id="3_5grkw"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_uyt0q"]
 
@@ -5776,9 +5775,6 @@ skeleton = NodePath("../../../../../../../../..")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.4414)
 skeleton = NodePath("../../../../../../../../../..")
 
-[node name="player" parent="." instance=ExtResource("2_shejs")]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -0.302203, 2.16324, 9.74536)
-
 [node name="floor" type="MeshInstance3D" parent="."]
 transform = Transform3D(1000, 0, 0, 0, 2, 0, 0, 0, 1000, 0, -2, 0)
 mesh = SubResource("BoxMesh_uyt0q")
@@ -5788,56 +5784,58 @@ mesh = SubResource("BoxMesh_uyt0q")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="floor/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_shejs")
 
-[node name="cp1" parent="." instance=ExtResource("1_uyt0q")]
+[node name="CP" type="Node3D" parent="."]
+
+[node name="cp1" parent="CP" instance=ExtResource("1_uyt0q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.5, 52.9862, -0.815772, -54.6613)
-skeleton = NodePath("../../../../../../..")
+skeleton = NodePath("../../../../../../../..")
 
-[node name="OfficeMiscPc01" type="MeshInstance3D" parent="cp1"]
+[node name="OfficeMiscPc01" type="MeshInstance3D" parent="CP/cp1"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -0.666667, 0, -2.91409e-08, -0.178787, 0.504732, -0.0192032)
 mesh = ExtResource("3_5grkw")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="cp2" parent="." instance=ExtResource("1_uyt0q")]
+[node name="cp2" parent="CP" instance=ExtResource("1_uyt0q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.5, 0.98275, -0.815772, -87.8862)
-skeleton = NodePath("../../../../../../..")
+skeleton = NodePath("../../../../../../../..")
 
-[node name="OfficeMiscPc01" type="MeshInstance3D" parent="cp2"]
+[node name="OfficeMiscPc01" type="MeshInstance3D" parent="CP/cp2"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -0.666667, 0, -2.91409e-08, -0.178787, 0.504732, -0.0192032)
 mesh = ExtResource("3_5grkw")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="cp3" parent="." instance=ExtResource("1_uyt0q")]
+[node name="cp3" parent="CP" instance=ExtResource("1_uyt0q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.5, 20.4216, -0.815772, -12.8277)
-skeleton = NodePath("../../../../../../..")
+skeleton = NodePath("../../../../../../../..")
 
-[node name="OfficeMiscPc01" type="MeshInstance3D" parent="cp3"]
+[node name="OfficeMiscPc01" type="MeshInstance3D" parent="CP/cp3"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -0.666667, 0, -2.91409e-08, -0.178787, 0.504732, -0.0192032)
 mesh = ExtResource("3_5grkw")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="cp4" parent="." instance=ExtResource("1_uyt0q")]
+[node name="cp4" parent="CP" instance=ExtResource("1_uyt0q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.5, 82.0585, -0.815772, -13.6242)
-skeleton = NodePath("../../../../../../..")
+skeleton = NodePath("../../../../../../../..")
 
-[node name="OfficeMiscPc01" type="MeshInstance3D" parent="cp4"]
+[node name="OfficeMiscPc01" type="MeshInstance3D" parent="CP/cp4"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -0.666667, 0, -2.91409e-08, -0.178787, 0.504732, -0.0192032)
 mesh = ExtResource("3_5grkw")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="cp5" parent="." instance=ExtResource("1_uyt0q")]
+[node name="cp5" parent="CP" instance=ExtResource("1_uyt0q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.5, 73.1592, -0.815772, -77.1844)
-skeleton = NodePath("../../../../../../..")
+skeleton = NodePath("../../../../../../../..")
 
-[node name="OfficeMiscPc01" type="MeshInstance3D" parent="cp5"]
+[node name="OfficeMiscPc01" type="MeshInstance3D" parent="CP/cp5"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -0.666667, 0, -2.91409e-08, -0.178787, 0.504732, -0.0192032)
 mesh = ExtResource("3_5grkw")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="cp6" parent="." instance=ExtResource("1_uyt0q")]
+[node name="cp6" parent="CP" instance=ExtResource("1_uyt0q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.5, 34.3098, -0.815772, -78.8991)
-skeleton = NodePath("../../../../../../..")
+skeleton = NodePath("../../../../../../../..")
 
-[node name="OfficeMiscPc01" type="MeshInstance3D" parent="cp6"]
+[node name="OfficeMiscPc01" type="MeshInstance3D" parent="CP/cp6"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -0.666667, 0, -2.91409e-08, -0.178787, 0.504732, -0.0192032)
 mesh = ExtResource("3_5grkw")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
