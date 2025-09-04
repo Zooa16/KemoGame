@@ -9,6 +9,7 @@ const SLIDE_COOLDOWN = 1.5
 @onready var animation_body: AnimatedSprite3D = $body
 @onready var animation_color: AnimatedSprite3D = $color
 @onready var camera = $body/Camera3D
+@onready var player_name_label: Label3D = $Label3D # เพิ่มบรรทัดนี้
 
 var is_sliding = false
 var slide_timer = 0.0
@@ -88,6 +89,12 @@ func update_state(new_pos: Vector3, new_rot_y: float):
     target_position = new_pos
     target_rotation_y = new_rot_y
 
+# ลบ @rpc(...) ออก
+func set_initial_position(new_pos: Vector3):
+    # ตั้งค่าตำแหน่งเริ่มต้นทันทีที่ได้รับจาก Host
+    global_position = new_pos
+    target_position = new_pos
+    
 @rpc("unreliable", "any_peer")
 func set_animation_and_flip(anim_name: String):
     if current_anim == anim_name: 
@@ -101,6 +108,17 @@ func set_flip_all_rpc(flip: bool):
     animation_body.flip_h = flip
     animation_color.flip_h = flip
 
+@rpc("any_peer", "reliable", "call_local")
+func set_player_name(new_name: String):
+    # กำหนดชื่อบน Label3D
+    if player_name_label:
+        player_name_label.text = new_name
+
+@rpc("any_peer", "reliable", "call_local")
+func set_player_color(new_color: Color):
+    # กำหนดสีให้ AnimatedSprite3D
+    if animation_color:
+        animation_color.modulate = new_color
 # ---------------- Helper ----------------
 func _play_anim(sprite: AnimatedSprite3D, anim_name: String):
     if sprite.animation != anim_name:
