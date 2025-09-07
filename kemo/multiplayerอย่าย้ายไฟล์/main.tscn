@@ -315,7 +315,7 @@ shadow_enabled = true
 environment = SubResource("Environment_6knbf")
 
 [node name="ALL_MODEL" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10.207, 0)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, -10.207, 0)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="ALL_MODEL"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.44407, -8.80106, -2.50367)
@@ -3039,22 +3039,25 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="IDROOM" type="PanelContainer" parent="CanvasLayer/HUD"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/HUD"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 1.0
-offset_top = -1.0
-offset_right = -894.0
-offset_bottom = -603.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_right = 56.0
+offset_bottom = 46.0
+size_flags_horizontal = 4
 
-[node name="Idroom_label" type="Label" parent="CanvasLayer/HUD/IDROOM"]
+[node name="IDROOM" type="PanelContainer" parent="CanvasLayer/HUD/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Idroom_label" type="Label" parent="CanvasLayer/HUD/HBoxContainer/IDROOM"]
 layout_mode = 2
 size_flags_horizontal = 4
 label_settings = SubResource("LabelSettings_fj7yv")
+
+[node name="CopyButton" type="Button" parent="CanvasLayer/HUD/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "COPY"
 
 [node name="Playerlist" type="PanelContainer" parent="CanvasLayer/HUD"]
 layout_mode = 1
@@ -3120,14 +3123,6 @@ grow_horizontal = 2
 grow_vertical = 0
 size_flags_horizontal = 4
 label_settings = SubResource("LabelSettings_tlwt5")
-
-[node name="CopyButton" type="Button" parent="CanvasLayer/HUD"]
-layout_mode = 0
-offset_left = 269.0
-offset_top = -1.0
-offset_right = 327.0
-offset_bottom = 44.0
-text = "COPY"
 
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
 _spawnable_scenes = PackedStringArray("uid://cxrrxf305rbhf")

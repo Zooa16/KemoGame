@@ -413,6 +413,7 @@ sky = SubResource("Sky_nr0x8")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.72246, 0)
 
 [node name="ALL_MODEL" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="ALL_MODEL"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.44407, -8.80106, -2.50367)

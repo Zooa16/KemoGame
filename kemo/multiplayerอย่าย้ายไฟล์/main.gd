@@ -3,13 +3,13 @@ extends Node
 @onready var main_menu = $CanvasLayer/MainMenu
 @onready var address_entry = $CanvasLayer/MainMenu/MarginContainer/VBoxContainer/AddressEntry
 @onready var hud = $CanvasLayer/HUD
-@onready var Idroom_label = $CanvasLayer/HUD/IDROOM/Idroom_label
+@onready var Idroom_label = $CanvasLayer/HUD/HBoxContainer/IDROOM/Idroom_label
 @onready var status = $CanvasLayer/HUD/Status
 @onready var player_count_label = $CanvasLayer/HUD/player_count_label
 @onready var playerlist_label = $"CanvasLayer/HUD/Playerlist/player id"
 @onready var start_button = $CanvasLayer/HUD/StartButton
 @onready var lobby_spawn_points_parent = $SpawnPoints
-@onready var copy_button = $CanvasLayer/HUD/CopyButton
+@onready var copy_button = $CanvasLayer/HUD/HBoxContainer/CopyButton
 var lobby_spawn_points: Array = []
 
 const PLAYER_COLORS: Array[Color] = [
@@ -25,8 +25,6 @@ const PLAYER_COLORS: Array[Color] = [
     Color.PURPLE
 ]
 var used_colors: Dictionary = {}
-var player_colors: Dictionary = {} # เพิ่มตัวแปรนี้
-var player_names: Dictionary = {} 
 const Player = preload("res://multiplayerอย่าย้ายไฟล์/player.tscn")
 const PORT := 9999
 const MAX_PLAYERS := 10
@@ -43,15 +41,13 @@ func _ready():
     multiplayer.connection_failed.connect(connection_failed)
     multiplayer.connected_to_server.connect(connected_to_server)
     copy_button.pressed.connect(_on_copy_button_pressed)
-    
+ 
     for child in lobby_spawn_points_parent.get_children():
         if child is Marker3D:
             lobby_spawn_points.append(child)
-    # เริ่มต้นซ่อนไว้ก่อน เผื่อเปิดซีนมาถูกฝั่ง client
     start_button.visible = false
-
+  
 func _process(_delta):
-    # ปุ่มให้เห็นเฉพาะ host และกดได้เมื่อมีคนมากกว่า 1 คน
     start_button.visible = multiplayer.is_server()
     if multiplayer.is_server():
         start_button.disabled = connected_players.size() <= 1
@@ -67,16 +63,20 @@ func _on_host_button_pressed():
     enet_peer.create_server(PORT)
     multiplayer.multiplayer_peer = enet_peer
 
-    var upnp_result = upnp_setup()
-    if upnp_result:
-        room_code = ip_to_code(upnp_result)
-        Idroom_label.text = "ID ROOM : " + str(room_code)
-        print("IP : " + upnp_result)
-        print("ID ROOM : " + str(room_code))
-        status.text = "Success! Your game is ready to host!"
+    var external_ip = upnp_setup()
+    if external_ip:
+        room_code = ip_to_code(external_ip)
+        Idroom_label.text = "ID ROOM: " + str(room_code)
+        status.text = "Success! Your game is ready for external players."
     else:
-        Idroom_label.text = "ID ROOM : Failed to get external IP"
-        status.text = "Warning: Failed to set up UPNP. Players can only join from the same network."
+        var internal_ip = get_internal_ip()
+        if internal_ip:
+            room_code = ip_to_code(internal_ip)
+            Idroom_label.text = "LAN ID: " + str(room_code)
+            status.text = "UPNP failed. Local players can join using this ID."
+        else:
+            Idroom_label.text = "ID ROOM: Failed to get IP"
+            status.text = "Warning: Could not get a local IP address."
 
     host_id = multiplayer.get_unique_id()
     add_player(host_id)
@@ -95,7 +95,7 @@ func _on_join_button_pressed():
 func add_player(peer_id):
     if connected_players.has(peer_id):
         return
-        
+  
     if connected_players.size() >= MAX_PLAYERS:
         print("Room is full.")
         enet_peer.disconnect_peer(peer_id, true)
@@ -105,19 +105,19 @@ func add_player(peer_id):
         for c in PLAYER_COLORS:
             if not used_colors.has(c):
                 available_colors.append(c)
-        
+  
         var selected_color: Color
         if not available_colors.is_empty():
             selected_color = available_colors[randi() % available_colors.size()]
             used_colors[selected_color] = peer_id
-            player_colors[peer_id] = selected_color # เก็บสีของผู้เล่นใหม่
-        player_names[peer_id] = "Player " + str(peer_id) # เก็บชื่อของผู้เล่นใหม่
-        
+            Global.player_colors[peer_id] = selected_color
+        Global.player_names[peer_id] = "Player " + str(peer_id)
+  
         if multiplayer.is_server():
-            player_names[peer_id] = "Player " + str(peer_id) # กำหนดชื่อตาม ID ก่อน
+            Global.player_names[peer_id] = "Player " + str(peer_id)
     connected_players.append(peer_id)
     var spawn_position = Vector3.ZERO
-    
+ 
 
     var player = Player.instantiate()
     player.name = str(peer_id)
@@ -126,46 +126,42 @@ func add_player(peer_id):
     if not player.is_in_group("players"):
         player.add_to_group("players")
 
-    # กำหนดตำแหน่งการเกิดใน Lobby
     if lobby_spawn_points.size() > 0:
         var spawn_index = peer_id % lobby_spawn_points.size()
         spawn_position = lobby_spawn_points[spawn_index].global_position
-        
-    player.scale = Vector3(0.2, 0.2, 0.2)
+  
+    player.scale = Vector3(0.3, 0.3, 0.3)
     add_child(player)
-    
+ 
     if multiplayer.is_server():
-        sync_player_names.rpc(player_names)
-    # สุ่มสีให้ผู้เล่น (เฉพาะ Host) และเก็บข้อมูล
+        sync_player_names.rpc(Global.player_names)
     if multiplayer.is_server():
         var available_colors = []
         for c in PLAYER_COLORS:
             if not used_colors.has(c):
                 available_colors.append(c)
-        
+  
         var selected_color: Color
         if not available_colors.is_empty():
             selected_color = available_colors[randi() % available_colors.size()]
             used_colors[selected_color] = peer_id
-            player_colors[peer_id] = selected_color # เก็บสีของผู้เล่นใหม่
-            
-    # ลบบรรทัดนี้ออก
-    # player.rpc_id(peer_id, "set_player_color", selected_color) 
-
-    # เรียกใช้ RPC เพื่อซิงค์ตำแหน่งกับทุกเครื่อง
+            Global.player_colors[peer_id] = selected_color
+   
     set_all_player_positions.rpc(peer_id, spawn_position)
 
     update_player_ui()
 
     if multiplayer.is_server():
         sync_player_list.rpc(connected_players)
-        # ส่งข้อมูลสีทั้งหมดไปยัง Client ทุกคน
-        sync_player_colors.rpc(player_colors) 
+        sync_player_colors.rpc(Global.player_colors)
         set_room_code.rpc_id(peer_id, room_code)
         set_host_id.rpc(host_id)
 
 func remove_player(peer_id):
     connected_players.erase(peer_id)
+    Global.player_colors.erase(peer_id)
+    Global.player_names.erase(peer_id)
+ 
     var player = get_node_or_null(str(peer_id))
     if player:
         player.queue_free()
@@ -209,17 +205,20 @@ func update_player_ui():
     player_count_label.text = str(connected_players.size()) + "/" + str(MAX_PLAYERS)
     var names_text := ""
     for pid in connected_players:
-        names_text += "Player " + str(pid) + "\n"
+        if Global.player_names.has(pid):
+            names_text += Global.player_names[pid] + "\n"
+        else:
+            names_text += "Player " + str(pid) + "\n"
     playerlist_label.text = names_text
 
 func _on_start_button_pressed():
     if multiplayer.is_server():
-        GameManager.start_game.rpc()  # เรียกผ่าน autoload แทน
+        GameManager.start_game.rpc()
 
 func _on_copy_button_pressed():
     DisplayServer.clipboard_set(str(room_code))
     status.text = "รหัสห้องถูกคัดลอกแล้ว!"
-# ----------------- RPC -----------------
+
 @rpc("authority", "reliable")
 func set_room_code(code: int):
     room_code = code
@@ -240,15 +239,12 @@ func set_host_id(new_host_id: int):
 @rpc("any_peer", "reliable", "call_local")
 func start_game():
     if multiplayer.is_server():
-        # บันทึกข้อมูลสีและชื่อลงใน Singleton ก่อนเปลี่ยนฉาก
-        Global.player_colors = player_colors
-        Global.player_names = player_names
-    
-    # ให้ทุก peer รวมทั้งผู้เรียกเอง เปลี่ยนฉากไปพร้อมกัน
+        pass
     get_tree().change_scene_to_file("res://Scenes/game.tscn")
-    
+ 
 @rpc("any_peer", "reliable", "call_local")
 func sync_player_colors(colors_dict: Dictionary):
+    Global.player_colors = colors_dict
     for player_id in colors_dict:
         var player_node = get_node_or_null(str(player_id))
         if player_node and player_node.has_method("set_player_color"):
@@ -259,15 +255,15 @@ func set_all_player_positions(player_id: int, new_pos: Vector3):
     var player_node = get_node_or_null(str(player_id))
     if player_node:
         player_node.set_initial_position(new_pos)
-        
+  
 @rpc("any_peer", "reliable", "call_local")
 func sync_player_names(names_dict: Dictionary):
-    player_names = names_dict
+    Global.player_names = names_dict
     for player_id in names_dict:
         var player_node = get_node_or_null(str(player_id))
         if player_node:
             player_node.set_player_name(names_dict[player_id])
-# ----------------- UPNP -----------------
+
 func upnp_setup():
     var upnp = UPNP.new()
     var discover_result = upnp.discover()
@@ -283,7 +279,13 @@ func upnp_setup():
         return null
     return upnp.query_external_address()
 
-# ----------------- IP ↔ Code -----------------
+func get_internal_ip():
+    var host_name = IP.get_local_addresses()
+    for address in host_name:
+        if address.is_valid_ip_address() and not address.is_loopback() and not address.is_gateway():
+            return address
+    return null
+
 func ip_to_code(ip_string):
     var parts = ip_string.split(".")
     if parts.size() != 4:
