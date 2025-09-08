@@ -8,8 +8,9 @@ const SLIDE_COOLDOWN = 1.5
 
 @onready var animation_body: AnimatedSprite3D = $body
 @onready var animation_color: AnimatedSprite3D = $color
-@onready var camera = $body/Camera3D
 @onready var player_name_label: Label3D = $Label3D # เพิ่มบรรทัดนี้
+@onready var spring_arm: SpringArm3D = $body/SpringArm3D
+@onready var camera: Camera3D = $body/SpringArm3D/Camera3D
 
 var is_sliding = false
 var slide_timer = 0.0
@@ -26,10 +27,14 @@ func _enter_tree():
     set_multiplayer_authority(str(name).to_int())
 
 func _ready():
+    add_to_group("players")
     if not is_multiplayer_authority():
         camera.current = false
     else:
         camera.current = true
+        spring_arm.spring_length = 32.0      # ระยะกล้องปกติ
+        spring_arm.collision_mask = 1       # เลือก Layer ที่จะให้ raycast ตรวจชน (เช่น Walls)
+        
 
 func _physics_process(delta):
     if is_multiplayer_authority():
@@ -119,6 +124,8 @@ func set_player_color(new_color: Color):
     # กำหนดสีให้ AnimatedSprite3D
     if animation_color:
         animation_color.modulate = new_color
+        
+
 # ---------------- Helper ----------------
 func _play_anim(sprite: AnimatedSprite3D, anim_name: String):
     if sprite.animation != anim_name:

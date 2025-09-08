@@ -308,10 +308,18 @@ func upnp_setup():
     return upnp.query_external_address()
 
 func get_internal_ip():
-    var host_name = IP.get_local_addresses()
-    for address in host_name:
-        if address.is_valid_ip_address() and not address.is_loopback() and not address.is_gateway():
-            return address
+    var host_addresses = IP.get_local_addresses()
+    for addr in host_addresses:
+        # ตัด IP ที่ไม่ใช่ IPv4
+        if addr.find(":") != -1:
+            continue
+        # ตัด loopback
+        if addr.begins_with("127."):
+            continue
+        # ตัด link-local IPv4 (169.254.x.x)
+        if addr.begins_with("169.254."):
+            continue
+        return addr
     return null
 
 func ip_to_code(ip_string):

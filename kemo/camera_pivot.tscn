@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://ssnxaaii2p71"]
+
+[ext_resource type="Script" uid="uid://centhbtpcthih" path="res://Scripts/camera_3d.gd" id="1_t5kuf"]
+
+[node name="CameraPivot" type="SpringArm3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(3.33333, 0, 0, 0, 3.33333, -1.19209e-07, 0, 1.19209e-07, 3.33333, 0, 0, 32.95)
+script = ExtResource("1_t5kuf")

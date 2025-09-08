@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://kad3v4mikcsg"]
+[gd_scene load_steps=2 format=3 uid="uid://kad3v4mikcsg"]
 
 [ext_resource type="Script" uid="uid://bwxjngyqto770" path="res://start_menu.gd" id="1_jgtwh"]
-[ext_resource type="Texture2D" uid="uid://by6l5ptv210er" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Main menu/ฉากหลัง.png" id="2_jgtwh"]
 
 [node name="StartMenu" type="Control"]
 layout_mode = 3
@@ -11,13 +10,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_jgtwh")
-
-[node name="TextureRect" type="TextureRect" parent="."]
-layout_mode = 0
-offset_top = -3.0
-offset_right = 1920.0
-offset_bottom = 1197.0
-texture = ExtResource("2_jgtwh")
 
 [node name="Playbutton" type="Button" parent="."]
 layout_mode = 1

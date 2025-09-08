@@ -232,8 +232,10 @@ alpha_cut = 2
 sprite_frames = SubResource("SpriteFrames_04cqw")
 animation = &"idle"
 
-[node name="Camera3D" type="Camera3D" parent="body"]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 32.95)
+[node name="SpringArm3D" type="SpringArm3D" parent="body"]
+
+[node name="Camera3D" type="Camera3D" parent="body/SpringArm3D"]
+transform = Transform3D(3.33333, 0, 0, 0, 3.33333, 0, 0, 0, 3.33333, 0, 0, 32)
 
 [node name="color" type="AnimatedSprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.642788, 0.766045, 0, -0.766045, 0.642788, 0, 0, 0)
