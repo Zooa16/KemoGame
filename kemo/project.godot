@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="my map game"
-run/main_scene="uid://c8oqxmm2w2wvv"
+run/main_scene="uid://kad3v4mikcsg"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -19,6 +19,11 @@ config/icon="res://icon.svg"
 
 GameManager="*res://Scripts/GameManager.gd"
 Global="*res://Scripts/Global.gd"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
 
 [filesystem]
 

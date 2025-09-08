@@ -3,13 +3,14 @@ extends Node
 @onready var main_menu = $CanvasLayer/MainMenu
 @onready var address_entry = $CanvasLayer/MainMenu/MarginContainer/VBoxContainer/AddressEntry
 @onready var hud = $CanvasLayer/HUD
-@onready var Idroom_label = $CanvasLayer/HUD/HBoxContainer/IDROOM/Idroom_label
+@onready var Idroom_label = $CanvasLayer/HUD/HBoxContainer/IDROOM/MarginContainer/Idroom_label
 @onready var status = $CanvasLayer/HUD/Status
 @onready var player_count_label = $CanvasLayer/HUD/player_count_label
 @onready var playerlist_label = $"CanvasLayer/HUD/Playerlist/player id"
 @onready var start_button = $CanvasLayer/HUD/StartButton
 @onready var lobby_spawn_points_parent = $SpawnPoints
 @onready var copy_button = $CanvasLayer/HUD/HBoxContainer/CopyButton
+@onready var background = $CanvasLayer/TextureRect
 var lobby_spawn_points: Array = []
 
 const PLAYER_COLORS: Array[Color] = [
@@ -58,6 +59,8 @@ func _unhandled_input(_event):
 
 func _on_host_button_pressed():
     main_menu.hide()
+    background.hide()
+    
     status.text = "Attempting to host..."
 
     enet_peer.create_server(PORT)
@@ -85,6 +88,7 @@ func _on_host_button_pressed():
 
 func _on_join_button_pressed():
     main_menu.hide()
+    background.hide()
     status.text = "Attempting to join..."
 
     var ip_address = code_to_ip(address_entry.text)
@@ -116,8 +120,13 @@ func add_player(peer_id):
         if multiplayer.is_server():
             Global.player_names[peer_id] = "Player " + str(peer_id)
     connected_players.append(peer_id)
-    var spawn_position = Vector3.ZERO
- 
+    
+    var spawn_position: Vector3
+    if multiplayer.is_server():
+        var spawn_index = peer_id % lobby_spawn_points.size()
+        spawn_position = lobby_spawn_points[spawn_index].global_position
+    else:
+        spawn_position = Vector3.ZERO
 
     var player = Player.instantiate()
     player.name = str(peer_id)
@@ -125,16 +134,22 @@ func add_player(peer_id):
         player.set_multiplayer_authority(peer_id)
     if not player.is_in_group("players"):
         player.add_to_group("players")
-
-    if lobby_spawn_points.size() > 0:
-        var spawn_index = peer_id % lobby_spawn_points.size()
-        spawn_position = lobby_spawn_points[spawn_index].global_position
   
     player.scale = Vector3(0.3, 0.3, 0.3)
     add_child(player)
  
     if multiplayer.is_server():
         sync_player_names.rpc(Global.player_names)
+        sync_player_list.rpc(connected_players)
+        sync_player_colors.rpc(Global.player_colors)
+        set_room_code.rpc_id(peer_id, room_code)
+        set_host_id.rpc(host_id)
+    # ส่งตำแหน่ง spawn ให้ client ที่เพิ่งเข้ามา
+
+        # spawn position สำหรับ player ที่เพิ่งเข้ามา
+
+    # ส่งให้เฉพาะ peer_id ใหม่เท่านั้น
+        set_all_player_positions.rpc_id(peer_id, peer_id, spawn_position)
     if multiplayer.is_server():
         var available_colors = []
         for c in PLAYER_COLORS:
@@ -147,7 +162,7 @@ func add_player(peer_id):
             used_colors[selected_color] = peer_id
             Global.player_colors[peer_id] = selected_color
    
-    set_all_player_positions.rpc(peer_id, spawn_position)
+    player.global_position = spawn_position
 
     update_player_ui()
 
@@ -192,11 +207,13 @@ func server_disconnected():
 func connection_failed():
     status.text = "Connection failed. Please check the address or try again."
     main_menu.show()
+    background.show()
     hud.hide()
 
 func connected_to_server():
     status.text = "Connected to server!"
     hud.show()
+    
 
 func reset_game():
     get_tree().change_scene_to_file("res://world.tscn")
@@ -253,8 +270,19 @@ func sync_player_colors(colors_dict: Dictionary):
 @rpc("any_peer", "reliable")
 func set_all_player_positions(player_id: int, new_pos: Vector3):
     var player_node = get_node_or_null(str(player_id))
-    if player_node:
-        player_node.set_initial_position(new_pos)
+    if not player_node:
+        var player = Player.instantiate()
+        player.name = str(player_id)
+        if player.has_method("set_multiplayer_authority"):
+            player.set_multiplayer_authority(player_id)
+        if not player.is_in_group("players"):
+            player.add_to_group("players")
+        player.scale = Vector3(0.3, 0.3, 0.3)
+        add_child(player)
+        player_node = player
+
+    player_node.global_position = new_pos
+
   
 @rpc("any_peer", "reliable", "call_local")
 func sync_player_names(names_dict: Dictionary):

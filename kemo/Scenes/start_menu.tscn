@@ -1,0 +1,56 @@
+[gd_scene load_steps=3 format=3 uid="uid://kad3v4mikcsg"]
+
+[ext_resource type="Script" uid="uid://bwxjngyqto770" path="res://start_menu.gd" id="1_jgtwh"]
+[ext_resource type="Texture2D" uid="uid://by6l5ptv210er" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Main menu/ฉากหลัง.png" id="2_jgtwh"]
+
+[node name="StartMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jgtwh")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_top = -3.0
+offset_right = 1920.0
+offset_bottom = 1197.0
+texture = ExtResource("2_jgtwh")
+
+[node name="Playbutton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -259.0
+offset_top = 103.0
+offset_right = 260.0
+offset_bottom = 210.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "PLAY
+"
+
+[node name="Tutorialbutton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -259.0
+offset_top = 249.0
+offset_right = 260.0
+offset_bottom = 356.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "Tutorial
+"
+
+[connection signal="pressed" from="Playbutton" to="." method="_on_play_pressed"]

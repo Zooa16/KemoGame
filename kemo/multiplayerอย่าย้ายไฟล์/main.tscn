@@ -1,4 +1,4 @@
-[gd_scene load_steps=164 format=4 uid="uid://c8oqxmm2w2wvv"]
+[gd_scene load_steps=167 format=4 uid="uid://c8oqxmm2w2wvv"]
 
 [ext_resource type="Script" uid="uid://c6qb8m8bfybv4" path="res://multiplayerอย่าย้ายไฟล์/main.gd" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://cwn87tw3xwuj2" path="res://Asset 3D/city/use this for builder/building_b_without_base.tscn" id="2_emsru"]
@@ -289,20 +289,29 @@ data = PackedVector3Array(-1.1, 0.2, -0.6, -1.1, 0.3, -0.5, -1.1, 0.2, -0.5, -1.
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_blw6o"]
 data = PackedVector3Array(-1.1, 0.2, -0.6, -1.1, 0.3, -0.5, -1.1, 0.2, -0.5, -1.1, 0.2, -0.6, -1.1, 0.3, -0.6, -1.1, 0.3, -0.5, -1.1, 0.3, -0.6, -1.1, 1.3, -0.5, -1.1, 0.3, -0.5, -1.1, 0.3, -0.6, -1.1, 1.3, -0.6, -1.1, 1.3, -0.5, -1.1, 1.3, -0.6, -1.1, 1.4, -0.5, -1.1, 1.3, -0.5, -1.1, 1.3, -0.6, -1.1, 1.4, -0.6, -1.1, 1.4, -0.5, -1, 0.3, -0.7, -1, 0.4, -0.6, -1, 0.3, -0.6, -1, 0.3, -0.7, -1, 0.4, -0.7, -1, 0.4, -0.6, -1, 0.4, -0.7, -1, 1.2, -0.6, -1, 0.4, -0.6, -1, 0.4, -0.7, -1, 1.2, -0.7, -1, 1.2, -0.6, -1, 1.2, -0.7, -1, 1.3, -0.6, -1, 1.2, -0.6, -1, 1.2, -0.7, -1, 1.3, -0.7, -1, 1.3, -0.6, -0.2, 0.6, -0.8, -0.2, 1, -0.7, -0.2, 0.6, -0.7, -0.2, 0.6, -0.8, -0.2, 1, -0.8, -0.2, 1, -0.7, -0.1, 0.5, -0.8, -0.1, 0.6, -0.7, -0.1, 0.5, -0.7, -0.1, 0.5, -0.8, -0.1, 0.6, -0.8, -0.1, 0.6, -0.7, -0.1, 1, -0.8, -0.1, 1.1, -0.7, -0.1, 1, -0.7, -0.1, 1, -0.8, -0.1, 1.1, -0.8, -0.1, 1.1, -0.7, 0.1, 0.6, -0.8, 0.1, 1, -0.7, 0.1, 0.6, -0.7, 0.1, 0.6, -0.8, 0.1, 1, -0.8, 0.1, 1, -0.7, -0.1, 0.6, -0.8, -0.1, 0.6, -0.7, -0.1, 1, -0.7, -0.1, 0.6, -0.8, -0.1, 1, -0.7, -0.1, 1, -0.8, 0.1, 0.5, -0.8, 0.1, 0.5, -0.7, 0.1, 0.6, -0.7, 0.1, 0.5, -0.8, 0.1, 0.6, -0.7, 0.1, 0.6, -0.8, 0.1, 1, -0.8, 0.1, 1, -0.7, 0.1, 1.1, -0.7, 0.1, 1, -0.8, 0.1, 1.1, -0.7, 0.1, 1.1, -0.8, 0.2, 0.6, -0.8, 0.2, 0.6, -0.7, 0.2, 1, -0.7, 0.2, 0.6, -0.8, 0.2, 1, -0.7, 0.2, 1, -0.8, 1, 0.3, -0.7, 1, 0.3, -0.6, 1, 0.4, -0.6, 1, 0.3, -0.7, 1, 0.4, -0.6, 1, 0.4, -0.7, 1, 0.4, -0.7, 1, 0.4, -0.6, 1, 1.2, -0.6, 1, 0.4, -0.7, 1, 1.2, -0.6, 1, 1.2, -0.7, 1, 1.2, -0.7, 1, 1.2, -0.6, 1, 1.3, -0.6, 1, 1.2, -0.7, 1, 1.3, -0.6, 1, 1.3, -0.7, 1.1, 0.2, -0.6, 1.1, 0.2, -0.5, 1.1, 0.3, -0.5, 1.1, 0.2, -0.6, 1.1, 0.3, -0.5, 1.1, 0.3, -0.6, 1.1, 0.3, -0.6, 1.1, 0.3, -0.5, 1.1, 1.3, -0.5, 1.1, 0.3, -0.6, 1.1, 1.3, -0.5, 1.1, 1.3, -0.6, 1.1, 1.3, -0.6, 1.1, 1.3, -0.5, 1.1, 1.4, -0.5, 1.1, 1.3, -0.6, 1.1, 1.4, -0.5, 1.1, 1.4, -0.6, -1.1, 0.3, -0.5, -1, 0.2, -0.5, -1.1, 0.2, -0.5, -1.1, 0.3, -0.5, -1, 0.3, -0.5, -1, 0.2, -0.5, -1.1, 1.3, -0.5, -1, 0.3, -0.5, -1.1, 0.3, -0.5, -1.1, 1.3, -0.5, -1, 0.4, -0.5, -1, 0.3, -0.5, -1.1, 1.3, -0.5, -1, 0.5, -0.5, -1, 0.4, -0.5, -1.1, 1.3, -0.5, -1, 0.7, -0.5, -1, 0.5, -0.5, -1.1, 1.3, -0.5, -1, 1.3, -0.5, -1, 0.7, -0.5, -1, 1.4, -0.5, 1, 1.3, -0.5, -1, 1.3, -0.5, -1, 1.4, -0.5, 1, 1.4, -0.5, 1, 1.3, -0.5, 1, 1.3, -0.5, 1.1, 1.3, -0.5, 1.1, 0.3, -0.5, 1, 1.3, -0.5, 1.1, 0.3, -0.5, 1, 0.8, -0.5, 1, 0.8, -0.5, 1.1, 0.3, -0.5, 1, 0.7, -0.5, 1, 0.7, -0.5, 1.1, 0.3, -0.5, 1, 0.3, -0.5, 0.7, 0.3, -0.5, 1, 0.3, -0.5, 1, 0.2, -0.5, 0.7, 0.3, -0.5, 1, 0.2, -0.5, -1, 0.2, -0.5, -0.1, 0.3, -0.5, 0.7, 0.3, -0.5, -1, 0.2, -0.5, -0.5, 0.3, -0.5, -0.1, 0.3, -0.5, -1, 0.2, -0.5, -0.6, 0.3, -0.5, -0.5, 0.3, -0.5, -1, 0.2, -0.5, -1, 0.3, -0.5, -0.6, 0.3, -0.5, -1, 0.2, -0.5, -1.1, 1.4, -0.5, -1, 1.3, -0.5, -1.1, 1.3, -0.5, -1.1, 1.4, -0.5, -1, 1.4, -0.5, -1, 1.3, -0.5, -1, 0.7, -0.5, -0.9, 0.5, -0.5, -1, 0.5, -0.5, -1, 0.7, -0.5, -0.9, 0.7, -0.5, -0.9, 0.5, -0.5, -1, 0.5, -0.5, -0.9, 0.5, -0.5, -1, 0.4, -0.5, -0.9, 0.5, -0.5, -0.6, 0.4, -0.5, -1, 0.4, -0.5, -0.9, 0.5, -0.5, -0.6, 0.5, -0.5, -0.6, 0.4, -0.5, -1, 1.3, -0.5, -0.9, 0.7, -0.5, -1, 0.7, -0.5, -1, 1.3, -0.5, -0.8, 1, -0.5, -0.9, 1, -0.5, -1, 1.3, -0.5, -0.8, 1.1, -0.5, -0.8, 1, -0.5, -1, 1.3, -0.5, -0.6, 1.1, -0.5, -0.8, 1.1, -0.5, -1, 1.3, -0.5, -0.9, 1, -0.5, -0.9, 0.9, -0.5, -1, 1.3, -0.5, -0.9, 0.9, -0.5, -0.9, 0.7, -0.5, -0.9, 0.9, -0.5, -0.7, 0.6, -0.5, -0.9, 0.7, -0.5, -0.9, 0.7, -0.5, -0.7, 0.6, -0.5, -0.9, 0.5, -0.5, -0.7, 0.6, -0.5, -0.6, 0.5, -0.5, -0.9, 0.5, -0.5, -0.9, 0.9, -0.5, -0.7, 0.7, -0.5, -0.7, 0.6, -0.5, -0.7, 0.6, -0.5, -0.6, 0.6, -0.5, -0.6, 0.5, -0.5, -0.9, 0.9, -0.5, -0.6, 0.7, -0.5, -0.7, 0.7, -0.5, -0.6, 0.6, -0.5, -0.5, 0.3, -0.5, -0.6, 0.5, -0.5, -0.6, 0.7, -0.5, -0.5, 0.3, -0.5, -0.6, 0.6, -0.5, -0.6, 0.5, -0.5, -0.5, 0.3, -0.5, -0.6, 0.4, -0.5, -0.6, 0.4, -0.5, -0.5, 0.3, -0.5, -0.6, 0.3, -0.5, -0.6, 0.7, -0.5, -0.5, 0.5, -0.5, -0.5, 0.3, -0.5, -0.9, 0.9, -0.5, -0.5, 0.9, -0.5, -0.6, 0.7, -0.5, -0.6, 0.7, -0.5, -0.5, 0.6, -0.5, -0.5, 0.5, -0.5, -0.6, 0.7, -0.5, -0.5, 0.9, -0.5, -0.5, 0.6, -0.5, -0.5, 0.9, -0.5, -0.4, 0.8, -0.5, -0.5, 0.6, -0.5, -0.4, 0.8, -0.5, -0.3, 0.8, -0.5, -0.5, 0.6, -0.5, -0.3, 0.8, -0.5, -0.2, 0.8, -0.5, -0.5, 0.6, -0.5, -0.5, 1, -0.5, -0.4, 0.8, -0.5, -0.5, 0.9, -0.5, -0.2, 0.8, -0.5, -0.1, 0.6, -0.5, -0.5, 0.6, -0.5, -0.5, 1, -0.5, -0.4, 0.9, -0.5, -0.4, 0.8, -0.5, -0.2, 0.9, -0.5, -0.1, 0.6, -0.5, -0.2, 0.8, -0.5, -0.5, 1, -0.5, -0.3, 0.9, -0.5, -0.4, 0.9, -0.5, -0.5, 1, -0.5, -0.2, 0.9, -0.5, -0.3, 0.9, -0.5, -0.2, 0.9, -0.5, -0.1, 1.1, -0.5, -0.1, 0.6, -0.5, -0.5, 1, -0.5, -0.1, 1.1, -0.5, -0.2, 0.9, -0.5, -0.6, 1.1, -0.5, -0.5, 1, -0.5, -0.6, 1, -0.5, -0.6, 1.1, -0.5, -0.1, 1.1, -0.5, -0.5, 1, -0.5, -1, 1.3, -0.5, -0.1, 1.1, -0.5, -0.6, 1.1, -0.5, -1, 1.3, -0.5, -0.1, 1.2, -0.5, -0.1, 1.1, -0.5, -1, 1.3, -0.5, 0.2, 1.2, -0.5, -0.1, 1.2, -0.5, -0.1, 1.1, -0.5, 0, 0.7, -0.5, -0.1, 0.6, -0.5, -0.1, 0.6, -0.5, 0, 0.7, -0.5, -0.1, 0.5, -0.5, -0.1, 0.5, -0.5, 0, 0.7, -0.5, -0.1, 0.3, -0.5, -0.1, 1.1, -0.5, 0, 0.8, -0.5, 0, 0.7, -0.5, -0.1, 1.1, -0.5, 0.2, 0.8, -0.5, 0, 0.8, -0.5, 0, 0.7, -0.5, 0.2, 0.7, -0.5, -0.1, 0.3, -0.5, -0.1, 1.1, -0.5, 0.2, 1.1, -0.5, 0.2, 0.8, -0.5, 0.2, 0.7, -0.5, 0.7, 0.3, -0.5, -0.1, 0.3, -0.5, 0.2, 1.1, -0.5, 0.3, 0.9, -0.5, 0.2, 0.8, -0.5, 0.2, 0.8, -0.5, 0.3, 0.9, -0.5, 0.2, 0.7, -0.5, 0.2, 1.2, -0.5, 0.3, 0.9, -0.5, 0.2, 1.1, -0.5, 0.3, 0.9, -0.5, 0.5, 0.9, -0.5, 0.2, 0.7, -0.5, 0.5, 0.9, -0.5, 0.7, 0.3, -0.5, 0.2, 0.7, -0.5, 0.2, 1.2, -0.5, 0.3, 1, -0.5, 0.3, 0.9, -0.5, 0.5, 1, -0.5, 0.7, 0.3, -0.5, 0.5, 0.9, -0.5, 0.2, 1.2, -0.5, 0.5, 1, -0.5, 0.3, 1, -0.5, 0.5, 1, -0.5, 0.7, 0.7, -0.5, 0.7, 0.3, -0.5, -1, 1.3, -0.5, 1, 1.3, -0.5, 0.2, 1.2, -0.5, 0.2, 1.2, -0.5, 1, 1.3, -0.5, 0.5, 1, -0.5, 0.5, 1, -0.5, 0.7, 0.8, -0.5, 0.7, 0.7, -0.5, 0.5, 1, -0.5, 0.8, 0.8, -0.5, 0.7, 0.8, -0.5, 0.5, 1, -0.5, 0.8, 0.9, -0.5, 0.8, 0.8, -0.5, 0.5, 1, -0.5, 0.9, 0.9, -0.5, 0.8, 0.9, -0.5, 0.5, 1, -0.5, 1, 1.3, -0.5, 0.9, 0.9, -0.5, 0.9, 0.9, -0.5, 1, 1.3, -0.5, 1, 0.8, -0.5, 0.9, 0.9, -0.5, 1, 0.8, -0.5, 0.9, 0.8, -0.5, -0.9, 1, -0.5, -0.8, 1, -0.5, -0.9, 0.9, -0.5, -0.8, 1, -0.5, -0.6, 1, -0.5, -0.9, 0.9, -0.5, -0.6, 1, -0.5, -0.5, 0.9, -0.5, -0.9, 0.9, -0.5, -0.6, 1, -0.5, -0.5, 1, -0.5, -0.5, 0.9, -0.5, -0.8, 1.1, -0.5, -0.6, 1, -0.5, -0.8, 1, -0.5, -0.8, 1.1, -0.5, -0.6, 1.1, -0.5, -0.6, 1, -0.5, -1, 0.4, -0.5, -0.6, 0.3, -0.5, -1, 0.3, -0.5, -1, 0.4, -0.5, -0.6, 0.4, -0.5, -0.6, 0.3, -0.5, -0.7, 0.7, -0.5, -0.6, 0.6, -0.5, -0.7, 0.6, -0.5, -0.7, 0.7, -0.5, -0.6, 0.7, -0.5, -0.6, 0.6, -0.5, -0.4, 0.9, -0.5, -0.3, 0.8, -0.5, -0.4, 0.8, -0.5, -0.4, 0.9, -0.5, -0.3, 0.9, -0.5, -0.3, 0.8, -0.5, -0.3, 0.9, -0.5, -0.2, 0.8, -0.5, -0.3, 0.8, -0.5, -0.3, 0.9, -0.5, -0.2, 0.9, -0.5, -0.2, 0.8, -0.5, -0.5, 0.5, -0.5, -0.1, 0.3, -0.5, -0.5, 0.3, -0.5, -0.5, 0.5, -0.5, -0.1, 0.5, -0.5, -0.1, 0.3, -0.5, -0.5, 0.6, -0.5, -0.1, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.6, -0.5, -0.1, 0.6, -0.5, -0.1, 0.5, -0.5, 0, 0.8, -0.5, 0.2, 0.7, -0.5, 0, 0.7, -0.5, 0, 0.8, -0.5, 0.2, 0.8, -0.5, 0.2, 0.7, -0.5, -0.1, 1.2, -0.5, 0.2, 1.1, -0.5, -0.1, 1.1, -0.5, -0.1, 1.2, -0.5, 0.2, 1.2, -0.5, 0.2, 1.1, -0.5, 0.3, 1, -0.5, 0.5, 0.9, -0.5, 0.3, 0.9, -0.5, 0.3, 1, -0.5, 0.5, 1, -0.5, 0.5, 0.9, -0.5, 0.7, 0.8, -0.5, 0.8, 0.8, -0.5, 0.7, 0.7, -0.5, 0.8, 0.8, -0.5, 0.9, 0.8, -0.5, 0.7, 0.7, -0.5, 0.9, 0.8, -0.5, 1, 0.7, -0.5, 0.7, 0.7, -0.5, 0.9, 0.8, -0.5, 1, 0.8, -0.5, 1, 0.7, -0.5, 0.8, 0.9, -0.5, 0.9, 0.8, -0.5, 0.8, 0.8, -0.5, 0.8, 0.9, -0.5, 0.9, 0.9, -0.5, 0.9, 0.8, -0.5, 0.7, 0.7, -0.5, 1, 0.3, -0.5, 0.7, 0.3, -0.5, 0.7, 0.7, -0.5, 1, 0.7, -0.5, 1, 0.3, -0.5, 1, 0.3, -0.5, 1.1, 0.2, -0.5, 1, 0.2, -0.5, 1, 0.3, -0.5, 1.1, 0.3, -0.5, 1.1, 0.2, -0.5, 1, 1.4, -0.5, 1.1, 1.3, -0.5, 1, 1.3, -0.5, 1, 1.4, -0.5, 1.1, 1.4, -0.5, 1.1, 1.3, -0.5, -1.1, 0.3, -0.6, -1.1, 0.2, -0.6, -1, 0.2, -0.6, -1.1, 0.3, -0.6, -1, 0.2, -0.6, -1, 0.3, -0.6, -1.1, 1.3, -0.6, -1.1, 0.3, -0.6, -1, 0.3, -0.6, -1.1, 1.3, -0.6, -1, 0.3, -0.6, -1, 0.4, -0.6, -1.1, 1.3, -0.6, -1, 0.4, -0.6, -1, 1.2, -0.6, -1.1, 1.3, -0.6, -1, 1.2, -0.6, -1, 1.3, -0.6, -1, 0.3, -0.6, -1, 0.2, -0.6, -0.9, 0.3, -0.6, -0.9, 0.3, -0.6, -1, 0.2, -0.6, 0.9, 0.3, -0.6, 0.9, 0.3, -0.6, -1, 0.2, -0.6, 1, 0.2, -0.6, 0.9, 0.3, -0.6, 1, 0.2, -0.6, 1, 0.3, -0.6, -1, 1.4, -0.6, -1, 1.3, -0.6, -0.9, 1.3, -0.6, -1, 1.4, -0.6, -0.9, 1.3, -0.6, 0.9, 1.3, -0.6, -1, 1.4, -0.6, 0.9, 1.3, -0.6, 1, 1.3, -0.6, -1, 1.4, -0.6, 1, 1.3, -0.6, 1, 1.4, -0.6, 1, 0.4, -0.6, 1, 0.3, -0.6, 1.1, 0.3, -0.6, 1, 1.3, -0.6, 1.1, 0.3, -0.6, 1.1, 1.3, -0.6, 1, 1.2, -0.6, 1, 0.4, -0.6, 1.1, 0.3, -0.6, 1, 1.3, -0.6, 1, 1.2, -0.6, 1.1, 0.3, -0.6, -1.1, 1.4, -0.6, -1.1, 1.3, -0.6, -1, 1.3, -0.6, -1.1, 1.4, -0.6, -1, 1.3, -0.6, -1, 1.4, -0.6, 1, 0.3, -0.6, 1, 0.2, -0.6, 1.1, 0.2, -0.6, 1, 0.3, -0.6, 1.1, 0.2, -0.6, 1.1, 0.3, -0.6, 1, 1.4, -0.6, 1, 1.3, -0.6, 1.1, 1.3, -0.6, 1, 1.4, -0.6, 1.1, 1.3, -0.6, 1.1, 1.4, -0.6, -1, 0.4, -0.7, -1, 0.3, -0.7, -0.9, 0.3, -0.7, -1, 0.4, -0.7, -0.9, 0.3, -0.7, -0.9, 0.4, -0.7, -1, 1.2, -0.7, -1, 0.4, -0.7, -0.9, 0.4, -0.7, -1, 1.2, -0.7, -0.9, 0.4, -0.7, -0.9, 1.2, -0.7, -0.9, 1.2, -0.7, -0.9, 0.4, -0.7, -0.2, 0.6, -0.7, -0.9, 0.4, -0.7, -0.9, 0.3, -0.7, -0.2, 0.6, -0.7, -0.9, 1.3, -0.7, -0.9, 1.2, -0.7, -0.2, 0.6, -0.7, -0.2, 0.6, -0.7, -0.9, 0.3, -0.7, -0.1, 0.5, -0.7, -0.2, 0.6, -0.7, -0.1, 0.5, -0.7, -0.1, 0.6, -0.7, -0.1, 0.5, -0.7, -0.9, 0.3, -0.7, 0.1, 0.5, -0.7, -0.9, 1.3, -0.7, -0.2, 0.6, -0.7, -0.2, 1, -0.7, 0.1, 0.5, -0.7, -0.9, 0.3, -0.7, 0.9, 0.3, -0.7, -0.9, 1.3, -0.7, -0.2, 1, -0.7, -0.1, 1, -0.7, -0.1, 1, -0.7, -0.1, 0.6, -0.7, 0.1, 0.6, -0.7, -0.1, 1, -0.7, 0.1, 0.6, -0.7, 0.1, 1, -0.7, -0.9, 1.3, -0.7, -0.1, 1, -0.7, -0.1, 1.1, -0.7, 0.1, 0.6, -0.7, 0.1, 0.5, -0.7, 0.2, 0.6, -0.7, 0.2, 0.6, -0.7, 0.1, 0.5, -0.7, 0.9, 0.3, -0.7, -0.9, 1.3, -0.7, -0.1, 1.1, -0.7, 0.1, 1.1, -0.7, 0.2, 1, -0.7, 0.2, 0.6, -0.7, 0.9, 0.3, -0.7, 0.1, 1.1, -0.7, 0.1, 1, -0.7, 0.2, 1, -0.7, 0.2, 1, -0.7, 0.9, 0.3, -0.7, 0.9, 0.4, -0.7, -0.9, 1.3, -0.7, 0.1, 1.1, -0.7, 0.9, 1.2, -0.7, 0.1, 1.1, -0.7, 0.2, 1, -0.7, 0.9, 1.2, -0.7, 0.2, 1, -0.7, 0.9, 0.4, -0.7, 0.9, 1.2, -0.7, -0.9, 1.3, -0.7, 0.9, 1.2, -0.7, 0.9, 1.3, -0.7, 0.9, 1.2, -0.7, 0.9, 0.4, -0.7, 1, 0.4, -0.7, 0.9, 1.2, -0.7, 1, 0.4, -0.7, 1, 1.2, -0.7, -1, 1.3, -0.7, -1, 1.2, -0.7, -0.9, 1.2, -0.7, -1, 1.3, -0.7, -0.9, 1.2, -0.7, -0.9, 1.3, -0.7, 0.9, 0.4, -0.7, 0.9, 0.3, -0.7, 1, 0.3, -0.7, 0.9, 0.4, -0.7, 1, 0.3, -0.7, 1, 0.4, -0.7, 0.9, 1.3, -0.7, 0.9, 1.2, -0.7, 1, 1.2, -0.7, 0.9, 1.3, -0.7, 1, 1.2, -0.7, 1, 1.3, -0.7, -0.2, 1, -0.8, -0.2, 0.6, -0.8, -0.1, 0.6, -0.8, -0.2, 1, -0.8, -0.1, 0.6, -0.8, -0.1, 1, -0.8, -0.1, 0.6, -0.8, -0.1, 0.5, -0.8, 0.1, 0.5, -0.8, -0.1, 0.6, -0.8, 0.1, 0.5, -0.8, 0.1, 0.6, -0.8, 0.1, 1, -0.8, 0.1, 0.6, -0.8, 0.2, 0.6, -0.8, 0.1, 1, -0.8, 0.2, 0.6, -0.8, 0.2, 1, -0.8, -0.1, 1.1, -0.8, -0.1, 1, -0.8, 0.1, 1, -0.8, -0.1, 1.1, -0.8, 0.1, 1, -0.8, 0.1, 1.1, -0.8, -1, 0.2, -0.5, -1.1, 0.2, -0.6, -1.1, 0.2, -0.5, -1, 0.2, -0.5, -1, 0.2, -0.6, -1.1, 0.2, -0.6, 1, 0.2, -0.5, -1, 0.2, -0.6, -1, 0.2, -0.5, 1, 0.2, -0.5, 1, 0.2, -0.6, -1, 0.2, -0.6, 1.1, 0.2, -0.5, 1, 0.2, -0.6, 1, 0.2, -0.5, 1.1, 0.2, -0.5, 1.1, 0.2, -0.6, 1, 0.2, -0.6, -0.9, 0.3, -0.6, -1, 0.3, -0.7, -1, 0.3, -0.6, -0.9, 0.3, -0.6, -0.9, 0.3, -0.7, -1, 0.3, -0.7, 0.9, 0.3, -0.6, -0.9, 0.3, -0.7, -0.9, 0.3, -0.6, 0.9, 0.3, -0.6, 0.9, 0.3, -0.7, -0.9, 0.3, -0.7, 1, 0.3, -0.6, 0.9, 0.3, -0.7, 0.9, 0.3, -0.6, 1, 0.3, -0.6, 1, 0.3, -0.7, 0.9, 0.3, -0.7, 0.1, 0.5, -0.7, -0.1, 0.5, -0.8, -0.1, 0.5, -0.7, 0.1, 0.5, -0.7, 0.1, 0.5, -0.8, -0.1, 0.5, -0.8, -0.1, 0.6, -0.7, -0.2, 0.6, -0.8, -0.2, 0.6, -0.7, -0.1, 0.6, -0.7, -0.1, 0.6, -0.8, -0.2, 0.6, -0.8, 0.2, 0.6, -0.7, 0.1, 0.6, -0.8, 0.1, 0.6, -0.7, 0.2, 0.6, -0.7, 0.2, 0.6, -0.8, 0.1, 0.6, -0.8, 0.1, 1, -0.7, -0.1, 1, -0.8, -0.1, 1, -0.7, 0.1, 1, -0.7, 0.1, 1, -0.8, -0.1, 1, -0.8, 0.1, 0.6, -0.7, -0.1, 0.6, -0.7, -0.1, 0.6, -0.8, 0.1, 0.6, -0.7, -0.1, 0.6, -0.8, 0.1, 0.6, -0.8, -0.1, 1, -0.7, -0.2, 1, -0.7, -0.2, 1, -0.8, -0.1, 1, -0.7, -0.2, 1, -0.8, -0.1, 1, -0.8, 0.2, 1, -0.7, 0.1, 1, -0.7, 0.1, 1, -0.8, 0.2, 1, -0.7, 0.1, 1, -0.8, 0.2, 1, -0.8, 0.1, 1.1, -0.7, -0.1, 1.1, -0.7, -0.1, 1.1, -0.8, 0.1, 1.1, -0.7, -0.1, 1.1, -0.8, 0.1, 1.1, -0.8, -0.9, 1.3, -0.6, -1, 1.3, -0.6, -1, 1.3, -0.7, -0.9, 1.3, -0.6, -1, 1.3, -0.7, -0.9, 1.3, -0.7, 0.9, 1.3, -0.6, -0.9, 1.3, -0.6, -0.9, 1.3, -0.7, 0.9, 1.3, -0.6, -0.9, 1.3, -0.7, 0.9, 1.3, -0.7, 1, 1.3, -0.6, 0.9, 1.3, -0.6, 0.9, 1.3, -0.7, 1, 1.3, -0.6, 0.9, 1.3, -0.7, 1, 1.3, -0.7, -1, 1.4, -0.5, -1.1, 1.4, -0.5, -1.1, 1.4, -0.6, -1, 1.4, -0.5, -1.1, 1.4, -0.6, -1, 1.4, -0.6, 1, 1.4, -0.5, -1, 1.4, -0.5, -1, 1.4, -0.6, 1, 1.4, -0.5, -1, 1.4, -0.6, 1, 1.4, -0.6, 1.1, 1.4, -0.5, 1, 1.4, -0.5, 1, 1.4, -0.6, 1.1, 1.4, -0.5, 1, 1.4, -0.6, 1.1, 1.4, -0.6)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_emsru"]
-size = Vector3(1.96143, 17.7303, 42.3412)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_emsru"]
+transparency = 1
+albedo_color = Color(0, 1, 1, 0.27451)
+
+[sub_resource type="BoxMesh" id="BoxMesh_yiwsw"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_emsru"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[sub_resource type="LabelSettings" id="LabelSettings_emsru"]
+font_size = 64
 
 [sub_resource type="LabelSettings" id="LabelSettings_fj7yv"]
-font_size = 20
+font_size = 32
 
 [sub_resource type="LabelSettings" id="LabelSettings_aqk2v"]
-font_size = 12
+font_size = 24
 
 [sub_resource type="LabelSettings" id="LabelSettings_036b0"]
-font_size = 12
+font_size = 24
 
 [sub_resource type="LabelSettings" id="LabelSettings_tlwt5"]
-font_size = 25
+font_size = 48
 
 [node name="main" type="Node"]
 script = ExtResource("1_0xm2m")
@@ -2980,54 +2989,72 @@ transform = Transform3D(0.0957571, -0.241712, 0.357634, -0.85949, -0.509401, -0.
 [node name="camera_5" parent="ALL_MODEL/cctv room/cctv" instance=ExtResource("111_5l8pw")]
 transform = Transform3D(0.0491815, -0.0141823, 0.369885, -0.841574, -0.539084, 0.0125144, 0.537898, -0.842132, -0.0142402, 13.3224, 8.30317, -241.896)
 
-[node name="invisible_wall" type="StaticBody3D" parent="ALL_MODEL"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53.6643, -1.96881, -13.1562)
+[node name="invisible_wall" type="MeshInstance3D" parent="ALL_MODEL"]
+transform = Transform3D(-8.8942e-07, 0, 1, 0, 10.6899, 0, -20.3476, 0, -4.37114e-08, 54.4474, -1.52526, -12.0213)
+material_override = SubResource("StandardMaterial3D_emsru")
+cast_shadow = 0
+mesh = SubResource("BoxMesh_yiwsw")
+skeleton = NodePath("../..")
 
-[node name="invisible_wall" type="CollisionShape3D" parent="ALL_MODEL/invisible_wall"]
-shape = SubResource("BoxShape3D_emsru")
+[node name="StaticBody3D" type="StaticBody3D" parent="ALL_MODEL/invisible_wall"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ALL_MODEL/invisible_wall/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_emsru")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="MainMenu" type="PanelContainer" parent="CanvasLayer"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 423.0
-offset_top = 227.0
-offset_right = -423.0
-offset_bottom = -227.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -451.0
+offset_top = -411.5
+offset_right = 451.0
+offset_bottom = 411.5
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MainMenu"]
 layout_mode = 2
-theme_override_constants/margin_left = 15
-theme_override_constants/margin_top = 15
-theme_override_constants/margin_right = 15
-theme_override_constants/margin_bottom = 15
+size_flags_vertical = 4
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 200
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 100
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MainMenu/MarginContainer"]
 layout_mode = 2
-theme_override_constants/separation = 15
-
-[node name="Label" type="Label" parent="CanvasLayer/MainMenu/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "Main Menu"
-horizontal_alignment = 1
-vertical_alignment = 1
+theme_override_constants/separation = 30
 
 [node name="HostButton" type="Button" parent="CanvasLayer/MainMenu/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 50
 text = "Host"
 
 [node name="JoinButton" type="Button" parent="CanvasLayer/MainMenu/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 50
 text = "Join"
 
 [node name="AddressEntry" type="LineEdit" parent="CanvasLayer/MainMenu/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 50
 placeholder_text = "Enter Address to Join Here"
 alignment = 1
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 509.0
+offset_top = 185.0
+offset_right = 1411.0
+offset_bottom = 273.0
+text = "Main Menu"
+label_settings = SubResource("LabelSettings_emsru")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="HUD" type="Control" parent="CanvasLayer"]
 visible = false
@@ -3042,14 +3069,20 @@ mouse_filter = 2
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/HUD"]
 layout_mode = 1
 offset_right = 56.0
-offset_bottom = 46.0
+offset_bottom = 73.0
 size_flags_horizontal = 4
+theme_override_constants/separation = 10
 
 [node name="IDROOM" type="PanelContainer" parent="CanvasLayer/HUD/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 
-[node name="Idroom_label" type="Label" parent="CanvasLayer/HUD/HBoxContainer/IDROOM"]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/HUD/HBoxContainer/IDROOM"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+
+[node name="Idroom_label" type="Label" parent="CanvasLayer/HUD/HBoxContainer/IDROOM/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 label_settings = SubResource("LabelSettings_fj7yv")
@@ -3057,6 +3090,7 @@ label_settings = SubResource("LabelSettings_fj7yv")
 [node name="CopyButton" type="Button" parent="CanvasLayer/HUD/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 30
 text = "COPY"
 
 [node name="Playerlist" type="PanelContainer" parent="CanvasLayer/HUD"]
@@ -3065,9 +3099,9 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 1.0
-offset_top = 73.0
-offset_right = -1007.0
-offset_bottom = -233.0
+offset_top = 89.0
+offset_right = -1634.0
+offset_bottom = -217.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -3075,23 +3109,24 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
+theme_override_font_sizes/font_size = 50
 label_settings = SubResource("LabelSettings_aqk2v")
 
 [node name="StartButton" type="Button" parent="CanvasLayer/HUD"]
 layout_mode = 1
-anchors_preset = -1
+anchors_preset = 7
 anchor_left = 0.5
-anchor_top = 0.941358
+anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 0.941358
-offset_left = -106.0
-offset_top = -120.0
-offset_right = 106.0
-offset_bottom = -89.0
+anchor_bottom = 1.0
+offset_left = -156.0
+offset_top = -256.0
+offset_right = 166.0
+offset_bottom = -179.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_font_sizes/font_size = 50
 text = "START"
-metadata/_edit_use_anchors_ = true
 
 [node name="Status" type="Label" parent="CanvasLayer/HUD"]
 layout_mode = 1
@@ -3100,9 +3135,9 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_top = -89.0
+offset_top = -88.0
 offset_right = 1.0
-offset_bottom = -63.0
+offset_bottom = -62.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_horizontal = 4
@@ -3116,13 +3151,18 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = 1.0
-offset_top = -43.0
+offset_top = -153.0
 offset_right = 2.0
-offset_bottom = -17.0
+offset_bottom = -118.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 100
 label_settings = SubResource("LabelSettings_tlwt5")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 40.0
 
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
 _spawnable_scenes = PackedStringArray("uid://cxrrxf305rbhf")
@@ -3131,7 +3171,19 @@ spawn_path = NodePath("..")
 [node name="SpawnPoints" type="Node3D" parent="."]
 
 [node name="Marker3D" type="Marker3D" parent="SpawnPoints"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.3032, 0, -18.5327)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, -10, 30)
+
+[node name="Marker3D2" type="Marker3D" parent="SpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.1995, -10, 28.4082)
+
+[node name="Marker3D3" type="Marker3D" parent="SpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.958, -10, 33.6387)
+
+[node name="Marker3D4" type="Marker3D" parent="SpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.4095, -10, 34.1728)
+
+[node name="Marker3D5" type="Marker3D" parent="SpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.1437, -10, 33.0064)
 
 [connection signal="pressed" from="CanvasLayer/MainMenu/MarginContainer/VBoxContainer/HostButton" to="." method="_on_host_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/MainMenu/MarginContainer/VBoxContainer/JoinButton" to="." method="_on_join_button_pressed"]
