@@ -2986,4 +2986,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.1437, -10, 33.0064)
 _spawnable_scenes = PackedStringArray("uid://cxrrxf305rbhf")
 spawn_path = NodePath("..")
 
+[node name="TurnTimer" type="Timer" parent="."]
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="UI"]
+offset_left = 67.0
+offset_top = 2.0
+offset_right = 271.0
+offset_bottom = 40.0
+
+[node name="TimerLabel" type="Label" parent="UI/MarginContainer"]
+layout_mode = 2
+
 [connection signal="spawned" from="MultiplayerSpawner" to="." method="_on_multiplayer_spawner_spawned"]

@@ -10,13 +10,15 @@ func start_game():
 	print("Changing scene to game...")
 	if get_tree():
 		get_tree().change_scene_to_file("res://Scenes/game.tscn")
-		
-		# ✅ Important: delay role assignment slightly to ensure players are spawned
+
 		if multiplayer.is_server():
 			await get_tree().create_timer(1.0).timeout
 			assign_roles()
-	else:
-		push_error("SceneTree not ready!")
+
+			# 👇 Start the game timer after everyone spawns
+			var game_node = get_tree().get_current_scene()
+			if game_node.has_method("start_turn_timer"):
+				game_node.start_turn_timer()
 
 
 # Predefined roles
