@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bpharn5x0y5bc"]
 
 [ext_resource type="PackedScene" uid="uid://blnjd31uociag" path="res://Scenes/server_box.tscn" id="1_uyt0q"]
-[ext_resource type="ArrayMesh" uid="uid://bpcwtmwx8h0v1" path="res://Asset 3D/city/Chairs/Misc/Electronics/Office_Misc_PC_01.obj" id="3_5grkw"]
+[ext_resource type="ArrayMesh" uid="uid://bg5kxelpolwbe" path="res://Asset 3D/city/Chairs/Misc/Electronics/Office_Misc_PC_01.obj" id="3_5grkw"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_uyt0q"]
 

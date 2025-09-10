@@ -1,46 +1,46 @@
-[gd_scene load_steps=47 format=3 uid="uid://cxrrxf305rbhf"]
+[gd_scene load_steps=49 format=3 uid="uid://cxrrxf305rbhf"]
 
 [ext_resource type="Script" uid="uid://cmfwr1aifmv7n" path="res://multiplayerอย่าย้ายไฟล์/Player.gd" id="1_2v3wm"]
-[ext_resource type="Texture2D" uid="uid://dgg3guielb251" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Idle/ตัว/1.png" id="2_ny14h"]
-[ext_resource type="Texture2D" uid="uid://d27o2nn5odu3e" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Idle/ตัว/2.png" id="3_ibah8"]
-[ext_resource type="Texture2D" uid="uid://5qanfa56cxtn" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Idle/ตัว/3.png" id="4_3iwfv"]
-[ext_resource type="Texture2D" uid="uid://c1kmc17g0c0mq" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Idle/ตัว/4.png" id="5_qwsg1"]
-[ext_resource type="Texture2D" uid="uid://bwaicostbde0q" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Idle/ตัว/5.png" id="6_1xqrm"]
-[ext_resource type="Texture2D" uid="uid://deglgguvrw6ea" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Idle/ตัว/6.png" id="7_bfour"]
-[ext_resource type="Texture2D" uid="uid://j0v73le0bfib" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Run/ตัว/1.png" id="8_8gr2b"]
-[ext_resource type="Texture2D" uid="uid://b7x4xugajiiq" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Run/ตัว/2.png" id="9_vl8ci"]
-[ext_resource type="Texture2D" uid="uid://d0dymj7xxhxgg" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Run/ตัว/3.png" id="10_ieltc"]
-[ext_resource type="Texture2D" uid="uid://tw0kp82lwoci" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Run/ตัว/4.png" id="11_fddr8"]
-[ext_resource type="Texture2D" uid="uid://4o1g4ip7gwgw" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Run/ตัว/5.png" id="12_oybyf"]
-[ext_resource type="Texture2D" uid="uid://bx16uo8ti0qdq" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Run/ตัว/6.png" id="13_ajfva"]
-[ext_resource type="Texture2D" uid="uid://ce5n5sfw48y8x" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Run/ตัว/7.png" id="14_5ef02"]
-[ext_resource type="Texture2D" uid="uid://bj6awug6ykpcf" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Run/ตัว/8.png" id="15_pfmca"]
-[ext_resource type="Texture2D" uid="uid://dx1gsl61xlvv3" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Run/ตัว/9.png" id="16_76oay"]
-[ext_resource type="Texture2D" uid="uid://d1w3lxlmpcw6h" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Run/ตัว/10.png" id="17_b4uyv"]
-[ext_resource type="Texture2D" uid="uid://oaeayap40uyf" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Slide/ตัว/1.png" id="18_tw8ou"]
-[ext_resource type="Texture2D" uid="uid://hyref8snrvyx" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Slide/ตัว/2.png" id="19_ygbnx"]
-[ext_resource type="Texture2D" uid="uid://g7qn2fg2co4t" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Slide/ตัว/3.png" id="20_v2t6f"]
-[ext_resource type="Texture2D" uid="uid://bt2xqxvwyaewa" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Slide/ตัว/4.png" id="21_l3lcn"]
-[ext_resource type="Texture2D" uid="uid://c6kxbmgfmc13p" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Idle/สี/ไม่มีชื่อ 12_20250817171242.png" id="22_xry5e"]
-[ext_resource type="Texture2D" uid="uid://hv4e5hmvwvrc" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Idle/สี/ไม่มีชื่อ 12_20250817171245.png" id="23_h6w8y"]
-[ext_resource type="Texture2D" uid="uid://cwc0a58noow4a" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Idle/สี/ไม่มีชื่อ 12_20250817171248.png" id="24_yem3p"]
-[ext_resource type="Texture2D" uid="uid://bxqvihni8pyl7" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Idle/สี/ไม่มีชื่อ 12_20250817171250.png" id="25_86rna"]
-[ext_resource type="Texture2D" uid="uid://q30c6cjb0r4a" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Idle/สี/ไม่มีชื่อ 12_20250817171252.png" id="26_xg1a7"]
-[ext_resource type="Texture2D" uid="uid://dx6ie0knc41k2" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Idle/สี/ไม่มีชื่อ 12_20250817171255.png" id="27_ob4mi"]
-[ext_resource type="Texture2D" uid="uid://vn4l7857x6cc" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Run/สี/1.png" id="28_ax26h"]
-[ext_resource type="Texture2D" uid="uid://b4qeubjduwsde" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Run/สี/2.png" id="29_kh4g0"]
-[ext_resource type="Texture2D" uid="uid://bwe28cd4duphe" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Run/สี/3.png" id="30_mgmjd"]
-[ext_resource type="Texture2D" uid="uid://icqb2uj8e0l3" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Run/สี/4.png" id="31_va2xi"]
-[ext_resource type="Texture2D" uid="uid://dr43ocm3652km" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Run/สี/5.png" id="32_fkf2u"]
-[ext_resource type="Texture2D" uid="uid://kk6dbim3xlib" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Run/สี/6.png" id="33_s7jk6"]
-[ext_resource type="Texture2D" uid="uid://oiibk783kl5w" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Run/สี/7.png" id="34_feeoa"]
-[ext_resource type="Texture2D" uid="uid://cnv6h7hp3w8dt" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Run/สี/8.png" id="35_m6nxt"]
-[ext_resource type="Texture2D" uid="uid://c4djdaogslnr8" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Run/สี/9.png" id="36_ym00c"]
-[ext_resource type="Texture2D" uid="uid://c0loemiiitbjc" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Run/สี/10.png" id="37_ee2o4"]
-[ext_resource type="Texture2D" uid="uid://db2rns1fbarq3" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Slide/สี/1.png" id="38_vie4p"]
-[ext_resource type="Texture2D" uid="uid://cu25ctoyvu405" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Slide/สี/2.png" id="39_0jj5r"]
-[ext_resource type="Texture2D" uid="uid://cdvy45akjn4ts" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Slide/สี/3.png" id="40_77e46"]
-[ext_resource type="Texture2D" uid="uid://b3cq6ubsscu0m" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Slide/สี/4.png" id="41_cy2ki"]
+[ext_resource type="Texture2D" uid="uid://coj7pqliab84o" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Idle/ตัว/1.png" id="2_ny14h"]
+[ext_resource type="Texture2D" uid="uid://2hckqf1n6beq" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Idle/ตัว/2.png" id="3_ibah8"]
+[ext_resource type="Texture2D" uid="uid://dqhy7va7faxgh" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Idle/ตัว/3.png" id="4_3iwfv"]
+[ext_resource type="Texture2D" uid="uid://kjxba86ep82w" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Idle/ตัว/4.png" id="5_qwsg1"]
+[ext_resource type="Texture2D" uid="uid://culq6o14uwd2x" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Idle/ตัว/5.png" id="6_1xqrm"]
+[ext_resource type="Texture2D" uid="uid://bof7ph3dplgoh" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Idle/ตัว/6.png" id="7_bfour"]
+[ext_resource type="Texture2D" uid="uid://coqpjo7b6jrmm" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Run/ตัว/1.png" id="8_8gr2b"]
+[ext_resource type="Texture2D" uid="uid://5qdja82dw88p" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Run/ตัว/2.png" id="9_vl8ci"]
+[ext_resource type="Texture2D" uid="uid://xr038td17ojy" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Run/ตัว/3.png" id="10_ieltc"]
+[ext_resource type="Texture2D" uid="uid://cx83541khqbic" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Run/ตัว/4.png" id="11_fddr8"]
+[ext_resource type="Texture2D" uid="uid://fp1qtxjxkgof" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Run/ตัว/5.png" id="12_oybyf"]
+[ext_resource type="Texture2D" uid="uid://crgymhejflsqb" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Run/ตัว/6.png" id="13_ajfva"]
+[ext_resource type="Texture2D" uid="uid://dyvymwfygbxqx" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Run/ตัว/7.png" id="14_5ef02"]
+[ext_resource type="Texture2D" uid="uid://cmd05k0xpekqp" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Run/ตัว/8.png" id="15_pfmca"]
+[ext_resource type="Texture2D" uid="uid://dhotk53875flq" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Run/ตัว/9.png" id="16_76oay"]
+[ext_resource type="Texture2D" uid="uid://dk6i2cqkl4b0k" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Run/ตัว/10.png" id="17_b4uyv"]
+[ext_resource type="Texture2D" uid="uid://cbofxs7dtf01o" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Slide/ตัว/1.png" id="18_tw8ou"]
+[ext_resource type="Texture2D" uid="uid://cfox86scs8yad" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Slide/ตัว/2.png" id="19_ygbnx"]
+[ext_resource type="Texture2D" uid="uid://c0m6b0e1j6jig" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Slide/ตัว/3.png" id="20_v2t6f"]
+[ext_resource type="Texture2D" uid="uid://io0f7t0kd5se" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Slide/ตัว/4.png" id="21_l3lcn"]
+[ext_resource type="Texture2D" uid="uid://cvbm5ju1kfrgu" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Idle/สี/ไม่มีชื่อ 12_20250817171242.png" id="22_xry5e"]
+[ext_resource type="Texture2D" uid="uid://b5yc55lg066gn" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Idle/สี/ไม่มีชื่อ 12_20250817171245.png" id="23_h6w8y"]
+[ext_resource type="Texture2D" uid="uid://boyskpga0k1o7" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Idle/สี/ไม่มีชื่อ 12_20250817171248.png" id="24_yem3p"]
+[ext_resource type="Texture2D" uid="uid://dew5rociwejmg" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Idle/สี/ไม่มีชื่อ 12_20250817171250.png" id="25_86rna"]
+[ext_resource type="Texture2D" uid="uid://b2wm0g3o5b1nw" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Idle/สี/ไม่มีชื่อ 12_20250817171252.png" id="26_xg1a7"]
+[ext_resource type="Texture2D" uid="uid://jpjy51sd2ebg" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Idle/สี/ไม่มีชื่อ 12_20250817171255.png" id="27_ob4mi"]
+[ext_resource type="Texture2D" uid="uid://ds3uj7x023cg5" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Run/สี/1.png" id="28_ax26h"]
+[ext_resource type="Texture2D" uid="uid://birarhqskp57h" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Run/สี/2.png" id="29_kh4g0"]
+[ext_resource type="Texture2D" uid="uid://ca84phuxre8as" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Run/สี/3.png" id="30_mgmjd"]
+[ext_resource type="Texture2D" uid="uid://bgp7nksa13jqr" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Run/สี/4.png" id="31_va2xi"]
+[ext_resource type="Texture2D" uid="uid://bdxhnt11y41ft" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Run/สี/5.png" id="32_fkf2u"]
+[ext_resource type="Texture2D" uid="uid://bnrppjp4ubvlv" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Run/สี/6.png" id="33_s7jk6"]
+[ext_resource type="Texture2D" uid="uid://c805l2orr6gwk" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Run/สี/7.png" id="34_feeoa"]
+[ext_resource type="Texture2D" uid="uid://btrvq6pct3l8q" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Run/สี/8.png" id="35_m6nxt"]
+[ext_resource type="Texture2D" uid="uid://bkn01fhilwh4f" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Run/สี/9.png" id="36_ym00c"]
+[ext_resource type="Texture2D" uid="uid://ccwe5uvfsbiuj" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Run/สี/10.png" id="37_ee2o4"]
+[ext_resource type="Texture2D" uid="uid://ccpkiqqknq54p" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Slide/สี/1.png" id="38_vie4p"]
+[ext_resource type="Texture2D" uid="uid://bb21quraqdf51" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Slide/สี/2.png" id="39_0jj5r"]
+[ext_resource type="Texture2D" uid="uid://psnnwdis37d0" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Slide/สี/3.png" id="40_77e46"]
+[ext_resource type="Texture2D" uid="uid://c4lfy4d7j6a8f" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Slide/สี/4.png" id="41_cy2ki"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_04cqw"]
 animations = [{
@@ -221,11 +221,19 @@ properties/5/spawn = true
 properties/5/replication_mode = 1
 
 [sub_resource type="FontFile" id="FontFile_tanpb"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
 cache/0/16/0/underline_thickness = 0.0
 cache/0/16/0/scale = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tanpb"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_r5sy0"]
 
 [node name="Player" type="CharacterBody3D"]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
@@ -243,6 +251,7 @@ animation = &"idle"
 
 [node name="Camera3D" type="Camera3D" parent="body/SpringArm3D"]
 transform = Transform3D(3.33333, 0, 0, 0, 3.33333, 0, 0, 0, 3.33333, 0, 0, 32)
+cull_mask = 1048573
 
 [node name="color" type="AnimatedSprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.642788, 0.766045, 0, -0.766045, 0.642788, 0, 0, 0)
@@ -263,6 +272,11 @@ shape = SubResource("BoxShape3D_ny14h")
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
 replication_config = SubResource("SceneReplicationConfig_hn37q")
 
+[node name="RoleLabel" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.02236, -3.00186)
+pixel_size = 0.02
+font = SubResource("FontFile_tanpb")
+
 [node name="Label3D" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 3.90637, -3.00186)
 billboard = 1
@@ -270,7 +284,8 @@ modulate = Color(0, 0, 0, 1)
 text = "Player"
 font_size = 250
 
-[node name="RoleLabel" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.667, 6.98608, -2.367)
-pixel_size = 0.02
-font = SubResource("FontFile_tanpb")
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, 0, 0)
+layers = 2
+material_override = SubResource("StandardMaterial3D_tanpb")
+mesh = SubResource("SphereMesh_r5sy0")

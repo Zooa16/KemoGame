@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://kad3v4mikcsg"]
+[gd_scene load_steps=3 format=3 uid="uid://kad3v4mikcsg"]
 
 [ext_resource type="Script" uid="uid://bwxjngyqto770" path="res://start_menu.gd" id="1_jgtwh"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_juhg0"]
+font_size = 23
 
 [node name="StartMenu" type="Control"]
 layout_mode = 3
@@ -44,5 +47,23 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 50
 text = "Tutorial
 "
+
+[node name="Playername" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 77.0
+offset_right = 428.0
+offset_bottom = 135.0
+placeholder_text = "your name"
+alignment = 1
+
+[node name="Player Name label" type="Label" parent="Playername"]
+layout_mode = 0
+offset_left = -2.0
+offset_top = -44.0
+offset_right = 165.0
+offset_bottom = -10.0
+text = "Player Name : "
+label_settings = SubResource("LabelSettings_juhg0")
 
 [connection signal="pressed" from="Playbutton" to="." method="_on_play_pressed"]

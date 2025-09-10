@@ -18,13 +18,13 @@ var roles: Array = [
 
 # Optional: you can also keep colors, icons, descriptions here
 var role_colors := {
-	"Data Retriever": Color.BLUE,
-	"Support": Color.BLUE,
-	"The Oracle": Color.BLUE,
-	"Tracer": Color.RED,
-	"Hacker": Color.BLUE,
-	"Enforcer": Color.RED,
-	"System Controller": Color.RED,
+    "Data Retriever": Color.BLUE,
+    "Support": Color.BLUE,
+    "The Oracle": Color.BLUE,
+    "Tracer": Color.RED,
+    "Hacker": Color.BLUE,
+    "Enforcer": Color.RED,
+    "System Controller": Color.RED,
 }
 
 
