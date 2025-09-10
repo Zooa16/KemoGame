@@ -1,11 +1,17 @@
 # game.gd
 extends Node
 
+@onready var timer_label: Label = $UI/MarginContainer/TimerLabel
+@onready var turn_timer: Timer = $TurnTimer
 # Player spawn point
 @onready var spawn_points_parent = $SpawnPoints
 var spawn_points: Array = []
+# 3 minutes per turn
+var turn_duration := 180
+var time_left := 0
 
 func _ready():
+	turn_timer.timeout.connect(_on_TurnTimer_timeout)
 	for child in spawn_points_parent.get_children():
 		if child is Marker3D:
 			spawn_points.append(child)
@@ -24,8 +30,11 @@ func _ready():
 
 func _on_peer_connected(id: int):
 	spawn_player(id)
-	# อัปเดตสีและชื่อของผู้เล่นทั้งหมดเมื่อมีคนใหม่เข้ามา
 	update_all_player_properties()
+
+	# Server tells the new player the remaining time
+	if multiplayer.is_server():
+		rpc_id(id, "update_timer_label", time_left)
 	
 # despawn เมื่อ peer หลุด
 func _on_peer_disconnected(id: int):
@@ -80,3 +89,43 @@ func update_all_player_properties():
 		# อัปเดตชื่อ
 		if Global.player_names.has(player_id):
 			node.set_player_name.rpc(Global.player_names[player_id])
+
+
+# -------------------------
+# TURN SYSTEM
+# -------------------------
+func start_turn_timer():
+	if not multiplayer.is_server():
+		return
+
+	time_left = turn_duration
+	timer_label.visible = true
+	update_timer_label(time_left)
+
+	# Use 1-second ticks for updates
+	turn_timer.wait_time = 1.0
+	turn_timer.one_shot = false
+	turn_timer.start()
+
+func _on_TurnTimer_timeout():
+	if multiplayer.is_server():
+		time_left -= 1
+		if time_left < 0:
+			turn_timer.stop()
+			rpc("go_to_voting_phase")
+		else:
+			# 👇 tell everyone (including self) to update UI
+			rpc("update_timer_label", time_left)
+
+@rpc("any_peer", "call_local")
+func update_timer_label(new_time: int):
+	time_left = new_time
+	timer_label.visible = true
+	var minutes = int(time_left / 60)
+	var seconds = int(time_left % 60)
+	timer_label.text = "%02d:%02d" % [minutes, seconds]
+	
+@rpc("any_peer", "call_local")
+func go_to_voting_phase():
+	var voting_scene = preload("res://scenes/Voting.tscn")
+	get_tree().change_scene_to_packed(voting_scene)
