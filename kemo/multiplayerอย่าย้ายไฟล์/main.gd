@@ -11,6 +11,11 @@ extends Node
 @onready var lobby_spawn_points_parent = $SpawnPoints
 @onready var copy_button = $CanvasLayer/HUD/HBoxContainer/CopyButton
 @onready var background = $CanvasLayer/TextureRect
+@onready var game_start_timer: Timer = $CountdownTimer 
+
+var countdown_duration = 5.0 # เวลาที่ใช้ในการนับถอยหลัง (5 วินาที)
+var is_counting_down = false
+
 var lobby_spawn_points: Array = []
 
 const PLAYER_COLORS: Array[Color] = [
@@ -42,6 +47,8 @@ func _ready():
     multiplayer.connection_failed.connect(connection_failed)
     multiplayer.connected_to_server.connect(connected_to_server)
     copy_button.pressed.connect(_on_copy_button_pressed)
+    start_button.pressed.connect(Callable(self, "_on_start_button_pressed"))
+    game_start_timer.timeout.connect(Callable(self, "_on_countdown_timeout"))
  
     for child in lobby_spawn_points_parent.get_children():
         if child is Marker3D:
@@ -52,6 +59,10 @@ func _process(_delta):
     start_button.visible = multiplayer.is_server()
     if multiplayer.is_server():
         start_button.disabled = connected_players.size() <= 1
+    if is_counting_down:
+        var time_left_int = int(game_start_timer.time_left)
+        if time_left_int >= 0:
+            status.text = "เกมจะเริ่มใน " + str(time_left_int + 1) + "..."
 
 func _unhandled_input(_event):
     if Input.is_action_just_pressed("quit"):
@@ -229,8 +240,50 @@ func update_player_ui():
     playerlist_label.text = names_text
 
 func _on_start_button_pressed():
+    # โค้ดนี้ทำงานเฉพาะบนเครื่องของโฮสต์เท่านั้น
+    if not multiplayer.is_server():
+        return
+
+    if not is_counting_down:
+        # ถ้ายังไม่มีการนับถอยหลัง ให้เริ่มการนับ
+        is_counting_down = true
+        game_start_timer.wait_time = countdown_duration
+        game_start_timer.start()
+        
+        # ส่ง RPC ไปบอกทุกคนว่าให้เริ่มนับถอยหลัง
+        _rpc_start_countdown.rpc(countdown_duration)
+    else:
+        # ถ้ากำลังนับถอยหลังอยู่ ให้ยกเลิกการนับ
+        is_counting_down = false
+        game_start_timer.stop()
+        
+        # ส่ง RPC ไปบอกทุกคนว่าให้ยกเลิกการนับถอยหลัง
+        _rpc_cancel_countdown.rpc()
+
+@rpc("any_peer", "reliable", "call_local")
+func _rpc_start_countdown(duration: float):
+    is_counting_down = true
+    start_button.text = "Cancel"
+    game_start_timer.wait_time = duration
+    game_start_timer.start()
+
+@rpc("any_peer", "reliable", "call_local")
+func _rpc_cancel_countdown():
+    is_counting_down = false
+    start_button.text = "Start"
+    game_start_timer.stop()
+    status.text = ""
+
+func _on_countdown_timeout():
+    is_counting_down = false
+    start_button.text = "Start"
+    
     if multiplayer.is_server():
-        GameManager.start_game.rpc()
+        # เมื่อเวลาหมด โฮสต์จะเรียกฟังก์ชันเริ่มเกมใน GameManager
+        get_node("/root/GameManager").start_game.rpc()
+    
+    # RPC นี้จะถูกเรียกทันทีหลังจากที่ RPC start_game ถูกเรียกโดย Host เพื่อซิงค์ status ให้เป็นค่าเริ่มต้น
+    _rpc_cancel_countdown.rpc()
 
 func _on_copy_button_pressed():
     DisplayServer.clipboard_set(str(room_code))

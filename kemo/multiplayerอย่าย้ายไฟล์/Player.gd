@@ -64,8 +64,14 @@ func set_role(new_role: String):
         # 👇 ADD ROLE REVEAL OVERLAY HERE
         var reveal_scene = preload("res://Scenes/role_reveal.tscn").instantiate()
         get_tree().root.add_child(reveal_scene)
-        reveal_scene.show_role(role, 6)
-
+        
+        # แก้ไขบรรทัดนี้: ลบ duration ออก เพราะเราจะกำหนดใน Role_reveal.gd โดยตรง
+        reveal_scene.show_role(role)
+        
+        # ⭐️ เพิ่มโค้ดส่วนนี้เพื่อเชื่อมต่อสัญญาณ
+        if multiplayer.is_server():
+            reveal_scene.role_reveal_finished.connect(Callable(get_tree().get_root().get_node("GameManager"), "on_role_reveal_finished"))
+            
     else:
         if role_label:
             role_label.text = ""
