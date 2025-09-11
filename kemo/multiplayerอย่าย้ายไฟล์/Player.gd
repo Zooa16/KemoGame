@@ -41,7 +41,7 @@ func _ready():
         camera.current = true
         spring_arm.spring_length = 32.0
         spring_arm.collision_mask = 1
-    
+    set_player_name(Global.my_player_name)
     if role_label:
         role_label.text = ""  # Start empty, but keep visible
         role_label.visible = true

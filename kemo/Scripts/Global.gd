@@ -1,6 +1,7 @@
 # Global.gd
 extends Node
 
+var my_player_name: String = "Player" # กำหนดค่าเริ่มต้นเป็น "Player"
 var player_colors: Dictionary = {}
 var player_names: Dictionary = {}
 
