@@ -286,6 +286,7 @@ font_size = 250
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, 0, 0)
+visible = false
 layers = 2
 material_override = SubResource("StandardMaterial3D_tanpb")
 mesh = SubResource("SphereMesh_r5sy0")
