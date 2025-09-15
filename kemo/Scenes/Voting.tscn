@@ -7,6 +7,8 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_0y5kf"]
 font_size = 64
+outline_size = 24
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_l75qi"]
 font_size = 32
@@ -17,7 +19,7 @@ font_size = 32
 font_color = Color(1, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_eho4l"]
-font_size = 64
+font_size = 40
 
 [sub_resource type="LabelSettings" id="LabelSettings_i0ew2"]
 font_size = 64
@@ -42,9 +44,10 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -595.5
-offset_right = 595.5
-offset_bottom = 88.0
+offset_left = -583.0
+offset_top = 47.0
+offset_right = 608.0
+offset_bottom = 135.0
 grow_horizontal = 2
 text = "Who will be excluded from the Mission"
 label_settings = SubResource("LabelSettings_0y5kf")
@@ -97,6 +100,264 @@ offset_top = 96.0
 offset_right = 630.0
 offset_bottom = 289.0
 
+[node name="Number of votes" type="Control" parent="Player/player1"]
+visible = false
+anchors_preset = 0
+offset_left = -36.4095
+offset_top = 0.159607
+offset_right = 3.59055
+offset_bottom = 40.1596
+
+[node name="1" type="Control" parent="Player/player1/Number of votes"]
+anchors_preset = 0
+offset_left = 27.0146
+offset_top = 0.159612
+offset_right = 222.015
+offset_bottom = 192.16
+
+[node name="body" type="TextureRect" parent="Player/player1/Number of votes/1"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Player/player1/Number of votes/1"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_0y5kf")
+
+[node name="2" type="Control" parent="Player/player1/Number of votes"]
+anchors_preset = 0
+offset_left = 70.7067
+offset_top = 0.159612
+offset_right = 265.707
+offset_bottom = 192.16
+
+[node name="body" type="TextureRect" parent="Player/player1/Number of votes/2"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Player/player1/Number of votes/2"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_0y5kf")
+
+[node name="3" type="Control" parent="Player/player1/Number of votes"]
+anchors_preset = 0
+offset_left = 115.808
+offset_top = 0.159612
+offset_right = 310.808
+offset_bottom = 192.16
+
+[node name="body" type="TextureRect" parent="Player/player1/Number of votes/3"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Player/player1/Number of votes/3"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_0y5kf")
+
+[node name="4" type="Control" parent="Player/player1/Number of votes"]
+anchors_preset = 0
+offset_left = 159.5
+offset_top = 0.159612
+offset_right = 354.5
+offset_bottom = 192.16
+
+[node name="body" type="TextureRect" parent="Player/player1/Number of votes/4"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Player/player1/Number of votes/4"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_0y5kf")
+
+[node name="5" type="Control" parent="Player/player1/Number of votes"]
+anchors_preset = 0
+offset_left = 204.602
+offset_top = 0.159612
+offset_right = 399.602
+offset_bottom = 192.16
+
+[node name="body" type="TextureRect" parent="Player/player1/Number of votes/5"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Player/player1/Number of votes/5"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_0y5kf")
+
+[node name="6" type="Control" parent="Player/player1/Number of votes"]
+anchors_preset = 0
+offset_left = 248.294
+offset_top = 0.159612
+offset_right = 443.294
+offset_bottom = 192.16
+
+[node name="body" type="TextureRect" parent="Player/player1/Number of votes/6"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Player/player1/Number of votes/6"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_0y5kf")
+
+[node name="7" type="Control" parent="Player/player1/Number of votes"]
+anchors_preset = 0
+offset_left = 293.396
+offset_top = 0.159612
+offset_right = 488.396
+offset_bottom = 192.16
+
+[node name="body" type="TextureRect" parent="Player/player1/Number of votes/7"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Player/player1/Number of votes/7"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_0y5kf")
+
+[node name="8" type="Control" parent="Player/player1/Number of votes"]
+anchors_preset = 0
+offset_left = 337.088
+offset_top = 0.159612
+offset_right = 532.088
+offset_bottom = 192.16
+
+[node name="body" type="TextureRect" parent="Player/player1/Number of votes/8"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Player/player1/Number of votes/8"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_0y5kf")
+
+[node name="9" type="Control" parent="Player/player1/Number of votes"]
+anchors_preset = 0
+offset_left = 382.189
+offset_top = 0.159612
+offset_right = 577.189
+offset_bottom = 192.16
+
+[node name="body" type="TextureRect" parent="Player/player1/Number of votes/9"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Player/player1/Number of votes/9"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_0y5kf")
+
+[node name="10" type="Control" parent="Player/player1/Number of votes"]
+anchors_preset = 0
+offset_left = 425.881
+offset_top = 0.159612
+offset_right = 620.881
+offset_bottom = 192.16
+
+[node name="body" type="TextureRect" parent="Player/player1/Number of votes/10"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Player/player1/Number of votes/10"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_0y5kf")
+
 [node name="player1_name" type="Label" parent="Player/player1"]
 layout_mode = 0
 offset_left = 191.0
@@ -136,7 +397,267 @@ offset_top = 96.0
 offset_right = 1252.0
 offset_bottom = 289.0
 
+[node name="Number of votes" type="Control" parent="Player/player2"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = -36.4094
+offset_top = 0.159607
+offset_right = 3.59058
+offset_bottom = 40.1596
+
+[node name="1" type="Control" parent="Player/player2/Number of votes"]
+anchors_preset = 0
+offset_left = 27.0146
+offset_top = 0.159612
+offset_right = 222.015
+offset_bottom = 192.16
+
+[node name="body" type="TextureRect" parent="Player/player2/Number of votes/1"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Player/player2/Number of votes/1"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_0y5kf")
+
+[node name="2" type="Control" parent="Player/player2/Number of votes"]
+anchors_preset = 0
+offset_left = 70.7067
+offset_top = 0.159612
+offset_right = 265.707
+offset_bottom = 192.16
+
+[node name="body" type="TextureRect" parent="Player/player2/Number of votes/2"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Player/player2/Number of votes/2"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_0y5kf")
+
+[node name="3" type="Control" parent="Player/player2/Number of votes"]
+anchors_preset = 0
+offset_left = 115.808
+offset_top = 0.159612
+offset_right = 310.808
+offset_bottom = 192.16
+
+[node name="body" type="TextureRect" parent="Player/player2/Number of votes/3"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Player/player2/Number of votes/3"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_0y5kf")
+
+[node name="4" type="Control" parent="Player/player2/Number of votes"]
+anchors_preset = 0
+offset_left = 159.5
+offset_top = 0.159612
+offset_right = 354.5
+offset_bottom = 192.16
+
+[node name="body" type="TextureRect" parent="Player/player2/Number of votes/4"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Player/player2/Number of votes/4"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_0y5kf")
+
+[node name="5" type="Control" parent="Player/player2/Number of votes"]
+anchors_preset = 0
+offset_left = 204.602
+offset_top = 0.159612
+offset_right = 399.602
+offset_bottom = 192.16
+
+[node name="body" type="TextureRect" parent="Player/player2/Number of votes/5"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Player/player2/Number of votes/5"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_0y5kf")
+
+[node name="6" type="Control" parent="Player/player2/Number of votes"]
+anchors_preset = 0
+offset_left = 248.294
+offset_top = 0.159612
+offset_right = 443.294
+offset_bottom = 192.16
+
+[node name="body" type="TextureRect" parent="Player/player2/Number of votes/6"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Player/player2/Number of votes/6"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_0y5kf")
+
+[node name="7" type="Control" parent="Player/player2/Number of votes"]
+anchors_preset = 0
+offset_left = 293.396
+offset_top = 0.159612
+offset_right = 488.396
+offset_bottom = 192.16
+
+[node name="body" type="TextureRect" parent="Player/player2/Number of votes/7"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Player/player2/Number of votes/7"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_0y5kf")
+
+[node name="8" type="Control" parent="Player/player2/Number of votes"]
+anchors_preset = 0
+offset_left = 337.088
+offset_top = 0.159612
+offset_right = 532.088
+offset_bottom = 192.16
+
+[node name="body" type="TextureRect" parent="Player/player2/Number of votes/8"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Player/player2/Number of votes/8"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_0y5kf")
+
+[node name="9" type="Control" parent="Player/player2/Number of votes"]
+anchors_preset = 0
+offset_left = 382.189
+offset_top = 0.159612
+offset_right = 577.189
+offset_bottom = 192.16
+
+[node name="body" type="TextureRect" parent="Player/player2/Number of votes/9"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Player/player2/Number of votes/9"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_0y5kf")
+
+[node name="10" type="Control" parent="Player/player2/Number of votes"]
+anchors_preset = 0
+offset_left = 425.881
+offset_top = 0.159612
+offset_right = 620.881
+offset_bottom = 192.16
+
+[node name="body" type="TextureRect" parent="Player/player2/Number of votes/10"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Player/player2/Number of votes/10"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_0y5kf")
+
 [node name="player2_name" type="Label" parent="Player/player2"]
+visible = false
 layout_mode = 0
 offset_left = 191.0
 offset_top = 51.0
@@ -160,6 +681,7 @@ texture = ExtResource("3_0y5kf")
 
 [node name="Selected" type="TextureRect" parent="Player/player2"]
 visible = false
+layout_mode = 0
 offset_left = 514.675
 offset_top = -50.9251
 offset_right = 1714.68
@@ -173,6 +695,265 @@ offset_left = 1278.0
 offset_top = 96.0
 offset_right = 1873.0
 offset_bottom = 289.0
+
+[node name="Number of votes" type="Control" parent="Player/player3"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = -36.4094
+offset_top = 0.159607
+offset_right = 3.59058
+offset_bottom = 40.1596
+
+[node name="1" type="Control" parent="Player/player3/Number of votes"]
+anchors_preset = 0
+offset_left = 27.0146
+offset_top = 0.159612
+offset_right = 222.015
+offset_bottom = 192.16
+
+[node name="body" type="TextureRect" parent="Player/player3/Number of votes/1"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Player/player3/Number of votes/1"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_0y5kf")
+
+[node name="2" type="Control" parent="Player/player3/Number of votes"]
+anchors_preset = 0
+offset_left = 70.7067
+offset_top = 0.159612
+offset_right = 265.707
+offset_bottom = 192.16
+
+[node name="body" type="TextureRect" parent="Player/player3/Number of votes/2"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Player/player3/Number of votes/2"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_0y5kf")
+
+[node name="3" type="Control" parent="Player/player3/Number of votes"]
+anchors_preset = 0
+offset_left = 115.808
+offset_top = 0.159612
+offset_right = 310.808
+offset_bottom = 192.16
+
+[node name="body" type="TextureRect" parent="Player/player3/Number of votes/3"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Player/player3/Number of votes/3"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_0y5kf")
+
+[node name="4" type="Control" parent="Player/player3/Number of votes"]
+anchors_preset = 0
+offset_left = 159.5
+offset_top = 0.159612
+offset_right = 354.5
+offset_bottom = 192.16
+
+[node name="body" type="TextureRect" parent="Player/player3/Number of votes/4"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Player/player3/Number of votes/4"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_0y5kf")
+
+[node name="5" type="Control" parent="Player/player3/Number of votes"]
+anchors_preset = 0
+offset_left = 204.602
+offset_top = 0.159612
+offset_right = 399.602
+offset_bottom = 192.16
+
+[node name="body" type="TextureRect" parent="Player/player3/Number of votes/5"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Player/player3/Number of votes/5"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_0y5kf")
+
+[node name="6" type="Control" parent="Player/player3/Number of votes"]
+anchors_preset = 0
+offset_left = 248.294
+offset_top = 0.159612
+offset_right = 443.294
+offset_bottom = 192.16
+
+[node name="body" type="TextureRect" parent="Player/player3/Number of votes/6"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Player/player3/Number of votes/6"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_0y5kf")
+
+[node name="7" type="Control" parent="Player/player3/Number of votes"]
+anchors_preset = 0
+offset_left = 293.396
+offset_top = 0.159612
+offset_right = 488.396
+offset_bottom = 192.16
+
+[node name="body" type="TextureRect" parent="Player/player3/Number of votes/7"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Player/player3/Number of votes/7"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_0y5kf")
+
+[node name="8" type="Control" parent="Player/player3/Number of votes"]
+anchors_preset = 0
+offset_left = 337.088
+offset_top = 0.159612
+offset_right = 532.088
+offset_bottom = 192.16
+
+[node name="body" type="TextureRect" parent="Player/player3/Number of votes/8"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Player/player3/Number of votes/8"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_0y5kf")
+
+[node name="9" type="Control" parent="Player/player3/Number of votes"]
+anchors_preset = 0
+offset_left = 382.189
+offset_top = 0.159612
+offset_right = 577.189
+offset_bottom = 192.16
+
+[node name="body" type="TextureRect" parent="Player/player3/Number of votes/9"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Player/player3/Number of votes/9"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_0y5kf")
+
+[node name="10" type="Control" parent="Player/player3/Number of votes"]
+anchors_preset = 0
+offset_left = 425.881
+offset_top = 0.159612
+offset_right = 620.881
+offset_bottom = 192.16
+
+[node name="body" type="TextureRect" parent="Player/player3/Number of votes/10"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Player/player3/Number of votes/10"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_0y5kf")
 
 [node name="player3_name" type="Label" parent="Player/player3"]
 layout_mode = 0
@@ -198,6 +979,7 @@ texture = ExtResource("3_0y5kf")
 
 [node name="Selected" type="TextureRect" parent="Player/player3"]
 visible = false
+layout_mode = 0
 offset_left = 514.675
 offset_top = -50.9251
 offset_right = 1714.68
@@ -211,6 +993,265 @@ offset_left = 37.0
 offset_top = 346.0
 offset_right = 632.0
 offset_bottom = 539.0
+
+[node name="Number of votes" type="Control" parent="Player/player4"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = -36.4094
+offset_top = 0.159607
+offset_right = 3.59058
+offset_bottom = 40.1596
+
+[node name="1" type="Control" parent="Player/player4/Number of votes"]
+anchors_preset = 0
+offset_left = 27.0146
+offset_top = 0.159612
+offset_right = 222.015
+offset_bottom = 192.16
+
+[node name="body" type="TextureRect" parent="Player/player4/Number of votes/1"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Player/player4/Number of votes/1"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_0y5kf")
+
+[node name="2" type="Control" parent="Player/player4/Number of votes"]
+anchors_preset = 0
+offset_left = 70.7067
+offset_top = 0.159612
+offset_right = 265.707
+offset_bottom = 192.16
+
+[node name="body" type="TextureRect" parent="Player/player4/Number of votes/2"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Player/player4/Number of votes/2"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_0y5kf")
+
+[node name="3" type="Control" parent="Player/player4/Number of votes"]
+anchors_preset = 0
+offset_left = 115.808
+offset_top = 0.159612
+offset_right = 310.808
+offset_bottom = 192.16
+
+[node name="body" type="TextureRect" parent="Player/player4/Number of votes/3"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Player/player4/Number of votes/3"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_0y5kf")
+
+[node name="4" type="Control" parent="Player/player4/Number of votes"]
+anchors_preset = 0
+offset_left = 159.5
+offset_top = 0.159612
+offset_right = 354.5
+offset_bottom = 192.16
+
+[node name="body" type="TextureRect" parent="Player/player4/Number of votes/4"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Player/player4/Number of votes/4"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_0y5kf")
+
+[node name="5" type="Control" parent="Player/player4/Number of votes"]
+anchors_preset = 0
+offset_left = 204.602
+offset_top = 0.159612
+offset_right = 399.602
+offset_bottom = 192.16
+
+[node name="body" type="TextureRect" parent="Player/player4/Number of votes/5"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Player/player4/Number of votes/5"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_0y5kf")
+
+[node name="6" type="Control" parent="Player/player4/Number of votes"]
+anchors_preset = 0
+offset_left = 248.294
+offset_top = 0.159612
+offset_right = 443.294
+offset_bottom = 192.16
+
+[node name="body" type="TextureRect" parent="Player/player4/Number of votes/6"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Player/player4/Number of votes/6"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_0y5kf")
+
+[node name="7" type="Control" parent="Player/player4/Number of votes"]
+anchors_preset = 0
+offset_left = 293.396
+offset_top = 0.159612
+offset_right = 488.396
+offset_bottom = 192.16
+
+[node name="body" type="TextureRect" parent="Player/player4/Number of votes/7"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Player/player4/Number of votes/7"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_0y5kf")
+
+[node name="8" type="Control" parent="Player/player4/Number of votes"]
+anchors_preset = 0
+offset_left = 337.088
+offset_top = 0.159612
+offset_right = 532.088
+offset_bottom = 192.16
+
+[node name="body" type="TextureRect" parent="Player/player4/Number of votes/8"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Player/player4/Number of votes/8"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_0y5kf")
+
+[node name="9" type="Control" parent="Player/player4/Number of votes"]
+anchors_preset = 0
+offset_left = 382.189
+offset_top = 0.159612
+offset_right = 577.189
+offset_bottom = 192.16
+
+[node name="body" type="TextureRect" parent="Player/player4/Number of votes/9"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Player/player4/Number of votes/9"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_0y5kf")
+
+[node name="10" type="Control" parent="Player/player4/Number of votes"]
+anchors_preset = 0
+offset_left = 425.881
+offset_top = 0.159612
+offset_right = 620.881
+offset_bottom = 192.16
+
+[node name="body" type="TextureRect" parent="Player/player4/Number of votes/10"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Player/player4/Number of votes/10"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_0y5kf")
 
 [node name="player4_name" type="Label" parent="Player/player4"]
 layout_mode = 0
@@ -236,6 +1277,7 @@ texture = ExtResource("3_0y5kf")
 
 [node name="Selected" type="TextureRect" parent="Player/player4"]
 visible = false
+layout_mode = 0
 offset_left = 514.675
 offset_top = -50.9251
 offset_right = 1714.68
@@ -249,6 +1291,265 @@ offset_left = 659.0
 offset_top = 346.0
 offset_right = 1254.0
 offset_bottom = 539.0
+
+[node name="Number of votes" type="Control" parent="Player/player5"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = -36.4093
+offset_top = 0.159607
+offset_right = 3.5907
+offset_bottom = 40.1596
+
+[node name="1" type="Control" parent="Player/player5/Number of votes"]
+anchors_preset = 0
+offset_left = 27.0146
+offset_top = 0.159612
+offset_right = 222.015
+offset_bottom = 192.16
+
+[node name="body" type="TextureRect" parent="Player/player5/Number of votes/1"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Player/player5/Number of votes/1"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_0y5kf")
+
+[node name="2" type="Control" parent="Player/player5/Number of votes"]
+anchors_preset = 0
+offset_left = 70.7067
+offset_top = 0.159612
+offset_right = 265.707
+offset_bottom = 192.16
+
+[node name="body" type="TextureRect" parent="Player/player5/Number of votes/2"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Player/player5/Number of votes/2"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_0y5kf")
+
+[node name="3" type="Control" parent="Player/player5/Number of votes"]
+anchors_preset = 0
+offset_left = 115.808
+offset_top = 0.159612
+offset_right = 310.808
+offset_bottom = 192.16
+
+[node name="body" type="TextureRect" parent="Player/player5/Number of votes/3"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Player/player5/Number of votes/3"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_0y5kf")
+
+[node name="4" type="Control" parent="Player/player5/Number of votes"]
+anchors_preset = 0
+offset_left = 159.5
+offset_top = 0.159612
+offset_right = 354.5
+offset_bottom = 192.16
+
+[node name="body" type="TextureRect" parent="Player/player5/Number of votes/4"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Player/player5/Number of votes/4"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_0y5kf")
+
+[node name="5" type="Control" parent="Player/player5/Number of votes"]
+anchors_preset = 0
+offset_left = 204.602
+offset_top = 0.159612
+offset_right = 399.602
+offset_bottom = 192.16
+
+[node name="body" type="TextureRect" parent="Player/player5/Number of votes/5"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Player/player5/Number of votes/5"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_0y5kf")
+
+[node name="6" type="Control" parent="Player/player5/Number of votes"]
+anchors_preset = 0
+offset_left = 248.294
+offset_top = 0.159612
+offset_right = 443.294
+offset_bottom = 192.16
+
+[node name="body" type="TextureRect" parent="Player/player5/Number of votes/6"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Player/player5/Number of votes/6"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_0y5kf")
+
+[node name="7" type="Control" parent="Player/player5/Number of votes"]
+anchors_preset = 0
+offset_left = 293.396
+offset_top = 0.159612
+offset_right = 488.396
+offset_bottom = 192.16
+
+[node name="body" type="TextureRect" parent="Player/player5/Number of votes/7"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Player/player5/Number of votes/7"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_0y5kf")
+
+[node name="8" type="Control" parent="Player/player5/Number of votes"]
+anchors_preset = 0
+offset_left = 337.088
+offset_top = 0.159612
+offset_right = 532.088
+offset_bottom = 192.16
+
+[node name="body" type="TextureRect" parent="Player/player5/Number of votes/8"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Player/player5/Number of votes/8"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_0y5kf")
+
+[node name="9" type="Control" parent="Player/player5/Number of votes"]
+anchors_preset = 0
+offset_left = 382.189
+offset_top = 0.159612
+offset_right = 577.189
+offset_bottom = 192.16
+
+[node name="body" type="TextureRect" parent="Player/player5/Number of votes/9"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Player/player5/Number of votes/9"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_0y5kf")
+
+[node name="10" type="Control" parent="Player/player5/Number of votes"]
+anchors_preset = 0
+offset_left = 425.881
+offset_top = 0.159612
+offset_right = 620.881
+offset_bottom = 192.16
+
+[node name="body" type="TextureRect" parent="Player/player5/Number of votes/10"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Player/player5/Number of votes/10"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_0y5kf")
 
 [node name="player5_name" type="Label" parent="Player/player5"]
 layout_mode = 0
@@ -274,6 +1575,7 @@ texture = ExtResource("3_0y5kf")
 
 [node name="Selected" type="TextureRect" parent="Player/player5"]
 visible = false
+layout_mode = 0
 offset_left = 514.675
 offset_top = -50.9251
 offset_right = 1714.68
@@ -287,6 +1589,265 @@ offset_left = 1280.0
 offset_top = 346.0
 offset_right = 1875.0
 offset_bottom = 539.0
+
+[node name="Number of votes" type="Control" parent="Player/player6"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = -36.4094
+offset_top = 0.159607
+offset_right = 3.59058
+offset_bottom = 40.1596
+
+[node name="1" type="Control" parent="Player/player6/Number of votes"]
+anchors_preset = 0
+offset_left = 27.0146
+offset_top = 0.159612
+offset_right = 222.015
+offset_bottom = 192.16
+
+[node name="body" type="TextureRect" parent="Player/player6/Number of votes/1"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Player/player6/Number of votes/1"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_0y5kf")
+
+[node name="2" type="Control" parent="Player/player6/Number of votes"]
+anchors_preset = 0
+offset_left = 70.7067
+offset_top = 0.159612
+offset_right = 265.707
+offset_bottom = 192.16
+
+[node name="body" type="TextureRect" parent="Player/player6/Number of votes/2"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Player/player6/Number of votes/2"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_0y5kf")
+
+[node name="3" type="Control" parent="Player/player6/Number of votes"]
+anchors_preset = 0
+offset_left = 115.808
+offset_top = 0.159612
+offset_right = 310.808
+offset_bottom = 192.16
+
+[node name="body" type="TextureRect" parent="Player/player6/Number of votes/3"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Player/player6/Number of votes/3"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_0y5kf")
+
+[node name="4" type="Control" parent="Player/player6/Number of votes"]
+anchors_preset = 0
+offset_left = 159.5
+offset_top = 0.159612
+offset_right = 354.5
+offset_bottom = 192.16
+
+[node name="body" type="TextureRect" parent="Player/player6/Number of votes/4"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Player/player6/Number of votes/4"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_0y5kf")
+
+[node name="5" type="Control" parent="Player/player6/Number of votes"]
+anchors_preset = 0
+offset_left = 204.602
+offset_top = 0.159612
+offset_right = 399.602
+offset_bottom = 192.16
+
+[node name="body" type="TextureRect" parent="Player/player6/Number of votes/5"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Player/player6/Number of votes/5"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_0y5kf")
+
+[node name="6" type="Control" parent="Player/player6/Number of votes"]
+anchors_preset = 0
+offset_left = 248.294
+offset_top = 0.159612
+offset_right = 443.294
+offset_bottom = 192.16
+
+[node name="body" type="TextureRect" parent="Player/player6/Number of votes/6"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Player/player6/Number of votes/6"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_0y5kf")
+
+[node name="7" type="Control" parent="Player/player6/Number of votes"]
+anchors_preset = 0
+offset_left = 293.396
+offset_top = 0.159612
+offset_right = 488.396
+offset_bottom = 192.16
+
+[node name="body" type="TextureRect" parent="Player/player6/Number of votes/7"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Player/player6/Number of votes/7"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_0y5kf")
+
+[node name="8" type="Control" parent="Player/player6/Number of votes"]
+anchors_preset = 0
+offset_left = 337.088
+offset_top = 0.159612
+offset_right = 532.088
+offset_bottom = 192.16
+
+[node name="body" type="TextureRect" parent="Player/player6/Number of votes/8"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Player/player6/Number of votes/8"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_0y5kf")
+
+[node name="9" type="Control" parent="Player/player6/Number of votes"]
+anchors_preset = 0
+offset_left = 382.189
+offset_top = 0.159612
+offset_right = 577.189
+offset_bottom = 192.16
+
+[node name="body" type="TextureRect" parent="Player/player6/Number of votes/9"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Player/player6/Number of votes/9"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_0y5kf")
+
+[node name="10" type="Control" parent="Player/player6/Number of votes"]
+anchors_preset = 0
+offset_left = 425.881
+offset_top = 0.159612
+offset_right = 620.881
+offset_bottom = 192.16
+
+[node name="body" type="TextureRect" parent="Player/player6/Number of votes/10"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Player/player6/Number of votes/10"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_0y5kf")
 
 [node name="player6_name" type="Label" parent="Player/player6"]
 layout_mode = 0
@@ -312,6 +1873,7 @@ texture = ExtResource("3_0y5kf")
 
 [node name="Selected" type="TextureRect" parent="Player/player6"]
 visible = false
+layout_mode = 0
 offset_left = 514.675
 offset_top = -50.9251
 offset_right = 1714.68
@@ -325,6 +1887,265 @@ offset_left = 37.0
 offset_top = 596.0
 offset_right = 632.0
 offset_bottom = 789.0
+
+[node name="Number of votes" type="Control" parent="Player/player7"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = -36.4094
+offset_top = 0.159668
+offset_right = 3.59058
+offset_bottom = 40.1597
+
+[node name="1" type="Control" parent="Player/player7/Number of votes"]
+anchors_preset = 0
+offset_left = 27.0146
+offset_top = 0.159612
+offset_right = 222.015
+offset_bottom = 192.16
+
+[node name="body" type="TextureRect" parent="Player/player7/Number of votes/1"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Player/player7/Number of votes/1"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_0y5kf")
+
+[node name="2" type="Control" parent="Player/player7/Number of votes"]
+anchors_preset = 0
+offset_left = 70.7067
+offset_top = 0.159612
+offset_right = 265.707
+offset_bottom = 192.16
+
+[node name="body" type="TextureRect" parent="Player/player7/Number of votes/2"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Player/player7/Number of votes/2"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_0y5kf")
+
+[node name="3" type="Control" parent="Player/player7/Number of votes"]
+anchors_preset = 0
+offset_left = 115.808
+offset_top = 0.159612
+offset_right = 310.808
+offset_bottom = 192.16
+
+[node name="body" type="TextureRect" parent="Player/player7/Number of votes/3"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Player/player7/Number of votes/3"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_0y5kf")
+
+[node name="4" type="Control" parent="Player/player7/Number of votes"]
+anchors_preset = 0
+offset_left = 159.5
+offset_top = 0.159612
+offset_right = 354.5
+offset_bottom = 192.16
+
+[node name="body" type="TextureRect" parent="Player/player7/Number of votes/4"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Player/player7/Number of votes/4"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_0y5kf")
+
+[node name="5" type="Control" parent="Player/player7/Number of votes"]
+anchors_preset = 0
+offset_left = 204.602
+offset_top = 0.159612
+offset_right = 399.602
+offset_bottom = 192.16
+
+[node name="body" type="TextureRect" parent="Player/player7/Number of votes/5"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Player/player7/Number of votes/5"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_0y5kf")
+
+[node name="6" type="Control" parent="Player/player7/Number of votes"]
+anchors_preset = 0
+offset_left = 248.294
+offset_top = 0.159612
+offset_right = 443.294
+offset_bottom = 192.16
+
+[node name="body" type="TextureRect" parent="Player/player7/Number of votes/6"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Player/player7/Number of votes/6"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_0y5kf")
+
+[node name="7" type="Control" parent="Player/player7/Number of votes"]
+anchors_preset = 0
+offset_left = 293.396
+offset_top = 0.159612
+offset_right = 488.396
+offset_bottom = 192.16
+
+[node name="body" type="TextureRect" parent="Player/player7/Number of votes/7"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Player/player7/Number of votes/7"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_0y5kf")
+
+[node name="8" type="Control" parent="Player/player7/Number of votes"]
+anchors_preset = 0
+offset_left = 337.088
+offset_top = 0.159612
+offset_right = 532.088
+offset_bottom = 192.16
+
+[node name="body" type="TextureRect" parent="Player/player7/Number of votes/8"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Player/player7/Number of votes/8"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_0y5kf")
+
+[node name="9" type="Control" parent="Player/player7/Number of votes"]
+anchors_preset = 0
+offset_left = 382.189
+offset_top = 0.159612
+offset_right = 577.189
+offset_bottom = 192.16
+
+[node name="body" type="TextureRect" parent="Player/player7/Number of votes/9"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Player/player7/Number of votes/9"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_0y5kf")
+
+[node name="10" type="Control" parent="Player/player7/Number of votes"]
+anchors_preset = 0
+offset_left = 425.881
+offset_top = 0.159612
+offset_right = 620.881
+offset_bottom = 192.16
+
+[node name="body" type="TextureRect" parent="Player/player7/Number of votes/10"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Player/player7/Number of votes/10"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_0y5kf")
 
 [node name="player7_name" type="Label" parent="Player/player7"]
 layout_mode = 0
@@ -350,6 +2171,7 @@ texture = ExtResource("3_0y5kf")
 
 [node name="Selected" type="TextureRect" parent="Player/player7"]
 visible = false
+layout_mode = 0
 offset_left = 514.675
 offset_top = -50.9251
 offset_right = 1714.68
@@ -363,6 +2185,265 @@ offset_left = 659.0
 offset_top = 596.0
 offset_right = 1254.0
 offset_bottom = 789.0
+
+[node name="Number of votes" type="Control" parent="Player/player8"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = -36.4093
+offset_top = 0.159668
+offset_right = 3.5907
+offset_bottom = 40.1597
+
+[node name="1" type="Control" parent="Player/player8/Number of votes"]
+anchors_preset = 0
+offset_left = 27.0146
+offset_top = 0.159612
+offset_right = 222.015
+offset_bottom = 192.16
+
+[node name="body" type="TextureRect" parent="Player/player8/Number of votes/1"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Player/player8/Number of votes/1"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_0y5kf")
+
+[node name="2" type="Control" parent="Player/player8/Number of votes"]
+anchors_preset = 0
+offset_left = 70.7067
+offset_top = 0.159612
+offset_right = 265.707
+offset_bottom = 192.16
+
+[node name="body" type="TextureRect" parent="Player/player8/Number of votes/2"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Player/player8/Number of votes/2"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_0y5kf")
+
+[node name="3" type="Control" parent="Player/player8/Number of votes"]
+anchors_preset = 0
+offset_left = 115.808
+offset_top = 0.159612
+offset_right = 310.808
+offset_bottom = 192.16
+
+[node name="body" type="TextureRect" parent="Player/player8/Number of votes/3"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Player/player8/Number of votes/3"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_0y5kf")
+
+[node name="4" type="Control" parent="Player/player8/Number of votes"]
+anchors_preset = 0
+offset_left = 159.5
+offset_top = 0.159612
+offset_right = 354.5
+offset_bottom = 192.16
+
+[node name="body" type="TextureRect" parent="Player/player8/Number of votes/4"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Player/player8/Number of votes/4"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_0y5kf")
+
+[node name="5" type="Control" parent="Player/player8/Number of votes"]
+anchors_preset = 0
+offset_left = 204.602
+offset_top = 0.159612
+offset_right = 399.602
+offset_bottom = 192.16
+
+[node name="body" type="TextureRect" parent="Player/player8/Number of votes/5"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Player/player8/Number of votes/5"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_0y5kf")
+
+[node name="6" type="Control" parent="Player/player8/Number of votes"]
+anchors_preset = 0
+offset_left = 248.294
+offset_top = 0.159612
+offset_right = 443.294
+offset_bottom = 192.16
+
+[node name="body" type="TextureRect" parent="Player/player8/Number of votes/6"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Player/player8/Number of votes/6"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_0y5kf")
+
+[node name="7" type="Control" parent="Player/player8/Number of votes"]
+anchors_preset = 0
+offset_left = 293.396
+offset_top = 0.159612
+offset_right = 488.396
+offset_bottom = 192.16
+
+[node name="body" type="TextureRect" parent="Player/player8/Number of votes/7"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Player/player8/Number of votes/7"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_0y5kf")
+
+[node name="8" type="Control" parent="Player/player8/Number of votes"]
+anchors_preset = 0
+offset_left = 337.088
+offset_top = 0.159612
+offset_right = 532.088
+offset_bottom = 192.16
+
+[node name="body" type="TextureRect" parent="Player/player8/Number of votes/8"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Player/player8/Number of votes/8"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_0y5kf")
+
+[node name="9" type="Control" parent="Player/player8/Number of votes"]
+anchors_preset = 0
+offset_left = 382.189
+offset_top = 0.159612
+offset_right = 577.189
+offset_bottom = 192.16
+
+[node name="body" type="TextureRect" parent="Player/player8/Number of votes/9"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Player/player8/Number of votes/9"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_0y5kf")
+
+[node name="10" type="Control" parent="Player/player8/Number of votes"]
+anchors_preset = 0
+offset_left = 425.881
+offset_top = 0.159612
+offset_right = 620.881
+offset_bottom = 192.16
+
+[node name="body" type="TextureRect" parent="Player/player8/Number of votes/10"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Player/player8/Number of votes/10"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_0y5kf")
 
 [node name="player8_name" type="Label" parent="Player/player8"]
 layout_mode = 0
@@ -388,6 +2469,7 @@ texture = ExtResource("3_0y5kf")
 
 [node name="Selected" type="TextureRect" parent="Player/player8"]
 visible = false
+layout_mode = 0
 offset_left = 514.675
 offset_top = -50.9251
 offset_right = 1714.68
@@ -401,6 +2483,265 @@ offset_left = 1280.0
 offset_top = 596.0
 offset_right = 1875.0
 offset_bottom = 789.0
+
+[node name="Number of votes" type="Control" parent="Player/player9"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = -36.4094
+offset_top = 0.159668
+offset_right = 3.59058
+offset_bottom = 40.1597
+
+[node name="1" type="Control" parent="Player/player9/Number of votes"]
+anchors_preset = 0
+offset_left = 27.0146
+offset_top = 0.159612
+offset_right = 222.015
+offset_bottom = 192.16
+
+[node name="body" type="TextureRect" parent="Player/player9/Number of votes/1"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Player/player9/Number of votes/1"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_0y5kf")
+
+[node name="2" type="Control" parent="Player/player9/Number of votes"]
+anchors_preset = 0
+offset_left = 70.7067
+offset_top = 0.159612
+offset_right = 265.707
+offset_bottom = 192.16
+
+[node name="body" type="TextureRect" parent="Player/player9/Number of votes/2"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Player/player9/Number of votes/2"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_0y5kf")
+
+[node name="3" type="Control" parent="Player/player9/Number of votes"]
+anchors_preset = 0
+offset_left = 115.808
+offset_top = 0.159612
+offset_right = 310.808
+offset_bottom = 192.16
+
+[node name="body" type="TextureRect" parent="Player/player9/Number of votes/3"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Player/player9/Number of votes/3"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_0y5kf")
+
+[node name="4" type="Control" parent="Player/player9/Number of votes"]
+anchors_preset = 0
+offset_left = 159.5
+offset_top = 0.159612
+offset_right = 354.5
+offset_bottom = 192.16
+
+[node name="body" type="TextureRect" parent="Player/player9/Number of votes/4"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Player/player9/Number of votes/4"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_0y5kf")
+
+[node name="5" type="Control" parent="Player/player9/Number of votes"]
+anchors_preset = 0
+offset_left = 204.602
+offset_top = 0.159612
+offset_right = 399.602
+offset_bottom = 192.16
+
+[node name="body" type="TextureRect" parent="Player/player9/Number of votes/5"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Player/player9/Number of votes/5"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_0y5kf")
+
+[node name="6" type="Control" parent="Player/player9/Number of votes"]
+anchors_preset = 0
+offset_left = 248.294
+offset_top = 0.159612
+offset_right = 443.294
+offset_bottom = 192.16
+
+[node name="body" type="TextureRect" parent="Player/player9/Number of votes/6"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Player/player9/Number of votes/6"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_0y5kf")
+
+[node name="7" type="Control" parent="Player/player9/Number of votes"]
+anchors_preset = 0
+offset_left = 293.396
+offset_top = 0.159612
+offset_right = 488.396
+offset_bottom = 192.16
+
+[node name="body" type="TextureRect" parent="Player/player9/Number of votes/7"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Player/player9/Number of votes/7"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_0y5kf")
+
+[node name="8" type="Control" parent="Player/player9/Number of votes"]
+anchors_preset = 0
+offset_left = 337.088
+offset_top = 0.159612
+offset_right = 532.088
+offset_bottom = 192.16
+
+[node name="body" type="TextureRect" parent="Player/player9/Number of votes/8"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Player/player9/Number of votes/8"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_0y5kf")
+
+[node name="9" type="Control" parent="Player/player9/Number of votes"]
+anchors_preset = 0
+offset_left = 382.189
+offset_top = 0.159612
+offset_right = 577.189
+offset_bottom = 192.16
+
+[node name="body" type="TextureRect" parent="Player/player9/Number of votes/9"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Player/player9/Number of votes/9"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_0y5kf")
+
+[node name="10" type="Control" parent="Player/player9/Number of votes"]
+anchors_preset = 0
+offset_left = 425.881
+offset_top = 0.159612
+offset_right = 620.881
+offset_bottom = 192.16
+
+[node name="body" type="TextureRect" parent="Player/player9/Number of votes/10"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Player/player9/Number of votes/10"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_0y5kf")
 
 [node name="player9_name" type="Label" parent="Player/player9"]
 layout_mode = 0
@@ -426,6 +2767,7 @@ texture = ExtResource("3_0y5kf")
 
 [node name="Selected" type="TextureRect" parent="Player/player9"]
 visible = false
+layout_mode = 0
 offset_left = 514.675
 offset_top = -50.9251
 offset_right = 1714.68
@@ -439,6 +2781,265 @@ offset_left = 659.0
 offset_top = 826.0
 offset_right = 1254.0
 offset_bottom = 1019.0
+
+[node name="Number of votes" type="Control" parent="Player/player10"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = -36.4093
+offset_top = 0.159546
+offset_right = 3.5907
+offset_bottom = 40.1595
+
+[node name="1" type="Control" parent="Player/player10/Number of votes"]
+anchors_preset = 0
+offset_left = 27.0146
+offset_top = 0.159612
+offset_right = 222.015
+offset_bottom = 192.16
+
+[node name="body" type="TextureRect" parent="Player/player10/Number of votes/1"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Player/player10/Number of votes/1"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_0y5kf")
+
+[node name="2" type="Control" parent="Player/player10/Number of votes"]
+anchors_preset = 0
+offset_left = 70.7067
+offset_top = 0.159612
+offset_right = 265.707
+offset_bottom = 192.16
+
+[node name="body" type="TextureRect" parent="Player/player10/Number of votes/2"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Player/player10/Number of votes/2"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_0y5kf")
+
+[node name="3" type="Control" parent="Player/player10/Number of votes"]
+anchors_preset = 0
+offset_left = 115.808
+offset_top = 0.159612
+offset_right = 310.808
+offset_bottom = 192.16
+
+[node name="body" type="TextureRect" parent="Player/player10/Number of votes/3"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Player/player10/Number of votes/3"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_0y5kf")
+
+[node name="4" type="Control" parent="Player/player10/Number of votes"]
+anchors_preset = 0
+offset_left = 159.5
+offset_top = 0.159612
+offset_right = 354.5
+offset_bottom = 192.16
+
+[node name="body" type="TextureRect" parent="Player/player10/Number of votes/4"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Player/player10/Number of votes/4"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_0y5kf")
+
+[node name="5" type="Control" parent="Player/player10/Number of votes"]
+anchors_preset = 0
+offset_left = 204.602
+offset_top = 0.159612
+offset_right = 399.602
+offset_bottom = 192.16
+
+[node name="body" type="TextureRect" parent="Player/player10/Number of votes/5"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Player/player10/Number of votes/5"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_0y5kf")
+
+[node name="6" type="Control" parent="Player/player10/Number of votes"]
+anchors_preset = 0
+offset_left = 248.294
+offset_top = 0.159612
+offset_right = 443.294
+offset_bottom = 192.16
+
+[node name="body" type="TextureRect" parent="Player/player10/Number of votes/6"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Player/player10/Number of votes/6"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_0y5kf")
+
+[node name="7" type="Control" parent="Player/player10/Number of votes"]
+anchors_preset = 0
+offset_left = 293.396
+offset_top = 0.159612
+offset_right = 488.396
+offset_bottom = 192.16
+
+[node name="body" type="TextureRect" parent="Player/player10/Number of votes/7"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Player/player10/Number of votes/7"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_0y5kf")
+
+[node name="8" type="Control" parent="Player/player10/Number of votes"]
+anchors_preset = 0
+offset_left = 337.088
+offset_top = 0.159612
+offset_right = 532.088
+offset_bottom = 192.16
+
+[node name="body" type="TextureRect" parent="Player/player10/Number of votes/8"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Player/player10/Number of votes/8"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_0y5kf")
+
+[node name="9" type="Control" parent="Player/player10/Number of votes"]
+anchors_preset = 0
+offset_left = 382.189
+offset_top = 0.159612
+offset_right = 577.189
+offset_bottom = 192.16
+
+[node name="body" type="TextureRect" parent="Player/player10/Number of votes/9"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Player/player10/Number of votes/9"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_0y5kf")
+
+[node name="10" type="Control" parent="Player/player10/Number of votes"]
+anchors_preset = 0
+offset_left = 425.881
+offset_top = 0.159612
+offset_right = 620.881
+offset_bottom = 192.16
+
+[node name="body" type="TextureRect" parent="Player/player10/Number of votes/10"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Player/player10/Number of votes/10"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_0y5kf")
 
 [node name="player10_name" type="Label" parent="Player/player10"]
 layout_mode = 0
@@ -464,6 +3065,7 @@ texture = ExtResource("3_0y5kf")
 
 [node name="Selected" type="TextureRect" parent="Player/player10"]
 visible = false
+layout_mode = 0
 offset_left = 514.675
 offset_top = -50.9251
 offset_right = 1714.68
@@ -529,3 +3131,262 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/font_size = 32
 text = "skip vote"
+
+[node name="Number of votes" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 158.0
+offset_top = 838.0
+offset_right = 198.0
+offset_bottom = 878.0
+
+[node name="1" type="Control" parent="Number of votes"]
+anchors_preset = 0
+offset_left = 27.0146
+offset_top = 0.159612
+offset_right = 222.015
+offset_bottom = 192.16
+
+[node name="body" type="TextureRect" parent="Number of votes/1"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Number of votes/1"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_0y5kf")
+
+[node name="2" type="Control" parent="Number of votes"]
+anchors_preset = 0
+offset_left = 70.7067
+offset_top = 0.159612
+offset_right = 265.707
+offset_bottom = 192.16
+
+[node name="body" type="TextureRect" parent="Number of votes/2"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Number of votes/2"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_0y5kf")
+
+[node name="3" type="Control" parent="Number of votes"]
+anchors_preset = 0
+offset_left = 115.808
+offset_top = 0.159612
+offset_right = 310.808
+offset_bottom = 192.16
+
+[node name="body" type="TextureRect" parent="Number of votes/3"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Number of votes/3"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_0y5kf")
+
+[node name="4" type="Control" parent="Number of votes"]
+anchors_preset = 0
+offset_left = 159.5
+offset_top = 0.159612
+offset_right = 354.5
+offset_bottom = 192.16
+
+[node name="body" type="TextureRect" parent="Number of votes/4"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Number of votes/4"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_0y5kf")
+
+[node name="5" type="Control" parent="Number of votes"]
+anchors_preset = 0
+offset_left = 204.602
+offset_top = 0.159612
+offset_right = 399.602
+offset_bottom = 192.16
+
+[node name="body" type="TextureRect" parent="Number of votes/5"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Number of votes/5"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_0y5kf")
+
+[node name="6" type="Control" parent="Number of votes"]
+anchors_preset = 0
+offset_left = 248.294
+offset_top = 0.159612
+offset_right = 443.294
+offset_bottom = 192.16
+
+[node name="body" type="TextureRect" parent="Number of votes/6"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Number of votes/6"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_0y5kf")
+
+[node name="7" type="Control" parent="Number of votes"]
+anchors_preset = 0
+offset_left = 293.396
+offset_top = 0.159612
+offset_right = 488.396
+offset_bottom = 192.16
+
+[node name="body" type="TextureRect" parent="Number of votes/7"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Number of votes/7"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_0y5kf")
+
+[node name="8" type="Control" parent="Number of votes"]
+anchors_preset = 0
+offset_left = 337.088
+offset_top = 0.159612
+offset_right = 532.088
+offset_bottom = 192.16
+
+[node name="body" type="TextureRect" parent="Number of votes/8"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Number of votes/8"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_0y5kf")
+
+[node name="9" type="Control" parent="Number of votes"]
+anchors_preset = 0
+offset_left = 382.189
+offset_top = 0.159612
+offset_right = 577.189
+offset_bottom = 192.16
+
+[node name="body" type="TextureRect" parent="Number of votes/9"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Number of votes/9"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_0y5kf")
+
+[node name="10" type="Control" parent="Number of votes"]
+anchors_preset = 0
+offset_left = 425.881
+offset_top = 0.159612
+offset_right = 620.881
+offset_bottom = 192.16
+
+[node name="body" type="TextureRect" parent="Number of votes/10"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Number of votes/10"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+offset_left = 151.044
+offset_top = 141.394
+offset_right = 791.044
+offset_bottom = 781.394
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_0y5kf")

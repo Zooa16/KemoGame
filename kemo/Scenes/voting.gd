@@ -92,7 +92,16 @@ func _on_player_ui_pressed(player_id: int):
 
 func _on_select_button_pressed():
     if selected_player_id != 0:
-        rpc("send_vote", selected_player_id)
+        var my_id = multiplayer.get_unique_id()
+        print("PLAYER(", my_id, "): Voting for player ", selected_player_id)
+        
+        if multiplayer.is_server():
+            # ถ้าเราเป็น host → ส่งตรงไป server เลย
+            receive_vote(my_id, selected_player_id)
+        else:
+            # client ส่งไปให้ server
+            rpc_id(1, "receive_vote", my_id, selected_player_id)
+
         Select_panel.visible = false
         has_voted = true
         Voting_topic.text = "You have voted!"
@@ -105,7 +114,14 @@ func _on_cancel_button_pressed():
 
 func _on_skip_button_pressed():
     if not has_voted:
-        rpc("send_vote", 0)
+        var my_id = multiplayer.get_unique_id()
+        print("PLAYER(", my_id, "): Skipping vote")
+        
+        if multiplayer.is_server():
+            receive_vote(my_id, 0)
+        else:
+            rpc_id(1, "receive_vote", my_id, 0)
+
         has_voted = true
         Voting_topic.text = "You have skipped your vote."
         skip_button.disabled = true
@@ -141,16 +157,33 @@ func setup_player_ui():
 # ----------------------------------------------------
 # Multiplayer RPC functions (Server Logic)
 # ----------------------------------------------------
-@rpc("authority")
-func send_vote(voted_id: int):
-    var voter_id = multiplayer.get_remote_sender_id()
+func send_vote(target_id: int):
+    var peer_id = multiplayer.get_unique_id()
+    print("PLAYER(", peer_id, "): Sending vote for player ", target_id)
+
+    if multiplayer.is_server():
+        # ถ้าเราเป็น Host → เรียกตรงๆเลย
+        receive_vote(peer_id, target_id)
+    else:
+        # ถ้าเราเป็น Client → ส่งไปให้ server
+        rpc_id(1, "receive_vote", peer_id, target_id)
+
+@rpc("any_peer")
+func receive_vote(voter_id: int, voted_id: int):
+    show_selected_rpc(voter_id)
+    if not multiplayer.is_server():
+        return  # client ไม่ทำอะไร
+    
     if not votes.has(voter_id):
         votes[voter_id] = voted_id
-        print("Player %s voted for Player %s" % [voter_id, voted_id])
-        
+        print("SERVER: Received vote from player ", voter_id, " for player ", voted_id)
         rpc("show_selected_rpc", voter_id)
-        
+
+    print("SERVER: Current votes dictionary: ", votes)
+    
+
     if votes.size() >= Global.player_names.size():
+        print("SERVER: All players have voted. Calculating results...")
         turn_timer.stop()
         calculate_and_show_results()
 
@@ -226,13 +259,14 @@ func calculate_and_show_results():
 # ----------------------------------------------------
 # Multiplayer RPC functions (Client & Server Logic)
 # ----------------------------------------------------
-@rpc("any_peer")
+@rpc("any_peer", "call_local")
 func show_selected_rpc(voter_id: int):
     var ui_index = player_id_to_ui_index.get(voter_id)
     if ui_index != null:
         var selected_icon = Selected.get(ui_index)
         if selected_icon:
             selected_icon.visible = true
+
             
 @rpc("any_peer", "call_local")
 func update_timer_label(new_time: int):
@@ -242,9 +276,6 @@ func update_timer_label(new_time: int):
 @rpc("any_peer", "call_local")
 func show_final_result(result_text: String):
     Voting_results.text = result_text
-    
-    for ui in player_ui_nodes.values():
-        ui.visible = false
     
     if current_highlighted_node:
         current_highlighted_node.modulate = Color.WHITE
