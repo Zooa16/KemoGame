@@ -4,7 +4,9 @@ extends Node
 var my_player_name: String = "Player" # กำหนดค่าเริ่มต้นเป็น "Player"
 var player_colors: Dictionary = {}
 var player_names: Dictionary = {}
-
+var special_roles := {
+	"Leader": null  # will store peer_id of the Leader
+}
 
 # List of all possible roles (accessible from anywhere)
 var roles: Array = [
@@ -19,13 +21,14 @@ var roles: Array = [
 
 # Optional: you can also keep colors, icons, descriptions here
 var role_colors := {
-    "Data Retriever": Color.BLUE,
-    "Support": Color.BLUE,
-    "The Oracle": Color.BLUE,
-    "Tracer": Color.RED,
-    "Hacker": Color.BLUE,
-    "Enforcer": Color.RED,
-    "System Controller": Color.RED,
+	"Data Retriever": Color.BLUE,
+	"Support": Color.BLUE,
+	"The Oracle": Color.BLUE,
+	"Tracer": Color.RED,
+	"Hacker": Color.BLUE,
+	"Enforcer": Color.RED,
+	"System Controller": Color.RED,
+	"Leader": Color(1, 0.85, 0.2)  # ✨ Golden yellow
 }
 
 
