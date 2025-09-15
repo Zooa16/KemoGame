@@ -1,18 +1,26 @@
-[gd_scene load_steps=3 format=3 uid="uid://b7cum4xtkhyw3"]
+[gd_scene load_steps=10 format=3 uid="uid://b7cum4xtkhyw3"]
 
-[ext_resource type="Script" uid="uid://b66f3f52fdip2" path="res://Scenes/voting.gd" id="1_t1awk"]
+[ext_resource type="Script" uid="uid://b6vkau6f1hqks" path="res://Scenes/voting.gd" id="1_t1awk"]
+[ext_resource type="Texture2D" uid="uid://bbmx3u2aoxgs0" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Idle/ตัว/1.png" id="2_dwqxs"]
+[ext_resource type="Texture2D" uid="uid://ssn8ww4o11m1" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Idle/สี/ไม่มีชื่อ 12_20250817171242.png" id="3_0y5kf"]
+[ext_resource type="Texture2D" uid="uid://4qmtsh22ph7m" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/check-mark-Photoroom.png" id="4_0y5kf"]
 
-[sub_resource type="FontFile" id="FontFile_n73k5"]
-cache/0/16/0/ascent = 0.0
-cache/0/16/0/descent = 0.0
-cache/0/16/0/underline_position = 0.0
-cache/0/16/0/underline_thickness = 0.0
-cache/0/16/0/scale = 1.0
-cache/0/100/0/ascent = 0.0
-cache/0/100/0/descent = 0.0
-cache/0/100/0/underline_position = 0.0
-cache/0/100/0/underline_thickness = 0.0
-cache/0/100/0/scale = 1.0
+[sub_resource type="LabelSettings" id="LabelSettings_0y5kf"]
+font_size = 64
+
+[sub_resource type="LabelSettings" id="LabelSettings_l75qi"]
+font_size = 32
+font_color = Color(1, 0.752941, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_dwqxs"]
+font_size = 32
+font_color = Color(1, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_eho4l"]
+font_size = 64
+
+[sub_resource type="LabelSettings" id="LabelSettings_i0ew2"]
+font_size = 64
 
 [node name="Voting" type="Control"]
 layout_mode = 3
@@ -23,73 +31,501 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_t1awk")
 
-[node name="TimerLabel" type="Label" parent="."]
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1079.0
+color = Color(0, 0.241206, 0.0680432, 0.52549)
+
+[node name="Voting_topic" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -220.0
-offset_top = 68.0
-offset_right = 209.0
-offset_bottom = 150.0
+offset_left = -595.5
+offset_right = 595.5
+offset_bottom = 88.0
 grow_horizontal = 2
-theme_override_fonts/font = SubResource("FontFile_n73k5")
-theme_override_font_sizes/font_size = 100
+text = "Who will be excluded from the Mission"
+label_settings = SubResource("LabelSettings_0y5kf")
 
-[node name="PlayerGrid" type="GridContainer" parent="."]
+[node name="status" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_top = 882.0
+offset_right = 1.0
+offset_bottom = 970.0
+grow_horizontal = 2
+label_settings = SubResource("LabelSettings_l75qi")
+
+[node name="Vote results" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = -105.0
+offset_right = 3.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 0
+label_settings = SubResource("LabelSettings_dwqxs")
+
+[node name="Player" type="Control" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
+offset_left = -664.0
+offset_top = -360.0
+offset_right = 1253.0
+offset_bottom = 680.0
 grow_horizontal = 2
 grow_vertical = 2
-columns = 10
+scale = Vector2(0.70951, 0.66556)
 
-[node name="PlayerCard" type="Panel" parent="PlayerGrid"]
-layout_mode = 2
-
-[node name="NameLabel" type="Label" parent="PlayerGrid/PlayerCard"]
+[node name="player1" type="Panel" parent="Player"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 35.0
+offset_top = 96.0
+offset_right = 630.0
+offset_bottom = 289.0
 
-[node name="VoteButton" type="Button" parent="PlayerGrid/PlayerCard"]
+[node name="player1_name" type="Label" parent="Player/player1"]
 layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
+offset_left = 191.0
+offset_top = 51.0
+offset_right = 192.0
+offset_bottom = 156.0
+label_settings = SubResource("LabelSettings_eho4l")
 
-[node name="RoleLabel" type="Label" parent="PlayerGrid/PlayerCard"]
+[node name="body" type="TextureRect" parent="Player/player1"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+offset_right = 640.0
+offset_bottom = 640.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_dwqxs")
 
-[node name="SkipButton" type="Button" parent="."]
+[node name="Modulate" type="TextureRect" parent="Player/player1"]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 640.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_0y5kf")
+
+[node name="Selected" type="TextureRect" parent="Player/player1"]
+visible = false
+layout_mode = 0
+offset_left = 514.675
+offset_top = -50.9251
+offset_right = 1714.68
+offset_bottom = 1229.07
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("4_0y5kf")
+
+[node name="player2" type="Panel" parent="Player"]
+layout_mode = 0
+offset_left = 657.0
+offset_top = 96.0
+offset_right = 1252.0
+offset_bottom = 289.0
+
+[node name="player2_name" type="Label" parent="Player/player2"]
+layout_mode = 0
+offset_left = 191.0
+offset_top = 51.0
+offset_right = 192.0
+offset_bottom = 156.0
+label_settings = SubResource("LabelSettings_eho4l")
+
+[node name="body" type="TextureRect" parent="Player/player2"]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 640.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Player/player2"]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 640.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_0y5kf")
+
+[node name="Selected" type="TextureRect" parent="Player/player2"]
+visible = false
+offset_left = 514.675
+offset_top = -50.9251
+offset_right = 1714.68
+offset_bottom = 1229.07
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("4_0y5kf")
+
+[node name="player3" type="Panel" parent="Player"]
+layout_mode = 0
+offset_left = 1278.0
+offset_top = 96.0
+offset_right = 1873.0
+offset_bottom = 289.0
+
+[node name="player3_name" type="Label" parent="Player/player3"]
+layout_mode = 0
+offset_left = 191.0
+offset_top = 51.0
+offset_right = 192.0
+offset_bottom = 156.0
+label_settings = SubResource("LabelSettings_eho4l")
+
+[node name="body" type="TextureRect" parent="Player/player3"]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 640.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Player/player3"]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 640.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_0y5kf")
+
+[node name="Selected" type="TextureRect" parent="Player/player3"]
+visible = false
+offset_left = 514.675
+offset_top = -50.9251
+offset_right = 1714.68
+offset_bottom = 1229.07
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("4_0y5kf")
+
+[node name="player4" type="Panel" parent="Player"]
+layout_mode = 0
+offset_left = 37.0
+offset_top = 346.0
+offset_right = 632.0
+offset_bottom = 539.0
+
+[node name="player4_name" type="Label" parent="Player/player4"]
+layout_mode = 0
+offset_left = 191.0
+offset_top = 51.0
+offset_right = 192.0
+offset_bottom = 156.0
+label_settings = SubResource("LabelSettings_eho4l")
+
+[node name="body" type="TextureRect" parent="Player/player4"]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 640.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Player/player4"]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 640.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_0y5kf")
+
+[node name="Selected" type="TextureRect" parent="Player/player4"]
+visible = false
+offset_left = 514.675
+offset_top = -50.9251
+offset_right = 1714.68
+offset_bottom = 1229.07
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("4_0y5kf")
+
+[node name="player5" type="Panel" parent="Player"]
+layout_mode = 0
+offset_left = 659.0
+offset_top = 346.0
+offset_right = 1254.0
+offset_bottom = 539.0
+
+[node name="player5_name" type="Label" parent="Player/player5"]
+layout_mode = 0
+offset_left = 191.0
+offset_top = 51.0
+offset_right = 192.0
+offset_bottom = 156.0
+label_settings = SubResource("LabelSettings_eho4l")
+
+[node name="body" type="TextureRect" parent="Player/player5"]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 640.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Player/player5"]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 640.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_0y5kf")
+
+[node name="Selected" type="TextureRect" parent="Player/player5"]
+visible = false
+offset_left = 514.675
+offset_top = -50.9251
+offset_right = 1714.68
+offset_bottom = 1229.07
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("4_0y5kf")
+
+[node name="player6" type="Panel" parent="Player"]
+layout_mode = 0
+offset_left = 1280.0
+offset_top = 346.0
+offset_right = 1875.0
+offset_bottom = 539.0
+
+[node name="player6_name" type="Label" parent="Player/player6"]
+layout_mode = 0
+offset_left = 191.0
+offset_top = 51.0
+offset_right = 192.0
+offset_bottom = 156.0
+label_settings = SubResource("LabelSettings_eho4l")
+
+[node name="body" type="TextureRect" parent="Player/player6"]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 640.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Player/player6"]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 640.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_0y5kf")
+
+[node name="Selected" type="TextureRect" parent="Player/player6"]
+visible = false
+offset_left = 514.675
+offset_top = -50.9251
+offset_right = 1714.68
+offset_bottom = 1229.07
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("4_0y5kf")
+
+[node name="player7" type="Panel" parent="Player"]
+layout_mode = 0
+offset_left = 37.0
+offset_top = 596.0
+offset_right = 632.0
+offset_bottom = 789.0
+
+[node name="player7_name" type="Label" parent="Player/player7"]
+layout_mode = 0
+offset_left = 191.0
+offset_top = 51.0
+offset_right = 192.0
+offset_bottom = 156.0
+label_settings = SubResource("LabelSettings_eho4l")
+
+[node name="body" type="TextureRect" parent="Player/player7"]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 640.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Player/player7"]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 640.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_0y5kf")
+
+[node name="Selected" type="TextureRect" parent="Player/player7"]
+visible = false
+offset_left = 514.675
+offset_top = -50.9251
+offset_right = 1714.68
+offset_bottom = 1229.07
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("4_0y5kf")
+
+[node name="player8" type="Panel" parent="Player"]
+layout_mode = 0
+offset_left = 659.0
+offset_top = 596.0
+offset_right = 1254.0
+offset_bottom = 789.0
+
+[node name="player8_name" type="Label" parent="Player/player8"]
+layout_mode = 0
+offset_left = 191.0
+offset_top = 51.0
+offset_right = 192.0
+offset_bottom = 156.0
+label_settings = SubResource("LabelSettings_eho4l")
+
+[node name="body" type="TextureRect" parent="Player/player8"]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 640.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Player/player8"]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 640.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_0y5kf")
+
+[node name="Selected" type="TextureRect" parent="Player/player8"]
+visible = false
+offset_left = 514.675
+offset_top = -50.9251
+offset_right = 1714.68
+offset_bottom = 1229.07
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("4_0y5kf")
+
+[node name="player9" type="Panel" parent="Player"]
+layout_mode = 0
+offset_left = 1280.0
+offset_top = 596.0
+offset_right = 1875.0
+offset_bottom = 789.0
+
+[node name="player9_name" type="Label" parent="Player/player9"]
+layout_mode = 0
+offset_left = 191.0
+offset_top = 51.0
+offset_right = 192.0
+offset_bottom = 156.0
+label_settings = SubResource("LabelSettings_eho4l")
+
+[node name="body" type="TextureRect" parent="Player/player9"]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 640.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Player/player9"]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 640.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_0y5kf")
+
+[node name="Selected" type="TextureRect" parent="Player/player9"]
+visible = false
+offset_left = 514.675
+offset_top = -50.9251
+offset_right = 1714.68
+offset_bottom = 1229.07
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("4_0y5kf")
+
+[node name="player10" type="Panel" parent="Player"]
+layout_mode = 0
+offset_left = 659.0
+offset_top = 826.0
+offset_right = 1254.0
+offset_bottom = 1019.0
+
+[node name="player10_name" type="Label" parent="Player/player10"]
+layout_mode = 0
+offset_left = 191.0
+offset_top = 51.0
+offset_right = 192.0
+offset_bottom = 156.0
+label_settings = SubResource("LabelSettings_eho4l")
+
+[node name="body" type="TextureRect" parent="Player/player10"]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 640.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_dwqxs")
+
+[node name="Modulate" type="TextureRect" parent="Player/player10"]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 640.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_0y5kf")
+
+[node name="Selected" type="TextureRect" parent="Player/player10"]
+visible = false
+offset_left = 514.675
+offset_top = -50.9251
+offset_right = 1714.68
+offset_bottom = 1229.07
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("4_0y5kf")
+
+[node name="Time" type="Label" parent="."]
 layout_mode = 1
-anchors_preset = -1
+offset_left = 40.0
+offset_top = 43.0
+offset_right = 41.0
+offset_bottom = 88.0
+label_settings = SubResource("LabelSettings_i0ew2")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Select_panel" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
 anchor_left = 0.5
-anchor_top = 0.841
+anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.841
-offset_left = 838.0
-offset_top = 1119.72
-offset_right = 1057.0
-offset_bottom = 1181.72
+anchor_bottom = 0.5
+offset_left = 346.0
+offset_top = 276.0
+offset_right = 889.0
+offset_bottom = 490.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Select" type="Button" parent="Select_panel"]
+layout_mode = 0
+offset_left = 52.0
+offset_top = 39.0
+offset_right = 195.0
+offset_bottom = 174.0
+theme_override_font_sizes/font_size = 64
+text = "✓"
+
+[node name="Cancel" type="Button" parent="Select_panel"]
+layout_mode = 0
+offset_left = 336.0
+offset_top = 39.0
+offset_right = 479.0
+offset_bottom = 174.0
+theme_override_font_sizes/font_size = 64
+text = "✘"
+
+[node name="Skip_button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -868.0
+offset_top = -116.0
+offset_right = -639.0
+offset_bottom = -53.0
 grow_horizontal = 2
 grow_vertical = 0
-text = "SKIP"
-
-[node name="LeaderBanner" type="Panel" parent="."]
-layout_mode = 0
-offset_left = 845.0
-offset_top = 165.0
-offset_right = 1044.0
-offset_bottom = 205.0
-
-[node name="Label" type="Label" parent="LeaderBanner"]
-layout_mode = 0
-offset_left = 732.0
-offset_top = 126.0
-offset_right = 1135.0
-offset_bottom = 166.0
+theme_override_font_sizes/font_size = 32
+text = "skip vote"
