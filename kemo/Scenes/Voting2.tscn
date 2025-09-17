@@ -1,10 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://b7cum4xtkhyw3"]
+[gd_scene load_steps=15 format=3 uid="uid://by8thtpjiwjc"]
 
-[ext_resource type="Script" uid="uid://b6vkau6f1hqks" path="res://Scenes/voting.gd" id="1_t1awk"]
-[ext_resource type="Texture2D" uid="uid://bbmx3u2aoxgs0" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Idle/ตัว/1.png" id="2_dwqxs"]
-[ext_resource type="Texture2D" uid="uid://ssn8ww4o11m1" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Idle/สี/ไม่มีชื่อ 12_20250817171242.png" id="3_0y5kf"]
-[ext_resource type="Texture2D" uid="uid://4qmtsh22ph7m" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/check-mark-Photoroom.png" id="4_0y5kf"]
-[ext_resource type="Texture2D" uid="uid://cmdy46nttc5o6" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/pngtree-prohibition-icon-image_2292555-Photoroom.png" id="5_l75qi"]
+[ext_resource type="Script" uid="uid://bkjuepe2pdmoi" path="res://Scenes/voting_2.gd" id="1_j1c54"]
+[ext_resource type="Texture2D" uid="uid://bbmx3u2aoxgs0" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Idle/ตัว/1.png" id="2_2luh4"]
+[ext_resource type="Texture2D" uid="uid://ssn8ww4o11m1" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Idle/สี/ไม่มีชื่อ 12_20250817171242.png" id="3_i75kb"]
+[ext_resource type="Texture2D" uid="uid://4qmtsh22ph7m" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/check-mark-Photoroom.png" id="4_1rqp1"]
+[ext_resource type="Texture2D" uid="uid://cmdy46nttc5o6" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/pngtree-prohibition-icon-image_2292555-Photoroom.png" id="5_ufgun"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_0y5kf"]
 font_size = 64
@@ -50,7 +50,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_t1awk")
+script = ExtResource("1_j1c54")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
@@ -229,14 +229,14 @@ layout_mode = 0
 offset_right = 640.0
 offset_bottom = 640.0
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("2_dwqxs")
+texture = ExtResource("2_2luh4")
 
 [node name="Modulate" type="TextureRect" parent="Player/player1"]
 layout_mode = 0
 offset_right = 640.0
 offset_bottom = 640.0
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("3_0y5kf")
+texture = ExtResource("3_i75kb")
 
 [node name="Selected" type="TextureRect" parent="Player/player1"]
 visible = false
@@ -246,7 +246,7 @@ offset_top = -50.9251
 offset_right = 1714.68
 offset_bottom = 1229.07
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("4_0y5kf")
+texture = ExtResource("4_1rqp1")
 
 [node name="player2" type="Panel" parent="Player"]
 layout_mode = 0
@@ -268,14 +268,14 @@ layout_mode = 0
 offset_right = 640.0
 offset_bottom = 640.0
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("2_dwqxs")
+texture = ExtResource("2_2luh4")
 
 [node name="Modulate" type="TextureRect" parent="Player/player2"]
 layout_mode = 0
 offset_right = 640.0
 offset_bottom = 640.0
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("3_0y5kf")
+texture = ExtResource("3_i75kb")
 
 [node name="Selected" type="TextureRect" parent="Player/player2"]
 visible = false
@@ -285,7 +285,7 @@ offset_top = -50.9251
 offset_right = 1714.68
 offset_bottom = 1229.07
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("4_0y5kf")
+texture = ExtResource("4_1rqp1")
 
 [node name="player3" type="Panel" parent="Player"]
 layout_mode = 0
@@ -307,14 +307,14 @@ layout_mode = 0
 offset_right = 640.0
 offset_bottom = 640.0
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("2_dwqxs")
+texture = ExtResource("2_2luh4")
 
 [node name="Modulate" type="TextureRect" parent="Player/player3"]
 layout_mode = 0
 offset_right = 640.0
 offset_bottom = 640.0
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("3_0y5kf")
+texture = ExtResource("3_i75kb")
 
 [node name="Selected" type="TextureRect" parent="Player/player3"]
 visible = false
@@ -324,7 +324,7 @@ offset_top = -50.9251
 offset_right = 1714.68
 offset_bottom = 1229.07
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("4_0y5kf")
+texture = ExtResource("4_1rqp1")
 
 [node name="player4" type="Panel" parent="Player"]
 layout_mode = 0
@@ -346,14 +346,14 @@ layout_mode = 0
 offset_right = 640.0
 offset_bottom = 640.0
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("2_dwqxs")
+texture = ExtResource("2_2luh4")
 
 [node name="Modulate" type="TextureRect" parent="Player/player4"]
 layout_mode = 0
 offset_right = 640.0
 offset_bottom = 640.0
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("3_0y5kf")
+texture = ExtResource("3_i75kb")
 
 [node name="Selected" type="TextureRect" parent="Player/player4"]
 visible = false
@@ -363,7 +363,7 @@ offset_top = -50.9251
 offset_right = 1714.68
 offset_bottom = 1229.07
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("4_0y5kf")
+texture = ExtResource("4_1rqp1")
 
 [node name="player5" type="Panel" parent="Player"]
 layout_mode = 0
@@ -385,14 +385,14 @@ layout_mode = 0
 offset_right = 640.0
 offset_bottom = 640.0
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("2_dwqxs")
+texture = ExtResource("2_2luh4")
 
 [node name="Modulate" type="TextureRect" parent="Player/player5"]
 layout_mode = 0
 offset_right = 640.0
 offset_bottom = 640.0
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("3_0y5kf")
+texture = ExtResource("3_i75kb")
 
 [node name="Selected" type="TextureRect" parent="Player/player5"]
 visible = false
@@ -402,7 +402,7 @@ offset_top = -50.9251
 offset_right = 1714.68
 offset_bottom = 1229.07
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("4_0y5kf")
+texture = ExtResource("4_1rqp1")
 
 [node name="player6" type="Panel" parent="Player"]
 layout_mode = 0
@@ -424,14 +424,14 @@ layout_mode = 0
 offset_right = 640.0
 offset_bottom = 640.0
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("2_dwqxs")
+texture = ExtResource("2_2luh4")
 
 [node name="Modulate" type="TextureRect" parent="Player/player6"]
 layout_mode = 0
 offset_right = 640.0
 offset_bottom = 640.0
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("3_0y5kf")
+texture = ExtResource("3_i75kb")
 
 [node name="Selected" type="TextureRect" parent="Player/player6"]
 visible = false
@@ -441,7 +441,7 @@ offset_top = -50.9251
 offset_right = 1714.68
 offset_bottom = 1229.07
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("4_0y5kf")
+texture = ExtResource("4_1rqp1")
 
 [node name="player7" type="Panel" parent="Player"]
 layout_mode = 0
@@ -463,14 +463,14 @@ layout_mode = 0
 offset_right = 640.0
 offset_bottom = 640.0
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("2_dwqxs")
+texture = ExtResource("2_2luh4")
 
 [node name="Modulate" type="TextureRect" parent="Player/player7"]
 layout_mode = 0
 offset_right = 640.0
 offset_bottom = 640.0
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("3_0y5kf")
+texture = ExtResource("3_i75kb")
 
 [node name="Selected" type="TextureRect" parent="Player/player7"]
 visible = false
@@ -480,7 +480,7 @@ offset_top = -50.9251
 offset_right = 1714.68
 offset_bottom = 1229.07
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("4_0y5kf")
+texture = ExtResource("4_1rqp1")
 
 [node name="player8" type="Panel" parent="Player"]
 layout_mode = 0
@@ -502,14 +502,14 @@ layout_mode = 0
 offset_right = 640.0
 offset_bottom = 640.0
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("2_dwqxs")
+texture = ExtResource("2_2luh4")
 
 [node name="Modulate" type="TextureRect" parent="Player/player8"]
 layout_mode = 0
 offset_right = 640.0
 offset_bottom = 640.0
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("3_0y5kf")
+texture = ExtResource("3_i75kb")
 
 [node name="Selected" type="TextureRect" parent="Player/player8"]
 visible = false
@@ -519,7 +519,7 @@ offset_top = -50.9251
 offset_right = 1714.68
 offset_bottom = 1229.07
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("4_0y5kf")
+texture = ExtResource("4_1rqp1")
 
 [node name="player9" type="Panel" parent="Player"]
 layout_mode = 0
@@ -541,14 +541,14 @@ layout_mode = 0
 offset_right = 640.0
 offset_bottom = 640.0
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("2_dwqxs")
+texture = ExtResource("2_2luh4")
 
 [node name="Modulate" type="TextureRect" parent="Player/player9"]
 layout_mode = 0
 offset_right = 640.0
 offset_bottom = 640.0
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("3_0y5kf")
+texture = ExtResource("3_i75kb")
 
 [node name="Selected" type="TextureRect" parent="Player/player9"]
 visible = false
@@ -558,7 +558,7 @@ offset_top = -50.9251
 offset_right = 1714.68
 offset_bottom = 1229.07
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("4_0y5kf")
+texture = ExtResource("4_1rqp1")
 
 [node name="player10" type="Panel" parent="Player"]
 layout_mode = 0
@@ -580,14 +580,14 @@ layout_mode = 0
 offset_right = 640.0
 offset_bottom = 640.0
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("2_dwqxs")
+texture = ExtResource("2_2luh4")
 
 [node name="Modulate" type="TextureRect" parent="Player/player10"]
 layout_mode = 0
 offset_right = 640.0
 offset_bottom = 640.0
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("3_0y5kf")
+texture = ExtResource("3_i75kb")
 
 [node name="Selected" type="TextureRect" parent="Player/player10"]
 visible = false
@@ -597,7 +597,7 @@ offset_top = -50.9251
 offset_right = 1714.68
 offset_bottom = 1229.07
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("4_0y5kf")
+texture = ExtResource("4_1rqp1")
 
 [node name="Eliminated players" type="Control" parent="."]
 visible = false
@@ -618,7 +618,7 @@ offset_right = 1277.0
 offset_bottom = 789.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_dwqxs")
+texture = ExtResource("2_2luh4")
 
 [node name="Modulate" type="TextureRect" parent="Eliminated players"]
 layout_mode = 1
@@ -633,7 +633,7 @@ offset_right = 1277.0
 offset_bottom = 789.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("3_0y5kf")
+texture = ExtResource("3_i75kb")
 
 [node name="Label" type="Label" parent="Eliminated players/Modulate"]
 layout_mode = 1
@@ -655,12 +655,13 @@ vertical_alignment = 1
 
 [node name="Selected" type="TextureRect" parent="Eliminated players"]
 modulate = Color(1, 0, 0, 1)
+layout_mode = 0
 offset_left = 667.0
 offset_top = 202.0
 offset_right = 1942.0
 offset_bottom = 1482.0
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("5_l75qi")
+texture = ExtResource("5_ufgun")
 
 [node name="ProceedingTimer" type="Timer" parent="."]
 

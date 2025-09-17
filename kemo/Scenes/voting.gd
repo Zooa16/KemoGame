@@ -1,4 +1,3 @@
-# Voting.gd
 extends Control
 
 var turn_duration := 60
@@ -43,6 +42,17 @@ var time_left := 0
 @onready var Cancel_button = $Select_panel/Cancel
 @onready var skip_button = $Skip_button
 
+@onready var Eliminated_player_ui = $"Eliminated players"
+@onready var Eliminated_player_Modulate = $"Eliminated players/Modulate"
+@onready var Eliminated_player_name = $"Eliminated players/Modulate/Label"
+
+# New: Add these three new nodes from your scene
+@onready var Tie = $Tie
+@onready var Skip_vote = $"Skip vote"
+@onready var Number_of_votes = $"Vote results/Number of votes"
+
+@onready var proceeding_timer: Timer = $ProceedingTimer 
+
 var votes: Dictionary = {}
 var has_voted := false
 var selected_player_id: int = 0
@@ -51,13 +61,23 @@ var current_highlighted_node: Node = null
 
 var player_id_to_ui_index: Dictionary = {}
 
+var countdown_duration := 10
+var voting_in_progress := false
+var fade_out_duration := 2.0
+
 
 func _ready():
     for ui in player_ui_nodes.values():
         ui.visible = false
-        
+    
+    Eliminated_player_ui.visible = false
+    # Hide the new UI elements at the start
+    Tie.visible = false
+    Skip_vote.visible = false
+    Number_of_votes.visible = false
+    
     hide_all_selected()
-        
+    
     Select_button.pressed.connect(_on_select_button_pressed)
     Cancel_button.pressed.connect(_on_cancel_button_pressed)
     skip_button.pressed.connect(_on_skip_button_pressed)
@@ -72,7 +92,7 @@ func _ready():
 func hide_all_selected():
     for icon in Selected.values():
         icon.visible = false
-        
+    
 func highlight_selection(player_id: int):
     if current_highlighted_node:
         current_highlighted_node.modulate = Color.WHITE
@@ -85,7 +105,7 @@ func highlight_selection(player_id: int):
             current_highlighted_node = name_label
 
 func _on_player_ui_pressed(player_id: int):
-    if not has_voted:
+    if not has_voted and voting_in_progress:
         selected_player_id = player_id
         highlight_selection(player_id)
         Select_panel.visible = true
@@ -96,10 +116,8 @@ func _on_select_button_pressed():
         print("PLAYER(", my_id, "): Voting for player ", selected_player_id)
         
         if multiplayer.is_server():
-            # ถ้าเราเป็น host → ส่งตรงไป server เลย
             receive_vote(my_id, selected_player_id)
         else:
-            # client ส่งไปให้ server
             rpc_id(1, "receive_vote", my_id, selected_player_id)
 
         Select_panel.visible = false
@@ -162,18 +180,16 @@ func send_vote(target_id: int):
     print("PLAYER(", peer_id, "): Sending vote for player ", target_id)
 
     if multiplayer.is_server():
-        # ถ้าเราเป็น Host → เรียกตรงๆเลย
         receive_vote(peer_id, target_id)
     else:
-        # ถ้าเราเป็น Client → ส่งไปให้ server
         rpc_id(1, "receive_vote", peer_id, target_id)
 
 @rpc("any_peer")
 func receive_vote(voter_id: int, voted_id: int):
     show_selected_rpc(voter_id)
     if not multiplayer.is_server():
-        return  # client ไม่ทำอะไร
-    
+        return
+        
     if not votes.has(voter_id):
         votes[voter_id] = voted_id
         print("SERVER: Received vote from player ", voter_id, " for player ", voted_id)
@@ -181,8 +197,7 @@ func receive_vote(voter_id: int, voted_id: int):
 
     print("SERVER: Current votes dictionary: ", votes)
     
-
-    if votes.size() >= Global.player_names.size():
+    if votes.size() >= Global.player_names.size() and voting_in_progress:
         print("SERVER: All players have voted. Calculating results...")
         turn_timer.stop()
         calculate_and_show_results()
@@ -190,8 +205,8 @@ func receive_vote(voter_id: int, voted_id: int):
 func start_voting_timer():
     if not multiplayer.is_server():
         return
-    
-    time_left = turn_duration
+        
+    time_left = countdown_duration + turn_duration
     turn_timer.wait_time = 1.0
     turn_timer.one_shot = false
     turn_timer.timeout.connect(_on_timer_timeout)
@@ -238,24 +253,26 @@ func calculate_and_show_results():
             tied_players.append(voted_id)
     
     var result_text = ""
+    var result_type = "eliminated"
     
-    print("--- Vote results on server ---")
-    print("Vote Counts:", vote_counts)
-    print("Skip Votes:", skip_count)
-    print("Max Votes:", max_votes)
-
-    if max_votes == 0:
+    if tied_players.size() > 1:
+        result_text = "Tied vote"
+        result_type = "tie"
+    elif max_votes == 0 or max_votes <= skip_count:
         result_text = "No one was voted out."
-    elif tied_players.size() > 1:
-        result_text = "Tied vote. No one was eliminated."
-    elif max_votes <= skip_count:
-        result_text = "Skipped votes were higher than or equal to any single player's vote count. No one was eliminated."
+        result_type = "skip"
     else:
         var eliminated_player_name = Global.player_names.get(winning_voted_id, "Unknown Player")
         result_text = "\"%s\" was eliminated from the mission." % eliminated_player_name
+        eliminated_player_id = winning_voted_id
+        result_type = "eliminated"
 
-    rpc("show_final_result", result_text)
+    # Pass all necessary data to the RPC function
+    rpc("show_final_result", result_text, eliminated_player_id, result_type, max_votes, skip_count)
     
+    if multiplayer.is_server():
+        start_proceeding_timer()
+
 # ----------------------------------------------------
 # Multiplayer RPC functions (Client & Server Logic)
 # ----------------------------------------------------
@@ -267,15 +284,33 @@ func show_selected_rpc(voter_id: int):
         if selected_icon:
             selected_icon.visible = true
 
-            
 @rpc("any_peer", "call_local")
 func update_timer_label(new_time: int):
     time_left = new_time
-    timer_label.text = str(time_left)
+    if time_left > turn_duration:
+        timer_label.text = "Voting Begins in " + str(time_left - turn_duration)
+        timer_label.modulate = Color.WHITE
+        voting_in_progress = false
+        skip_button.disabled = true
+    else:
+        if not voting_in_progress:
+            Voting_topic.text = "Please cast your vote."
+            voting_in_progress = true
+            skip_button.disabled = false
+            
+        timer_label.text = "Voting Ends in " + str(time_left)
+        
+        if time_left <= 10:
+            timer_label.modulate = Color.RED
+        else:
+            timer_label.modulate = Color.WHITE
 
+# Updated function to handle all vote result scenarios
 @rpc("any_peer", "call_local")
-func show_final_result(result_text: String):
+func show_final_result(result_text: String, eliminated_id: int, result_type: String, max_votes: int, skip_count: int):
     Voting_results.text = result_text
+    Voting_topic.text = ""
+    timer_label.text = ""
     
     if current_highlighted_node:
         current_highlighted_node.modulate = Color.WHITE
@@ -283,6 +318,78 @@ func show_final_result(result_text: String):
     hide_all_selected()
     
     skip_button.visible = false
+    for ui in player_ui_nodes.values():
+        ui.visible = false
     
-    await get_tree().create_timer(5.0).timeout
+    Eliminated_player_ui.visible = false
+    Tie.visible = false
+    Skip_vote.visible = false
+    Number_of_votes.visible = true # Number_of_votes will always be shown
+    
+    if result_type == "eliminated":
+        if eliminated_id != 0:
+            Eliminated_player_ui.visible = true
+            var name_to_display = Global.player_names.get(eliminated_id, "Unknown Player")
+            Eliminated_player_name.text = name_to_display
+            Eliminated_player_Modulate.modulate = Global.player_colors.get(eliminated_id, Color.WHITE)
+        Number_of_votes.text = "Votes: " + str(max_votes)
+    elif result_type == "tie":
+        Tie.visible = true
+        var tied_players = []
+        for player_id in Global.player_names.keys():
+            if votes.get(player_id) == max_votes:
+                tied_players.append(Global.player_names.get(player_id))
+        # The Number_of_votes label will show something like "3:3"
+        Number_of_votes.text = str(max_votes) + ":" + str(max_votes)
+    elif result_type == "skip":
+        Skip_vote.visible = true
+        Number_of_votes.text = "Skip Votes: " + str(skip_count)
+
+
+@rpc("any_peer", "call_local")
+func update_proceeding_label(new_time: int):
+    timer_label.text = "Proceeding in: " + str(new_time)
+    
+@rpc("any_peer", "call_local")
+func fade_out_and_change_scene():
+    timer_label.text = "Proceeding..."
+    var tween = get_tree().create_tween()
+    tween.tween_property(self, "modulate", Color(0, 0, 0, 1), fade_out_duration)
+    await tween.finished
     get_tree().change_scene_to_file("res://Scenes/game.tscn")
+
+# ----------------------------------------------------
+# New Functions for Proceeding Timer (Server Only)
+# ----------------------------------------------------
+func start_proceeding_timer():
+    if not multiplayer.is_server():
+        return
+        
+    var time_to_proceed = 5
+    
+    proceeding_timer.wait_time = 1.0
+    proceeding_timer.one_shot = false
+    
+    if not proceeding_timer.timeout.is_connected(self._on_proceeding_timer_timeout):
+        proceeding_timer.timeout.connect(self._on_proceeding_timer_timeout)
+        
+    proceeding_timer.start()
+    
+    rpc("update_proceeding_label", time_to_proceed)
+
+func _on_proceeding_timer_timeout():
+    if not multiplayer.is_server():
+        return
+    
+    var current_time = 0
+    var time_text = timer_label.text.replace("Proceeding in: ", "")
+    if time_text.is_valid_int():
+        current_time = int(time_text)
+    
+    var new_time = current_time - 1
+    
+    if new_time > 0:
+        rpc("update_proceeding_label", new_time)
+    else:
+        proceeding_timer.stop()
+        rpc("fade_out_and_change_scene")

@@ -127,5 +127,5 @@ func update_timer_label(new_time: int):
     
 @rpc("any_peer", "call_local")
 func go_to_voting_phase():
-    var voting_scene = preload("res://scenes/Voting.tscn")
+    var voting_scene = preload("res://Scenes/Voting2.tscn")
     get_tree().change_scene_to_packed(voting_scene)
