@@ -12,7 +12,7 @@ const SLIDE_COOLDOWN = 1.5
 @onready var spring_arm: SpringArm3D = $body/SpringArm3D
 @onready var camera: Camera3D = $body/SpringArm3D/Camera3D
 
-# NEW: role label node (add another Label3D in scene, e.g. "RoleLabel")
+# NEW: role label node
 @onready var role_label: Label3D = $RoleLabel
 
 var is_sliding = false
@@ -20,6 +20,8 @@ var slide_timer = 0.0
 var slide_cooldown_timer = 0.0
 var gravity = 20.0
 var mouse_locked = true
+
+# The role of this player node (synced via RPC)
 var role: String = ""
 
 # state sync
@@ -27,167 +29,175 @@ var target_position: Vector3
 var target_rotation_y: float
 var current_anim: String = ""
 
-# NEW: Role variable
-var my_role: String = ""
-
 func _enter_tree():
-    set_multiplayer_authority(str(name).to_int())
+	set_multiplayer_authority(str(name).to_int())
 
 func _ready():
-    add_to_group("players")
-    if not is_multiplayer_authority():
-        camera.current = false
-    else:
-        camera.current = true
-        spring_arm.spring_length = 32.0
-        spring_arm.collision_mask = 1
-    set_player_name(Global.my_player_name)
-    if role_label:
-        role_label.text = ""  # Start empty, but keep visible
-        role_label.visible = true
-
+	add_to_group("players")
+	if not is_multiplayer_authority():
+		camera.current = false
+	else:
+		camera.current = true
+		spring_arm.spring_length = 32.0
+		spring_arm.collision_mask = 1
+	
+	set_player_name(Global.my_player_name)
+	
+	if role_label:
+		role_label.text = ""
+		role_label.visible = false
 
 # ---------------- ROLE HANDLING ----------------
 @rpc("any_peer", "reliable", "call_local")
-func set_role(new_role: String):
-    role = new_role
+func set_role(new_role: String, is_leader: bool = false):
+	role = new_role
+	print("Assigned role:", role, " Leader:", is_leader, " to peer:", get_multiplayer_authority())
+	
+	# Save leader status in Global
+	if is_leader:
+		Global.leader_id = get_multiplayer_authority()
+	
+	# Show private role for local player
+	if is_multiplayer_authority():
+		if role_label:
+			var private_text = "Role: " + new_role
+			if is_leader:
+				private_text += " (Leader 👑)"  # Add leader tag to base role
+			role_label.text = private_text
+			if Global.role_colors.has(new_role):
+				role_label.modulate = Global.role_colors[new_role]
+			role_label.visible = true
 
-    if is_multiplayer_authority():  # show only for yourself
-        if role_label:
-            role_label.text = role
+		# Show role reveal overlay
+		var reveal_scene = preload("res://Scenes/role_reveal.tscn").instantiate()
+		get_tree().root.add_child(reveal_scene)
+		reveal_scene.show_role(new_role, is_leader)
 
-            if Global.role_colors.has(role):
-                role_label.modulate = Global.role_colors[role]
+		# Hook to GameManager if server
+		if multiplayer.is_server():
+			var gm_node = get_tree().get_root().get_node("GameManager")
+			if gm_node:
+				reveal_scene.role_reveal_finished.connect(Callable(gm_node, "on_role_reveal_finished"))
 
-            role_label.visible = true
-
-        # 👇 ADD ROLE REVEAL OVERLAY HERE
-        var reveal_scene = preload("res://Scenes/role_reveal.tscn").instantiate()
-        get_tree().root.add_child(reveal_scene)
-        
-        # แก้ไขบรรทัดนี้: ลบ duration ออก เพราะเราจะกำหนดใน Role_reveal.gd โดยตรง
-        reveal_scene.show_role(role)
-        
-        # ⭐️ เพิ่มโค้ดส่วนนี้เพื่อเชื่อมต่อสัญญาณ
-        if multiplayer.is_server():
-            reveal_scene.role_reveal_finished.connect(Callable(get_tree().get_root().get_node("GameManager"), "on_role_reveal_finished"))
-            
-    else:
-        if role_label:
-            role_label.text = ""
-            role_label.visible = false
-
-    print("Assigned role:", role, "to authority:", is_multiplayer_authority())
+	# Always update public visibility
+	update_role_visibility()
 
 
-
-func update_role_label(role_name: String):
-    if is_multiplayer_authority():
-        if role_label:
-            role_label.text = role_name
-            role_label.visible = true
-    else:
-        # hide label for other players
-        if role_label:
-            role_label.visible = false
-
+# ⭐️ NEW FUNCTION to handle public role visibility
+func update_role_visibility():
+	# Only the Leader role is publicly visible to all players
+	if Global.leader_id == get_multiplayer_authority():
+		role_label.text = "👑 Leader"
+		role_label.modulate = Color.YELLOW
+		role_label.visible = true
+	else:
+		# Hide the role label for all other players
+		role_label.visible = false
+	
+	# A player's own private role is handled by the `set_role` function
+	if is_multiplayer_authority() and role_label:
+		role_label.visible = true
 
 # ---------------- MOVEMENT / SYNC ----------------
 func _physics_process(delta):
-    if is_multiplayer_authority():
-        if slide_cooldown_timer > 0:
-            slide_cooldown_timer -= delta
+	if is_multiplayer_authority():
+		if slide_cooldown_timer > 0:
+			slide_cooldown_timer -= delta
 
-        if not is_on_floor():
-            velocity.y -= gravity * delta
+		if not is_on_floor():
+			velocity.y -= gravity * delta
 
-        if Input.is_action_just_pressed("jump") and is_on_floor():
-            velocity.y = JUMP_VELOCITY
-        
-        var input_dir := Input.get_vector("left", "right", "forward", "back")
-        var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+		if Input.is_action_just_pressed("jump") and is_on_floor():
+			velocity.y = JUMP_VELOCITY
+		
+		var input_dir := Input.get_vector("left", "right", "forward", "back")
+		var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 
-        # Slide start
-        if Input.is_action_just_pressed("slide") and is_on_floor() and direction and not is_sliding and slide_cooldown_timer <= 0:
-            is_sliding = true
-            slide_timer = SLIDE_TIME
-            slide_cooldown_timer = SLIDE_COOLDOWN
-            velocity.x = direction.x * SPEED_SLIDE
-            velocity.z = direction.z * SPEED_SLIDE
-            play_anim_all("slide")
-            
-        # Slide update
-        if is_sliding:
-            slide_timer -= delta
-            if slide_timer <= 0:
-                is_sliding = false
-        else:
-            if direction:
-                velocity.x = direction.x * SPEED
-                velocity.z = direction.z * SPEED
-                play_anim_all("run")
+		# Slide start
+		if Input.is_action_just_pressed("slide") and is_on_floor() and direction and not is_sliding and slide_cooldown_timer <= 0:
+			is_sliding = true
+			slide_timer = SLIDE_TIME
+			slide_cooldown_timer = SLIDE_COOLDOWN
+			velocity.x = direction.x * SPEED_SLIDE
+			velocity.z = direction.z * SPEED_SLIDE
+			play_anim_all("slide")
+			
+		# Slide update
+		if is_sliding:
+			slide_timer -= delta
+			if slide_timer <= 0:
+				is_sliding = false
+		else:
+			if direction:
+				velocity.x = direction.x * SPEED
+				velocity.z = direction.z * SPEED
+				play_anim_all("run")
 
-                if direction.x > 0:
-                    set_flip_all(true)
-                elif direction.x < 0:
-                    set_flip_all(false)
-                else:
-                    set_flip_all(false)
-            else:
-                velocity.x = move_toward(velocity.x, 0, SPEED)
-                velocity.z = move_toward(velocity.z, 0, SPEED)
-                play_anim_all("idle")
+				if direction.x > 0:
+					set_flip_all(true)
+				elif direction.x < 0:
+					set_flip_all(false)
+				else:
+					set_flip_all(false)
+			else:
+				velocity.x = move_toward(velocity.x, 0, SPEED)
+				velocity.z = move_toward(velocity.z, 0, SPEED)
+				play_anim_all("idle")
 
-        move_and_slide()
-        update_state.rpc(global_position, rotation.y)
-    else:
-        global_position = global_position.lerp(target_position, 0.2)
-        rotation.y = lerp_angle(rotation.y, target_rotation_y, 0.2)
-
+		move_and_slide()
+		update_state.rpc(global_position, rotation.y)
+	else:
+		global_position = global_position.lerp(target_position, 0.2)
+		rotation.y = lerp_angle(rotation.y, target_rotation_y, 0.2)
 
 # ---------------- RPC ----------------
 @rpc("unreliable", "any_peer")
 func update_state(new_pos: Vector3, new_rot_y: float):
-    target_position = new_pos
-    target_rotation_y = new_rot_y
+	target_position = new_pos
+	target_rotation_y = new_rot_y
 
 func set_initial_position(new_pos: Vector3):
-    global_position = new_pos
-    target_position = new_pos
-    
+	global_position = new_pos
+	target_position = new_pos
+	
 @rpc("unreliable", "any_peer")
 func set_animation_and_flip(anim_name: String):
-    if current_anim == anim_name:
-        return
-    current_anim = anim_name
-    _play_anim(animation_body, anim_name)
-    _play_anim(animation_color, anim_name)
+	if current_anim == anim_name:
+		return
+	current_anim = anim_name
+	_play_anim(animation_body, anim_name)
+	_play_anim(animation_color, anim_name)
 
 @rpc("unreliable", "any_peer")
 func set_flip_all_rpc(flip: bool):
-    animation_body.flip_h = flip
-    animation_color.flip_h = flip
+	animation_body.flip_h = flip
+	animation_color.flip_h = flip
 
 @rpc("any_peer", "reliable", "call_local")
 func set_player_name(new_name: String):
-    if player_name_label:
-        player_name_label.text = new_name
+	if player_name_label:
+		player_name_label.text = new_name
 
 @rpc("any_peer", "reliable", "call_local")
 func set_player_color(new_color: Color):
-    if animation_color:
-        animation_color.modulate = new_color
-        
+	if animation_color:
+		animation_color.modulate = new_color
+		
 
 # ---------------- Helper ----------------
 func _play_anim(sprite: AnimatedSprite3D, anim_name: String):
-    if sprite.animation != anim_name:
-        sprite.play(anim_name)
+	if sprite.animation != anim_name:
+		sprite.play(anim_name)
 
 func play_anim_all(anim_name: String):
-    set_animation_and_flip(anim_name)
-    set_animation_and_flip.rpc(anim_name)
+	set_animation_and_flip(anim_name)
+	set_animation_and_flip.rpc(anim_name)
 
 func set_flip_all(flip: bool):
-    set_flip_all_rpc(flip)
-    set_flip_all_rpc.rpc(flip)
+	set_flip_all_rpc(flip)
+	set_flip_all_rpc.rpc(flip)
+
+# This function is no longer needed since we handle it in `update_role_visibility`
+# func set_leader_local():
+#     role_label.text = "👑 Leader"
+#     role_label.visible = true # Leader is visible to *all* players

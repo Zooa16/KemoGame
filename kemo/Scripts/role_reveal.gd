@@ -4,39 +4,57 @@ signal role_reveal_finished
 
 @onready var black_screen: ColorRect = $ColorRect
 @onready var label: Label = $Label
+@onready var leader_label: Label = $LeaderLabel
 
 func show_role(role: String, duration: float = 6) -> void:
-    # กำหนดชื่อและสีของ Role
-    label.text = role
-    if Global.role_colors.has(role):
-        label.modulate = Global.role_colors[role]
-    else:
-        label.modulate = Color.WHITE
+	# --- Hidden Role (always shown to local player) ---
+	label.text = "You are the " + role
+	leader_label.visible = false
+	
+	if Global.role_colors.has(role):
+		label.modulate = Global.role_colors[role]
+	else:
+		label.modulate = Color.WHITE
 
-    # ตั้งค่าเริ่มต้น: หน้าจอเป็นสีดำสนิท และตัวอักษรยังมองไม่เห็น
-    black_screen.modulate.a = 1.0
-    label.modulate.a = 0.0
+	# --- Leader Role (only if this player is the Leader) ---
+	var my_id = multiplayer.get_unique_id()
+	if Global.leader_id == my_id:
+		leader_label.text = "You are the Leader 👑"
+		leader_label.modulate = Global.role_colors.get("Leader", Color(1, 1, 0))
+		leader_label.visible = true
+	else:
+		leader_label.visible = false
 
-    # สร้าง Tween
-    var tween = create_tween()
-    tween.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	# --- Start with black screen and invisible text ---
+	black_screen.modulate.a = 1.0
+	label.modulate.a = 0.0
+	leader_label.modulate.a = 0.0
 
-    # ลำดับอนิเมชัน
-    # 1. ค้างหน้าจอดำไว้ 1 วินาที
-    tween.tween_interval(1.0)
+	# --- Tween animation ---
+	var tween = create_tween()
+	tween.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 
-    # 2. ตัวอักษรค่อยๆ ปรากฏขึ้นในเวลา 1 วินาที
-    tween.tween_property(label, "modulate:a", 1.0, 1.0)
+	# 1. Hold black for 1s
+	tween.tween_interval(1.0)
 
-    # 3. ค้างหน้าจอไว้เพื่อให้ผู้เล่นอ่าน role
-    var visible_time = max(0, duration - 1.0 - 1.0 - 1.0)
-    tween.tween_interval(visible_time)
+	# 2. Fade in role label
+	tween.tween_property(label, "modulate:a", 1.0, 1.0)
 
-    # 4. หน้าจอสีดำและตัวอักษรค่อยๆ จางหายไปพร้อมกันใน 1 วินาที
-    tween.parallel().tween_property(black_screen, "modulate:a", 0.0, 3.0)
-    tween.parallel().tween_property(label, "modulate:a", 0.0, 3.0)
-    
-    # 5. เมื่อ animation ทั้งหมดจบลง ให้ปล่อยสัญญาณ
-    await tween.finished
-    emit_signal("role_reveal_finished")
-    queue_free() # สามารถลบตัวเองออกได้
+	# 3. If Leader, fade in LeaderLabel at the same time
+	if leader_label.visible:
+		tween.parallel().tween_property(leader_label, "modulate:a", 1.0, 1.0)
+
+	# 4. Stay visible for the rest of the duration
+	var visible_time = max(0, duration - 3.0)
+	tween.tween_interval(visible_time)
+
+	# 5. Fade out both labels + black screen
+	tween.parallel().tween_property(black_screen, "modulate:a", 0.0, 3.0)
+	tween.parallel().tween_property(label, "modulate:a", 0.0, 3.0)
+	if leader_label.visible:
+		tween.parallel().tween_property(leader_label, "modulate:a", 0.0, 3.0)
+
+	# 6. Cleanup
+	await tween.finished
+	emit_signal("role_reveal_finished")
+	queue_free()

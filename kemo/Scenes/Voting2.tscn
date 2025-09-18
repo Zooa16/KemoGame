@@ -1,10 +1,10 @@
 [gd_scene load_steps=15 format=3 uid="uid://by8thtpjiwjc"]
 
 [ext_resource type="Script" uid="uid://bkjuepe2pdmoi" path="res://Scenes/voting_2.gd" id="1_j1c54"]
-[ext_resource type="Texture2D" uid="uid://bbmx3u2aoxgs0" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Idle/ตัว/1.png" id="2_2luh4"]
-[ext_resource type="Texture2D" uid="uid://ssn8ww4o11m1" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Idle/สี/ไม่มีชื่อ 12_20250817171242.png" id="3_i75kb"]
-[ext_resource type="Texture2D" uid="uid://4qmtsh22ph7m" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/check-mark-Photoroom.png" id="4_1rqp1"]
-[ext_resource type="Texture2D" uid="uid://cmdy46nttc5o6" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/pngtree-prohibition-icon-image_2292555-Photoroom.png" id="5_ufgun"]
+[ext_resource type="Texture2D" uid="uid://il6dmqvmhthl" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Idle/ตัว/1.png" id="2_2luh4"]
+[ext_resource type="Texture2D" uid="uid://dkm6pa81jpnm4" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Idle/สี/ไม่มีชื่อ 12_20250817171242.png" id="3_i75kb"]
+[ext_resource type="Texture2D" uid="uid://c1fmk85ytvxw7" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/check-mark-Photoroom.png" id="4_1rqp1"]
+[ext_resource type="Texture2D" uid="uid://cww50uhtaqa8a" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/pngtree-prohibition-icon-image_2292555-Photoroom.png" id="5_ufgun"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_0y5kf"]
 font_size = 64
@@ -177,22 +177,6 @@ offset_right = 379.0
 offset_bottom = 56.0
 text = "Are you sure ?"
 label_settings = SubResource("LabelSettings_n1m2e")
-
-[node name="Skip_button" type="Button" parent="."]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -868.0
-offset_top = -116.0
-offset_right = -639.0
-offset_bottom = -53.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_font_sizes/font_size = 32
-text = "skip vote"
 
 [node name="Player" type="Control" parent="."]
 layout_mode = 1
