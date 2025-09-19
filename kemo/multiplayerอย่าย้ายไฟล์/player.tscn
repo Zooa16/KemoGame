@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://cxrrxf305rbhf"]
+[gd_scene load_steps=50 format=3 uid="uid://cxrrxf305rbhf"]
 
 [ext_resource type="Script" uid="uid://cmfwr1aifmv7n" path="res://multiplayerอย่าย้ายไฟล์/Player.gd" id="1_2v3wm"]
 [ext_resource type="Texture2D" uid="uid://bbmx3u2aoxgs0" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Idle/ตัว/1.png" id="2_ny14h"]
@@ -41,6 +41,7 @@
 [ext_resource type="Texture2D" uid="uid://b21bngewgljnr" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Slide/สี/2.png" id="39_0jj5r"]
 [ext_resource type="Texture2D" uid="uid://bau65ty5sg2nr" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Slide/สี/3.png" id="40_77e46"]
 [ext_resource type="Texture2D" uid="uid://cnlqc18dsfnfj" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Slide/สี/4.png" id="41_cy2ki"]
+[ext_resource type="Texture2D" uid="uid://faa62x61xs16" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/lovepik-cartoon-crown-png-image_401367525_wh1200-Photoroom.png" id="42_r5sy0"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_04cqw"]
 animations = [{
@@ -229,6 +230,16 @@ cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
 cache/0/16/0/underline_thickness = 0.0
 cache/0/16/0/scale = 1.0
+cache/0/32/0/ascent = 0.0
+cache/0/32/0/descent = 0.0
+cache/0/32/0/underline_position = 0.0
+cache/0/32/0/underline_thickness = 0.0
+cache/0/32/0/scale = 1.0
+cache/0/48/0/ascent = 0.0
+cache/0/48/0/descent = 0.0
+cache/0/48/0/underline_position = 0.0
+cache/0/48/0/underline_thickness = 0.0
+cache/0/48/0/scale = 1.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tanpb"]
 albedo_color = Color(1, 0, 0, 1)
@@ -273,16 +284,34 @@ shape = SubResource("BoxShape3D_ny14h")
 replication_config = SubResource("SceneReplicationConfig_hn37q")
 
 [node name="RoleLabel" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.02236, -3.00186)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.38791, -3.00186)
 pixel_size = 0.02
+billboard = 1
 font = SubResource("FontFile_tanpb")
+
+[node name="RoleLabel2" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.23273, 7.6077, -3.00186)
+visible = false
+pixel_size = 0.02
+billboard = 1
+modulate = Color(1, 0.662745, 0, 1)
+text = "Leader"
+font = SubResource("FontFile_tanpb")
+font_size = 48
+
+[node name="Sprite3D" type="Sprite3D" parent="RoleLabel2"]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 2.64964, 0.360184, 0)
+billboard = 1
+texture = ExtResource("42_r5sy0")
 
 [node name="Label3D" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 3.90637, -3.00186)
 billboard = 1
 modulate = Color(0, 0, 0, 1)
+outline_modulate = Color(1, 1, 1, 1)
 text = "Player"
 font_size = 250
+outline_size = 25
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, 0, 0)
