@@ -61,9 +61,9 @@ var current_highlighted_node: Node = null
 
 var player_id_to_ui_index: Dictionary = {}
 
-var countdown_duration := 1
+var countdown_duration := 10
 var voting_in_progress := false
-var fade_out_duration := 2.0
+var fade_out_duration := 4.0
 
 
 func _ready():
@@ -255,7 +255,7 @@ func calculate_and_show_results():
     var result_text = ""
     var result_type = "eliminated"
     
-    # --- โค้ดที่เพิ่มและแก้ไขเพื่อจัดเก็บ ID ผู้เล่นที่ถูกกำจัด ---
+    # NEW: ตรวจสอบและกำหนดค่า Global.eliminated_player_id ก่อนส่ง
     if tied_players.size() > 1:
         result_text = "Tied vote"
         result_type = "tie"
@@ -267,16 +267,18 @@ func calculate_and_show_results():
     else:
         var eliminated_player_name = Global.player_names.get(winning_voted_id, "Unknown Player")
         result_text = "\"%s\" was eliminated from the mission." % eliminated_player_name
-        eliminated_player_id = winning_voted_id
         result_type = "eliminated"
         Global.eliminated_player_id = winning_voted_id
-    # -------------------------------------------------------------
-
-    # Pass all necessary data to the RPC function
-    rpc("show_final_result", result_text, eliminated_player_id, result_type, max_votes, skip_count)
+        
+    # ส่งข้อมูลไปยังไคลเอนต์ผ่าน RPC
+    rpc("show_final_result", result_text, Global.eliminated_player_id, result_type, max_votes, skip_count)
     
-    if multiplayer.is_server():
-        start_proceeding_timer()
+    # ลบโค้ดส่วนนี้ออก เพราะเราจะไปเปลี่ยนฉากในฟังก์ชันใหม่ที่เหมาะสมกว่า
+    # if multiplayer.is_server():
+    #     rpc("fade_out_and_change_scene", "res://Scenes/Voting2.tscn")
+    
+    # 🌟 NEW: เรียกฟังก์ชันสำหรับจัดการการเปลี่ยนฉาก
+    start_proceeding_timer()
     
     return result_type
 
@@ -315,6 +317,9 @@ func update_timer_label(new_time: int):
 # Updated function to handle all vote result scenarios
 @rpc("any_peer", "call_local")
 func show_final_result(result_text: String, eliminated_id: int, result_type: String, max_votes: int, skip_count: int):
+    # 🌟 NEW: อัปเดต Global.eliminated_player_id บนไคลเอนต์
+    Global.eliminated_player_id = eliminated_id
+    
     Voting_results.text = result_text
     Voting_topic.text = ""
     timer_label.text = ""
@@ -334,7 +339,7 @@ func show_final_result(result_text: String, eliminated_id: int, result_type: Str
     Number_of_votes.visible = true # Number_of_votes will always be shown
     
     if result_type == "eliminated":
-        if eliminated_id != 0:
+        if eliminated_id != -1: # เช็คว่ามีคนถูกคัดออกจริง ๆ
             Eliminated_player_ui.visible = true
             var name_to_display = Global.player_names.get(eliminated_id, "Unknown Player")
             Eliminated_player_name.text = name_to_display
@@ -342,16 +347,18 @@ func show_final_result(result_text: String, eliminated_id: int, result_type: Str
         Number_of_votes.text = "Votes: " + str(max_votes)
     elif result_type == "tie":
         Tie.visible = true
+        # โค้ดส่วนนี้จะทำงานบนไคลเอนต์ แต่ไม่มีข้อมูล votes dictionary
+        # ดังนั้นจะไม่มีการแสดงผลที่ถูกต้อง
         var tied_players = []
-        for player_id in Global.player_names.keys():
-            if votes.get(player_id) == max_votes:
-                tied_players.append(Global.player_names.get(player_id))
+        # for player_id in Global.player_names.keys():
+        #     if votes.get(player_id) == max_votes:
+        #         tied_players.append(Global.player_names.get(player_id))
+        
         # The Number_of_votes label will show something like "3:3"
         Number_of_votes.text = str(max_votes) + ":" + str(max_votes)
     elif result_type == "skip":
         Skip_vote.visible = true
         Number_of_votes.text = "Skip Votes: " + str(skip_count)
-
 
 @rpc("any_peer", "call_local")
 func update_proceeding_label(new_time: int):
@@ -361,9 +368,10 @@ func update_proceeding_label(new_time: int):
 func fade_out_and_change_scene(scene_path: String):
     timer_label.text = "Proceeding..."
     var tween = get_tree().create_tween()
-    tween.tween_property(self, "modulate", Color(0, 0, 0, 1), fade_out_duration)
-    await tween.finished
-    get_tree().change_scene_to_file("res://Scenes/Voting2.tscn")
+    if tween:
+        tween.tween_property(self, "modulate", Color(0, 0, 0, 1), fade_out_duration)
+        await tween.finished
+        get_tree().change_scene_to_file(scene_path)
 
 # ----------------------------------------------------
 # New Functions for Proceeding Timer (Server Only)
@@ -400,17 +408,5 @@ func _on_proceeding_timer_timeout():
     else:
         proceeding_timer.stop()
         
-        # Determine the next scene based on the voting outcome.
-        var next_scene_path: String
-        var vote_result = calculate_and_show_results() # This function needs to return a value now.
-
-        if vote_result == "eliminated":
-            # If a player was eliminated, proceed to the mission voting scene.
-            next_scene_path = "res://Scenes/Voting2.tscn" # Or whatever your new scene is called.
-        else:
-            # If there was a tie or skip, go back to the game scene or handle it differently.
-            # You might need to add a re-vote mechanic here.
-            next_scene_path = "res://Scenes/Voting2.tscn"
-
-        # Now, call the RPC with the correct scene path.
-        rpc("fade_out_and_change_scene", "res://Scenes/Voting2.tscn")
+        var next_scene_path = "res://Scenes/Voting2.tscn"
+        rpc("fade_out_and_change_scene", next_scene_path)

@@ -54,10 +54,9 @@ script = ExtResource("1_t1awk")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
-offset_left = 24.0
-offset_top = 1.0
-offset_right = 1944.0
-offset_bottom = 1080.0
+offset_top = 6.0
+offset_right = 1920.0
+offset_bottom = 1085.0
 color = Color(0, 0.241206, 0.0680432, 0.52549)
 
 [node name="Voting_topic" type="Label" parent="."]

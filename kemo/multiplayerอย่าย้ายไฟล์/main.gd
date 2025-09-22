@@ -20,7 +20,7 @@ extends Node
 # NEW: เพิ่มปุ่มแสดง/ซ่อน ID ห้อง
 @onready var Show_Hide_ID_Button = $CanvasLayer/HUD/VBoxContainer/HBoxContainer2/Show_Hide_ID_Button
 
-var countdown_duration = 1.0#--------------------------------------------***
+var countdown_duration = 5.0#--------------------------------------------***
 var is_counting_down = false
 var is_id_hidden = true # NEW: ตัวแปรสำหรับสถานะการซ่อน ID
 
@@ -75,7 +75,7 @@ func _ready():
 func _process(_delta):
     start_button.visible = multiplayer.is_server()
     if multiplayer.is_server():
-        start_button.disabled = connected_players.size() < 1#-------------------------------------***
+        start_button.disabled = connected_players.size() <= 1#-------------------------------------***
     if is_counting_down:
         var time_left_int = int(game_start_timer.time_left)
         if time_left_int >= 0:

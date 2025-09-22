@@ -16,24 +16,25 @@ outline_color = Color(0, 0, 0, 1)
 font_size = 32
 font_color = Color(1, 0.752941, 0, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_dwqxs"]
+[sub_resource type="LabelSettings" id="LabelSettings_ufgun"]
 font_size = 32
-outline_size = 10
+
+[sub_resource type="LabelSettings" id="LabelSettings_1rqp1"]
+font_size = 24
+outline_size = 12
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_2luh4"]
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_i75kb"]
+font_size = 150
+outline_size = 50
 outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_pml38"]
 outline_size = 10
 outline_color = Color(0, 0, 0, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_i0ew2"]
-font_size = 32
-
-[sub_resource type="LabelSettings" id="LabelSettings_1rqp1"]
-font_size = 32
-outline_color = Color(0, 0, 0, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_2luh4"]
-font_size = 32
 
 [node name="Voting" type="Control"]
 layout_mode = 3
@@ -63,6 +64,7 @@ offset_right = 608.0
 offset_bottom = 135.0
 grow_horizontal = 2
 label_settings = SubResource("LabelSettings_0y5kf")
+horizontal_alignment = 1
 
 [node name="status" type="Label" parent="."]
 layout_mode = 1
@@ -76,38 +78,6 @@ offset_bottom = 927.0
 grow_horizontal = 2
 label_settings = SubResource("LabelSettings_l75qi")
 
-[node name="Vote results" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -198.0
-offset_top = 265.0
-offset_right = 240.0
-offset_bottom = 310.0
-grow_horizontal = 2
-grow_vertical = 2
-label_settings = SubResource("LabelSettings_dwqxs")
-horizontal_alignment = 1
-
-[node name="Number of votes" type="Label" parent="Vote results"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -55.0
-offset_top = 26.5
-offset_right = 55.0
-offset_bottom = 49.5
-grow_horizontal = 2
-grow_vertical = 2
-label_settings = SubResource("LabelSettings_pml38")
-horizontal_alignment = 1
-
 [node name="Time" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 7
@@ -115,13 +85,13 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -918.0
-offset_top = -1037.0
-offset_right = -917.0
-offset_bottom = -992.0
+offset_left = 34.0
+offset_top = -111.0
+offset_right = 35.0
+offset_bottom = -66.0
 grow_horizontal = 2
 grow_vertical = 0
-label_settings = SubResource("LabelSettings_i0ew2")
+label_settings = SubResource("LabelSettings_ufgun")
 
 [node name="Timer" type="Timer" parent="."]
 
@@ -191,6 +161,7 @@ texture = ExtResource("5_2luh4")
 
 [node name="Leader_icon" type="TextureRect" parent="Player/player1"]
 visible = false
+layout_mode = 0
 offset_left = -2.14282
 offset_top = -103.143
 offset_right = 1247.86
@@ -239,6 +210,7 @@ texture = ExtResource("4_1rqp1")
 
 [node name="Disagree_icon" type="TextureRect" parent="Player/player2"]
 visible = false
+layout_mode = 0
 offset_left = 541.0
 offset_top = -22.0
 offset_right = 1791.0
@@ -248,6 +220,7 @@ texture = ExtResource("5_2luh4")
 
 [node name="Leader_icon" type="TextureRect" parent="Player/player2"]
 visible = false
+layout_mode = 0
 offset_left = -2.14282
 offset_top = -103.143
 offset_right = 1247.86
@@ -296,6 +269,7 @@ texture = ExtResource("4_1rqp1")
 
 [node name="Disagree_icon" type="TextureRect" parent="Player/player3"]
 visible = false
+layout_mode = 0
 offset_left = 541.0
 offset_top = -22.0
 offset_right = 1791.0
@@ -305,6 +279,7 @@ texture = ExtResource("5_2luh4")
 
 [node name="Leader_icon" type="TextureRect" parent="Player/player3"]
 visible = false
+layout_mode = 0
 offset_left = -2.14282
 offset_top = -103.143
 offset_right = 1247.86
@@ -353,6 +328,7 @@ texture = ExtResource("4_1rqp1")
 
 [node name="Disagree_icon" type="TextureRect" parent="Player/player4"]
 visible = false
+layout_mode = 0
 offset_left = 541.0
 offset_top = -22.0
 offset_right = 1791.0
@@ -362,6 +338,7 @@ texture = ExtResource("5_2luh4")
 
 [node name="Leader_icon" type="TextureRect" parent="Player/player4"]
 visible = false
+layout_mode = 0
 offset_left = -2.14282
 offset_top = -103.143
 offset_right = 1247.86
@@ -410,6 +387,7 @@ texture = ExtResource("4_1rqp1")
 
 [node name="Disagree_icon" type="TextureRect" parent="Player/player5"]
 visible = false
+layout_mode = 0
 offset_left = 541.0
 offset_top = -22.0
 offset_right = 1791.0
@@ -419,6 +397,7 @@ texture = ExtResource("5_2luh4")
 
 [node name="Leader_icon" type="TextureRect" parent="Player/player5"]
 visible = false
+layout_mode = 0
 offset_left = -2.14282
 offset_top = -103.143
 offset_right = 1247.86
@@ -467,6 +446,7 @@ texture = ExtResource("4_1rqp1")
 
 [node name="Disagree_icon" type="TextureRect" parent="Player/player6"]
 visible = false
+layout_mode = 0
 offset_left = 541.0
 offset_top = -22.0
 offset_right = 1791.0
@@ -476,6 +456,7 @@ texture = ExtResource("5_2luh4")
 
 [node name="Leader_icon" type="TextureRect" parent="Player/player6"]
 visible = false
+layout_mode = 0
 offset_left = -2.14282
 offset_top = -103.143
 offset_right = 1247.86
@@ -524,6 +505,7 @@ texture = ExtResource("4_1rqp1")
 
 [node name="Disagree_icon" type="TextureRect" parent="Player/player7"]
 visible = false
+layout_mode = 0
 offset_left = 541.0
 offset_top = -22.0
 offset_right = 1791.0
@@ -533,6 +515,7 @@ texture = ExtResource("5_2luh4")
 
 [node name="Leader_icon" type="TextureRect" parent="Player/player7"]
 visible = false
+layout_mode = 0
 offset_left = -2.14282
 offset_top = -103.143
 offset_right = 1247.86
@@ -581,6 +564,7 @@ texture = ExtResource("4_1rqp1")
 
 [node name="Disagree_icon" type="TextureRect" parent="Player/player8"]
 visible = false
+layout_mode = 0
 offset_left = 541.0
 offset_top = -22.0
 offset_right = 1791.0
@@ -590,6 +574,7 @@ texture = ExtResource("5_2luh4")
 
 [node name="Leader_icon" type="TextureRect" parent="Player/player8"]
 visible = false
+layout_mode = 0
 offset_left = -2.14282
 offset_top = -103.143
 offset_right = 1247.86
@@ -638,6 +623,7 @@ texture = ExtResource("4_1rqp1")
 
 [node name="Disagree_icon" type="TextureRect" parent="Player/player9"]
 visible = false
+layout_mode = 0
 offset_left = 541.0
 offset_top = -22.0
 offset_right = 1791.0
@@ -647,6 +633,7 @@ texture = ExtResource("5_2luh4")
 
 [node name="Leader_icon" type="TextureRect" parent="Player/player9"]
 visible = false
+layout_mode = 0
 offset_left = -2.14282
 offset_top = -103.143
 offset_right = 1247.86
@@ -695,6 +682,7 @@ texture = ExtResource("4_1rqp1")
 
 [node name="Disagree_icon" type="TextureRect" parent="Player/player10"]
 visible = false
+layout_mode = 0
 offset_left = 541.0
 offset_top = -22.0
 offset_right = 1791.0
@@ -704,6 +692,7 @@ texture = ExtResource("5_2luh4")
 
 [node name="Leader_icon" type="TextureRect" parent="Player/player10"]
 visible = false
+layout_mode = 0
 offset_left = -2.14282
 offset_top = -103.143
 offset_right = 1247.86
@@ -734,20 +723,24 @@ grow_vertical = 2
 scale = Vector2(1.5, 1.5)
 
 [node name="player_name" type="Label" parent="The Mission team/Player1"]
-offset_left = 42.0
+layout_mode = 0
+offset_left = 13.0
 offset_top = 163.0
-offset_right = 157.0
+offset_right = 183.0
 offset_bottom = 208.0
 label_settings = SubResource("LabelSettings_1rqp1")
 horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="body" type="TextureRect" parent="The Mission team/Player1"]
+layout_mode = 0
 offset_right = 640.0
 offset_bottom = 640.0
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("2_2luh4")
 
 [node name="Modulate" type="TextureRect" parent="The Mission team/Player1"]
+layout_mode = 0
 offset_right = 640.0
 offset_bottom = 640.0
 scale = Vector2(0.3, 0.3)
@@ -769,20 +762,24 @@ grow_vertical = 2
 scale = Vector2(1.5, 1.5)
 
 [node name="player_name" type="Label" parent="The Mission team/Player2"]
-offset_left = 42.0
+layout_mode = 0
+offset_left = 13.0
 offset_top = 163.0
-offset_right = 157.0
+offset_right = 183.0
 offset_bottom = 208.0
 label_settings = SubResource("LabelSettings_1rqp1")
 horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="body" type="TextureRect" parent="The Mission team/Player2"]
+layout_mode = 0
 offset_right = 640.0
 offset_bottom = 640.0
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("2_2luh4")
 
 [node name="Modulate" type="TextureRect" parent="The Mission team/Player2"]
+layout_mode = 0
 offset_right = 640.0
 offset_bottom = 640.0
 scale = Vector2(0.3, 0.3)
@@ -804,20 +801,24 @@ grow_vertical = 2
 scale = Vector2(1.5, 1.5)
 
 [node name="player_name" type="Label" parent="The Mission team/Player3"]
-offset_left = 42.0
+layout_mode = 0
+offset_left = 13.0
 offset_top = 163.0
-offset_right = 157.0
+offset_right = 183.0
 offset_bottom = 208.0
 label_settings = SubResource("LabelSettings_1rqp1")
 horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="body" type="TextureRect" parent="The Mission team/Player3"]
+layout_mode = 0
 offset_right = 640.0
 offset_bottom = 640.0
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("2_2luh4")
 
 [node name="Modulate" type="TextureRect" parent="The Mission team/Player3"]
+layout_mode = 0
 offset_right = 640.0
 offset_bottom = 640.0
 scale = Vector2(0.3, 0.3)
@@ -839,20 +840,24 @@ grow_vertical = 2
 scale = Vector2(1.5, 1.5)
 
 [node name="player_name" type="Label" parent="The Mission team/Player4"]
-offset_left = 42.0
+layout_mode = 0
+offset_left = 13.0
 offset_top = 163.0
-offset_right = 157.0
+offset_right = 183.0
 offset_bottom = 208.0
 label_settings = SubResource("LabelSettings_1rqp1")
 horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="body" type="TextureRect" parent="The Mission team/Player4"]
+layout_mode = 0
 offset_right = 640.0
 offset_bottom = 640.0
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("2_2luh4")
 
 [node name="Modulate" type="TextureRect" parent="The Mission team/Player4"]
+layout_mode = 0
 offset_right = 640.0
 offset_bottom = 640.0
 scale = Vector2(0.3, 0.3)
@@ -874,20 +879,24 @@ grow_vertical = 2
 scale = Vector2(1.5, 1.5)
 
 [node name="player_name" type="Label" parent="The Mission team/Player5"]
-offset_left = 42.0
+layout_mode = 0
+offset_left = 13.0
 offset_top = 163.0
-offset_right = 157.0
+offset_right = 183.0
 offset_bottom = 208.0
 label_settings = SubResource("LabelSettings_1rqp1")
 horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="body" type="TextureRect" parent="The Mission team/Player5"]
+layout_mode = 0
 offset_right = 640.0
 offset_bottom = 640.0
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("2_2luh4")
 
 [node name="Modulate" type="TextureRect" parent="The Mission team/Player5"]
+layout_mode = 0
 offset_right = 640.0
 offset_bottom = 640.0
 scale = Vector2(0.3, 0.3)
@@ -900,7 +909,6 @@ offset_right = 40.0
 offset_bottom = 23.0
 
 [node name="Select_panel" type="Panel" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -960,6 +968,7 @@ grow_vertical = 2
 
 [node name="Agree_button" type="Button" parent="Choose a team panel"]
 modulate = Color(0, 1, 0, 1)
+layout_mode = 0
 offset_left = 30.0
 offset_top = 43.0
 offset_right = 307.0
@@ -969,9 +978,45 @@ text = "Agree"
 
 [node name="Disagree_button" type="Button" parent="Choose a team panel"]
 modulate = Color(1, 0, 0, 1)
+layout_mode = 0
 offset_left = 345.0
 offset_top = 42.0
 offset_right = 615.0
 offset_bottom = 140.0
 theme_override_font_sizes/font_size = 32
 text = "Disagree"
+
+[node name="Vote results" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -219.0
+offset_top = -22.5
+offset_right = 219.0
+offset_bottom = 22.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Time's up! 
+A team has been
+ randomly selected!"
+label_settings = SubResource("LabelSettings_i75kb")
+horizontal_alignment = 1
+
+[node name="Number of votes" type="Label" parent="Vote results"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -55.0
+offset_top = 26.5
+offset_right = 55.0
+offset_bottom = 49.5
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_pml38")
+horizontal_alignment = 1

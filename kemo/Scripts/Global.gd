@@ -8,6 +8,8 @@ var player_colors: Dictionary = {}
 var player_names: Dictionary = {}
 var player_roles: Dictionary = {}
 
+# เพิ่มตัวแปร the_mission_team: Array เพื่อเก็บรายชื่อผู้เล่นในทีมภารกิจ
+var the_mission_team: Array = []
 
 # List of all possible roles (accessible from anywhere)
 var roles: Array = [
