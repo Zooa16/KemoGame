@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://bk008p7m2cf5s"]
 
 [ext_resource type="Script" uid="uid://bmmauy3qmuo7m" path="res://Scripts/role_reveal.gd" id="1_qgrmn"]
-[ext_resource type="Texture2D" uid="uid://ctacuqctuk8hx" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/lovepik-cartoon-crown-png-image_401367525_wh1200-Photoroom.png" id="2_dcybp"]
+[ext_resource type="Texture2D" uid="uid://faa62x61xs16" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/lovepik-cartoon-crown-png-image_401367525_wh1200-Photoroom.png" id="2_dcybp"]
 
 [sub_resource type="FontVariation" id="FontVariation_qgrmn"]
 

@@ -1,12 +1,12 @@
 [gd_scene load_steps=27 format=3 uid="uid://by8thtpjiwjc"]
 
 [ext_resource type="Script" uid="uid://bkjuepe2pdmoi" path="res://Scripts/voting_2.gd" id="1_j1c54"]
-[ext_resource type="Texture2D" uid="uid://bq4iycxrqwukt" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Idle/ตัว/1.png" id="2_2luh4"]
-[ext_resource type="Texture2D" uid="uid://4vhhhh0w3cxp" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Main menu/เพิ่มหัวเรื่อง.png" id="2_i75kb"]
-[ext_resource type="Texture2D" uid="uid://cdosrbfcq0wfd" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Idle/สี/ไม่มีชื่อ 12_20250817171242.png" id="3_i75kb"]
-[ext_resource type="Texture2D" uid="uid://d3nf0uyojwhq0" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/check-mark-Photoroom.png" id="4_1rqp1"]
-[ext_resource type="Texture2D" uid="uid://dl2dl44f6cc4h" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/png-clipart-business-presentation-cancel-building-text-thumbnail-Photoroom.png" id="5_2luh4"]
-[ext_resource type="Texture2D" uid="uid://4fqrj8lkl70x" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/lovepik-cartoon-crown-png-image_401367525_wh1200-Photoroom.png" id="6_i75kb"]
+[ext_resource type="Texture2D" uid="uid://bbmx3u2aoxgs0" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Idle/ตัว/1.png" id="2_2luh4"]
+[ext_resource type="Texture2D" uid="uid://55ldx2234atw" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Main menu/เพิ่มหัวเรื่อง.png" id="2_i75kb"]
+[ext_resource type="Texture2D" uid="uid://ssn8ww4o11m1" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Idle/สี/ไม่มีชื่อ 12_20250817171242.png" id="3_i75kb"]
+[ext_resource type="Texture2D" uid="uid://4qmtsh22ph7m" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/check-mark-Photoroom.png" id="4_1rqp1"]
+[ext_resource type="Texture2D" uid="uid://c4okmlsg4ygf" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/png-clipart-business-presentation-cancel-building-text-thumbnail-Photoroom.png" id="5_2luh4"]
+[ext_resource type="Texture2D" uid="uid://faa62x61xs16" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/lovepik-cartoon-crown-png-image_401367525_wh1200-Photoroom.png" id="6_i75kb"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_0y5kf"]
 font_size = 64
