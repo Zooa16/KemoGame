@@ -16,6 +16,11 @@ const SLIDE_COOLDOWN = 1.5
 @onready var role_label: Label3D = $RoleLabel
 @onready var role_label2: Label3D = $RoleLabel2
 
+# ⭐ NEW: Card-related properties and nodes
+var collected_cards: Array = []
+var max_cards_to_collect: int = 3
+@onready var drop_cards_button = get_node("/root/game/UI/DropCardsButton")
+
 var is_sliding = false
 var slide_timer = 0.0
 var slide_cooldown_timer = 0.0
@@ -29,6 +34,10 @@ var role: String = ""
 var target_position: Vector3
 var target_rotation_y: float
 var current_anim: String = ""
+
+# ⭐ NEW: Add a signal to notify the game manager about card collection changes.
+signal card_collected_updated(collected_count)
+
 
 func _enter_tree():
 	set_multiplayer_authority(str(name).to_int())
@@ -50,6 +59,9 @@ func _ready():
 	if role_label2:
 		role_label2.text = ""
 		role_label2.visible = false
+	
+	# ⭐ NEW: Call the update function to set the initial visibility.
+	update_drop_button_visibility()
 
 # ---------------- ROLE HANDLING ----------------
 @rpc("any_peer", "reliable", "call_local")
@@ -62,7 +74,6 @@ func set_role(new_role: String, is_leader: bool = false):
 	elif Global.leader_id == get_multiplayer_authority():
 		Global.leader_id = -1
 
-	# local player เห็น role ส่วนตัวของตัวเอง
 	if is_multiplayer_authority():
 		if role_label:
 			var private_text = "Role: " + new_role
@@ -71,7 +82,6 @@ func set_role(new_role: String, is_leader: bool = false):
 				role_label.modulate = Global.role_colors[new_role]
 			role_label.visible = true
 		
-		# overlay เฉพาะ local
 		var reveal_scene = preload("res://Scenes/role_reveal.tscn").instantiate()
 		get_tree().root.add_child(reveal_scene)
 		reveal_scene.show_role(new_role, is_leader)
@@ -81,17 +91,13 @@ func set_role(new_role: String, is_leader: bool = false):
 			if gm_node:
 				reveal_scene.role_reveal_finished.connect(Callable(gm_node, "on_role_reveal_finished"))
 
-	# ⭐ สำคัญ: sync leader ให้ทุก client
 	rpc("update_role_visibility_all")
 
 @rpc("any_peer", "reliable", "call_local")
 func update_role_visibility_all():
 	update_role_visibility()
 
-# ⭐️ NEW FUNCTION to handle public role visibility
 func update_role_visibility():
-	# Publicly visible roles (Leader)
-	# The Leader role is always visible to everyone
 	if role_label2:
 		if Global.leader_id == get_multiplayer_authority():
 			role_label2.text = "Leader"
@@ -100,15 +106,41 @@ func update_role_visibility():
 		else:
 			role_label2.visible = false
 			
-	# Private roles (base role)
-	# The base role (role_label) is only visible to the local player
 	if role_label:
 		if is_multiplayer_authority():
 			role_label.visible = true
 		else:
 			role_label.visible = false
-		
+			
 
+#---------------- CARD INVENTORY ----------------
+# ⭐ NEW: RPC function to add a card to the player's inventory
+@rpc("any_peer", "call_local")
+func add_card(card_id: String):
+	# This function is called by the server on the client's instance.
+	if collected_cards.size() >= max_cards_to_collect:
+		return
+		
+	if card_id in collected_cards:
+		return
+		
+	collected_cards.append(card_id)
+	print("Player ", get_multiplayer_authority(), " has now collected ", collected_cards.size(), " cards.")
+	
+	# ⭐ NEW: The button visibility logic now happens here, on the client.
+	update_drop_button_visibility()
+
+# ⭐ NEW: Function to control the button's visibility.
+# ⭐ NEW: Function to control the button's visibility.
+func update_drop_button_visibility():
+	# Only the local player should control their UI.
+	if is_multiplayer_authority():
+		if is_instance_valid(drop_cards_button):
+			# Show the button if the player has at least one card.
+			if collected_cards.size() >= 1:
+				drop_cards_button.show()
+			else:
+				drop_cards_button.hide()
 # ---------------- MOVEMENT / SYNC ----------------
 func _physics_process(delta):
 	if is_multiplayer_authority():

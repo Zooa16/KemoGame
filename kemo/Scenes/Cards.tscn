@@ -1,0 +1,137 @@
+[gd_scene load_steps=13 format=3 uid="uid://b7nwodmg34kwj"]
+
+[ext_resource type="Script" uid="uid://yc03ffcuyths" path="res://Scripts/Card.gd" id="1_4vgrv"]
+[ext_resource type="Texture2D" uid="uid://c2yhdbod5gjhf" path="res://multiplayer/asset/Asset 2D/Card/Screenshot 2025-09-20 134500.png" id="1_u0yjy"]
+[ext_resource type="Texture2D" uid="uid://bn4y2sam542mx" path="res://multiplayer/asset/Asset 2D/Card/Screenshot 2025-09-20 140251.png" id="2_4vgrv"]
+[ext_resource type="Texture2D" uid="uid://dywy87agx7akm" path="res://multiplayer/asset/Asset 2D/Card/Screenshot 2025-09-20 140445.png" id="3_dlemj"]
+[ext_resource type="Texture2D" uid="uid://ca0ioj5yp82w1" path="res://multiplayer/asset/Asset 2D/Card/Screenshot 2025-09-20 140550.png" id="4_vxcju"]
+[ext_resource type="Texture2D" uid="uid://c4e8qx2gwetc" path="res://multiplayer/asset/Asset 2D/Card/Screenshot 2025-09-20 151546.png" id="5_6a3sv"]
+[ext_resource type="Texture2D" uid="uid://bc2a563es4m8d" path="res://multiplayer/asset/Asset 2D/Card/Screenshot 2025-09-20 153147.png" id="6_c0ir7"]
+[ext_resource type="Texture2D" uid="uid://bagandsd2ihge" path="res://multiplayer/asset/Asset 2D/Card/Screenshot 2025-09-20 153328.png" id="7_vaaj0"]
+[ext_resource type="Texture2D" uid="uid://c2bdweyh2mcyd" path="res://multiplayer/asset/Asset 2D/Card/Screenshot 2025-09-20 153436.png" id="8_siv11"]
+[ext_resource type="Texture2D" uid="uid://c2sfe5fsmjwri" path="res://multiplayer/asset/Asset 2D/Card/Screenshot 2025-09-20 153532.png" id="9_177g1"]
+[ext_resource type="Texture2D" uid="uid://cnbxuqvn3fdjp" path="res://multiplayer/asset/Asset 2D/Card/Screenshot 2025-09-20 153617.png" id="10_0iucw"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_hwkw0"]
+
+[node name="Card" type="Node3D"]
+
+[node name="0" type="Area3D" parent="."]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_4vgrv")
+
+[node name="Sprite3D" type="Sprite3D" parent="0"]
+texture = ExtResource("1_u0yjy")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="0"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+shape = SubResource("SphereShape3D_hwkw0")
+
+[node name="1" type="Area3D" parent="."]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_4vgrv")
+
+[node name="Sprite3D" type="Sprite3D" parent="1"]
+texture = ExtResource("2_4vgrv")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="1"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+shape = SubResource("SphereShape3D_hwkw0")
+
+[node name="2" type="Area3D" parent="."]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_4vgrv")
+
+[node name="Sprite3D" type="Sprite3D" parent="2"]
+texture = ExtResource("3_dlemj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="2"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+shape = SubResource("SphereShape3D_hwkw0")
+
+[node name="3" type="Area3D" parent="."]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_4vgrv")
+
+[node name="Sprite3D" type="Sprite3D" parent="3"]
+texture = ExtResource("4_vxcju")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="3"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+shape = SubResource("SphereShape3D_hwkw0")
+
+[node name="4" type="Area3D" parent="."]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_4vgrv")
+
+[node name="Sprite3D" type="Sprite3D" parent="4"]
+texture = ExtResource("5_6a3sv")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="4"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+shape = SubResource("SphereShape3D_hwkw0")
+
+[node name="5" type="Area3D" parent="."]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_4vgrv")
+
+[node name="Sprite3D" type="Sprite3D" parent="5"]
+texture = ExtResource("6_c0ir7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="5"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+shape = SubResource("SphereShape3D_hwkw0")
+
+[node name="6" type="Area3D" parent="."]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_4vgrv")
+
+[node name="Sprite3D" type="Sprite3D" parent="6"]
+texture = ExtResource("7_vaaj0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="6"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+shape = SubResource("SphereShape3D_hwkw0")
+
+[node name="7" type="Area3D" parent="."]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_4vgrv")
+
+[node name="Sprite3D" type="Sprite3D" parent="7"]
+texture = ExtResource("8_siv11")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="7"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+shape = SubResource("SphereShape3D_hwkw0")
+
+[node name="8" type="Area3D" parent="."]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_4vgrv")
+
+[node name="Sprite3D" type="Sprite3D" parent="8"]
+texture = ExtResource("9_177g1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="8"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+shape = SubResource("SphereShape3D_hwkw0")
+
+[node name="9" type="Area3D" parent="."]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_4vgrv")
+
+[node name="Sprite3D" type="Sprite3D" parent="9"]
+texture = ExtResource("10_0iucw")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="9"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+shape = SubResource("SphereShape3D_hwkw0")

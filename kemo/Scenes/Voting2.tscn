@@ -1,12 +1,11 @@
-[gd_scene load_steps=27 format=3 uid="uid://by8thtpjiwjc"]
+[gd_scene load_steps=14 format=3 uid="uid://by8thtpjiwjc"]
 
 [ext_resource type="Script" uid="uid://bkjuepe2pdmoi" path="res://Scripts/voting_2.gd" id="1_j1c54"]
-[ext_resource type="Texture2D" uid="uid://bq4iycxrqwukt" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Idle/ตัว/1.png" id="2_2luh4"]
-[ext_resource type="Texture2D" uid="uid://4vhhhh0w3cxp" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Main menu/เพิ่มหัวเรื่อง.png" id="2_i75kb"]
-[ext_resource type="Texture2D" uid="uid://cdosrbfcq0wfd" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Idle/สี/ไม่มีชื่อ 12_20250817171242.png" id="3_i75kb"]
-[ext_resource type="Texture2D" uid="uid://d3nf0uyojwhq0" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/check-mark-Photoroom.png" id="4_1rqp1"]
-[ext_resource type="Texture2D" uid="uid://dl2dl44f6cc4h" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/png-clipart-business-presentation-cancel-building-text-thumbnail-Photoroom.png" id="5_2luh4"]
-[ext_resource type="Texture2D" uid="uid://4fqrj8lkl70x" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/lovepik-cartoon-crown-png-image_401367525_wh1200-Photoroom.png" id="6_i75kb"]
+[ext_resource type="Texture2D" uid="uid://wmqmpplgqt4u" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Idle/ตัว/1.png" id="2_2luh4"]
+[ext_resource type="Texture2D" uid="uid://bsdwj1ch82fia" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Idle/สี/ไม่มีชื่อ 12_20250817171242.png" id="3_i75kb"]
+[ext_resource type="Texture2D" uid="uid://bxig5sqoh3sk8" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/check-mark-Photoroom.png" id="4_1rqp1"]
+[ext_resource type="Texture2D" uid="uid://1i2kioep6nc1" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/png-clipart-business-presentation-cancel-building-text-thumbnail-Photoroom.png" id="5_2luh4"]
+[ext_resource type="Texture2D" uid="uid://ctacuqctuk8hx" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/lovepik-cartoon-crown-png-image_401367525_wh1200-Photoroom.png" id="6_i75kb"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_0y5kf"]
 font_size = 64
@@ -20,117 +19,10 @@ font_color = Color(1, 0.752941, 0, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_ufgun"]
 font_size = 32
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1rqp1"]
-bg_color = Color(0.955963, 0.955963, 0.955963, 1)
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
-shadow_size = 5
-shadow_offset = Vector2(0, 3.14)
-
 [sub_resource type="LabelSettings" id="LabelSettings_1rqp1"]
 font_size = 24
 outline_size = 12
 outline_color = Color(0, 0, 0, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ufgun"]
-bg_color = Color(0.956863, 0.956863, 0.956863, 1)
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
-shadow_size = 5
-shadow_offset = Vector2(0, 3.14)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_55gvt"]
-bg_color = Color(0.956863, 0.956863, 0.956863, 1)
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
-shadow_offset = Vector2(0, 3.14)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1hcdw"]
-bg_color = Color(0.956863, 0.956863, 0.956863, 1)
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
-shadow_size = 5
-shadow_offset = Vector2(0, 3.14)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8hhdp"]
-bg_color = Color(0.956863, 0.956863, 0.956863, 1)
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
-shadow_size = 5
-shadow_offset = Vector2(0, 3.14)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5f6wg"]
-bg_color = Color(0.956863, 0.956863, 0.956863, 1)
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
-shadow_size = 5
-shadow_offset = Vector2(0, 3.14)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i3onw"]
-bg_color = Color(0.956863, 0.956863, 0.956863, 1)
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
-shadow_size = 5
-shadow_offset = Vector2(0, 3.14)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6rki5"]
-bg_color = Color(0.956863, 0.956863, 0.956863, 1)
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
-shadow_size = 5
-shadow_offset = Vector2(0, 3.14)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d5a65"]
-bg_color = Color(0.956863, 0.956863, 0.956863, 1)
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
-shadow_size = 5
-shadow_offset = Vector2(0, 3.14)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4eyhd"]
-bg_color = Color(0.956863, 0.956863, 0.956863, 1)
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 6
-shadow_size = 5
-shadow_offset = Vector2(0, 3.14)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2luh4"]
-bg_color = Color(0, 0.557631, 0.110604, 1)
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
-shadow_size = 5
-shadow_offset = Vector2(0, 3.14)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i75kb"]
-bg_color = Color(0.933333, 0, 0.0862745, 1)
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
-shadow_size = 5
-shadow_offset = Vector2(0, 3.14)
 
 [sub_resource type="LabelSettings" id="LabelSettings_2luh4"]
 font_size = 32
@@ -153,12 +45,13 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_j1c54")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
-offset_left = -7.0
-offset_right = 1920.0
-offset_bottom = 1200.0
-texture = ExtResource("2_i75kb")
+offset_left = -1.0
+offset_top = -1.0
+offset_right = 1919.0
+offset_bottom = 1078.0
+color = Color(0, 0.241206, 0.0680432, 0.52549)
 
 [node name="Mission_label" type="Label" parent="."]
 layout_mode = 1
@@ -223,7 +116,6 @@ offset_left = 35.0
 offset_top = 96.0
 offset_right = 630.0
 offset_bottom = 289.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_1rqp1")
 
 [node name="player1_name" type="Label" parent="Player/player1"]
 layout_mode = 0
@@ -283,7 +175,6 @@ offset_left = 657.0
 offset_top = 96.0
 offset_right = 1252.0
 offset_bottom = 289.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_ufgun")
 
 [node name="player2_name" type="Label" parent="Player/player2"]
 layout_mode = 0
@@ -343,7 +234,6 @@ offset_left = 1278.0
 offset_top = 96.0
 offset_right = 1873.0
 offset_bottom = 289.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_55gvt")
 
 [node name="player3_name" type="Label" parent="Player/player3"]
 layout_mode = 0
@@ -403,7 +293,6 @@ offset_left = 1905.0
 offset_top = 93.3333
 offset_right = 2500.0
 offset_bottom = 286.333
-theme_override_styles/normal = SubResource("StyleBoxFlat_1hcdw")
 
 [node name="player4_name" type="Label" parent="Player/player4"]
 layout_mode = 0
@@ -463,7 +352,6 @@ offset_left = 31.6666
 offset_top = 346.667
 offset_right = 626.667
 offset_bottom = 539.667
-theme_override_styles/normal = SubResource("StyleBoxFlat_8hhdp")
 
 [node name="player5_name" type="Label" parent="Player/player5"]
 layout_mode = 0
@@ -523,7 +411,6 @@ offset_left = 652.667
 offset_top = 346.667
 offset_right = 1247.67
 offset_bottom = 539.667
-theme_override_styles/normal = SubResource("StyleBoxFlat_5f6wg")
 
 [node name="player6_name" type="Label" parent="Player/player6"]
 layout_mode = 0
@@ -583,7 +470,6 @@ offset_left = 1275.0
 offset_top = 346.667
 offset_right = 1870.0
 offset_bottom = 539.667
-theme_override_styles/normal = SubResource("StyleBoxFlat_i3onw")
 
 [node name="player7_name" type="Label" parent="Player/player7"]
 layout_mode = 0
@@ -643,7 +529,6 @@ offset_left = 1897.0
 offset_top = 346.667
 offset_right = 2492.0
 offset_bottom = 539.667
-theme_override_styles/normal = SubResource("StyleBoxFlat_6rki5")
 
 [node name="player8_name" type="Label" parent="Player/player8"]
 layout_mode = 0
@@ -699,11 +584,10 @@ texture = ExtResource("6_i75kb")
 
 [node name="player9" type="Button" parent="Player"]
 layout_mode = 0
-offset_left = 35.7143
-offset_top = 587.143
-offset_right = 630.714
-offset_bottom = 780.143
-theme_override_styles/normal = SubResource("StyleBoxFlat_d5a65")
+offset_left = 33.3334
+offset_top = 596.667
+offset_right = 628.333
+offset_bottom = 789.667
 
 [node name="player9_name" type="Label" parent="Player/player9"]
 layout_mode = 0
@@ -763,7 +647,6 @@ offset_left = 658.333
 offset_top = 585.0
 offset_right = 1253.33
 offset_bottom = 778.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_4eyhd")
 
 [node name="player10_name" type="Label" parent="Player/player10"]
 layout_mode = 0
@@ -1040,33 +923,31 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Select" type="Button" parent="Select_panel"]
+modulate = Color(0, 1, 0, 1)
 layout_mode = 0
 offset_left = 52.0
 offset_top = 67.0
 offset_right = 195.0
 offset_bottom = 202.0
-theme_override_colors/font_color = Color(0.386199, 0.689481, 0.289365, 1)
 theme_override_font_sizes/font_size = 64
-theme_override_styles/normal = SubResource("StyleBoxFlat_2luh4")
 text = "✓"
 
 [node name="Cancel" type="Button" parent="Select_panel"]
+modulate = Color(1, 0, 0, 1)
 layout_mode = 0
 offset_left = 336.0
 offset_top = 67.0
 offset_right = 479.0
 offset_bottom = 202.0
-theme_override_colors/font_color = Color(1, 0.279691, 0.284959, 1)
 theme_override_font_sizes/font_size = 64
-theme_override_styles/normal = SubResource("StyleBoxFlat_i75kb")
 text = "✘"
 
 [node name="Label" type="Label" parent="Select_panel"]
 layout_mode = 0
-offset_left = 136.0
-offset_top = 14.0
-offset_right = 406.0
-offset_bottom = 59.0
+offset_left = 162.0
+offset_top = 11.0
+offset_right = 379.0
+offset_bottom = 56.0
 text = "Are you sure ?"
 label_settings = SubResource("LabelSettings_2luh4")
 
@@ -1106,7 +987,6 @@ theme_override_font_sizes/font_size = 32
 text = "Disagree"
 
 [node name="Vote results" type="Label" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
