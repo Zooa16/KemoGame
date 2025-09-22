@@ -1,14 +1,46 @@
-[gd_scene load_steps=7 format=3 uid="uid://kad3v4mikcsg"]
+[gd_scene load_steps=9 format=3 uid="uid://kad3v4mikcsg"]
 
 [ext_resource type="Script" uid="uid://bwxjngyqto770" path="res://Scripts/start_menu.gd" id="1_jgtwh"]
-[ext_resource type="Texture2D" uid="uid://cqxi3w486wx5j" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Main menu/ฉากหลัง.png" id="2_a43kq"]
-[ext_resource type="Texture2D" uid="uid://dn7c0qfwtltd3" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Main menu/main_menu_button/PlayButton_cropped.png" id="3_626he"]
-[ext_resource type="Texture2D" uid="uid://dm8ndioj0lgf" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Main menu/main_menu_button/3.2.PNG" id="4_8u0lp"]
+[ext_resource type="Texture2D" uid="uid://dnt5uqympeu7w" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Main menu/ฉากหลัง.png" id="2_a43kq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jgtwh"]
+bg_color = Color(0.0306371, 0.727918, 1.34766e-06, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.14)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m6uer"]
+bg_color = Color(1, 0.85098, 0.105882, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.14)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a43kq"]
+bg_color = Color(0.176419, 0.176419, 0.176419, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
 
 [sub_resource type="LabelSettings" id="LabelSettings_juhg0"]
 font_size = 23
 
 [sub_resource type="LabelSettings" id="LabelSettings_jgtwh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_626he"]
+bg_color = Color(0.201527, 0.201527, 0.201526, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.14)
 
 [node name="StartMenu" type="Control"]
 layout_mode = 3
@@ -43,9 +75,10 @@ offset_right = -382.0
 offset_bottom = -45.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 50
-icon = ExtResource("3_626he")
-flat = true
+theme_override_styles/normal = SubResource("StyleBoxFlat_jgtwh")
+text = "play"
 
 [node name="Tutorialbutton" type="Button" parent="."]
 layout_mode = 1
@@ -54,14 +87,16 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -706.0
-offset_top = -31.5
-offset_right = -385.0
-offset_bottom = 75.5
+offset_left = -696.0
+offset_top = -35.5
+offset_right = -383.0
+offset_bottom = 71.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 50
-icon = ExtResource("4_8u0lp")
+theme_override_styles/normal = SubResource("StyleBoxFlat_m6uer")
+text = "tutorial"
 
 [node name="Playername" type="LineEdit" parent="."]
 layout_mode = 0
@@ -69,6 +104,8 @@ offset_left = 16.0
 offset_top = 77.0
 offset_right = 305.0
 offset_bottom = 111.0
+theme_override_colors/font_placeholder_color = Color(0.737193, 0.737193, 0.737193, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_a43kq")
 placeholder_text = "Enter your name"
 alignment = 1
 
@@ -96,6 +133,7 @@ offset_left = 314.0
 offset_top = 76.0
 offset_right = 350.0
 offset_bottom = 111.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_626he")
 text = "✓"
 
 [node name="status_timer" type="Timer" parent="."]
