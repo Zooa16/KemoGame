@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://kad3v4mikcsg"]
 
 [ext_resource type="Script" uid="uid://bwxjngyqto770" path="res://Scripts/start_menu.gd" id="1_jgtwh"]
-[ext_resource type="Texture2D" uid="uid://do58ihktgne7b" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Main menu/ฉากหลัง.png" id="2_a43kq"]
-[ext_resource type="Texture2D" uid="uid://m4psvighqkrd" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Main menu/main_menu_button/PlayButton_cropped.png" id="3_626he"]
-[ext_resource type="Texture2D" uid="uid://dej1r027fxd8x" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Main menu/main_menu_button/3.2.PNG" id="4_8u0lp"]
+[ext_resource type="Texture2D" uid="uid://cqxi3w486wx5j" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Main menu/ฉากหลัง.png" id="2_a43kq"]
+[ext_resource type="Texture2D" uid="uid://dn7c0qfwtltd3" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Main menu/main_menu_button/PlayButton_cropped.png" id="3_626he"]
+[ext_resource type="Texture2D" uid="uid://dm8ndioj0lgf" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Main menu/main_menu_button/3.2.PNG" id="4_8u0lp"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_juhg0"]
 font_size = 23
