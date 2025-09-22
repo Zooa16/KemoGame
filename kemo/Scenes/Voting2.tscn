@@ -1,12 +1,12 @@
-[gd_scene load_steps=27 format=3 uid="uid://by8thtpjiwjc"]
+[gd_scene load_steps=39 format=3 uid="uid://by8thtpjiwjc"]
 
 [ext_resource type="Script" uid="uid://bkjuepe2pdmoi" path="res://Scripts/voting_2.gd" id="1_j1c54"]
-[ext_resource type="Texture2D" uid="uid://bbmx3u2aoxgs0" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Idle/ตัว/1.png" id="2_2luh4"]
-[ext_resource type="Texture2D" uid="uid://55ldx2234atw" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Main menu/เพิ่มหัวเรื่อง.png" id="2_i75kb"]
-[ext_resource type="Texture2D" uid="uid://ssn8ww4o11m1" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Idle/สี/ไม่มีชื่อ 12_20250817171242.png" id="3_i75kb"]
-[ext_resource type="Texture2D" uid="uid://4qmtsh22ph7m" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/check-mark-Photoroom.png" id="4_1rqp1"]
-[ext_resource type="Texture2D" uid="uid://c4okmlsg4ygf" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/png-clipart-business-presentation-cancel-building-text-thumbnail-Photoroom.png" id="5_2luh4"]
-[ext_resource type="Texture2D" uid="uid://faa62x61xs16" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/lovepik-cartoon-crown-png-image_401367525_wh1200-Photoroom.png" id="6_i75kb"]
+[ext_resource type="Texture2D" uid="uid://bq4iycxrqwukt" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Idle/ตัว/1.png" id="2_2luh4"]
+[ext_resource type="Texture2D" uid="uid://4vhhhh0w3cxp" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Main menu/เพิ่มหัวเรื่อง.png" id="2_i75kb"]
+[ext_resource type="Texture2D" uid="uid://cdosrbfcq0wfd" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Idle/สี/ไม่มีชื่อ 12_20250817171242.png" id="3_i75kb"]
+[ext_resource type="Texture2D" uid="uid://d3nf0uyojwhq0" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/check-mark-Photoroom.png" id="4_1rqp1"]
+[ext_resource type="Texture2D" uid="uid://dl2dl44f6cc4h" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/png-clipart-business-presentation-cancel-building-text-thumbnail-Photoroom.png" id="5_2luh4"]
+[ext_resource type="Texture2D" uid="uid://4fqrj8lkl70x" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/lovepik-cartoon-crown-png-image_401367525_wh1200-Photoroom.png" id="6_i75kb"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_0y5kf"]
 font_size = 64
@@ -19,6 +19,8 @@ font_color = Color(1, 0.752941, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_ufgun"]
 font_size = 32
+
+[sub_resource type="Theme" id="Theme_i75kb"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1rqp1"]
 bg_color = Color(0.956863, 0.956863, 0.956863, 1)
@@ -34,6 +36,8 @@ font_size = 24
 outline_size = 12
 outline_color = Color(0, 0, 0, 1)
 
+[sub_resource type="Theme" id="Theme_1rqp1"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ufgun"]
 bg_color = Color(0.956863, 0.956863, 0.956863, 1)
 corner_radius_top_left = 16
@@ -42,6 +46,8 @@ corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
 shadow_size = 5
 shadow_offset = Vector2(0, 3.14)
+
+[sub_resource type="Theme" id="Theme_ufgun"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_55gvt"]
 bg_color = Color(0.956863, 0.956863, 0.956863, 1)
@@ -52,6 +58,8 @@ corner_radius_bottom_left = 16
 shadow_size = 5
 shadow_offset = Vector2(0, 3.14)
 
+[sub_resource type="Theme" id="Theme_55gvt"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1hcdw"]
 bg_color = Color(0.956863, 0.956863, 0.956863, 1)
 corner_radius_top_left = 16
@@ -60,6 +68,8 @@ corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
 shadow_size = 5
 shadow_offset = Vector2(0, 3.14)
+
+[sub_resource type="Theme" id="Theme_1hcdw"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8hhdp"]
 bg_color = Color(0.956863, 0.956863, 0.956863, 1)
@@ -70,6 +80,8 @@ corner_radius_bottom_left = 16
 shadow_size = 5
 shadow_offset = Vector2(0, 3.14)
 
+[sub_resource type="Theme" id="Theme_8hhdp"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5f6wg"]
 bg_color = Color(0.956863, 0.956863, 0.956863, 1)
 corner_radius_top_left = 16
@@ -78,6 +90,8 @@ corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
 shadow_size = 5
 shadow_offset = Vector2(0, 3.14)
+
+[sub_resource type="Theme" id="Theme_5f6wg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i3onw"]
 bg_color = Color(0.956863, 0.956863, 0.956863, 1)
@@ -88,6 +102,8 @@ corner_radius_bottom_left = 16
 shadow_size = 5
 shadow_offset = Vector2(0, 3.14)
 
+[sub_resource type="Theme" id="Theme_i3onw"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6rki5"]
 bg_color = Color(0.956863, 0.956863, 0.956863, 1)
 corner_radius_top_left = 16
@@ -96,6 +112,8 @@ corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
 shadow_size = 5
 shadow_offset = Vector2(0, 3.14)
+
+[sub_resource type="Theme" id="Theme_6rki5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d5a65"]
 bg_color = Color(0.956863, 0.956863, 0.956863, 1)
@@ -106,6 +124,8 @@ corner_radius_bottom_left = 16
 shadow_size = 5
 shadow_offset = Vector2(0, 3.14)
 
+[sub_resource type="Theme" id="Theme_d5a65"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4eyhd"]
 bg_color = Color(0.956863, 0.956863, 0.956863, 1)
 corner_radius_top_left = 16
@@ -114,6 +134,12 @@ corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
 shadow_size = 5
 shadow_offset = Vector2(0, 3.14)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i75kb"]
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gn61r"]
 bg_color = Color(0.218546, 0.717988, 0, 1)
@@ -132,6 +158,8 @@ corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
 shadow_size = 5
 shadow_offset = Vector2(0, 3.14)
+
+[sub_resource type="Theme" id="Theme_4eyhd"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_2luh4"]
 font_size = 32
@@ -223,6 +251,7 @@ offset_left = 35.0
 offset_top = 96.0
 offset_right = 630.0
 offset_bottom = 289.0
+theme = SubResource("Theme_i75kb")
 theme_override_styles/normal = SubResource("StyleBoxFlat_1rqp1")
 
 [node name="player1_name" type="Label" parent="Player/player1"]
@@ -283,6 +312,7 @@ offset_left = 657.0
 offset_top = 96.0
 offset_right = 1252.0
 offset_bottom = 289.0
+theme = SubResource("Theme_1rqp1")
 theme_override_styles/normal = SubResource("StyleBoxFlat_ufgun")
 
 [node name="player2_name" type="Label" parent="Player/player2"]
@@ -343,6 +373,7 @@ offset_left = 1278.0
 offset_top = 96.0
 offset_right = 1873.0
 offset_bottom = 289.0
+theme = SubResource("Theme_ufgun")
 theme_override_styles/normal = SubResource("StyleBoxFlat_55gvt")
 
 [node name="player3_name" type="Label" parent="Player/player3"]
@@ -403,6 +434,7 @@ offset_left = 1905.0
 offset_top = 93.3333
 offset_right = 2500.0
 offset_bottom = 286.333
+theme = SubResource("Theme_55gvt")
 theme_override_styles/normal = SubResource("StyleBoxFlat_1hcdw")
 
 [node name="player4_name" type="Label" parent="Player/player4"]
@@ -463,6 +495,7 @@ offset_left = 31.6666
 offset_top = 346.667
 offset_right = 626.667
 offset_bottom = 539.667
+theme = SubResource("Theme_1hcdw")
 theme_override_styles/normal = SubResource("StyleBoxFlat_8hhdp")
 
 [node name="player5_name" type="Label" parent="Player/player5"]
@@ -523,6 +556,7 @@ offset_left = 652.667
 offset_top = 346.667
 offset_right = 1247.67
 offset_bottom = 539.667
+theme = SubResource("Theme_8hhdp")
 theme_override_styles/normal = SubResource("StyleBoxFlat_5f6wg")
 
 [node name="player6_name" type="Label" parent="Player/player6"]
@@ -583,6 +617,7 @@ offset_left = 1275.0
 offset_top = 346.667
 offset_right = 1870.0
 offset_bottom = 539.667
+theme = SubResource("Theme_5f6wg")
 theme_override_styles/normal = SubResource("StyleBoxFlat_i3onw")
 
 [node name="player7_name" type="Label" parent="Player/player7"]
@@ -643,6 +678,7 @@ offset_left = 1897.0
 offset_top = 346.667
 offset_right = 2492.0
 offset_bottom = 539.667
+theme = SubResource("Theme_i3onw")
 theme_override_styles/normal = SubResource("StyleBoxFlat_6rki5")
 
 [node name="player8_name" type="Label" parent="Player/player8"]
@@ -703,6 +739,7 @@ offset_left = 33.3334
 offset_top = 596.667
 offset_right = 628.333
 offset_bottom = 789.667
+theme = SubResource("Theme_6rki5")
 theme_override_styles/normal = SubResource("StyleBoxFlat_d5a65")
 
 [node name="player9_name" type="Label" parent="Player/player9"]
@@ -763,6 +800,7 @@ offset_left = 658.571
 offset_top = 597.143
 offset_right = 1253.57
 offset_bottom = 790.143
+theme = SubResource("Theme_d5a65")
 theme_override_styles/normal = SubResource("StyleBoxFlat_4eyhd")
 
 [node name="player10_name" type="Label" parent="Player/player10"]
@@ -1026,6 +1064,7 @@ offset_right = 40.0
 offset_bottom = 23.0
 
 [node name="Select_panel" type="Panel" parent="."]
+self_modulate = Color(0.111197, 0.111197, 0.111197, 1)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1038,6 +1077,7 @@ offset_right = 889.0
 offset_bottom = 490.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_i75kb")
 
 [node name="Select" type="Button" parent="Select_panel"]
 layout_mode = 0
@@ -1045,7 +1085,6 @@ offset_left = 52.0
 offset_top = 67.0
 offset_right = 195.0
 offset_bottom = 202.0
-theme_override_colors/font_color = Color(0.37926, 0.983013, 0, 1)
 theme_override_font_sizes/font_size = 64
 theme_override_styles/normal = SubResource("StyleBoxFlat_gn61r")
 text = "✓"
@@ -1056,7 +1095,6 @@ offset_left = 336.0
 offset_top = 67.0
 offset_right = 479.0
 offset_bottom = 202.0
-theme_override_colors/font_color = Color(1, 0, 0.219608, 1)
 theme_override_font_sizes/font_size = 64
 theme_override_styles/normal = SubResource("StyleBoxFlat_ef8o6")
 text = "✘"
@@ -1067,6 +1105,7 @@ offset_left = 133.0
 offset_top = 13.0
 offset_right = 403.0
 offset_bottom = 58.0
+theme = SubResource("Theme_4eyhd")
 text = "Are you sure ?"
 label_settings = SubResource("LabelSettings_2luh4")
 

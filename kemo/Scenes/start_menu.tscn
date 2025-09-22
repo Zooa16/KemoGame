@@ -1,7 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://kad3v4mikcsg"]
+[gd_scene load_steps=13 format=3 uid="uid://kad3v4mikcsg"]
 
 [ext_resource type="Script" uid="uid://bwxjngyqto770" path="res://Scripts/start_menu.gd" id="1_jgtwh"]
-[ext_resource type="Texture2D" uid="uid://do58ihktgne7b" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Main menu/ฉากหลัง.png" id="2_a43kq"]
+[ext_resource type="Texture2D" uid="uid://dnt5uqympeu7w" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Main menu/ฉากหลัง.png" id="2_a43kq"]
+
+[sub_resource type="Theme" id="Theme_jgtwh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jgtwh"]
 bg_color = Color(0.0306371, 0.727918, 1.34766e-06, 1)
@@ -12,6 +14,8 @@ corner_radius_bottom_left = 16
 shadow_size = 5
 shadow_offset = Vector2(0, 3.14)
 
+[sub_resource type="Theme" id="Theme_m6uer"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m6uer"]
 bg_color = Color(1, 0.85098, 0.105882, 1)
 corner_radius_top_left = 16
@@ -21,12 +25,16 @@ corner_radius_bottom_left = 16
 shadow_size = 5
 shadow_offset = Vector2(0, 3.14)
 
+[sub_resource type="Theme" id="Theme_a43kq"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a43kq"]
 bg_color = Color(0.176419, 0.176419, 0.176419, 1)
 corner_radius_top_left = 16
 corner_radius_top_right = 16
 corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
+
+[sub_resource type="Theme" id="Theme_626he"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_juhg0"]
 font_size = 23
@@ -75,6 +83,7 @@ offset_right = -382.0
 offset_bottom = -45.5
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_jgtwh")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = SubResource("StyleBoxFlat_jgtwh")
@@ -93,6 +102,7 @@ offset_right = -383.0
 offset_bottom = 71.5
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_m6uer")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = SubResource("StyleBoxFlat_m6uer")
@@ -104,6 +114,7 @@ offset_left = 16.0
 offset_top = 77.0
 offset_right = 305.0
 offset_bottom = 111.0
+theme = SubResource("Theme_a43kq")
 theme_override_colors/font_placeholder_color = Color(0.737193, 0.737193, 0.737193, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_a43kq")
 placeholder_text = "Enter your name"
@@ -116,6 +127,7 @@ offset_left = -2.0
 offset_top = -44.0
 offset_right = 165.0
 offset_bottom = -10.0
+theme = SubResource("Theme_626he")
 text = "Player Name : "
 label_settings = SubResource("LabelSettings_juhg0")
 
