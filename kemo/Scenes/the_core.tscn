@@ -1,9 +1,8 @@
-[gd_scene load_steps=27 format=4 uid="uid://bpharn5x0y5bc"]
+[gd_scene load_steps=23 format=4 uid="uid://bpharn5x0y5bc"]
 
 [ext_resource type="Script" uid="uid://dlqpk4tdoc8t" path="res://Scripts/the_core.gd" id="1_5grkw"]
 [ext_resource type="PackedScene" uid="uid://blnjd31uociag" path="res://Scenes/server_box.tscn" id="1_uyt0q"]
 [ext_resource type="ArrayMesh" uid="uid://bg5kxelpolwbe" path="res://Asset 3D/city/Chairs/Misc/Electronics/Office_Misc_PC_01.obj" id="3_5grkw"]
-[ext_resource type="Script" uid="uid://dfecqfpqfilqu" path="res://Scripts/teleporter.gd" id="4_73m1n"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_73m1n"]
 font_size = 64
@@ -195,15 +194,6 @@ _surfaces = [{
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_klv4r"]
 data = PackedVector3Array(-5, -0.5, 5, -5, -0.5, -5, -5, 0.5, -5, 5, -0.5, -5, -5, -0.5, -5, -5, -0.5, 5, -5, 0.5, -5, -5, -0.5, -5, 5, -0.5, -5, -5, 0.5, -5, -5, 0.5, 5, -5, -0.5, 5, -5, -0.5, 5, -5, 0.5, 5, 5, 0.5, 5, 5, 0.5, 5, -5, 0.5, 5, -5, 0.5, -5, -5, -0.5, 5, 5, -0.5, 5, 5, -0.5, -5, 5, 0.5, 5, 5, -0.5, 5, -5, -0.5, 5, 5, -0.5, -5, 5, -0.5, 5, 5, 0.5, 5, 5, -0.5, -5, 5, 0.5, -5, -5, 0.5, -5, -5, 0.5, -5, 5, 0.5, -5, 5, 0.5, 5, 5, 0.5, 5, 5, 0.5, -5, 5, -0.5, -5)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_03jfu"]
-transparency = 1
-albedo_color = Color(1, 1, 0.933333, 0.592157)
-
-[sub_resource type="BoxMesh" id="BoxMesh_arc6g"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_bx2h7"]
-size = Vector3(0.255005, 0.574097, 0.181183)
-
 [node name="the core" type="Node"]
 script = ExtResource("1_5grkw")
 
@@ -305,7 +295,7 @@ _spawnable_scenes = PackedStringArray("uid://cxrrxf305rbhf")
 spawn_path = NodePath("..")
 
 [node name="SpawnPoints" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -9, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -9, 51.2242)
 
 [node name="Marker3D" type="Marker3D" parent="SpawnPoints"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, -10, 30)
@@ -326,7 +316,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.1437, -10, 33.0064)
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, -9, 0)
 
 [node name="CP" type="Node3D" parent="ALL_MODEL"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -114.252, -2.87976, 40.2578)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.6725, -2.87976, 40.2578)
 
 [node name="cp1" parent="ALL_MODEL/CP" instance=ExtResource("1_uyt0q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.5, 52.9862, -0.815772, -54.6613)
@@ -383,7 +373,7 @@ mesh = ExtResource("3_5grkw")
 skeleton = NodePath("../../../..")
 
 [node name="server_box" parent="ALL_MODEL" instance=ExtResource("1_uyt0q")]
-transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 0.5, -114.252, -2.90636, 40.2578)
+transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 0.5, -44.6725, -2.90636, 40.2578)
 layers = 3
 skeleton = NodePath("../..")
 
@@ -6190,241 +6180,6 @@ skeleton = NodePath("../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ALL_MODEL/CSGBakedMeshInstance3D4/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_klv4r")
-
-[node name="Teleporter" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -9, 0)
-
-[node name="Teleporter ห้องคอม" type="Area3D" parent="Teleporter"]
-collision_layer = 255
-collision_mask = 255
-script = ExtResource("4_73m1n")
-
-[node name="mesh" type="MeshInstance3D" parent="Teleporter/Teleporter ห้องคอม"]
-transform = Transform3D(-1.32932, 0, 7.16662e-08, 0, 2.56017, 0, -1.16213e-07, 0, -0.819766, 36.1701, -2.49757, 21.4467)
-material_override = SubResource("StandardMaterial3D_03jfu")
-cast_shadow = 0
-mesh = SubResource("BoxMesh_arc6g")
-skeleton = NodePath("../../..")
-
-[node name="Label3D" type="Label3D" parent="Teleporter/Teleporter ห้องคอม/mesh"]
-transform = Transform3D(-1, 0, -0.000408977, 0, 1, 0, 0.00107543, 0, -1, 0, 0.7, -0.5)
-pixel_size = 0.01
-billboard = 1
-text = "Computer room"
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Teleporter/Teleporter ห้องคอม"]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 36.0686, -2.36851, 21.4799)
-shape = SubResource("BoxShape3D_bx2h7")
-
-[node name="Target" type="Marker3D" parent="Teleporter/Teleporter ห้องคอม"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.55764, -2.99948, 178.504)
-
-[node name="Teleporter ร้านคอม" type="Area3D" parent="Teleporter"]
-collision_layer = 255
-collision_mask = 255
-script = ExtResource("4_73m1n")
-
-[node name="mesh" type="MeshInstance3D" parent="Teleporter/Teleporter ร้านคอม"]
-transform = Transform3D(-8.80086e-08, 0, -0.819766, 0, 3.48443, 0, 2.0134, 0, -3.58331e-08, -4.95992, -3.46747, 178.566)
-material_override = SubResource("StandardMaterial3D_03jfu")
-cast_shadow = 0
-mesh = SubResource("BoxMesh_arc6g")
-skeleton = NodePath("../../..")
-
-[node name="Label3D" type="Label3D" parent="Teleporter/Teleporter ร้านคอม/mesh"]
-transform = Transform3D(1.32932, 0, 0.000543592, 0, 2.56017, 0, -0.000881483, 0, 0.819766, 0, 0.962696, -1.02068)
-pixel_size = 0.004
-billboard = 1
-text = "Back
-"
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Teleporter/Teleporter ร้านคอม"]
-transform = Transform3D(-2.18557e-07, 0, -5, 0, 5, 0, 5, 0, -2.18557e-07, -4.92421, -3.33841, 178.529)
-shape = SubResource("BoxShape3D_bx2h7")
-
-[node name="Target" type="Marker3D" parent="Teleporter/Teleporter ร้านคอม"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.0231, -2.06245, 23.9363)
-
-[node name="Teleporter หน้าห้องน้ำ" type="Area3D" parent="Teleporter"]
-collision_layer = 255
-collision_mask = 255
-script = ExtResource("4_73m1n")
-
-[node name="mesh" type="MeshInstance3D" parent="Teleporter/Teleporter หน้าห้องน้ำ"]
-transform = Transform3D(-8.80086e-08, 0, -0.819766, 0, 3.48443, 0, 2.0134, 0, -3.58331e-08, -4.07944, -3.46747, 228.433)
-material_override = SubResource("StandardMaterial3D_03jfu")
-cast_shadow = 0
-mesh = SubResource("BoxMesh_arc6g")
-skeleton = NodePath("../../..")
-
-[node name="Label3D" type="Label3D" parent="Teleporter/Teleporter หน้าห้องน้ำ/mesh"]
-transform = Transform3D(1.32932, 0, 0.000543592, 0, 2.56017, 0, -0.000881483, 0, 0.819766, 0, 0.962696, -0.241864)
-pixel_size = 0.004
-billboard = 1
-text = "Back
-"
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Teleporter/Teleporter หน้าห้องน้ำ"]
-transform = Transform3D(-2.18557e-07, 0, -5, 0, 5, 0, 5, 0, -2.18557e-07, -4.04373, -3.33841, 228.397)
-shape = SubResource("BoxShape3D_bx2h7")
-
-[node name="Target" type="Marker3D" parent="Teleporter/Teleporter หน้าห้องน้ำ"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.7936, -2.1186, 42.9117)
-
-[node name="Teleporter ห้องน้ำ" type="Area3D" parent="Teleporter"]
-collision_layer = 255
-collision_mask = 255
-script = ExtResource("4_73m1n")
-
-[node name="mesh" type="MeshInstance3D" parent="Teleporter/Teleporter ห้องน้ำ"]
-transform = Transform3D(0.111841, 0, -0.837721, 0, 3.67277, 0, 1.71048, 0, 0.054775, -40.9636, -2.52562, 43.6259)
-material_override = SubResource("StandardMaterial3D_03jfu")
-cast_shadow = 0
-mesh = SubResource("BoxMesh_arc6g")
-skeleton = NodePath("../../..")
-
-[node name="Label3D" type="Label3D" parent="Teleporter/Teleporter ห้องน้ำ/mesh"]
-transform = Transform3D(-1, 0, -0.000408977, 0, 1, 0, 0.00107543, 0, -1, 0, 0.7, 0.7)
-pixel_size = 0.01
-billboard = 1
-text = "Restroom"
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Teleporter/Teleporter ห้องน้ำ"]
-transform = Transform3D(-0.499922, 0, 5.16304, 0, 7.17289, 0, -7.64574, 0, -0.337589, -40.994, -2.34047, 43.7779)
-shape = SubResource("BoxShape3D_bx2h7")
-
-[node name="Target" type="Marker3D" parent="Teleporter/Teleporter ห้องน้ำ"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.58794, -2.99948, 228.828)
-
-[node name="Teleporter ห้องกล้อง" type="Area3D" parent="Teleporter"]
-collision_layer = 255
-collision_mask = 255
-script = ExtResource("4_73m1n")
-
-[node name="mesh" type="MeshInstance3D" parent="Teleporter/Teleporter ห้องกล้อง"]
-transform = Transform3D(-1.32932, 0, 7.16662e-08, 0, 2.56017, 0, -1.16213e-07, 0, -0.819766, -17.829, -2.49757, -16.5321)
-material_override = SubResource("StandardMaterial3D_03jfu")
-cast_shadow = 0
-mesh = SubResource("BoxMesh_arc6g")
-skeleton = NodePath("../../..")
-
-[node name="Label3D" type="Label3D" parent="Teleporter/Teleporter ห้องกล้อง/mesh"]
-transform = Transform3D(-1, 0, -0.000408977, 0, 1, 0, 0.00107543, 0, -1, 0, 0.7, -1.57358)
-pixel_size = 0.01
-billboard = 1
-text = "CCTV Room"
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Teleporter/Teleporter ห้องกล้อง"]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -17.9305, -2.36851, -16.499)
-shape = SubResource("BoxShape3D_bx2h7")
-
-[node name="Target" type="Marker3D" parent="Teleporter/Teleporter ห้องกล้อง"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.01424, -2.99948, 296.262)
-
-[node name="Teleporter ตึกกล้อง" type="Area3D" parent="Teleporter"]
-collision_layer = 255
-collision_mask = 255
-script = ExtResource("4_73m1n")
-
-[node name="mesh" type="MeshInstance3D" parent="Teleporter/Teleporter ตึกกล้อง"]
-transform = Transform3D(-8.80086e-08, 0, -0.819766, 0, 3.48443, 0, 2.0134, 0, -3.58331e-08, -4.52328, -3.46747, 296.318)
-material_override = SubResource("StandardMaterial3D_03jfu")
-cast_shadow = 0
-mesh = SubResource("BoxMesh_arc6g")
-skeleton = NodePath("../../..")
-
-[node name="Label3D" type="Label3D" parent="Teleporter/Teleporter ตึกกล้อง/mesh"]
-transform = Transform3D(1.32932, 0, 0.000543592, 0, 2.56017, 0, -0.000881483, 0, 0.819766, 0, 0.962696, -1.02068)
-pixel_size = 0.004
-billboard = 1
-text = "Back
-"
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Teleporter/Teleporter ตึกกล้อง"]
-transform = Transform3D(-2.18557e-07, 0, -5, 0, 5, 0, 5, 0, -2.18557e-07, -4.48757, -3.33841, 296.282)
-shape = SubResource("BoxShape3D_bx2h7")
-
-[node name="Target" type="Marker3D" parent="Teleporter/Teleporter ตึกกล้อง"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.7363, -2.06245, -14.201)
-
-[node name="Teleporter ตึกโรงละคร" type="Area3D" parent="Teleporter"]
-collision_layer = 255
-collision_mask = 255
-script = ExtResource("4_73m1n")
-
-[node name="mesh" type="MeshInstance3D" parent="Teleporter/Teleporter ตึกโรงละคร"]
-transform = Transform3D(1.39252, 0, -0.0546146, 0, 2.99137, 0, 0.0929793, 0, 0.817945, 1.17654, 1.90292, 416.268)
-material_override = SubResource("StandardMaterial3D_03jfu")
-cast_shadow = 0
-mesh = SubResource("BoxMesh_arc6g")
-skeleton = NodePath("../../..")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Teleporter/Teleporter ตึกโรงละคร"]
-transform = Transform3D(4.98889, 0, -0.333111, 0, 5, 0, 0.333111, 0, 4.98889, 1.18693, 2.03198, 416.233)
-shape = SubResource("BoxShape3D_bx2h7")
-
-[node name="mesh2" type="MeshInstance3D" parent="Teleporter/Teleporter ตึกโรงละคร"]
-transform = Transform3D(1.39252, 0, -0.0546146, 0, 2.99137, 0, 0.0929793, 0, 0.817945, -0.896817, 1.90292, 416.13)
-material_override = SubResource("StandardMaterial3D_03jfu")
-cast_shadow = 0
-mesh = SubResource("BoxMesh_arc6g")
-skeleton = NodePath("../../..")
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="Teleporter/Teleporter ตึกโรงละคร"]
-transform = Transform3D(4.98889, 0, -0.333111, 0, 5, 0, 0.333111, 0, 4.98889, -0.885487, 2.03198, 416.095)
-shape = SubResource("BoxShape3D_bx2h7")
-
-[node name="Target" type="Marker3D" parent="Teleporter/Teleporter ตึกโรงละคร"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65.9011, -2.41485, 33.2723)
-
-[node name="Label3D" type="Label3D" parent="Teleporter/Teleporter ตึกโรงละคร"]
-transform = Transform3D(4.98902, 0, -0.331168, 0, 5, 0, 0.331168, 0, 4.98902, 0.204571, 4.78269, 415.365)
-pixel_size = 0.004
-billboard = 1
-text = "Back
-"
-
-[node name="Teleporter ห้องโรงละคร2" type="Area3D" parent="Teleporter"]
-collision_layer = 255
-collision_mask = 255
-script = ExtResource("4_73m1n")
-
-[node name="mesh" type="MeshInstance3D" parent="Teleporter/Teleporter ห้องโรงละคร2"]
-transform = Transform3D(-5.81064e-08, 0, -0.819766, 0, 2.56017, 0, 1.32932, 0, -3.58331e-08, 66.9323, -2.49757, 30.5477)
-material_override = SubResource("StandardMaterial3D_03jfu")
-cast_shadow = 0
-mesh = SubResource("BoxMesh_arc6g")
-skeleton = NodePath("../../..")
-
-[node name="Label3D" type="Label3D" parent="Teleporter/Teleporter ห้องโรงละคร2/mesh"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.7, 1.00024)
-pixel_size = 0.01
-billboard = 1
-text = "Theatre"
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Teleporter/Teleporter ห้องโรงละคร2"]
-transform = Transform3D(-2.18557e-07, 0, -5, 0, 5, 0, 5, 0, -2.18557e-07, 66.9549, -2.36851, 30.6521)
-shape = SubResource("BoxShape3D_bx2h7")
-
-[node name="mesh2" type="MeshInstance3D" parent="Teleporter/Teleporter ห้องโรงละคร2"]
-transform = Transform3D(-5.81064e-08, 0, -0.819766, 0, 2.56017, 0, 1.32932, 0, -3.58331e-08, 66.9323, -2.49757, 36.5265)
-material_override = SubResource("StandardMaterial3D_03jfu")
-cast_shadow = 0
-mesh = SubResource("BoxMesh_arc6g")
-skeleton = NodePath("../../..")
-
-[node name="Label3D" type="Label3D" parent="Teleporter/Teleporter ห้องโรงละคร2/mesh2"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.7, 1.00024)
-pixel_size = 0.01
-billboard = 1
-text = "Theatre"
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="Teleporter/Teleporter ห้องโรงละคร2"]
-transform = Transform3D(-2.18557e-07, 0, -5, 0, 5, 0, 5, 0, -2.18557e-07, 66.9549, -2.36851, 36.6308)
-shape = SubResource("BoxShape3D_bx2h7")
-
-[node name="Target" type="Marker3D" parent="Teleporter/Teleporter ห้องโรงละคร2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.48518, 1.67062, 414.229)
 
 [node name="CardSpawnPoints" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -11.5093, 28.2483)
