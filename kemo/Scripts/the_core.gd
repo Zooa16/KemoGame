@@ -14,6 +14,12 @@ var player_spawn_points: Array = []
 var card_spawn_points: Array = []
 var max_cards_to_collect := 0
 
+# spectator
+var spectator_delay := 1.2  # วินาที
+var spectator_target_id: int = -1
+var retry_timer := 0.0
+var spectator_ready := false  # state ว่ากล้องเริ่มตาม player ได้รึยัง
+
 # 3 minutes per turn
 var turn_duration := 60
 var time_left := 0
@@ -37,7 +43,7 @@ func _ready():
 
     var my_id = multiplayer.get_unique_id()
     
-    # เพิ่มโค้ด Debug
+    # Debug
     print("--- Debug: the_core.gd _ready() ---")
     print("Global.the_mission_team: ", Global.the_mission_team)
     print("Global.no_mission_team: ", Global.no_mission_team)
@@ -63,36 +69,62 @@ func _ready():
         print("Role already revealed. Starting game directly.")
         start_turn_timer()
 
-var spectator_target_id: int = -1
+
+# --------------------- Spectator ------------------------
 
 func become_spectator():
     print("--- Debug: become_spectator() ---")
-    print("Global.the_mission_team:", Global.the_mission_team)
-
     if Global.the_mission_team.is_empty():
         return
 
     spectator_target_id = Global.the_mission_team.pick_random()
+    spectator_ready = false  # reset state
     var spectator_cam = $SpectatorCamera
     spectator_cam.current = true
 
-    # fallback มุมกว้างรอจน player โผล่
+    # fallback มุมกว้างก่อน
     spectator_cam.position = Vector3(0, 15, -15)
     spectator_cam.look_at(Vector3.ZERO, Vector3.UP)
-    print("Spectator is waiting for player:", spectator_target_id)
+    print("Spectator will follow player:", spectator_target_id, " after delay")
 
-func _process(_delta):
-    if spectator_target_id == -1:
-        return
+    # delay ก่อนจะตาม player จริง
+    var delay_timer = get_tree().create_timer(spectator_delay)
+    delay_timer.timeout.connect(func():
+        spectator_ready = true
+        retry_timer = 3.0
+        print("Spectator is now following player:", spectator_target_id)
+    )
+
+
+func _process(delta):
+    if spectator_target_id == -1 or not spectator_ready:
+        return  # ยังไม่พร้อมตาม player
 
     var spectator_cam = $SpectatorCamera
     var target_node = get_node_or_null("Player_" + str(spectator_target_id))
 
     if target_node:
-        # ติดตาม player แบบ dynamic
         var target_pos = target_node.global_position
         spectator_cam.position = target_pos + Vector3(0, 3, -5)
         spectator_cam.look_at(target_pos, Vector3.UP)
+    else:
+        # ลดเวลา retry
+        retry_timer -= delta
+        if retry_timer <= 0:
+            if not Global.the_mission_team.is_empty():
+                spectator_target_id = Global.the_mission_team.pick_random()
+                spectator_ready = false
+                print("Retry: Switching spectator to player", spectator_target_id)
+
+                var delay_timer = get_tree().create_timer(spectator_delay)
+                delay_timer.timeout.connect(func():
+                    spectator_ready = true
+                    retry_timer = 3.0
+                    print("Spectator is now following player:", spectator_target_id)
+                )
+
+
+# --------------------- Role reveal ------------------------
 
 func show_role_reveal():
     var role_reveal_scene = preload("res://Scenes/role_reveal.tscn")
@@ -112,6 +144,9 @@ func on_role_reveal_finished():
     print("Role reveal animation finished. Starting game timer.")
     start_turn_timer()
     
+
+# --------------------- Multiplayer ------------------------
+
 func _on_peer_connected(id: int):
     if Global.the_mission_team.has(id):
         spawn_player(id)
@@ -125,6 +160,9 @@ func _on_peer_disconnected(id: int):
     if player:
         player.queue_free()
         print("Despawned player with ID: " + str(id))
+
+
+# --------------------- Player spawn ------------------------
 
 func get_player_spawn_point_transform(player_id: int) -> Transform3D:
     if player_spawn_points.is_empty():
@@ -168,6 +206,7 @@ func spawn_player(player_id: int):
             Global.leader_id = player_id
             player_instance.update_role_visibility()
             
+
 func update_all_player_properties():
     if Global.player_colors.is_empty() and Global.player_names.is_empty():
         return
@@ -180,6 +219,9 @@ func update_all_player_properties():
             
         if Global.player_names.has(player_id):
             node.set_player_name.rpc(Global.player_names[player_id])
+
+
+# --------------------- Cards ------------------------
 
 func generate_random_number_cards():
     if not multiplayer.is_server():
@@ -204,6 +246,9 @@ func generate_random_number_cards():
     print("Generated unique positions: ", positions_to_spawn)
 
     rpc("spawn_cards_with_numbers", numbers_to_spawn, positions_to_spawn)
+
+
+# --------------------- Timer ------------------------
 
 func start_turn_timer():
     if not multiplayer.is_server():
