@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://kad3v4mikcsg"]
 
 [ext_resource type="Script" uid="uid://bwxjngyqto770" path="res://Scripts/start_menu.gd" id="1_jgtwh"]
-[ext_resource type="Texture2D" uid="uid://do58ihktgne7b" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Main menu/ฉากหลัง.png" id="2_a43kq"]
+[ext_resource type="Texture2D" uid="uid://cqxi3w486wx5j" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Main menu/ฉากหลัง.png" id="2_a43kq"]
 
 [sub_resource type="Theme" id="Theme_jgtwh"]
 

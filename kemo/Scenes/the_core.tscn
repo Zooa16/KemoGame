@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dlqpk4tdoc8t" path="res://Scripts/the_core.gd" id="1_5grkw"]
 [ext_resource type="PackedScene" uid="uid://blnjd31uociag" path="res://Scenes/server_box.tscn" id="1_uyt0q"]
 [ext_resource type="Script" uid="uid://br0qgqgi8v01v" path="res://Scripts/computer_1.gd" id="2_tw02u"]
-[ext_resource type="ArrayMesh" uid="uid://bg5kxelpolwbe" path="res://Asset 3D/city/Chairs/Misc/Electronics/Office_Misc_PC_01.obj" id="3_5grkw"]
+[ext_resource type="ArrayMesh" uid="uid://bvoeqkoa0giaq" path="res://Asset 3D/city/Chairs/Misc/Electronics/Office_Misc_PC_01.obj" id="3_5grkw"]
 [ext_resource type="Script" uid="uid://chtxh074y6iir" path="res://Scripts/computer_2.gd" id="5_rv1b7"]
 [ext_resource type="Script" uid="uid://m1ao7fgpkfdx" path="res://Scripts/computer_3.gd" id="6_liuw2"]
 [ext_resource type="Script" uid="uid://bq6x1rijbysrw" path="res://Scripts/computer_4.gd" id="7_37cde"]
@@ -297,6 +297,22 @@ offset_right = 178.0
 offset_bottom = 972.0
 grow_vertical = 0
 text = "Drop Card"
+
+[node name="PasswordLabel" type="Label" parent="UI/UI_Player"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 23.975
+anchor_top = 2.187
+anchor_right = 23.975
+anchor_bottom = 2.187
+offset_left = -1.0
+offset_top = -87.48
+offset_bottom = 87.52
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 80
 
 [node name="SpectatorCamera" type="Camera3D" parent="."]
 cull_mask = 1048573
@@ -6173,6 +6189,7 @@ offset_right = 1928.0
 offset_bottom = 1077.0
 
 [node name="LineEdit" type="LineEdit" parent="CP/Computer1/CanvasLayer/Panel"]
+layout_mode = 0
 offset_left = 470.0
 offset_top = 618.0
 offset_right = 1298.0
@@ -6217,6 +6234,7 @@ offset_right = 1928.0
 offset_bottom = 1077.0
 
 [node name="LineEdit" type="LineEdit" parent="CP/Computer2/CanvasLayer/Panel"]
+layout_mode = 0
 offset_left = 470.0
 offset_top = 618.0
 offset_right = 1298.0
@@ -6261,6 +6279,7 @@ offset_right = 1928.0
 offset_bottom = 1077.0
 
 [node name="LineEdit" type="LineEdit" parent="CP/Computer3/CanvasLayer/Panel"]
+layout_mode = 0
 offset_left = 470.0
 offset_top = 618.0
 offset_right = 1298.0
@@ -6305,6 +6324,7 @@ offset_right = 1928.0
 offset_bottom = 1077.0
 
 [node name="LineEdit" type="LineEdit" parent="CP/Computer4/CanvasLayer/Panel"]
+layout_mode = 0
 offset_left = 470.0
 offset_top = 618.0
 offset_right = 1298.0
@@ -6349,6 +6369,7 @@ offset_right = 1928.0
 offset_bottom = 1077.0
 
 [node name="LineEdit" type="LineEdit" parent="CP/Computer5/CanvasLayer/Panel"]
+layout_mode = 0
 offset_left = 470.0
 offset_top = 618.0
 offset_right = 1298.0
@@ -6393,6 +6414,7 @@ offset_right = 1928.0
 offset_bottom = 1077.0
 
 [node name="LineEdit" type="LineEdit" parent="CP/Computer6/CanvasLayer/Panel"]
+layout_mode = 0
 offset_left = 470.0
 offset_top = 618.0
 offset_right = 1298.0
