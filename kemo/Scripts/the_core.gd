@@ -2,6 +2,8 @@
 extends Node
 
 # UI nodes
+@onready var next = $UI/UI_Spectator/Next
+@onready var back = $UI/UI_Spectator/Back
 @onready var timer_label: Label = $UI/MarginContainer/TimerLabel
 @onready var cards_label: Label = $UI/UI_Player/CardsCollectedLabel
 @onready var turn_timer: Timer = $TurnTimer
@@ -72,6 +74,10 @@ func _ready():
         print("Role already revealed. Starting game directly.")
         start_turn_timer()
 
+    # --- New: Connect Next and Back buttons ---
+    next.pressed.connect(_on_next_pressed)
+    back.pressed.connect(_on_back_pressed)
+
 # --------------------- Spectator ------------------------
 
 func become_spectator():
@@ -121,6 +127,32 @@ func _process(delta):
                 print("Retry: Switching spectator to player", new_target_id)
                 change_spectator_target(new_target_id)
 
+func _on_next_pressed():
+    if Global.the_mission_team.is_empty():
+        return
+
+    var mission_ids = Global.the_mission_team.duplicate()
+    mission_ids.sort() # Sort the IDs to ensure a predictable order
+    
+    var current_index = mission_ids.find(spectator_target_id)
+    var next_index = (current_index + 1) % mission_ids.size()
+    
+    var new_target_id = mission_ids[next_index]
+    change_spectator_target(new_target_id)
+
+func _on_back_pressed():
+    if Global.the_mission_team.is_empty():
+        return
+        
+    var mission_ids = Global.the_mission_team.duplicate()
+    mission_ids.sort()
+    
+    var current_index = mission_ids.find(spectator_target_id)
+    var prev_index = (current_index - 1 + mission_ids.size()) % mission_ids.size()
+    
+    var new_target_id = mission_ids[prev_index]
+    change_spectator_target(new_target_id)
+
 # --------------------- Role reveal ------------------------
 
 func show_role_reveal():
@@ -146,7 +178,6 @@ func on_role_reveal_finished():
 func _on_peer_connected(id: int):
     if Global.the_mission_team.has(id):
         spawn_player(id)
-        # ไม่ต้องเรียก update_all_player_properties() ตรงนี้แล้ว เพราะได้ย้ายไปทำใน spawn_player()
     
     if multiplayer.is_server():
         rpc_id(id, "update_timer_label", time_left)
@@ -182,13 +213,11 @@ func spawn_player(player_id: int):
     player_instance.set_multiplayer_authority(player_id)
     player_instance.scale = Vector3(0.3, 0.3, 0.3)
 
-    # แก้ไข: เปลี่ยนเป็น add_child() เพื่อซิงค์โหนด
     add_child(player_instance)
 
     if multiplayer.is_server():
         player_instance.card_collected_updated.connect(Callable(self, "_on_player_card_collected_updated").bind(player_id))
         
-    # แก้ไข: เรียก RPC เพื่ออัปเดตข้อมูลภายในฟังก์ชันนี้
     if Global.player_colors.has(player_id):
         player_instance.set_player_color.rpc(Global.player_colors[player_id])
     if Global.player_names.has(player_id):
@@ -250,7 +279,6 @@ func start_turn_timer():
     time_left = turn_duration
     timer_label.visible = true
     
-    # แก้ไข: ใช้ RPC เพื่อซิงค์เวลาเริ่มต้น
     rpc("update_timer_label", time_left)
 
     turn_timer.wait_time = 1.0

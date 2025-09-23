@@ -6089,8 +6089,40 @@ label_settings = SubResource("LabelSettings_73m1n")
 [node name="UI_Spectator" type="Control" parent="UI"]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = -87.0
+offset_top = 9.0
+offset_right = -47.0
+offset_bottom = 49.0
+
+[node name="Next" type="Button" parent="UI/UI_Spectator"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1106.0
+offset_top = 827.0
+offset_right = 1279.0
+offset_bottom = 904.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "NEXT"
+
+[node name="Back" type="Button" parent="UI/UI_Spectator"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 863.0
+offset_top = 827.0
+offset_right = 1036.0
+offset_bottom = 904.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "BACK"
 
 [node name="UI_Player" type="Control" parent="UI"]
 layout_mode = 3
@@ -6112,11 +6144,14 @@ offset_bottom = 821.88
 label_settings = SubResource("LabelSettings_5grkw")
 
 [node name="Drop Cards" type="Button" parent="UI/UI_Player"]
-layout_mode = 0
-offset_left = 1323.0
-offset_top = 792.0
-offset_right = 1501.0
-offset_bottom = 873.0
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = 961.0
+offset_right = 178.0
+offset_bottom = 1042.0
+grow_vertical = 0
 text = "Drop Card"
 
 [node name="CardSpawnPoints" type="Node3D" parent="."]
