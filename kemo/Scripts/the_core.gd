@@ -15,7 +15,7 @@ var card_spawn_points: Array = []
 var max_cards_to_collect := 0
 
 # spectator
-var spectator_delay := 1.2  # วินาที
+var spectator_delay := 0.5  # วินาที
 var spectator_target_id: int = -1
 var retry_timer := 0.0
 var spectator_ready := false  # state ว่ากล้องเริ่มตาม player ได้รึยัง
@@ -55,33 +55,14 @@ func _ready():
             spawn_player(player_id)
         generate_random_number_cards()
     
-    # เพิ่มการหน่วงเวลาตามบทบาทผู้เล่น 
-    var delay_time: float
     if Global.the_mission_team.has(my_id):
-        # ผู้ที่ทำภารกิจ
-        delay_time = 1.0  # หน่วง 1 วินาที
         get_node("UI/UI_Spectator").visible = false
         get_node("UI/UI_Player").visible = true
-        
-        var delay_timer = get_tree().create_timer(delay_time)
-        delay_timer.timeout.connect(func():
-            print("Mission team player ready.")
-            _initialize_game_state_after_delay()
-        )
     else:
-        # ผู้ที่ไม่ได้ทำภารกิจ (Spectator)
-        delay_time = 2.5  # หน่วง 1.5 วินาที
         get_node("UI/UI_Player").visible = false
         get_node("UI/UI_Spectator").visible = true
-        
-        var delay_timer = get_tree().create_timer(delay_time)
-        delay_timer.timeout.connect(func():
-            print("No-mission team player ready. Becoming spectator.")
-            become_spectator()
-            _initialize_game_state_after_delay()
-        )
-
-func _initialize_game_state_after_delay():
+        become_spectator()
+    
     if not Global.revealed_role:
         show_role_reveal()
     else:
