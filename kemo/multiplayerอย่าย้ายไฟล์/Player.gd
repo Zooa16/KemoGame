@@ -133,10 +133,8 @@ func add_card(card_id: String):
 # ⭐ NEW: Function to control the button's visibility.
 # ⭐ NEW: Function to control the button's visibility.
 func update_drop_button_visibility():
-	# Only the local player should control their UI.
 	if is_multiplayer_authority():
 		if is_instance_valid(drop_cards_button):
-			# Show the button if the player has at least one card.
 			if collected_cards.size() >= 1:
 				drop_cards_button.show()
 			else:
