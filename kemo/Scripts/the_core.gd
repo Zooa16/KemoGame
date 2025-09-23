@@ -1,8 +1,9 @@
+# the_core.gd
 extends Node
 
 @onready var timer_label: Label = $UI/MarginContainer/TimerLabel
+@onready var cards_label: Label = $UI/UI_Player/CardsCollectedLabel
 @onready var turn_timer: Timer = $TurnTimer
-@onready var cards_label: Label = $UI/CardsCollectedLabel
 
 # Player spawn point
 @onready var player_spawn_points_parent = $SpawnPoints
@@ -11,7 +12,7 @@ var player_spawn_points: Array = []
 # Card spawn point
 @onready var card_spawn_points_parent = $CardSpawnPoints
 var card_spawn_points: Array = []
-var max_cards_to_collect := 0 # Note: The previous version had this set to 4.
+var max_cards_to_collect := 0
 
 # 3 minutes per turn
 var turn_duration := 60
@@ -34,14 +35,27 @@ func _ready():
     multiplayer.peer_connected.connect(_on_peer_connected)
     multiplayer.peer_disconnected.connect(_on_peer_disconnected)
 
-    spawn_player(multiplayer.get_unique_id())
-
+    var my_id = multiplayer.get_unique_id()
+    
+    # เพิ่มโค้ด Debug
+    print("--- Debug: the_core.gd _ready() ---")
+    print("Global.the_mission_team: ", Global.the_mission_team)
+    print("Global.no_mission_team: ", Global.no_mission_team)
+    print("Local Player ID: ", my_id)
+    print("-----------------------------------")
+    
     if multiplayer.is_server():
-        for player_id in multiplayer.get_peers():
-            if player_id != multiplayer.get_unique_id():
-                spawn_player(player_id)
-        # ⭐ NEW: The server should generate the cards at the start of the game.
+        for player_id in Global.the_mission_team:
+            spawn_player(player_id)
         generate_random_number_cards()
+    
+    if Global.the_mission_team.has(my_id):
+        get_node("UI/UI_Spectator").visible = false
+        get_node("UI/UI_Player").visible = true
+    else:
+        get_node("UI/UI_Player").visible = false
+        get_node("UI/UI_Spectator").visible = true
+        become_spectator()
     
     if not Global.revealed_role:
         show_role_reveal()
@@ -49,17 +63,44 @@ func _ready():
         print("Role already revealed. Starting game directly.")
         start_turn_timer()
 
+var spectator_target_id: int = -1
+
+func become_spectator():
+    print("--- Debug: become_spectator() ---")
+    print("Global.the_mission_team:", Global.the_mission_team)
+
+    if Global.the_mission_team.is_empty():
+        return
+
+    spectator_target_id = Global.the_mission_team.pick_random()
+    var spectator_cam = $SpectatorCamera
+    spectator_cam.current = true
+
+    # fallback มุมกว้างรอจน player โผล่
+    spectator_cam.position = Vector3(0, 15, -15)
+    spectator_cam.look_at(Vector3.ZERO, Vector3.UP)
+    print("Spectator is waiting for player:", spectator_target_id)
+
+func _process(_delta):
+    if spectator_target_id == -1:
+        return
+
+    var spectator_cam = $SpectatorCamera
+    var target_node = get_node_or_null("Player_" + str(spectator_target_id))
+
+    if target_node:
+        # ติดตาม player แบบ dynamic
+        var target_pos = target_node.global_position
+        spectator_cam.position = target_pos + Vector3(0, 3, -5)
+        spectator_cam.look_at(target_pos, Vector3.UP)
+
 func show_role_reveal():
-    # Instance your role reveal scene
     var role_reveal_scene = preload("res://Scenes/role_reveal.tscn")
     var role_reveal_node = role_reveal_scene.instantiate()
-    # ⭐ CORRECTED: Add the CanvasLayer node to the root of the scene tree.
     get_tree().root.add_child(role_reveal_node)
     
-    # ⭐ NEW: Set the state that the role has been revealed.
     Global.revealed_role = true
 
-    # Get the local player's role and leader status from Global
     var my_id = multiplayer.get_unique_id()
     var my_role = Global.player_roles.get(my_id, {}).get("base", "Unknown")
     var is_leader = Global.player_roles.get(my_id, {}).get("leader", false)
@@ -72,19 +113,16 @@ func on_role_reveal_finished():
     start_turn_timer()
     
 func _on_peer_connected(id: int):
-    spawn_player(id)
-    update_all_player_properties()
+    if Global.the_mission_team.has(id):
+        spawn_player(id)
+        update_all_player_properties()
     
-    # Server tells the new player the remaining time
     if multiplayer.is_server():
         rpc_id(id, "update_timer_label", time_left)
 
 func _on_peer_disconnected(id: int):
-    # This line looks for the player node and assigns it to a local variable.
     var player = get_node_or_null("Player_" + str(id))
-    # This check ensures the code only runs if the player node was found.
     if player:
-        # The 'player' variable is now correctly defined and can be used here.
         player.queue_free()
         print("Despawned player with ID: " + str(id))
 
@@ -98,20 +136,22 @@ func get_player_spawn_point_transform(player_id: int) -> Transform3D:
 func spawn_player(player_id: int):
     if get_node_or_null("Player_" + str(player_id)):
         return
+    
+    if not Global.the_mission_team.has(player_id):
+        print("Player ID ", player_id, " is not on the mission team. Not spawning.")
+        return
 
     var spawn_transform = get_player_spawn_point_transform(player_id)
     var player_scene = preload("res://multiplayerอย่าย้ายไฟล์/player.tscn")
     var player_instance = player_scene.instantiate()
 
     player_instance.name = "Player_" + str(player_id)
-    
     player_instance.transform = spawn_transform
     player_instance.set_multiplayer_authority(player_id)
     player_instance.scale = Vector3(0.3, 0.3, 0.3)
 
     add_child(player_instance, true)
 
-    # ⭐ NEW: Connect the signal from the newly spawned player to handle UI updates
     if multiplayer.is_server():
         player_instance.card_collected_updated.connect(Callable(self, "_on_player_card_collected_updated").bind(player_id))
 
@@ -124,7 +164,6 @@ func spawn_player(player_id: int):
         var role = Global.player_roles[player_id]
         player_instance.set_role(role["base"], role["leader"])
         
-        # ⭐ Removed the redundant role display code.
         if role["leader"]:
             Global.leader_id = player_id
             player_instance.update_role_visibility()
@@ -142,7 +181,6 @@ func update_all_player_properties():
         if Global.player_names.has(player_id):
             node.set_player_name.rpc(Global.player_names[player_id])
 
-# ⭐ NEW: This function was missing and is crucial for game startup.
 func generate_random_number_cards():
     if not multiplayer.is_server():
         return
@@ -167,9 +205,6 @@ func generate_random_number_cards():
 
     rpc("spawn_cards_with_numbers", numbers_to_spawn, positions_to_spawn)
 
-# -------------------------
-# TURN SYSTEM
-# -------------------------
 func start_turn_timer():
     if not multiplayer.is_server():
         return
@@ -203,135 +238,3 @@ func update_timer_label(new_time: int):
 func go_to_Round_results():
     turn_timer.stop()
     get_tree().change_scene_to_file("res://Scenes/Round_results.tscn")
-
-# This function handles the full card collection process on the server.
-@rpc("any_peer")
-func process_card_collection(card_path: String, peer_id: int):
-    # This function should only run on the server.
-    if not multiplayer.is_server():
-        return
-        
-    var player_node = get_node_or_null("Player_" + str(peer_id))
-    if not player_node or player_node.collected_cards.size() >= player_node.max_cards_to_collect:
-        print("Player has reached card limit or player node not found.")
-        return
-        
-    var card_node = get_node_or_null(card_path)
-    if not is_instance_valid(card_node) or card_node.is_collected:
-        print("Server: Card not found or already collected.")
-        return
-    
-    # ⭐ CORRECTED: Directly call the hide_card RPC on the card.
-    # The card itself will handle hiding from all peers.
-    card_node.rpc("hide_card")
-    
-    # Add the card to the player's inventory on the server.
-    player_node.collected_cards.append(card_node.name)
-    print("Server: Player ", peer_id, " collected card ", card_node.name)
-    
-    # Now, tell the specific player's machine to update their UI.
-    rpc_id(peer_id, "update_cards_ui_for_peer", player_node.collected_cards.size())
-
-
-# This function is now the central point for updating UI on all clients.
-# It receives a signal from the local Player script.
-func _on_player_card_collected_updated(collected_count: int, player_id: int):
-    # This function is ONLY called on the server to relay the update.
-    # The server will now tell the specific player to update their UI.
-    rpc_id(player_id, "update_cards_ui_for_peer", collected_count)
-
-# This is the function that is called on each client to update their own UI.
-# This function is now correctly called by the server to update the UI
-# for the specific client who needs to see the change.
-@rpc("any_peer", "call_local")
-func update_cards_ui_for_peer(count: int):
-    var cards_label = get_node_or_null("UI/CardsCollectedLabel")
-    if not is_instance_valid(cards_label):
-        return
-    
-    if count == 0:
-        cards_label.hide()
-    else:
-        cards_label.show()
-    cards_label.text = "%d/%d Cards collected!" % [count, 3]
-    
-    # ⭐ CORRECTED: The Drop Card button visibility is now handled correctly.
-    # We call the function on the local player's node to update the UI.
-    var local_player = get_node_or_null("Player_" + str(multiplayer.get_unique_id()))
-    if local_player:
-        local_player.update_drop_button_visibility()
-
-
-# Handles the button press on the local client.
-
-
-#This function only runs on the server.
-# ⭐ NEW: This function handles dropping a single card on the server.
-@rpc("any_peer", "reliable")
-func drop_single_card_request(player_id: int):
-    # This function only runs on the server.
-    if not multiplayer.is_server():
-        return
-        
-    var player_node = get_node_or_null("Player_" + str(player_id))
-    if not player_node:
-        print("Server: Player node not found for ID: ", player_id)
-        return
-    
-    # Check if the player has any cards to drop.
-    if player_node.collected_cards.is_empty():
-        print("Server: Player has no cards to drop.")
-        # Update the UI to reflect an empty inventory
-        rpc_id(player_id, "update_cards_ui_for_peer", 0)
-        return
-        
-    # ⭐ CORRECTED: Get the last card from the collected_cards array (LIFO).
-    var dropped_card_name = player_node.collected_cards.pop_back()
-    
-    var player_position = player_node.global_transform.origin
-    var player_forward_dir = -player_node.global_transform.basis.z.normalized()
-    
-    # Determine the spawn point in front of the player.
-    var spawn_position = player_position + player_forward_dir * 2.0
-    
-    # ⭐ CORRECTED: Tell all clients to show this specific card.
-    var card_node = get_node_or_null("Cards/" + dropped_card_name)
-    if is_instance_valid(card_node):
-        card_node.rpc("show_card", spawn_position)
-    
-    # Update UI for all players to sync the card count.
-    var all_peers = multiplayer.get_peers()
-    all_peers.append(multiplayer.get_unique_id())
-    
-    for peer_id in all_peers:
-        var p_node = get_node_or_null("Player_" + str(peer_id))
-        if p_node:
-            rpc_id(peer_id, "update_cards_ui_for_peer", p_node.collected_cards.size())
-
-# This RPC is called on all clients to show the dropped cards.
-@rpc("any_peer", "call_local")
-func show_dropped_cards_rpc(card_names: Array, positions: Array):
-    var cards_parent = get_node("Cards")
-    if not is_instance_valid(cards_parent):
-        return
-        
-    for i in range(card_names.size()):
-        var card_name = card_names[i]
-        var new_position = positions[i]
-        var card_node = cards_parent.find_child(card_name)
-        
-        if is_instance_valid(card_node):
-            # The card node handles its own visibility and position via RPC.
-            card_node.rpc("show_card", new_position)
-
-
-func _on_drop_cards_pressed() -> void:
-    var local_player_id = multiplayer.get_unique_id() # Get the local player's ID.
-
-    # Check if the local player is the host (peer ID 1).
-    if multiplayer.is_server():
-        # If the player is the host, call the function directly.
-        drop_single_card_request(local_player_id)
-    else:
-        # If the player is a client, send an RPC to the host (peer ID 1).
-        rpc_id(1, "drop_single_card_request", local_player_id)

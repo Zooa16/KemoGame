@@ -61,7 +61,7 @@ var current_highlighted_node: Node = null
 
 var player_id_to_ui_index: Dictionary = {}
 
-var countdown_duration := 10
+var countdown_duration := 1
 var voting_in_progress := false
 var fade_out_duration := 4.0
 

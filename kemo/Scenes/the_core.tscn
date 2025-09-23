@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://bpharn5x0y5bc"]
+[gd_scene load_steps=23 format=4 uid="uid://bpharn5x0y5bc"]
 
 [ext_resource type="Script" uid="uid://dlqpk4tdoc8t" path="res://Scripts/the_core.gd" id="1_5grkw"]
 [ext_resource type="PackedScene" uid="uid://blnjd31uociag" path="res://Scenes/server_box.tscn" id="1_uyt0q"]
@@ -6,6 +6,9 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_73m1n"]
 font_size = 64
+
+[sub_resource type="LabelSettings" id="LabelSettings_5grkw"]
+font_size = 40
 
 [sub_resource type="Shader" id="Shader_fcwga"]
 code = "
@@ -196,24 +199,6 @@ script = ExtResource("1_5grkw")
 
 [node name="UI" type="CanvasLayer" parent="."]
 
-[node name="CardsCollectedLabel" type="Label" parent="UI"]
-anchors_preset = -1
-anchor_left = 0.509
-anchor_top = 0.753
-anchor_right = 0.509
-anchor_bottom = 0.753
-offset_left = -97.28
-offset_top = -38.2401
-offset_right = 96.72
-offset_bottom = 38.7599
-
-[node name="Drop Cards" type="Button" parent="UI"]
-offset_left = 1323.0
-offset_top = 792.0
-offset_right = 1501.0
-offset_bottom = 873.0
-text = "Drop Card"
-
 [node name="MarginContainer" type="MarginContainer" parent="UI"]
 offset_left = 47.0
 offset_top = 44.0
@@ -224,6 +209,39 @@ size_flags_horizontal = 4
 [node name="TimerLabel" type="Label" parent="UI/MarginContainer"]
 layout_mode = 2
 label_settings = SubResource("LabelSettings_73m1n")
+
+[node name="UI_Spectator" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="UI_Player" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CardsCollectedLabel" type="Label" parent="UI/UI_Player"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.509
+anchor_top = 0.753
+anchor_right = 0.509
+anchor_bottom = 0.753
+offset_left = 859.64
+offset_top = 744.88
+offset_right = 1053.64
+offset_bottom = 821.88
+label_settings = SubResource("LabelSettings_5grkw")
+
+[node name="Drop Cards" type="Button" parent="UI/UI_Player"]
+layout_mode = 0
+offset_left = 1323.0
+offset_top = 792.0
+offset_right = 1501.0
+offset_bottom = 873.0
+text = "Drop Card"
 
 [node name="CardSpawnPoints" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -11.5093, 28.2483)
@@ -6152,3 +6170,11 @@ skeleton = NodePath("../../../../../../../../..")
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -0.666667, 0, -2.91409e-08, -0.178787, 0.504732, -0.0192032)
 mesh = ExtResource("3_5grkw")
 skeleton = NodePath("../../../..")
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("uid://cxrrxf305rbhf")
+spawn_path = NodePath("..")
+
+[node name="SpectatorCamera" type="Camera3D" parent="."]
+transform = Transform3D(-1, -6.69697e-08, 5.61943e-08, 0, 0.642788, 0.766044, -8.74228e-08, 0.766044, -0.642788, 0, 50, 35)
+cull_mask = 1048573
