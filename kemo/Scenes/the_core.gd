@@ -1,3 +1,5 @@
+# THE CORE
+
 extends Node
 
 @onready var timer_label: Label = $UI/MarginContainer/TimerLabel
@@ -11,17 +13,11 @@ var player_spawn_points: Array = []
 # Card spawn point
 @onready var card_spawn_points_parent = $CardSpawnPoints
 var card_spawn_points: Array = []
-var max_cards_to_collect := 4
+var max_cards_to_collect := 0
 
 # 3 minutes per turn
-var turn_duration := 120
+var turn_duration := 60
 var time_left := 0
-
-# Create an array to hold the numbers of the spawned cards
-var spawned_cards_numbers = []
-
-# เปลี่ยน spawned_cards_positions จาก Dictionary เป็น Array
-var spawned_cards_positions = []
 
 # Load your single card scene
 var card_scene = preload("res://Scenes/Cards.tscn")
@@ -46,19 +42,12 @@ func _ready():
         for player_id in multiplayer.get_peers():
             if player_id != multiplayer.get_unique_id():
                 spawn_player(player_id)
-        generate_random_number_cards()
 
 
 func _on_peer_connected(id: int):
     spawn_player(id)
     update_all_player_properties()
     
-    # ถ้าเป็นโฮสต์และมีไคลเอนต์ใหม่เข้ามา
-    if multiplayer.is_server():
-        # ส่งข้อมูลการ์ดที่ถูกสร้างไปให้ไคลเอนต์คนใหม่
-        if not spawned_cards_numbers.is_empty():
-            rpc_id(id, "spawn_cards_with_numbers", spawned_cards_numbers, spawned_cards_positions)
-
     # Server tells the new player the remaining time
     if multiplayer.is_server():
         rpc_id(id, "update_timer_label", time_left)
@@ -143,7 +132,7 @@ func _on_TurnTimer_timeout():
         time_left -= 1
         if time_left < 0:
             turn_timer.stop()
-            rpc("go_to_voting_phase")
+            rpc("go_to_Round_results")
         else:
             rpc("update_timer_label", time_left)
 
@@ -156,66 +145,10 @@ func update_timer_label(new_time: int):
     timer_label.text = "%02d:%02d" % [minutes, seconds]
 
 @rpc("any_peer", "reliable", "call_local")
-func go_to_voting_phase():
+func go_to_Round_results():
     turn_timer.stop()
-    get_tree().change_scene_to_file("res://Scenes/voting.tscn")
+    get_tree().change_scene_to_file("res://Scenes/Round_results.tscn")
 
- #New and corrected function to allow duplicate cards but at unique locations.
-# This function generates unique card numbers and positions.
-func generate_random_number_cards():
-    if not multiplayer.is_server():
-        return
-        
-    var all_card_numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-    all_card_numbers.shuffle()
-    
-    var available_spawn_points = card_spawn_points.duplicate()
-    available_spawn_points.shuffle()
-    
-    var numbers_to_spawn = []
-    var positions_to_spawn = []
-    
-    for i in range(4):
-        numbers_to_spawn.append(all_card_numbers[i])
-        
-        if i < available_spawn_points.size():
-            positions_to_spawn.append(available_spawn_points[i].global_transform.origin)
-            
-    print("Generated (unique) numbers: ", numbers_to_spawn)
-    print("Generated unique positions: ", positions_to_spawn)
-
-    # 💡 CORRECTED: This RPC now tells all clients to spawn the cards
-    # This ensures a single set of cards is created for the entire game.
-    rpc("spawn_cards_with_numbers", numbers_to_spawn, positions_to_spawn)
-
-
-# The corrected spawning function
-@rpc("any_peer", "call_local")
-func spawn_cards_with_numbers(numbers: Array, positions: Array):
-    # ⭐ CORRECTED: Clean up any cards from the previous round
-    var existing_cards = get_node_or_null("Cards")
-    if existing_cards:
-        existing_cards.queue_free()
-        
-    # ⭐ CORRECTED: Instantiate the main parent scene for all cards
-    var cards_instance = card_scene.instantiate()
-    cards_instance.name = "Cards"
-    add_child(cards_instance)
-    
-    var card_nodes = cards_instance.get_children()
-    
-    for i in range(numbers.size()):
-        var card_number = numbers[i]
-        
-        # Find the specific card node from our hidden templates
-        var card_node = cards_instance.find_child(str(card_number))
-        
-        if is_instance_valid(card_node):
-            card_node.global_transform.origin = positions[i]
-            card_node.visible = true
-
-
-# This function handles the full card collection process on the server.
 # This function handles the full card collection process on the server.
 @rpc("any_peer")
 func process_card_collection(card_path: String, peer_id: int):
@@ -274,7 +207,6 @@ func update_cards_ui_for_peer(count: int):
         local_player.update_drop_button_visibility()
 
 
-# Handles the button press on the local client.
 # Handles the button press on the local client.
 
 

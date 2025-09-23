@@ -1,11 +1,11 @@
 [gd_scene load_steps=43 format=3 uid="uid://b7cum4xtkhyw3"]
 
 [ext_resource type="Script" uid="uid://b6vkau6f1hqks" path="res://Scripts/voting.gd" id="1_t1awk"]
-[ext_resource type="Texture2D" uid="uid://bq4iycxrqwukt" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Idle/ตัว/1.png" id="2_dwqxs"]
-[ext_resource type="Texture2D" uid="uid://4vhhhh0w3cxp" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Main menu/เพิ่มหัวเรื่อง.png" id="2_eho4l"]
-[ext_resource type="Texture2D" uid="uid://cdosrbfcq0wfd" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Idle/สี/ไม่มีชื่อ 12_20250817171242.png" id="3_0y5kf"]
-[ext_resource type="Texture2D" uid="uid://d3nf0uyojwhq0" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/check-mark-Photoroom.png" id="4_0y5kf"]
-[ext_resource type="Texture2D" uid="uid://b8am76ocgrcr0" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/pngtree-prohibition-icon-image_2292555-Photoroom.png" id="5_l75qi"]
+[ext_resource type="Texture2D" uid="uid://bbmx3u2aoxgs0" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Idle/ตัว/1.png" id="2_dwqxs"]
+[ext_resource type="Texture2D" uid="uid://55ldx2234atw" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Main menu/เพิ่มหัวเรื่อง.png" id="2_eho4l"]
+[ext_resource type="Texture2D" uid="uid://ssn8ww4o11m1" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Idle/สี/ไม่มีชื่อ 12_20250817171242.png" id="3_0y5kf"]
+[ext_resource type="Texture2D" uid="uid://4qmtsh22ph7m" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/check-mark-Photoroom.png" id="4_0y5kf"]
+[ext_resource type="Texture2D" uid="uid://cmdy46nttc5o6" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/pngtree-prohibition-icon-image_2292555-Photoroom.png" id="5_l75qi"]
 
 [sub_resource type="Theme" id="Theme_eho4l"]
 

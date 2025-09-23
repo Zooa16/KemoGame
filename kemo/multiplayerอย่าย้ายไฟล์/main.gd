@@ -12,7 +12,7 @@ extends Node
 @onready var start_button = $CanvasLayer/HUD/StartButton
 @onready var lobby_spawn_points_parent = $SpawnPoints
 @onready var copy_button = $CanvasLayer/HUD/VBoxContainer/HBoxContainer2/CopyButton
-@onready var background = $CanvasLayer/TextureRect
+@onready var background = $CanvasLayer/BlackScreen
 @onready var game_start_timer: Timer = $CountdownTimer
 @onready var Host_room_name = $CanvasLayer/HUD/VBoxContainer/Host_room_name
 @onready var Leave_Room_Button = $"CanvasLayer/HUD/Leave Room Button"
@@ -75,7 +75,7 @@ func _ready():
 func _process(_delta):
     start_button.visible = multiplayer.is_server()
     if multiplayer.is_server():
-        start_button.disabled = connected_players.size() <= 1#-------------------------------------***
+        start_button.disabled = connected_players.size() < 1#-------------------------------------***
     if is_counting_down:
         var time_left_int = int(game_start_timer.time_left)
         if time_left_int >= 0:

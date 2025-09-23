@@ -72,18 +72,18 @@
 [ext_resource type="PackedScene" uid="uid://djdoe57ix8dh5" path="res://Asset 3D/city/use this for builder/monkeybar_b.tscn" id="70_y3p0a"]
 [ext_resource type="PackedScene" uid="uid://dkrnxuv51eyh0" path="res://Asset 3D/city/use this for builder/coin_stack_medium.tscn" id="71_fx2mn"]
 [ext_resource type="PackedScene" uid="uid://hhtygqdo4htb" path="res://Asset 3D/city/use this for builder/walkbase.tscn" id="72_53pxc"]
-[ext_resource type="PackedScene" uid="uid://bmoehyuagq1ye" path="res://Asset 3D/city/KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx/wall_doorway.fbx" id="73_dmajg"]
+[ext_resource type="PackedScene" uid="uid://cku2ovy2ujks5" path="res://Asset 3D/city/KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx/wall_doorway.fbx" id="73_dmajg"]
 [ext_resource type="PackedScene" uid="uid://b6k6shru5q68j" path="res://Asset 3D/city/use this for builder/wall.tscn" id="74_oruia"]
-[ext_resource type="Texture2D" uid="uid://ct56oqxawkild" path="res://Asset 3D/city/Chairs/Office_Chair_Black_01.png" id="76_uowyd"]
-[ext_resource type="ArrayMesh" uid="uid://b1ifk7umptlac" path="res://Asset 3D/city/Chairs/Office_Chair_Black_01.obj" id="77_tps5l"]
-[ext_resource type="ArrayMesh" uid="uid://w2nh46ieenbg" path="res://Asset 3D/city/Tables/Office_Table_Brown_2x2_01.obj" id="80_yrbgf"]
-[ext_resource type="ArrayMesh" uid="uid://cfvw0feis6e4w" path="res://Asset 3D/city/Chairs/Misc/Electronics/Office_Misc_TV_Stand_02.obj" id="81_5j8rd"]
-[ext_resource type="ArrayMesh" uid="uid://dn24dne5qjfe5" path="res://Asset 3D/city/Tables/Office_Table_Brown_2x2_02.obj" id="82_cyjfv"]
-[ext_resource type="ArrayMesh" uid="uid://bjludegsnor55" path="res://Asset 3D/city/Chairs/Office_Couch_White_01.obj" id="83_3fru1"]
-[ext_resource type="ArrayMesh" uid="uid://ct5alniesffx3" path="res://Asset 3D/city/Chairs/Misc/Trashcans/Office_Misc_Traschcan_Recycle_Blue.obj" id="84_846i3"]
-[ext_resource type="ArrayMesh" uid="uid://dbdo3auio4hmc" path="res://Asset 3D/city/Chairs/Misc/Fragments/Office_Misc_Piece_Door_Frame_01.obj" id="85_mlnoo"]
-[ext_resource type="ArrayMesh" uid="uid://4h4cs4olwbt7" path="res://Asset 3D/city/Chairs/Misc/Electronics/Office_Misc_Console_GameQoob.obj" id="86_547jv"]
-[ext_resource type="ArrayMesh" uid="uid://0ifvmrt7qjli" path="res://Asset 3D/city/Chairs/Misc/Electronics/Office_Misc_TV_Stand_03.obj" id="87_yqlei"]
+[ext_resource type="Texture2D" uid="uid://chdk017l1pm4g" path="res://Asset 3D/city/Chairs/Office_Chair_Black_01.png" id="76_uowyd"]
+[ext_resource type="ArrayMesh" uid="uid://b4rwv5s7u0gcr" path="res://Asset 3D/city/Chairs/Office_Chair_Black_01.obj" id="77_tps5l"]
+[ext_resource type="ArrayMesh" uid="uid://dfaw3hgqy4uri" path="res://Asset 3D/city/Tables/Office_Table_Brown_2x2_01.obj" id="80_yrbgf"]
+[ext_resource type="ArrayMesh" uid="uid://okt043i0pyfh" path="res://Asset 3D/city/Chairs/Misc/Electronics/Office_Misc_TV_Stand_02.obj" id="81_5j8rd"]
+[ext_resource type="ArrayMesh" uid="uid://c8mm0ke7cf6l2" path="res://Asset 3D/city/Tables/Office_Table_Brown_2x2_02.obj" id="82_cyjfv"]
+[ext_resource type="ArrayMesh" uid="uid://c4j3i7ot86ye3" path="res://Asset 3D/city/Chairs/Office_Couch_White_01.obj" id="83_3fru1"]
+[ext_resource type="ArrayMesh" uid="uid://bsvp7peh4x2hc" path="res://Asset 3D/city/Chairs/Misc/Trashcans/Office_Misc_Traschcan_Recycle_Blue.obj" id="84_846i3"]
+[ext_resource type="ArrayMesh" uid="uid://x0fk3ek07mxm" path="res://Asset 3D/city/Chairs/Misc/Fragments/Office_Misc_Piece_Door_Frame_01.obj" id="85_mlnoo"]
+[ext_resource type="ArrayMesh" uid="uid://c6kw3fgbdomta" path="res://Asset 3D/city/Chairs/Misc/Electronics/Office_Misc_Console_GameQoob.obj" id="86_547jv"]
+[ext_resource type="ArrayMesh" uid="uid://d23mm0fct6eds" path="res://Asset 3D/city/Chairs/Misc/Electronics/Office_Misc_TV_Stand_03.obj" id="87_yqlei"]
 [ext_resource type="PackedScene" uid="uid://bhquf8uiv8ul3" path="res://Asset 3D/city/use this for builder/wall_tiled_doorway.tscn" id="88_dijad"]
 [ext_resource type="PackedScene" uid="uid://oc7worcxpecy" path="res://Asset 3D/city/use this for builder/cabinet_bathroom.tscn" id="89_30mw1"]
 [ext_resource type="PackedScene" uid="uid://bjnve28vk53s" path="res://Asset 3D/city/use this for builder/mirror.tscn" id="90_6vsn0"]
@@ -95,19 +95,19 @@
 [ext_resource type="PackedScene" uid="uid://cimeeccyp0dxc" path="res://Asset 3D/city/use this for builder/ducky.tscn" id="96_k02b7"]
 [ext_resource type="PackedScene" uid="uid://dx1xprt5c1i43" path="res://Asset 3D/city/use this for builder/candle.tscn" id="97_odyt4"]
 [ext_resource type="PackedScene" uid="uid://8qre63omj1st" path="res://Asset 3D/city/use this for builder/bath.tscn" id="98_ahcil"]
-[ext_resource type="PackedScene" uid="uid://bhuite1jwtwxd" path="res://Asset 3D/city/Tiny_Treats_Bubbly_Bathroom_1.0_FREE/Assets/fbx/slippers.fbx" id="99_widkh"]
-[ext_resource type="ArrayMesh" uid="uid://conqv5hm5sr78" path="res://Asset 3D/city/Tables/Fragments/Office_Table_Piece_Brown_01.obj" id="100_l06gn"]
-[ext_resource type="ArrayMesh" uid="uid://b7l0hevijj06f" path="res://Asset 3D/city/Tables/Fragments/Office_Table_Piece_Brown_02.obj" id="101_wc11i"]
-[ext_resource type="ArrayMesh" uid="uid://dot375tfoqmnm" path="res://Asset 3D/city/Tables/Fragments/Office_Table_Piece_Brown_03.obj" id="102_tmut4"]
-[ext_resource type="ArrayMesh" uid="uid://cgmtw43i8acn4" path="res://Asset 3D/city/Cubicles/Fragments/Office_Cubicle_Piece_Dark_Edge_01.obj" id="103_2j6bp"]
-[ext_resource type="ArrayMesh" uid="uid://le0hil325lja" path="res://Asset 3D/city/Cubicles/Fragments/Office_Cubicle_Piece_Dark_Edge_02.obj" id="104_rrcml"]
-[ext_resource type="ArrayMesh" uid="uid://bc2nnjppdcfet" path="res://Asset 3D/city/Chairs/Misc/Electronics/Office_Misc_Console_Swotch_02.obj" id="105_tf6al"]
-[ext_resource type="ArrayMesh" uid="uid://brxjluvq8ad8h" path="res://Asset 3D/city/Chairs/Misc/Electronics/Office_Misc_Console_Swotch_04.obj" id="106_gahuk"]
-[ext_resource type="ArrayMesh" uid="uid://c37qbixwm2tlr" path="res://Asset 3D/city/Chairs/Misc/Electronics/Office_Misc_Printer.obj" id="107_k128u"]
-[ext_resource type="ArrayMesh" uid="uid://c5ght47kwy1n" path="res://Asset 3D/city/Chairs/Misc/Electronics/Office_Misc_TV_Stand_01.obj" id="108_i3ji6"]
-[ext_resource type="Texture2D" uid="uid://citofn3s08rfl" path="res://Asset 3D/city/Tiny_Treats_Bubbly_Bathroom_1.0_FREE/Assets/fbx/tiny_treats_texture_1.png" id="109_nbx4s"]
-[ext_resource type="ArrayMesh" uid="uid://wcr0wlb6dal4" path="res://Asset 3D/city/Chairs/Misc/Electronics/Office_Misc_TV_Wall_02.obj" id="109_pqtg3"]
-[ext_resource type="ArrayMesh" uid="uid://c0d2kkcsbjiid" path="res://Asset 3D/city/Chairs/Misc/Electronics/Office_Misc_TV_Wall_03.obj" id="110_ekra1"]
+[ext_resource type="PackedScene" uid="uid://dyms1h6rvivwa" path="res://Asset 3D/city/Tiny_Treats_Bubbly_Bathroom_1.0_FREE/Assets/fbx/slippers.fbx" id="99_widkh"]
+[ext_resource type="ArrayMesh" uid="uid://ods8mvtr7fog" path="res://Asset 3D/city/Tables/Fragments/Office_Table_Piece_Brown_01.obj" id="100_l06gn"]
+[ext_resource type="ArrayMesh" uid="uid://cqebgaa7nqnag" path="res://Asset 3D/city/Tables/Fragments/Office_Table_Piece_Brown_02.obj" id="101_wc11i"]
+[ext_resource type="ArrayMesh" uid="uid://bxug0dj77s5fk" path="res://Asset 3D/city/Tables/Fragments/Office_Table_Piece_Brown_03.obj" id="102_tmut4"]
+[ext_resource type="ArrayMesh" uid="uid://cfd1mukmt8rw5" path="res://Asset 3D/city/Cubicles/Fragments/Office_Cubicle_Piece_Dark_Edge_01.obj" id="103_2j6bp"]
+[ext_resource type="ArrayMesh" uid="uid://ejd0q7gpru7l" path="res://Asset 3D/city/Cubicles/Fragments/Office_Cubicle_Piece_Dark_Edge_02.obj" id="104_rrcml"]
+[ext_resource type="ArrayMesh" uid="uid://lsqilv6lvced" path="res://Asset 3D/city/Chairs/Misc/Electronics/Office_Misc_Console_Swotch_02.obj" id="105_tf6al"]
+[ext_resource type="ArrayMesh" uid="uid://bn4t3fmmlnr0b" path="res://Asset 3D/city/Chairs/Misc/Electronics/Office_Misc_Console_Swotch_04.obj" id="106_gahuk"]
+[ext_resource type="ArrayMesh" uid="uid://erhri28bitsd" path="res://Asset 3D/city/Chairs/Misc/Electronics/Office_Misc_Printer.obj" id="107_k128u"]
+[ext_resource type="ArrayMesh" uid="uid://da5g2ky4jo2pm" path="res://Asset 3D/city/Chairs/Misc/Electronics/Office_Misc_TV_Stand_01.obj" id="108_i3ji6"]
+[ext_resource type="Texture2D" uid="uid://beafc5eec7jmx" path="res://Asset 3D/city/Tiny_Treats_Bubbly_Bathroom_1.0_FREE/Assets/fbx/tiny_treats_texture_1.png" id="109_nbx4s"]
+[ext_resource type="ArrayMesh" uid="uid://dlwj7fi70agl6" path="res://Asset 3D/city/Chairs/Misc/Electronics/Office_Misc_TV_Wall_02.obj" id="109_pqtg3"]
+[ext_resource type="ArrayMesh" uid="uid://rbl2ep0n2oax" path="res://Asset 3D/city/Chairs/Misc/Electronics/Office_Misc_TV_Wall_03.obj" id="110_ekra1"]
 [ext_resource type="PackedScene" uid="uid://cjuvawewp610x" path="res://Scenes/ผ้าม้าน.tscn" id="110_l2fsf"]
 [ext_resource type="PackedScene" uid="uid://bq4ahigi5q6am" path="res://Scenes/เก้าอี้.tscn" id="111_30egb"]
 [ext_resource type="Script" uid="uid://dfecqfpqfilqu" path="res://Scripts/teleporter.gd" id="113_lv8wl"]
@@ -115,7 +115,7 @@
 [sub_resource type="LabelSettings" id="LabelSettings_5j8rd"]
 font_size = 64
 
-[sub_resource type="Shader" id="Shader_fcwga"]
+[sub_resource type="Shader" id="Shader_0q11v"]
 code = "
 // NOTE: Shader automatically converted from Godot Engine 4.4.1.stable's ProceduralSkyMaterial.
 
@@ -206,7 +206,7 @@ void sky() {
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_wvvf3"]
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_tia8x"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_sdta4"]
 width = 840
 height = 840
 seamless = true
@@ -216,7 +216,7 @@ noise = SubResource("FastNoiseLite_wvvf3")
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_y3p0a"]
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_h368c"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_nbx4s"]
 width = 840
 height = 840
 seamless = true
@@ -224,7 +224,7 @@ color_ramp = SubResource("Gradient_776w0")
 noise = SubResource("FastNoiseLite_y3p0a")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fx2mn"]
-shader = SubResource("Shader_fcwga")
+shader = SubResource("Shader_0q11v")
 shader_parameter/sky_top_color = Color(0.413412, 0.762408, 0.884437, 1)
 shader_parameter/sky_horizon_color = Color(0.580706, 0.78393, 0.921231, 1)
 shader_parameter/sky_curve = 0.15
@@ -237,19 +237,19 @@ shader_parameter/ground_energy = 1.0
 shader_parameter/sun_angle_max = 0.523599
 shader_parameter/sun_curve = 0.15
 shader_parameter/exposure = 1.0
-shader_parameter/cloud_texture = SubResource("NoiseTexture2D_tia8x")
-shader_parameter/cloud_texture2 = SubResource("NoiseTexture2D_h368c")
+shader_parameter/cloud_texture = SubResource("NoiseTexture2D_sdta4")
+shader_parameter/cloud_texture2 = SubResource("NoiseTexture2D_nbx4s")
 shader_parameter/cloud_direotion = Vector2(0, 0)
 shader_parameter/cloud_direotion2 = Vector2(0, 0)
 shader_parameter/cloud_scalo = Vector2(0, 0)
 shader_parameter/cloud_disteanec = 0.0
 
-[sub_resource type="Sky" id="Sky_xy6aj"]
+[sub_resource type="Sky" id="Sky_l2fsf"]
 sky_material = SubResource("ShaderMaterial_fx2mn")
 
 [sub_resource type="Environment" id="Environment_53pxc"]
 background_mode = 2
-sky = SubResource("Sky_xy6aj")
+sky = SubResource("Sky_l2fsf")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_30egb"]
 
@@ -418,7 +418,7 @@ vertex_color_use_as_albedo = true
 albedo_texture = ExtResource("109_nbx4s")
 emission_enabled = true
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_bv6a1"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_30egb"]
 _surfaces = [{
 "aabb": AABB(-1.81e-09, -0.0037, 0, 0.016, 0.00739999, 0.028),
 "format": 34359742465,
@@ -450,7 +450,7 @@ _surfaces = [{
 "vertex_data": PackedByteArray("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w4tbPHEcFDtDmjE8ZHpfPCJTHTuhqy08zOpZPIORMzuhqy08Dyg4PIORMzuhqy08Dyg4PBzBYjuhqy08srZlPBzBYjuhqy08SkZrPKR7cjtDmjE87DRvPBzBYjtDmjE8SkZrPLuCTDuhqy08ZHpfPCJTHTvKVEE8w4tbPHEcFDspZj08IJ1XPPrWIzspZj08zOpZPIORMzvKVEE8Dyg4PIORMzvKVEE8Dyg4PBzBYjvKVEE8srZlPBzBYjvKVEE8SkZrPKR7cjspZj087DRvPBzBYjspZj08SkZrPLuCTDvKVEE8AAD/f////78AAP9/////vwAA/3////+/AAD/f////78AAP9/////vwAA/3////+//v//f////7/+//9/////v/7//3////+//v//f////7/+//9/////v/7//3////+//3//f////z//f/9/////P/9//3////8//3//f////z//////////v/////////+//////////7//////////v/9/AAD///+/AIoBFCD1bMX/fwAA////v/9/7Tj///+//3/tOP///7/+dQEUJfWQuiS9AAD///+/k2fXMH/hDbH+awAKIPWSuiS9AAD///+//38AAP7//7//fwAA/v//v/5rAAog9ZK6/nUBFCX1j7r/fwAA/v//v/9/AAD///+/JL0AAP///7+TZ9cwf+ENsSS9AAD///+/AIoBFCD1bMX/f+04////v/9/7Tj///+//3/+//7//z8AlP71JfVvRf9//v/+//8//3/Zwv7//z8oT5PnGuLAMP9/2cL+//8//nX96yX1kDr/f/7//v//P/9//v/+//8//mv+9SD1kjrtuP7//v//P+24/v/+//8//nX96yX1kDooT5PnGuLAMP9/2cL+//8//3/Zwv7//z8AlP71JfVvRf9//v/+//8//3/+//7//z/+a/71IPWSOu24///+//8/7bj///7//z9rxS1i////P5M6LWL///8/glr/f////z99Jf9/////P3yl/3////8/gdr/f////z///3yl////v///gdr///+/LeJsRf///78AAIHa////v9EdbEX///+/AAB8pf///7+TOi1iVabumNEdbEXdsSqTAAB8pf///799Jf9/////Py3ibEVVphDna8UtYt2x1OyB2v9/////P///fKX///+//3///////z//P/+//7//H/8//7//v/8f/3///////z+B2v9/////P////3////+//38AAP///7//fwAA////vwAA/3////+/AAD/f////78AAP9/////vwAA/3////+/DBzmR////78MHBi4////vxk4DJz///8/GTjyY////z/yY/Jj////P4Ja/3////8//3//f////z8MHBi4ObD1EQwcDBxF39um0Dnn3OjWpiYMHOZH////v3cSo87kvsMW0DkXI+jWpqYAAIHa////vwAA/7////+///+B2v///7////+/////v/Jj8mO3zaKvGTgMnOujHRjoXNC5TM10Kxk48mP///8/o052koatch/oXC5GTM1zq4Ja/3////8//z//f////z//v/9/////P4Ha/3////8/6FzQuabPiCMZOAyc66MdGAwcGLg5sPUR0Dnn3BHH0ycZOPJj66McmOhcLkamz4ij0DkXIxHH0qcMHOZHObD1kf//gdr///+/AACB2v///78MHAwc////v2vF0Z3///8/fKX/f////z+CWv9/////P4Ha/3////8/kzrRnf///z99Jf9/////Py3ikrr///+///+B2v///7///3yl////v9Edkrr///+/AACB2v///78AAHyl////v5M60Z1Vpu4YfSX/f////z8AAHyl////v9EdkrrdsSoTa8XRnd2x1Gwt4pK6VaYQZ4Ha/3////8///98pf///7//fwAA////vwAA/3////+//38AAP///78AAP9/////vwwcGLj///+/GTgMnP///z8ZOPJj////Pwwc5kf///+//3///////z///3yl////v////3////+//3///////z/oXC5GTM1zq3yl/3////8/glr/f////z//P/9/////Pxk48mProxyYGTgMnP///z/oXNC5TM10K/+//3////8/AACB2v///78MHOZHObD1kdA5FyPo1qamAAD/v////78MHBi4////v9A559zo1qYm//+B2v///7///3yl////v+hcLkamz4ij0DkXIxHH0qcMHOZHObD1kRk48mProxyYGTgMnOujHRgMHBi4ObD1EdA559wRx9Mn6FzQuabPiCMAlAAKJfVuxe247TgQx3bc7bjtOBHHdtwRR+04EceIoxFH7TgQx4ij7bgAAP///7/tuAAA////vwCUAAol9W7F7bjtOBHHdtztuO04D8d13O24AAD///+/7bgAAP///78RR+04EMeIoxFH7TgRx4ejAIr96yD1bEXtuBHHEcd2XO24EccPx3Zc/38Rx/7//z//fxHH/v//PxFHEccQx4gjEUcRxxHHiCMAiv3rIPVsRe24EccQx3Zc7bgRxxHHdlz/fxHH/v//P/9/Ecf+//8/EUcRxxHHiCMRRxHHEMeII2uY1zAa4j7P1rBrGH/h8c4oT2sYGuK/sCS9JT3awpHeJL0lPdrCkt7/fyU9////v/9/JT3///+/2kIlPdnCbKHaQiU92cJsodawk+d/4fFOa5gnzxriP08kvf///v//PyS9///+//8/JL3ZwtnCkl4kvdnC2sKSXpNnJ89/4Q0x2kLZwtrCbSHaQtnC2cJtIdawk+d/4fJOa5gnzxriP0+TZyfPf+ENMSS92cLawpJeJL3ZwtrCkl7aQtnC2cJtIdpC2cLZwm0hJL3///7//z8kvf///v//P2uY1zAa4j7P1rBrGH/h8c4kvSU92cKR3iS9JT3awpHe/38lPf///7//fyU9////vyhPaxga4r+w2kIlPdrCbKHaQiU92cJsocGcLWL///8/PWMtYv///z8t4sEc////v9EdwRz///+/PE4vI9zYxqvPXMMxjddurP9/AAD///+/PE6TDszvQbRsccMxhOjmt8Kxkw6E6BjIko7DMczvvMvCsS8jjdeQ0y+jwzHc2DjUL6PDMczVk9OSjsMxlOWfysGcLWKa3nrZa8UtYgK32+w9Yy1iCc1Mr2xxwzG/6sqykzotYkemgZvPXMMx19jmqsKxLyPX2BjVLeJsRUemfeQt4sEcCc2x0MKxkw6/6jTN0R3BHJrehKY8TpMOlOVftdEdbEUCtyOTPE4vI8zVa6yCWoHagdpBLYJagdqB2kEtgdqCWnylQO29wABj/LTX6/+//z//v//f/7//P/+//9/zF4L1////vwwc8uP///+/6dw1CP///798Cgvo////v8n3FSP///+/8mMMnP///z+DdfKX////PzWI6Vz///8/DGh7iv///z8Vo8l3////P/9/AAD///+//38AAP///79bMYftANxbLvMXgvVD1+QrfAoL6IzCPB0MHPLjRd/cJuncNQiG42vP0tiRFLPRidht6ywnO7Wj38n3FSMYtBLeDGh7ini6RiGDdfKXx9eiK4htW7G23AAu8mMMnLfNoi81iOlcJeE7zpCU01jpziTXvcAAY/y01+sVo8l32MPy5cGc0Z3///8/PWPRnf///z8t4j3j////v9EdPeP///+/PE7P3NzYxyvPXDvOjdduLP9///////8/bHE7zoTo5jc8TmvxzO9CNJKOO87M771LwrFr8YToGEgvozvO3Ng4VMKxz9yN15BTwZzRnZreelmSjjvOlOWfSi+jO87M1ZNTa8XRnQK322w9Y9GdCc1NL2xxO86/6soykzrRnUemgRvPXDvO19jmKsKxz9zX2BhVwrFr8b/qNE0t4j3jCc2yUC3ikrpHpn1k0R0945rehCY8TmvxlOVfNdEdkroCtyMTPE7P3MzVayyCWn0lgdpArYJafSWB2kCt/z//P/+//5//P/8//7//n//iQL9NqIFlgdp8pXylQG3/v/+//7//X/+//7//v/9fAAD/f////78AAP9/////vwwc8uP///+/DBwMHP///7/zF3wK////v+ncyff///+/fArzF////7/J9+nc////v///gdr///+/AACB2v///7/yYwyc////PzWIFaP///8/g3UMaP///z/yY/Jj////Pwxog3X///8/FaM1iP///z98pf9/////P4Ja/3////8//3///////z//f///////P1sxdxIA3FqudxJbMeS+w5Z8CvMXjMI7nfMXfApD1+OrDBwMHEXf26YMHPLjRd/cJuncyfeG42xP0tht67PRilj/4kC/TaiBZcn36dwYtBJeDGiDdXi6RqGjTohthq1yn4hto0623ACug3UMaMfXoavyY/Jjt82ir/JjDJy3zaIvNYgVoyXhO06QlCun6c4lVyunkJS2wGFlFaM1iNjD8mU=")
 }]
 blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_bv6a1")
+shadow_mesh = SubResource("ArrayMesh_30egb")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fjwgb"]
 albedo_color = Color(0.129558, 0.129558, 0.129558, 1)

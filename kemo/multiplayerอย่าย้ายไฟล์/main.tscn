@@ -67,18 +67,18 @@
 [ext_resource type="PackedScene" uid="uid://djdoe57ix8dh5" path="res://Asset 3D/city/use this for builder/monkeybar_b.tscn" id="70_wbxom"]
 [ext_resource type="PackedScene" uid="uid://dkrnxuv51eyh0" path="res://Asset 3D/city/use this for builder/coin_stack_medium.tscn" id="71_fcwga"]
 [ext_resource type="PackedScene" uid="uid://hhtygqdo4htb" path="res://Asset 3D/city/use this for builder/walkbase.tscn" id="72_tia8x"]
-[ext_resource type="PackedScene" uid="uid://dmodnqv34pvbk" path="res://Asset 3D/city/KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx/wall_doorway.fbx" id="73_h368c"]
+[ext_resource type="PackedScene" uid="uid://cku2ovy2ujks5" path="res://Asset 3D/city/KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx/wall_doorway.fbx" id="73_h368c"]
 [ext_resource type="PackedScene" uid="uid://b6k6shru5q68j" path="res://Asset 3D/city/use this for builder/wall.tscn" id="74_xy6aj"]
-[ext_resource type="Texture2D" uid="uid://bqbotnhfhoefi" path="res://Asset 3D/city/Chairs/Office_Chair_Black_01.png" id="76_4rmdo"]
-[ext_resource type="ArrayMesh" uid="uid://bmw8r311d3c7h" path="res://Asset 3D/city/Chairs/Office_Chair_Black_01.obj" id="77_366kq"]
-[ext_resource type="ArrayMesh" uid="uid://41klytfa64lh" path="res://Asset 3D/city/Tables/Office_Table_Brown_2x2_01.obj" id="80_d55e0"]
-[ext_resource type="ArrayMesh" uid="uid://ca0m0b4gl14md" path="res://Asset 3D/city/Chairs/Misc/Electronics/Office_Misc_TV_Stand_02.obj" id="81_01v3f"]
-[ext_resource type="ArrayMesh" uid="uid://k0hc4pdtb1pw" path="res://Asset 3D/city/Tables/Office_Table_Brown_2x2_02.obj" id="82_ph1vc"]
-[ext_resource type="ArrayMesh" uid="uid://b05u2emy6wf2v" path="res://Asset 3D/city/Chairs/Office_Couch_White_01.obj" id="83_vpb6b"]
-[ext_resource type="ArrayMesh" uid="uid://b46487mqrs4rx" path="res://Asset 3D/city/Chairs/Misc/Trashcans/Office_Misc_Traschcan_Recycle_Blue.obj" id="84_2dtyu"]
-[ext_resource type="ArrayMesh" uid="uid://b1cvoki8f68aj" path="res://Asset 3D/city/Chairs/Misc/Fragments/Office_Misc_Piece_Door_Frame_01.obj" id="85_ke17x"]
-[ext_resource type="ArrayMesh" uid="uid://bkai3sc4mhxv" path="res://Asset 3D/city/Chairs/Misc/Electronics/Office_Misc_Console_GameQoob.obj" id="86_8osn4"]
-[ext_resource type="ArrayMesh" uid="uid://bnhyldu2jcmec" path="res://Asset 3D/city/Chairs/Misc/Electronics/Office_Misc_TV_Stand_03.obj" id="87_50j2v"]
+[ext_resource type="Texture2D" uid="uid://chdk017l1pm4g" path="res://Asset 3D/city/Chairs/Office_Chair_Black_01.png" id="76_4rmdo"]
+[ext_resource type="ArrayMesh" uid="uid://b4rwv5s7u0gcr" path="res://Asset 3D/city/Chairs/Office_Chair_Black_01.obj" id="77_366kq"]
+[ext_resource type="ArrayMesh" uid="uid://dfaw3hgqy4uri" path="res://Asset 3D/city/Tables/Office_Table_Brown_2x2_01.obj" id="80_d55e0"]
+[ext_resource type="ArrayMesh" uid="uid://okt043i0pyfh" path="res://Asset 3D/city/Chairs/Misc/Electronics/Office_Misc_TV_Stand_02.obj" id="81_01v3f"]
+[ext_resource type="ArrayMesh" uid="uid://c8mm0ke7cf6l2" path="res://Asset 3D/city/Tables/Office_Table_Brown_2x2_02.obj" id="82_ph1vc"]
+[ext_resource type="ArrayMesh" uid="uid://c4j3i7ot86ye3" path="res://Asset 3D/city/Chairs/Office_Couch_White_01.obj" id="83_vpb6b"]
+[ext_resource type="ArrayMesh" uid="uid://bsvp7peh4x2hc" path="res://Asset 3D/city/Chairs/Misc/Trashcans/Office_Misc_Traschcan_Recycle_Blue.obj" id="84_2dtyu"]
+[ext_resource type="ArrayMesh" uid="uid://x0fk3ek07mxm" path="res://Asset 3D/city/Chairs/Misc/Fragments/Office_Misc_Piece_Door_Frame_01.obj" id="85_ke17x"]
+[ext_resource type="ArrayMesh" uid="uid://c6kw3fgbdomta" path="res://Asset 3D/city/Chairs/Misc/Electronics/Office_Misc_Console_GameQoob.obj" id="86_8osn4"]
+[ext_resource type="ArrayMesh" uid="uid://d23mm0fct6eds" path="res://Asset 3D/city/Chairs/Misc/Electronics/Office_Misc_TV_Stand_03.obj" id="87_50j2v"]
 [ext_resource type="PackedScene" uid="uid://bhquf8uiv8ul3" path="res://Asset 3D/city/use this for builder/wall_tiled_doorway.tscn" id="88_gjo5k"]
 [ext_resource type="PackedScene" uid="uid://oc7worcxpecy" path="res://Asset 3D/city/use this for builder/cabinet_bathroom.tscn" id="89_3t1w2"]
 [ext_resource type="PackedScene" uid="uid://bjnve28vk53s" path="res://Asset 3D/city/use this for builder/mirror.tscn" id="90_kys8o"]
@@ -90,23 +90,23 @@
 [ext_resource type="PackedScene" uid="uid://cimeeccyp0dxc" path="res://Asset 3D/city/use this for builder/ducky.tscn" id="96_hm257"]
 [ext_resource type="PackedScene" uid="uid://dx1xprt5c1i43" path="res://Asset 3D/city/use this for builder/candle.tscn" id="97_grty2"]
 [ext_resource type="PackedScene" uid="uid://8qre63omj1st" path="res://Asset 3D/city/use this for builder/bath.tscn" id="98_ancsn"]
-[ext_resource type="PackedScene" uid="uid://wmllvhua6b5h" path="res://Asset 3D/city/Tiny_Treats_Bubbly_Bathroom_1.0_FREE/Assets/fbx/slippers.fbx" id="99_dw4va"]
-[ext_resource type="ArrayMesh" uid="uid://b8jmnstrudruw" path="res://Asset 3D/city/Tables/Fragments/Office_Table_Piece_Brown_01.obj" id="100_y7wft"]
-[ext_resource type="ArrayMesh" uid="uid://b8erl4bagrfoe" path="res://Asset 3D/city/Tables/Fragments/Office_Table_Piece_Brown_02.obj" id="101_rbxf1"]
-[ext_resource type="ArrayMesh" uid="uid://mjmiilvaac4t" path="res://Asset 3D/city/Tables/Fragments/Office_Table_Piece_Brown_03.obj" id="102_d5dc5"]
-[ext_resource type="ArrayMesh" uid="uid://de5uly5y7jny5" path="res://Asset 3D/city/Cubicles/Fragments/Office_Cubicle_Piece_Dark_Edge_01.obj" id="103_ipbsv"]
-[ext_resource type="ArrayMesh" uid="uid://wein4h7auolu" path="res://Asset 3D/city/Cubicles/Fragments/Office_Cubicle_Piece_Dark_Edge_02.obj" id="104_g5e2t"]
-[ext_resource type="ArrayMesh" uid="uid://ds05pg1uj58o4" path="res://Asset 3D/city/Chairs/Misc/Electronics/Office_Misc_Console_Swotch_02.obj" id="105_2jrok"]
-[ext_resource type="ArrayMesh" uid="uid://qu0nrag8dkh1" path="res://Asset 3D/city/Chairs/Misc/Electronics/Office_Misc_Console_Swotch_04.obj" id="106_1a7xe"]
-[ext_resource type="Texture2D" uid="uid://4vhhhh0w3cxp" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Main menu/เพิ่มหัวเรื่อง.png" id="107_1u8hb"]
-[ext_resource type="ArrayMesh" uid="uid://b1gem338tdj77" path="res://Asset 3D/city/Chairs/Misc/Electronics/Office_Misc_Printer.obj" id="107_5u470"]
-[ext_resource type="ArrayMesh" uid="uid://cdwkountc7wov" path="res://Asset 3D/city/Chairs/Misc/Electronics/Office_Misc_TV_Stand_01.obj" id="108_wvbuk"]
-[ext_resource type="Texture2D" uid="uid://cwnovvugmr5eq" path="res://Asset 3D/city/Tiny_Treats_Bubbly_Bathroom_1.0_FREE/Assets/fbx/tiny_treats_texture_1.png" id="109_exw4q"]
-[ext_resource type="ArrayMesh" uid="uid://blonycpbobjnd" path="res://Asset 3D/city/Chairs/Misc/Electronics/Office_Misc_TV_Wall_02.obj" id="109_sqme2"]
+[ext_resource type="PackedScene" uid="uid://dyms1h6rvivwa" path="res://Asset 3D/city/Tiny_Treats_Bubbly_Bathroom_1.0_FREE/Assets/fbx/slippers.fbx" id="99_dw4va"]
+[ext_resource type="ArrayMesh" uid="uid://ods8mvtr7fog" path="res://Asset 3D/city/Tables/Fragments/Office_Table_Piece_Brown_01.obj" id="100_y7wft"]
+[ext_resource type="ArrayMesh" uid="uid://cqebgaa7nqnag" path="res://Asset 3D/city/Tables/Fragments/Office_Table_Piece_Brown_02.obj" id="101_rbxf1"]
+[ext_resource type="ArrayMesh" uid="uid://bxug0dj77s5fk" path="res://Asset 3D/city/Tables/Fragments/Office_Table_Piece_Brown_03.obj" id="102_d5dc5"]
+[ext_resource type="ArrayMesh" uid="uid://cfd1mukmt8rw5" path="res://Asset 3D/city/Cubicles/Fragments/Office_Cubicle_Piece_Dark_Edge_01.obj" id="103_ipbsv"]
+[ext_resource type="ArrayMesh" uid="uid://ejd0q7gpru7l" path="res://Asset 3D/city/Cubicles/Fragments/Office_Cubicle_Piece_Dark_Edge_02.obj" id="104_g5e2t"]
+[ext_resource type="ArrayMesh" uid="uid://lsqilv6lvced" path="res://Asset 3D/city/Chairs/Misc/Electronics/Office_Misc_Console_Swotch_02.obj" id="105_2jrok"]
+[ext_resource type="ArrayMesh" uid="uid://bn4t3fmmlnr0b" path="res://Asset 3D/city/Chairs/Misc/Electronics/Office_Misc_Console_Swotch_04.obj" id="106_1a7xe"]
+[ext_resource type="Texture2D" uid="uid://55ldx2234atw" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Main menu/เพิ่มหัวเรื่อง.png" id="107_1u8hb"]
+[ext_resource type="ArrayMesh" uid="uid://erhri28bitsd" path="res://Asset 3D/city/Chairs/Misc/Electronics/Office_Misc_Printer.obj" id="107_5u470"]
+[ext_resource type="ArrayMesh" uid="uid://da5g2ky4jo2pm" path="res://Asset 3D/city/Chairs/Misc/Electronics/Office_Misc_TV_Stand_01.obj" id="108_wvbuk"]
+[ext_resource type="Texture2D" uid="uid://beafc5eec7jmx" path="res://Asset 3D/city/Tiny_Treats_Bubbly_Bathroom_1.0_FREE/Assets/fbx/tiny_treats_texture_1.png" id="109_exw4q"]
+[ext_resource type="ArrayMesh" uid="uid://dlwj7fi70agl6" path="res://Asset 3D/city/Chairs/Misc/Electronics/Office_Misc_TV_Wall_02.obj" id="109_sqme2"]
 [ext_resource type="PackedScene" uid="uid://cjuvawewp610x" path="res://Scenes/ผ้าม้าน.tscn" id="110_bv6a1"]
-[ext_resource type="ArrayMesh" uid="uid://b124eobybpkw2" path="res://Asset 3D/city/Chairs/Misc/Electronics/Office_Misc_TV_Wall_03.obj" id="110_keemd"]
+[ext_resource type="ArrayMesh" uid="uid://rbl2ep0n2oax" path="res://Asset 3D/city/Chairs/Misc/Electronics/Office_Misc_TV_Wall_03.obj" id="110_keemd"]
 [ext_resource type="PackedScene" uid="uid://bq4ahigi5q6am" path="res://Scenes/เก้าอี้.tscn" id="111_yiwsw"]
-[ext_resource type="Texture2D" uid="uid://6ydd80oqc7vg" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Main menu/ตัวละครหน้าเเรก.png" id="112_bv6a1"]
+[ext_resource type="Texture2D" uid="uid://cjq4uotdm0fye" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Main menu/ตัวละครหน้าเเรก.png" id="112_bv6a1"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_1u8hb"]
 font_size = 64
@@ -603,26 +603,18 @@ script = ExtResource("1_0xm2m")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="TextureRect2" type="TextureRect" parent="CanvasLayer"]
-visible = false
+[node name="BlackScreen" type="TextureRect" parent="CanvasLayer"]
 offset_left = -7.0
 offset_right = 1920.0
 offset_bottom = 1200.0
 texture = ExtResource("107_1u8hb")
-
-[node name="BlackScreen" type="ColorRect" parent="CanvasLayer"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 0)
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
 offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="HUD" type="Control" parent="CanvasLayer"]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
