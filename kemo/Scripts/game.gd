@@ -211,8 +211,13 @@ func generate_random_number_cards():
     # ⭐ NEW: Assign the generated numbers to the Global singleton
     Global.spawned_card_numbers = numbers_to_spawn
 
-#💡 CORRECTED: This RPC now tells all clients to spawn the cards
-#This ensures a single set of cards is created for the entire game.
+    # ⭐ NEW: Combine the four numbers into a single 4-digit code and store it in Global
+    var four_digit_code = ""
+    for num in numbers_to_spawn:
+        four_digit_code += str(num)
+    Global.four_digit_code = four_digit_code
+    print("Combined 4-digit code: ", Global.four_digit_code)
+
     rpc("spawn_cards_with_numbers", numbers_to_spawn, positions_to_spawn)
 
 

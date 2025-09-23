@@ -1,6 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://b2q45jsn8sw8m"]
+[gd_scene load_steps=4 format=3 uid="uid://b2q45jsn8sw8m"]
 
-[ext_resource type="Texture2D" uid="uid://faa62x61xs16" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/lovepik-cartoon-crown-png-image_401367525_wh1200-Photoroom.png" id="2_bs3my"]
+[ext_resource type="Script" uid="uid://dye7yrujiupf1" path="res://Scripts/round_results.gd" id="1_c8cte"]
 
 [sub_resource type="FontVariation" id="FontVariation_qgrmn"]
 
@@ -8,10 +8,8 @@
 font = SubResource("FontVariation_qgrmn")
 font_size = 100
 
-[sub_resource type="LabelSettings" id="LabelSettings_rgevr"]
-font_size = 48
-
 [node name="RoleReveal" type="CanvasLayer"]
+script = ExtResource("1_c8cte")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 15
@@ -34,27 +32,3 @@ offset_bottom = 102.5
 grow_horizontal = 2
 grow_vertical = 2
 label_settings = SubResource("LabelSettings_dcybp")
-
-[node name="LeaderLabel" type="Label" parent="."]
-visible = false
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -266.0
-offset_top = 118.0
-offset_right = 172.0
-offset_bottom = 185.0
-grow_horizontal = 2
-grow_vertical = 2
-label_settings = SubResource("LabelSettings_rgevr")
-
-[node name="TextureRect" type="TextureRect" parent="LeaderLabel"]
-layout_mode = 0
-offset_left = 414.0
-offset_top = -61.0
-offset_right = 1614.0
-offset_bottom = 967.0
-scale = Vector2(0.15, 0.15)
-texture = ExtResource("2_bs3my")

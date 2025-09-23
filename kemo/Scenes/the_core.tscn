@@ -292,9 +292,9 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = 961.0
+offset_top = 891.0
 offset_right = 178.0
-offset_bottom = 1042.0
+offset_bottom = 972.0
 grow_vertical = 0
 text = "Drop Card"
 
@@ -6173,14 +6173,23 @@ offset_right = 1928.0
 offset_bottom = 1077.0
 
 [node name="LineEdit" type="LineEdit" parent="CP/Computer1/CanvasLayer/Panel"]
-offset_left = 607.0
+offset_left = 470.0
 offset_top = 618.0
-offset_right = 1435.0
+offset_right = 1298.0
 offset_bottom = 714.0
 theme_override_colors/font_placeholder_color = Color(0, 0, 0, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_tw02u")
 placeholder_text = "Enter password"
 alignment = 1
+
+[node name="Button" type="Button" parent="CP/Computer1/CanvasLayer/Panel"]
+layout_mode = 0
+offset_left = 1312.0
+offset_top = 618.0
+offset_right = 1534.0
+offset_bottom = 714.0
+theme_override_font_sizes/font_size = 32
+text = "Comfirm"
 
 [node name="Computer2" type="Area3D" parent="CP"]
 collision_layer = 3
@@ -6208,14 +6217,23 @@ offset_right = 1928.0
 offset_bottom = 1077.0
 
 [node name="LineEdit" type="LineEdit" parent="CP/Computer2/CanvasLayer/Panel"]
-offset_left = 607.0
+offset_left = 470.0
 offset_top = 618.0
-offset_right = 1435.0
+offset_right = 1298.0
 offset_bottom = 714.0
 theme_override_colors/font_placeholder_color = Color(0, 0, 0, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_tw02u")
 placeholder_text = "Enter password"
 alignment = 1
+
+[node name="Button" type="Button" parent="CP/Computer2/CanvasLayer/Panel"]
+layout_mode = 0
+offset_left = 1312.0
+offset_top = 618.0
+offset_right = 1534.0
+offset_bottom = 714.0
+theme_override_font_sizes/font_size = 32
+text = "Comfirm"
 
 [node name="Computer3" type="Area3D" parent="CP"]
 collision_layer = 3
@@ -6243,14 +6261,23 @@ offset_right = 1928.0
 offset_bottom = 1077.0
 
 [node name="LineEdit" type="LineEdit" parent="CP/Computer3/CanvasLayer/Panel"]
-offset_left = 607.0
+offset_left = 470.0
 offset_top = 618.0
-offset_right = 1435.0
+offset_right = 1298.0
 offset_bottom = 714.0
 theme_override_colors/font_placeholder_color = Color(0, 0, 0, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_tw02u")
 placeholder_text = "Enter password"
 alignment = 1
+
+[node name="Button" type="Button" parent="CP/Computer3/CanvasLayer/Panel"]
+layout_mode = 0
+offset_left = 1312.0
+offset_top = 618.0
+offset_right = 1534.0
+offset_bottom = 714.0
+theme_override_font_sizes/font_size = 32
+text = "Comfirm"
 
 [node name="Computer4" type="Area3D" parent="CP"]
 collision_layer = 3
@@ -6278,19 +6305,37 @@ offset_right = 1928.0
 offset_bottom = 1077.0
 
 [node name="LineEdit" type="LineEdit" parent="CP/Computer4/CanvasLayer/Panel"]
-offset_left = 607.0
+offset_left = 470.0
 offset_top = 618.0
-offset_right = 1435.0
+offset_right = 1298.0
 offset_bottom = 714.0
 theme_override_colors/font_placeholder_color = Color(0, 0, 0, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_tw02u")
 placeholder_text = "Enter password"
 alignment = 1
 
+[node name="Button" type="Button" parent="CP/Computer4/CanvasLayer/Panel"]
+layout_mode = 0
+offset_left = 1312.0
+offset_top = 618.0
+offset_right = 1534.0
+offset_bottom = 714.0
+theme_override_font_sizes/font_size = 32
+text = "Comfirm"
+
 [node name="Computer5" type="Area3D" parent="CP"]
 collision_layer = 3
 collision_mask = 3
 script = ExtResource("8_1g0mh")
+
+[node name="cp5" parent="CP/Computer5" instance=ExtResource("1_uyt0q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.5, 73.2556, -0.553214, -77.1767)
+skeleton = NodePath("../../../../../../../../..")
+
+[node name="OfficeMiscPc01" type="MeshInstance3D" parent="CP/Computer5/cp5"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -0.666667, 0, -2.91409e-08, -0.178787, 0.504732, -0.0192032)
+mesh = ExtResource("3_5grkw")
+skeleton = NodePath("../../../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CP/Computer5"]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 73.0145, 0, -77.0601)
@@ -6304,14 +6349,23 @@ offset_right = 1928.0
 offset_bottom = 1077.0
 
 [node name="LineEdit" type="LineEdit" parent="CP/Computer5/CanvasLayer/Panel"]
-offset_left = 607.0
+offset_left = 470.0
 offset_top = 618.0
-offset_right = 1435.0
+offset_right = 1298.0
 offset_bottom = 714.0
 theme_override_colors/font_placeholder_color = Color(0, 0, 0, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_tw02u")
 placeholder_text = "Enter password"
 alignment = 1
+
+[node name="Button" type="Button" parent="CP/Computer5/CanvasLayer/Panel"]
+layout_mode = 0
+offset_left = 1312.0
+offset_top = 618.0
+offset_right = 1534.0
+offset_bottom = 714.0
+theme_override_font_sizes/font_size = 32
+text = "Comfirm"
 
 [node name="Computer6" type="Area3D" parent="CP"]
 collision_layer = 3
@@ -6339,14 +6393,23 @@ offset_right = 1928.0
 offset_bottom = 1077.0
 
 [node name="LineEdit" type="LineEdit" parent="CP/Computer6/CanvasLayer/Panel"]
-offset_left = 607.0
+offset_left = 470.0
 offset_top = 618.0
-offset_right = 1435.0
+offset_right = 1298.0
 offset_bottom = 714.0
 theme_override_colors/font_placeholder_color = Color(0, 0, 0, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_tw02u")
 placeholder_text = "Enter password"
 alignment = 1
+
+[node name="Button" type="Button" parent="CP/Computer6/CanvasLayer/Panel"]
+layout_mode = 0
+offset_left = 1312.0
+offset_top = 618.0
+offset_right = 1534.0
+offset_bottom = 714.0
+theme_override_font_sizes/font_size = 32
+text = "Comfirm"
 
 [node name="CardSpawnPoints" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -11.5093, -34.2137)

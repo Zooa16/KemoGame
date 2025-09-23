@@ -3,13 +3,15 @@ extends Node
 
 var mission_size: int = 0
 
+# ⭐ NEW: ตัวแปรสำหรับเก็บผลลัพธ์ของภารกิจ
+var mission_success: bool = false
 
 var revealed_role: bool = false
 var my_player_name: String = "Player"
 var player_colors: Dictionary = {}
 var player_names: Dictionary = {}
 var player_roles: Dictionary = {}
-
+var four_digit_code: String = "" # <-- เพิ่มบรรทัดนี้
 var spawned_card_numbers: Array = []
 
 # เพิ่มตัวแปร the_mission_team: Array เพื่อเก็บรายชื่อผู้เล่นในทีมภารกิจ
@@ -67,3 +69,13 @@ var computer_ids_to_activate: Array = []:
         emit_signal("computer_ids_updated")
         
 signal computer_ids_updated # ต้องประกาศ signal ก่อนใช้งาน
+
+# ⭐ NEW: เพิ่มตัวแปรสำหรับเก็บรหัสผ่านที่กรอก
+var entered_password: String = "":
+    set(value):
+        entered_password = value
+        print("DEBUG: Global.entered_password was updated to ", value)
+        emit_signal("password_updated")
+
+# ⭐ NEW: เพิ่ม Signal สำหรับแจ้งเตือนเมื่อรหัสผ่านถูกอัปเดต
+signal password_updated

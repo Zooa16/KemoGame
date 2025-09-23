@@ -166,8 +166,8 @@ func activate_computers():
     var activated_ids = []
 
     # สุ่ม ID 2 หมายเลขที่ไม่ซ้ำกัน
-    while activated_ids.size() < 2:
-        var new_id = rng.randi_range(1, 6)
+    while activated_ids.size() < 1:
+        var new_id = rng.randi_range(1, 2)
         if not activated_ids.has(new_id):
             activated_ids.append(new_id)
 
@@ -337,7 +337,24 @@ func update_timer_label(new_time: int):
     var seconds = int(time_left % 60)
     timer_label.text = "%02d:%02d" % [minutes, seconds]
 
-@rpc("any_peer", "reliable", "call_local")
+# ⭐ NEW: ฟังก์ชันที่ถูกเรียกเมื่อเกมไปถึงหน้าสรุปผล
+@rpc("any_peer", "call_local")
 func go_to_Round_results():
     turn_timer.stop()
+    # Host จะทำการตรวจสอบรหัสผ่าน
+    if multiplayer.is_server():
+        var is_success = false
+        if Global.entered_password == Global.four_digit_code_int:
+            is_success = true
+        
+        # เรียก RPC เพื่อส่งผลลัพธ์ไปยังทุกคน
+        rpc("sync_mission_result", is_success)
+
     get_tree().change_scene_to_file("res://Scenes/Round_results.tscn")
+    
+
+# ⭐ NEW: ฟังก์ชัน RPC เพื่อซิงค์ผลลัพธ์ภารกิจกับทุกไคลเอนต์
+@rpc("any_peer", "reliable", "call_local")
+func sync_mission_result(is_success: bool):
+    # อัปเดตตัวแปรใน Global เพื่อให้ฉาก "Round_results" อ่านค่าได้
+    Global.mission_success = is_success
