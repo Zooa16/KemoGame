@@ -344,7 +344,8 @@ func go_to_Round_results():
     # Host จะทำการตรวจสอบรหัสผ่าน
     if multiplayer.is_server():
         var is_success = false
-        if Global.entered_password == Global.four_digit_code_int:
+        # ⭐ แก้ไขการเปรียบเทียบให้เป็น String vs String
+        if Global.entered_password == Global.four_digit_code:
             is_success = true
         
         # เรียก RPC เพื่อส่งผลลัพธ์ไปยังทุกคน
