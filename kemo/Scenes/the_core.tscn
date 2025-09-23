@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=4 uid="uid://bpharn5x0y5bc"]
+[gd_scene load_steps=38 format=4 uid="uid://bpharn5x0y5bc"]
 
 [ext_resource type="Script" uid="uid://dlqpk4tdoc8t" path="res://Scripts/the_core.gd" id="1_5grkw"]
 [ext_resource type="PackedScene" uid="uid://blnjd31uociag" path="res://Scenes/server_box.tscn" id="1_uyt0q"]
@@ -17,6 +17,16 @@ outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_5grkw"]
 font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_37cde"]
+font_size = 80
+outline_size = 24
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_1g0mh"]
+font_size = 50
+outline_size = 15
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Shader" id="Shader_0q11v"]
 code = "
@@ -307,14 +317,35 @@ anchor_left = 23.975
 anchor_top = 2.187
 anchor_right = 23.975
 anchor_bottom = 2.187
-offset_left = -1.0
-offset_top = -87.48
-offset_bottom = 87.52
+offset_left = -77.0
+offset_top = 117.52
+offset_right = 129.0
+offset_bottom = 223.52
 grow_horizontal = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 80
+label_settings = SubResource("LabelSettings_37cde")
+
+[node name="Label" type="Label" parent="UI/UI_Player"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 23.975
+anchor_top = 2.187
+anchor_right = 23.975
+anchor_bottom = 2.187
+offset_left = -165.0
+offset_top = 53.52
+offset_right = 462.0
+offset_bottom = 159.52
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 80
+text = "Password is :"
+label_settings = SubResource("LabelSettings_1g0mh")
 
 [node name="SpectatorCamera" type="Camera3D" parent="."]
 cull_mask = 1048573
