@@ -55,3 +55,13 @@ var player_role: String = ""
 var eliminated_player_id: int = -1
 
 const MAX_PLAYERS := 10
+
+# NEW: ตัวแปรสำหรับเก็บ ID คอมพิวเตอร์ที่ถูกเปิดใช้งาน
+var computer_ids_to_activate: Array = []:
+    set(value):
+        computer_ids_to_activate = value
+        # DEBUG: print to confirm the value is set and signal is emitted
+        print("DEBUG: Global.computer_ids_to_activate was updated to ", value)
+        emit_signal("computer_ids_updated")
+        
+signal computer_ids_updated # ต้องประกาศ signal ก่อนใช้งาน

@@ -1,8 +1,14 @@
-[gd_scene load_steps=23 format=4 uid="uid://bpharn5x0y5bc"]
+[gd_scene load_steps=36 format=4 uid="uid://bpharn5x0y5bc"]
 
 [ext_resource type="Script" uid="uid://dlqpk4tdoc8t" path="res://Scripts/the_core.gd" id="1_5grkw"]
 [ext_resource type="PackedScene" uid="uid://blnjd31uociag" path="res://Scenes/server_box.tscn" id="1_uyt0q"]
+[ext_resource type="Script" uid="uid://br0qgqgi8v01v" path="res://Scripts/computer_1.gd" id="2_tw02u"]
 [ext_resource type="ArrayMesh" uid="uid://bg5kxelpolwbe" path="res://Asset 3D/city/Chairs/Misc/Electronics/Office_Misc_PC_01.obj" id="3_5grkw"]
+[ext_resource type="Script" uid="uid://chtxh074y6iir" path="res://Scripts/computer_2.gd" id="5_rv1b7"]
+[ext_resource type="Script" uid="uid://m1ao7fgpkfdx" path="res://Scripts/computer_3.gd" id="6_liuw2"]
+[ext_resource type="Script" uid="uid://bq6x1rijbysrw" path="res://Scripts/computer_4.gd" id="7_37cde"]
+[ext_resource type="Script" uid="uid://dmewc67onpf" path="res://Scripts/computer_5.gd" id="8_1g0mh"]
+[ext_resource type="Script" uid="uid://cqbgx1yplokbd" path="res://Scripts/computer_6.gd" id="9_sxwmn"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_73m1n"]
 font_size = 64
@@ -194,6 +200,20 @@ _surfaces = [{
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_klv4r"]
 data = PackedVector3Array(-5, -0.5, 5, -5, -0.5, -5, -5, 0.5, -5, 5, -0.5, -5, -5, -0.5, -5, -5, -0.5, 5, -5, 0.5, -5, -5, -0.5, -5, 5, -0.5, -5, -5, 0.5, -5, -5, 0.5, 5, -5, -0.5, 5, -5, -0.5, 5, -5, 0.5, 5, 5, 0.5, 5, 5, 0.5, 5, -5, 0.5, 5, -5, 0.5, -5, -5, -0.5, 5, 5, -0.5, 5, 5, -0.5, -5, 5, 0.5, 5, 5, -0.5, 5, -5, -0.5, 5, 5, -0.5, -5, 5, -0.5, 5, 5, 0.5, 5, 5, -0.5, -5, 5, 0.5, -5, -5, 0.5, -5, -5, 0.5, -5, 5, 0.5, -5, 5, 0.5, 5, 5, 0.5, 5, 5, 0.5, -5, 5, -0.5, -5)
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_schig"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tw02u"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_rv1b7"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_liuw2"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_37cde"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_1g0mh"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_sxwmn"]
+
 [node name="the core" type="Node"]
 script = ExtResource("1_5grkw")
 
@@ -313,64 +333,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.4095, -10, 34.1728)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.1437, -10, 33.0064)
 
 [node name="ALL_MODEL" type="Node3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, -9, 0)
-
-[node name="CP" type="Node3D" parent="ALL_MODEL"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.6725, -2.87976, 40.2578)
-
-[node name="cp1" parent="ALL_MODEL/CP" instance=ExtResource("1_uyt0q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.5, 52.9862, -0.815772, -54.6613)
-skeleton = NodePath("../../../../../../../../..")
-
-[node name="OfficeMiscPc01" type="MeshInstance3D" parent="ALL_MODEL/CP/cp1"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -0.666667, 0, -2.91409e-08, -0.178787, 0.504732, -0.0192032)
-mesh = ExtResource("3_5grkw")
-skeleton = NodePath("../../../..")
-
-[node name="cp2" parent="ALL_MODEL/CP" instance=ExtResource("1_uyt0q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.5, 0.98275, -0.815772, -87.8862)
-skeleton = NodePath("../../../../../../../../..")
-
-[node name="OfficeMiscPc01" type="MeshInstance3D" parent="ALL_MODEL/CP/cp2"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -0.666667, 0, -2.91409e-08, -0.178787, 0.504732, -0.0192032)
-mesh = ExtResource("3_5grkw")
-skeleton = NodePath("../../../..")
-
-[node name="cp3" parent="ALL_MODEL/CP" instance=ExtResource("1_uyt0q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.5, 20.4216, -0.815772, -12.8277)
-skeleton = NodePath("../../../../../../../../..")
-
-[node name="OfficeMiscPc01" type="MeshInstance3D" parent="ALL_MODEL/CP/cp3"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -0.666667, 0, -2.91409e-08, -0.178787, 0.504732, -0.0192032)
-mesh = ExtResource("3_5grkw")
-skeleton = NodePath("../../../..")
-
-[node name="cp4" parent="ALL_MODEL/CP" instance=ExtResource("1_uyt0q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.5, 82.0585, -0.815772, -13.6242)
-skeleton = NodePath("../../../../../../../../..")
-
-[node name="OfficeMiscPc01" type="MeshInstance3D" parent="ALL_MODEL/CP/cp4"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -0.666667, 0, -2.91409e-08, -0.178787, 0.504732, -0.0192032)
-mesh = ExtResource("3_5grkw")
-skeleton = NodePath("../../../..")
-
-[node name="cp5" parent="ALL_MODEL/CP" instance=ExtResource("1_uyt0q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.5, 73.1592, -0.815772, -77.1844)
-skeleton = NodePath("../../../../../../../../..")
-
-[node name="OfficeMiscPc01" type="MeshInstance3D" parent="ALL_MODEL/CP/cp5"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -0.666667, 0, -2.91409e-08, -0.178787, 0.504732, -0.0192032)
-mesh = ExtResource("3_5grkw")
-skeleton = NodePath("../../../..")
-
-[node name="cp6" parent="ALL_MODEL/CP" instance=ExtResource("1_uyt0q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.5, 34.3098, -0.815772, -78.8991)
-skeleton = NodePath("../../../../../../../../..")
-
-[node name="OfficeMiscPc01" type="MeshInstance3D" parent="ALL_MODEL/CP/cp6"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -0.666667, 0, -2.91409e-08, -0.178787, 0.504732, -0.0192032)
-mesh = ExtResource("3_5grkw")
-skeleton = NodePath("../../../..")
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.07137, -10.4248, -22.4776)
 
 [node name="server_box" parent="ALL_MODEL" instance=ExtResource("1_uyt0q")]
 transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 0.5, -44.6725, -2.90636, 40.2578)
@@ -6180,6 +6143,210 @@ skeleton = NodePath("../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ALL_MODEL/CSGBakedMeshInstance3D4/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_klv4r")
+
+[node name="CP" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -39.1864, -13.3045, -67.1501)
+
+[node name="Computer1" type="Area3D" parent="CP"]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("2_tw02u")
+
+[node name="cp1" parent="CP/Computer1" instance=ExtResource("1_uyt0q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.5, 52.9862, -0.815772, -54.6613)
+skeleton = NodePath("../../../../../../../../..")
+
+[node name="OfficeMiscPc01" type="MeshInstance3D" parent="CP/Computer1/cp1"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -0.666667, 0, -2.91409e-08, -0.178787, 0.504732, -0.0192032)
+mesh = ExtResource("3_5grkw")
+skeleton = NodePath("../../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CP/Computer1"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 53.0878, 0.0852423, -54.496)
+shape = SubResource("SphereShape3D_schig")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="CP/Computer1"]
+visible = false
+
+[node name="Panel" type="Panel" parent="CP/Computer1/CanvasLayer"]
+offset_right = 1928.0
+offset_bottom = 1077.0
+
+[node name="LineEdit" type="LineEdit" parent="CP/Computer1/CanvasLayer/Panel"]
+offset_left = 607.0
+offset_top = 618.0
+offset_right = 1435.0
+offset_bottom = 714.0
+theme_override_colors/font_placeholder_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_tw02u")
+placeholder_text = "Enter password"
+alignment = 1
+
+[node name="Computer2" type="Area3D" parent="CP"]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("5_rv1b7")
+
+[node name="cp2" parent="CP/Computer2" instance=ExtResource("1_uyt0q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.5, 0.98275, -0.815772, -87.8862)
+skeleton = NodePath("../../../../../../../../..")
+
+[node name="OfficeMiscPc01" type="MeshInstance3D" parent="CP/Computer2/cp2"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -0.666667, 0, -2.91409e-08, -0.178787, 0.504732, -0.0192032)
+mesh = ExtResource("3_5grkw")
+skeleton = NodePath("../../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CP/Computer2"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 1.04873, 0, -87.7762)
+shape = SubResource("SphereShape3D_rv1b7")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="CP/Computer2"]
+visible = false
+
+[node name="Panel" type="Panel" parent="CP/Computer2/CanvasLayer"]
+offset_right = 1928.0
+offset_bottom = 1077.0
+
+[node name="LineEdit" type="LineEdit" parent="CP/Computer2/CanvasLayer/Panel"]
+offset_left = 607.0
+offset_top = 618.0
+offset_right = 1435.0
+offset_bottom = 714.0
+theme_override_colors/font_placeholder_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_tw02u")
+placeholder_text = "Enter password"
+alignment = 1
+
+[node name="Computer3" type="Area3D" parent="CP"]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("6_liuw2")
+
+[node name="cp3" parent="CP/Computer3" instance=ExtResource("1_uyt0q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.5, 20.4216, -0.815772, -12.8277)
+skeleton = NodePath("../../../../../../../../..")
+
+[node name="OfficeMiscPc01" type="MeshInstance3D" parent="CP/Computer3/cp3"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -0.666667, 0, -2.91409e-08, -0.178787, 0.504732, -0.0192032)
+mesh = ExtResource("3_5grkw")
+skeleton = NodePath("../../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CP/Computer3"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 20.5639, 0, -12.9203)
+shape = SubResource("SphereShape3D_liuw2")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="CP/Computer3"]
+visible = false
+
+[node name="Panel" type="Panel" parent="CP/Computer3/CanvasLayer"]
+offset_right = 1928.0
+offset_bottom = 1077.0
+
+[node name="LineEdit" type="LineEdit" parent="CP/Computer3/CanvasLayer/Panel"]
+offset_left = 607.0
+offset_top = 618.0
+offset_right = 1435.0
+offset_bottom = 714.0
+theme_override_colors/font_placeholder_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_tw02u")
+placeholder_text = "Enter password"
+alignment = 1
+
+[node name="Computer4" type="Area3D" parent="CP"]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("7_37cde")
+
+[node name="cp4" parent="CP/Computer4" instance=ExtResource("1_uyt0q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.5, 82.0585, -0.815772, -13.6242)
+skeleton = NodePath("../../../../../../../../..")
+
+[node name="OfficeMiscPc01" type="MeshInstance3D" parent="CP/Computer4/cp4"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -0.666667, 0, -2.91409e-08, -0.178787, 0.504732, -0.0192032)
+mesh = ExtResource("3_5grkw")
+skeleton = NodePath("../../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CP/Computer4"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 82.1011, 0, -13.5894)
+shape = SubResource("SphereShape3D_37cde")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="CP/Computer4"]
+visible = false
+
+[node name="Panel" type="Panel" parent="CP/Computer4/CanvasLayer"]
+offset_right = 1928.0
+offset_bottom = 1077.0
+
+[node name="LineEdit" type="LineEdit" parent="CP/Computer4/CanvasLayer/Panel"]
+offset_left = 607.0
+offset_top = 618.0
+offset_right = 1435.0
+offset_bottom = 714.0
+theme_override_colors/font_placeholder_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_tw02u")
+placeholder_text = "Enter password"
+alignment = 1
+
+[node name="Computer5" type="Area3D" parent="CP"]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("8_1g0mh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CP/Computer5"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 73.0145, 0, -77.0601)
+shape = SubResource("SphereShape3D_1g0mh")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="CP/Computer5"]
+visible = false
+
+[node name="Panel" type="Panel" parent="CP/Computer5/CanvasLayer"]
+offset_right = 1928.0
+offset_bottom = 1077.0
+
+[node name="LineEdit" type="LineEdit" parent="CP/Computer5/CanvasLayer/Panel"]
+offset_left = 607.0
+offset_top = 618.0
+offset_right = 1435.0
+offset_bottom = 714.0
+theme_override_colors/font_placeholder_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_tw02u")
+placeholder_text = "Enter password"
+alignment = 1
+
+[node name="Computer6" type="Area3D" parent="CP"]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("9_sxwmn")
+
+[node name="cp6" parent="CP/Computer6" instance=ExtResource("1_uyt0q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.5, 34.3098, -0.815772, -78.8991)
+skeleton = NodePath("../../../../../../../../..")
+
+[node name="OfficeMiscPc01" type="MeshInstance3D" parent="CP/Computer6/cp6"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -0.666667, 0, -2.91409e-08, -0.178787, 0.504732, -0.0192032)
+mesh = ExtResource("3_5grkw")
+skeleton = NodePath("../../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CP/Computer6"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 34.3694, 0, -78.6148)
+shape = SubResource("SphereShape3D_sxwmn")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="CP/Computer6"]
+visible = false
+
+[node name="Panel" type="Panel" parent="CP/Computer6/CanvasLayer"]
+offset_right = 1928.0
+offset_bottom = 1077.0
+
+[node name="LineEdit" type="LineEdit" parent="CP/Computer6/CanvasLayer/Panel"]
+offset_left = 607.0
+offset_top = 618.0
+offset_right = 1435.0
+offset_bottom = 714.0
+theme_override_colors/font_placeholder_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_tw02u")
+placeholder_text = "Enter password"
+alignment = 1
 
 [node name="CardSpawnPoints" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -11.5093, 28.2483)

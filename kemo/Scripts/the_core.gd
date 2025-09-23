@@ -73,10 +73,13 @@ func _ready():
     else:
         print("Role already revealed. Starting game directly.")
         start_turn_timer()
+        
+    activate_computers()
 
     # --- New: Connect Next and Back buttons ---
     next.pressed.connect(_on_next_pressed)
     back.pressed.connect(_on_back_pressed)
+    
 
 # --------------------- Spectator ------------------------
 
@@ -152,7 +155,39 @@ func _on_back_pressed():
     
     var new_target_id = mission_ids[prev_index]
     change_spectator_target(new_target_id)
+#--------------------- activate_computers ------------------------
+func activate_computers():
+    if not multiplayer.is_server():
+        print("Function 'activate_computers' can only be called by the host.")
+        return
 
+    var rng = RandomNumberGenerator.new()
+    rng.randomize()
+    var activated_ids = []
+
+    # สุ่ม ID 2 หมายเลขที่ไม่ซ้ำกัน
+    while activated_ids.size() < 2:
+        var new_id = rng.randi_range(1, 6)
+        if not activated_ids.has(new_id):
+            activated_ids.append(new_id)
+
+    # DEBUG: print the generated IDs on the host before sending
+    print("DEBUG: Host is activating computers with IDs: ", activated_ids)
+
+#เรียกใช้ RPC เพื่อส่งข้อมูลไปยังทุก peer (ไคลเอนต์)
+    rpc("sync_activated_computers", activated_ids)
+
+#ฟังก์ชัน RPC ที่จะทำงานบนทุกเครื่อง (เซิร์ฟเวอร์และไคลเอนต์)
+@rpc("any_peer", "call_local")
+func sync_activated_computers(ids: Array):
+    # DEBUG: print to confirm IDs have been received on this machine
+    print("DEBUG: Received activated computer IDs from host: ", ids)
+
+    #อัปเดตตัวแปรใน Global.gd
+    Global.computer_ids_to_activate = ids
+    # เนื่องจากตัวแปรถูก set(value) ใน Global.gd อยู่แล้ว,
+    # จะมีการเรียก emit_signal("computer_ids_updated") โดยอัตโนมัติ
+    
 # --------------------- Role reveal ------------------------
 
 func show_role_reveal():
