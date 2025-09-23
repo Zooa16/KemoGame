@@ -462,7 +462,7 @@ func calculate_team_vote_result():
     Global.no_mission_team.clear()
     var all_players = Global.player_names.keys()
     for player_id in all_players:
-        if not selected_team_ids.has(player_id):
+        if not Global.the_mission_team.has(player_id):
             Global.no_mission_team.append(player_id)
             
     # 🌟 แก้ไข: ซิงค์ข้อมูลทีมก่อนเปลี่ยนฉาก
@@ -540,10 +540,10 @@ func random_select_mission_team():
     
     # 🌟 แก้ไข: กำหนดค่า Global.no_mission_team บนเซิร์ฟเวอร์
     Global.no_mission_team.clear()
-    for player_id in available_players:
+    for player_id in Global.player_names:
         if not selected_random_team.has(player_id):
             Global.no_mission_team.append(player_id)
-
+            
     # 🌟 แก้ไข: ซิงค์ข้อมูลทีมก่อนเปลี่ยนฉาก
     rpc("sync_global_teams", Global.the_mission_team, Global.no_mission_team)
     
@@ -575,6 +575,7 @@ func change_scene_based_on_role(is_team_accepted: bool):
 
 @rpc("any_peer", "reliable", "call_local")
 func reset_team_selection():
+    Global.no_mission_team.clear()
     print("CLIENT/HOST: reset_team_selection called.")
     selected_team_ids.clear()
     team_votes.clear()
