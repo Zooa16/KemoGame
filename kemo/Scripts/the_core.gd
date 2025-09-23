@@ -70,7 +70,7 @@ func _ready():
         )
     else:
         # ผู้ที่ไม่ได้ทำภารกิจ (Spectator)
-        delay_time = 1.5  # หน่วง 1.5 วินาที
+        delay_time = 2.5  # หน่วง 1.5 วินาที
         get_node("UI/UI_Player").visible = false
         get_node("UI/UI_Spectator").visible = true
         

@@ -286,7 +286,7 @@ transform = Transform3D(-0.648216, -0.645292, -0.404246, -0.431431, -0.126211, 0
 shadow_enabled = true
 
 [node name="SpawnPoints" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -9, 81.58)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 23.4481, 75.6102)
 
 [node name="Marker3D" type="Marker3D" parent="SpawnPoints"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, -10, 30)
@@ -304,7 +304,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.4095, -10, 34.1728)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.1437, -10, 33.0064)
 
 [node name="ALL_MODEL" type="Node3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, -9, 0)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, -25.263, 0)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="ALL_MODEL"]
 transform = Transform3D(100, 0, 0, 0, 1, 0, 0, 0, 100, 4.44407, -8.80106, -2.50367)
