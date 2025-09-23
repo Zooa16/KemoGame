@@ -3,6 +3,8 @@ extends Node
 
 var mission_size: int = 0
 
+
+var revealed_role: bool = false
 var my_player_name: String = "Player"
 var player_colors: Dictionary = {}
 var player_names: Dictionary = {}

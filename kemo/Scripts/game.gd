@@ -14,7 +14,7 @@ var card_spawn_points: Array = []
 var max_cards_to_collect := 4
 
 # 3 minutes per turn
-var turn_duration := 120
+var turn_duration := 2
 var time_left := 0
 
 # Create an array to hold the numbers of the spawned cards
@@ -47,7 +47,35 @@ func _ready():
             if player_id != multiplayer.get_unique_id():
                 spawn_player(player_id)
         generate_random_number_cards()
+        
+    # ⭐ สำคัญ: แยกฟังก์ชันการแสดงบทบาทออกจาก spawn_player และเชื่อมต่อสัญญาณ
+    if not Global.revealed_role:
+        show_role_reveal()
+    else:
+        print("Role already revealed. Starting game directly.")
+        start_turn_timer()
 
+# ฟังก์ชันใหม่สำหรับแสดงฉากเปิดเผยบทบาท
+func show_role_reveal():
+    var role_reveal_scene = preload("res://Scenes/role_reveal.tscn").instantiate()
+    get_tree().root.add_child(role_reveal_scene)
+    
+    # ⭐ ตั้งค่าสถานะเพื่อไม่ให้แสดงซ้ำ
+    Global.revealed_role = true
+    
+    var my_id = multiplayer.get_unique_id()
+    var my_role = Global.player_roles.get(my_id, {}).get("base", "Unknown")
+    var is_leader = Global.player_roles.get(my_id, {}).get("leader", false)
+    
+    role_reveal_scene.show_role(my_role, is_leader)
+    
+    # ⭐ เชื่อมต่อสัญญาณเพื่อเริ่มเกมเมื่อแอนิเมชันจบ
+    role_reveal_scene.role_reveal_finished.connect(on_role_reveal_finished)
+
+# ฟังก์ชันที่จะถูกเรียกเมื่อฉากเปิดเผยบทบาทเสร็จสิ้น
+func on_role_reveal_finished():
+    print("Role reveal animation finished. Starting game timer.")
+    start_turn_timer()
 
 func _on_peer_connected(id: int):
     spawn_player(id)
@@ -88,6 +116,7 @@ func spawn_player(player_id: int):
     var player_instance = player_scene.instantiate()
 
     player_instance.name = "Player_" + str(player_id)
+    
     player_instance.transform = spawn_transform
     player_instance.set_multiplayer_authority(player_id)
     player_instance.scale = Vector3(0.3, 0.3, 0.3)
@@ -102,10 +131,13 @@ func spawn_player(player_id: int):
         player_instance.set_player_color.rpc(Global.player_colors[player_id])
     if Global.player_names.has(player_id):
         player_instance.set_player_name.rpc(Global.player_names[player_id])
+
+    # ตรวจสอบว่าผู้เล่นคนนี้เป็นผู้เล่นในเครื่องและบทบาทของเขาถูกกำหนดไว้แล้ว
     if Global.player_roles.has(player_id):
         var role = Global.player_roles[player_id]
         player_instance.set_role(role["base"], role["leader"])
         
+        # ⭐ ลบโค้ดแสดงบทบาทที่ซ้ำซ้อนออกไป
         if role["leader"]:
             Global.leader_id = player_id
             player_instance.update_role_visibility()

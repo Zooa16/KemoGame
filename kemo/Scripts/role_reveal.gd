@@ -7,14 +7,20 @@ signal role_reveal_finished
 @onready var leader_label: Label = $LeaderLabel
 
 func show_role(role: String, is_leader: bool, duration: float = 6) -> void:
+    # ⭐ จุดนี้คือการแก้ไขสำคัญ:
+    # ตรวจสอบว่าค่า 'role' เป็นค่าว่างหรือไม่ ถ้าเป็น ให้ใช้ 'Unknown' แทน
+    var role_text = "Unknown"
+    if not role.is_empty():
+        role_text = role
+        
     # --- Hidden Role (always shown to local player) ---
-    label.text = "You are the " + role
+    label.text = "You are the " + role_text
     
-    if Global.role_colors.has(role):
-        label.modulate = Global.role_colors[role]
+    if Global.role_colors.has(role_text):
+        label.modulate = Global.role_colors[role_text]
     else:
         label.modulate = Color.WHITE
-    
+        
     # --- Leader Role (only if this player is the Leader) ---
     if is_leader:
         leader_label.text = "You are the Leader"
@@ -55,4 +61,5 @@ func show_role(role: String, is_leader: bool, duration: float = 6) -> void:
     # 6. Cleanup
     await tween.finished
     emit_signal("role_reveal_finished")
+    Global.revealed_role = true
     queue_free()

@@ -14,7 +14,9 @@ func start_game():
 
         if multiplayer.is_server():
             await get_tree().create_timer(0.2).timeout
-            assign_roles()
+            # ⭐ เพิ่มเงื่อนไขเพื่อตรวจสอบว่าได้มีการสุ่มบทบาทไปแล้วหรือไม่
+            if Global.player_roles.is_empty():
+                assign_roles()
 
 func on_role_reveal_finished():
     if multiplayer.is_server():

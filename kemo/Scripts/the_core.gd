@@ -1,5 +1,3 @@
-# THE CORE
-
 extends Node
 
 @onready var timer_label: Label = $UI/MarginContainer/TimerLabel
@@ -13,7 +11,7 @@ var player_spawn_points: Array = []
 # Card spawn point
 @onready var card_spawn_points_parent = $CardSpawnPoints
 var card_spawn_points: Array = []
-var max_cards_to_collect := 0
+var max_cards_to_collect := 0 # Note: The previous version had this set to 4.
 
 # 3 minutes per turn
 var turn_duration := 60
@@ -42,8 +40,37 @@ func _ready():
         for player_id in multiplayer.get_peers():
             if player_id != multiplayer.get_unique_id():
                 spawn_player(player_id)
+        # ⭐ NEW: The server should generate the cards at the start of the game.
+        generate_random_number_cards()
+    
+    if not Global.revealed_role:
+        show_role_reveal()
+    else:
+        print("Role already revealed. Starting game directly.")
+        start_turn_timer()
 
+func show_role_reveal():
+    # Instance your role reveal scene
+    var role_reveal_scene = preload("res://Scenes/role_reveal.tscn")
+    var role_reveal_node = role_reveal_scene.instantiate()
+    # ⭐ CORRECTED: Add the CanvasLayer node to the root of the scene tree.
+    get_tree().root.add_child(role_reveal_node)
+    
+    # ⭐ NEW: Set the state that the role has been revealed.
+    Global.revealed_role = true
 
+    # Get the local player's role and leader status from Global
+    var my_id = multiplayer.get_unique_id()
+    var my_role = Global.player_roles.get(my_id, {}).get("base", "Unknown")
+    var is_leader = Global.player_roles.get(my_id, {}).get("leader", false)
+
+    role_reveal_node.show_role(my_role, is_leader)
+    role_reveal_node.role_reveal_finished.connect(on_role_reveal_finished)
+
+func on_role_reveal_finished():
+    print("Role reveal animation finished. Starting game timer.")
+    start_turn_timer()
+    
 func _on_peer_connected(id: int):
     spawn_player(id)
     update_all_player_properties()
@@ -77,6 +104,7 @@ func spawn_player(player_id: int):
     var player_instance = player_scene.instantiate()
 
     player_instance.name = "Player_" + str(player_id)
+    
     player_instance.transform = spawn_transform
     player_instance.set_multiplayer_authority(player_id)
     player_instance.scale = Vector3(0.3, 0.3, 0.3)
@@ -91,10 +119,12 @@ func spawn_player(player_id: int):
         player_instance.set_player_color.rpc(Global.player_colors[player_id])
     if Global.player_names.has(player_id):
         player_instance.set_player_name.rpc(Global.player_names[player_id])
+
     if Global.player_roles.has(player_id):
         var role = Global.player_roles[player_id]
         player_instance.set_role(role["base"], role["leader"])
         
+        # ⭐ Removed the redundant role display code.
         if role["leader"]:
             Global.leader_id = player_id
             player_instance.update_role_visibility()
@@ -111,6 +141,31 @@ func update_all_player_properties():
             
         if Global.player_names.has(player_id):
             node.set_player_name.rpc(Global.player_names[player_id])
+
+# ⭐ NEW: This function was missing and is crucial for game startup.
+func generate_random_number_cards():
+    if not multiplayer.is_server():
+        return
+        
+    var all_card_numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+    all_card_numbers.shuffle()
+    
+    var available_spawn_points = card_spawn_points.duplicate()
+    available_spawn_points.shuffle()
+    
+    var numbers_to_spawn = []
+    var positions_to_spawn = []
+    
+    for i in range(4):
+        numbers_to_spawn.append(all_card_numbers[i])
+        
+        if i < available_spawn_points.size():
+            positions_to_spawn.append(available_spawn_points[i].global_transform.origin)
+            
+    print("Generated (unique) numbers: ", numbers_to_spawn)
+    print("Generated unique positions: ", positions_to_spawn)
+
+    rpc("spawn_cards_with_numbers", numbers_to_spawn, positions_to_spawn)
 
 # -------------------------
 # TURN SYSTEM
@@ -268,8 +323,6 @@ func show_dropped_cards_rpc(card_names: Array, positions: Array):
         if is_instance_valid(card_node):
             # The card node handles its own visibility and position via RPC.
             card_node.rpc("show_card", new_position)
-
-
 
 
 func _on_drop_cards_pressed() -> void:

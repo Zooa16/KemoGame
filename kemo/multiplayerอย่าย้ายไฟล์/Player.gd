@@ -56,6 +56,7 @@ func _ready():
     if role_label:
         role_label.text = ""
         role_label.visible = false
+  
     if role_label2:
         role_label2.text = ""
         role_label2.visible = false
@@ -81,15 +82,17 @@ func set_role(new_role: String, is_leader: bool = false):
             if Global.role_colors.has(new_role):
                 role_label.modulate = Global.role_colors[new_role]
             role_label.visible = true
-        
-        var reveal_scene = preload("res://Scenes/role_reveal.tscn").instantiate()
-        get_tree().root.add_child(reveal_scene)
-        reveal_scene.show_role(new_role, is_leader)
-        
-        if multiplayer.is_server():
-            var gm_node = get_tree().get_root().get_node("GameManager")
-            if gm_node:
-                reveal_scene.role_reveal_finished.connect(Callable(gm_node, "on_role_reveal_finished"))
+
+        # ⭐ จุดแก้ไข: ตรวจสอบว่าได้มีการเปิดเผยบทบาทไปแล้วหรือไม่
+        if not Global.revealed_role:
+            var reveal_scene = preload("res://Scenes/role_reveal.tscn").instantiate()
+            get_tree().root.add_child(reveal_scene)
+            reveal_scene.show_role(new_role, is_leader)
+      
+            if multiplayer.is_server():
+                var gm_node = get_tree().get_root().get_node("GameManager")
+                if gm_node:
+                    reveal_scene.role_reveal_finished.connect(Callable(gm_node, "on_role_reveal_finished"))
 
     rpc("update_role_visibility_all")
 
@@ -130,7 +133,6 @@ func add_card(card_id: String):
     # ⭐ NEW: The button visibility logic now happens here, on the client.
     update_drop_button_visibility()
 
-# ⭐ NEW: Function to control the button's visibility.
 # ⭐ NEW: Function to control the button's visibility.
 func update_drop_button_visibility():
     if is_multiplayer_authority():
