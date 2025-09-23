@@ -364,37 +364,46 @@ func sync_mission_result(is_success: bool):
 	# อัปเดตตัวแปรใน Global เพื่อให้ฉาก "Round_results" อ่านค่าได้
 	Global.mission_success = is_success
 
-# ⭐ CORRECTED: Function to combine and format the collected cards for the label.
+@rpc("any_peer", "reliable", "call_local")
+func sync_password_string(password_string: String):
+	# ฟังก์ชันนี้จะถูกเรียกบนทุกเครื่อง (รวมถึงเซิร์ฟเวอร์)
+	Global.entered_password = password_string
+	
+	# อัปเดต UI บนเครื่องของแต่ละผู้เล่น
+	var ui_node = get_node_or_null("UI/UI_Player")
+	if is_instance_valid(ui_node):
+		var password_label_node = ui_node.get_node_or_null("PasswordLabel")
+		if is_instance_valid(password_label_node):
+			password_label_node.text = password_string
+
+# โค้ดส่วนนี้จะทำงานบนโฮสต์เท่านั้น
 func update_password_display():
-	# Combine all collected cards from all players into a single array
-	combined_collected_cards.clear()
-	# ⭐ CORRECTED: Use the correct variable name: collected_cards_by_player
-	for player_id in Global.collected_cards_by_player.keys():
-		for card_number in Global.collected_cards_by_player[player_id]:
-			combined_collected_cards.append(card_number)
-
-	# Sort the collected numbers to display them in the correct order.
-	combined_collected_cards.sort()
-
-	# Create the string for the label
-	var password_string = ""
-	# Use the globally stored list of numbers that were spawned.
-	var all_card_numbers = Global.spawned_card_numbers
-	if not all_card_numbers:
-		print("Error: Global.spawned_card_numbers is empty!")
+	if not multiplayer.is_server():
 		return
 
-	for i in range(all_card_numbers.size()):
-		var number_to_check = all_card_numbers[i]
+	# รหัสผ่านจริงที่สุ่มมาจาก GameManager
+	var real_password_numbers = Global.spawned_card_numbers
+	if real_password_numbers.is_empty():
+		print("Error: Global.spawned_card_numbers is emptys!")
+		return
+	
+	# รวบรวมการ์ดที่ผู้เล่นในทีมภารกิจเก็บได้
+	var combined_collected_cards: Array = []
+	for player_id in Global.the_mission_team:
+		if Global.collected_cards_by_player.has(player_id):
+			# เพิ่มการ์ดที่เก็บได้ของแต่ละผู้เล่นในทีมภารกิจ
+			combined_collected_cards.append_array(Global.collected_cards_by_player[player_id])
+	
+	# จัดเรียงตัวเลขที่เก็บได้
+	combined_collected_cards.sort()
+
+	# สร้างสตริงรหัสผ่านใหม่
+	var password_string = ""
+	for number_to_check in real_password_numbers:
 		if number_to_check in combined_collected_cards:
 			password_string += str(number_to_check)
 		else:
-			password_string += "  "  # Add spaces for the missing number
+			password_string += "_"  # ใช้ _ สำหรับตัวเลขที่ยังไม่ได้เก็บ
 
-		# Add a comma and space unless it's the last number.
-		if i < all_card_numbers.size() - 1:
-			password_string += ", "
-
-	if is_instance_valid(password_label):
-		password_label.text = password_string
-		print("Updated password label to: ", password_string)
+	# ส่งรหัสผ่านนี้ไปยังผู้เล่นทุกคน
+	rpc("sync_password_string", password_string)

@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dlqpk4tdoc8t" path="res://Scripts/the_core.gd" id="1_5grkw"]
 [ext_resource type="PackedScene" uid="uid://blnjd31uociag" path="res://Scenes/server_box.tscn" id="1_uyt0q"]
 [ext_resource type="Script" uid="uid://br0qgqgi8v01v" path="res://Scripts/computer_1.gd" id="2_tw02u"]
-[ext_resource type="ArrayMesh" uid="uid://bvoeqkoa0giaq" path="res://Asset 3D/city/Chairs/Misc/Electronics/Office_Misc_PC_01.obj" id="3_5grkw"]
+[ext_resource type="ArrayMesh" uid="uid://bg5kxelpolwbe" path="res://Asset 3D/city/Chairs/Misc/Electronics/Office_Misc_PC_01.obj" id="3_5grkw"]
 [ext_resource type="Script" uid="uid://chtxh074y6iir" path="res://Scripts/computer_2.gd" id="5_rv1b7"]
 [ext_resource type="Script" uid="uid://m1ao7fgpkfdx" path="res://Scripts/computer_3.gd" id="6_liuw2"]
 [ext_resource type="Script" uid="uid://bq6x1rijbysrw" path="res://Scripts/computer_4.gd" id="7_37cde"]
@@ -12,6 +12,8 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_73m1n"]
 font_size = 64
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_5grkw"]
 font_size = 40
