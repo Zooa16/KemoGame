@@ -198,7 +198,7 @@ sky = SubResource("Sky_xy6aj")
 script = ExtResource("1_5grkw")
 
 [node name="ALL_MODEL" type="Node3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, -57.2253, 0)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, -7.01065, -78.1667)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="ALL_MODEL"]
 transform = Transform3D(100, 0, 0, 0, 1, 0, 0, 0, 100, 4.44407, -8.80106, -2.50367)
@@ -6196,7 +6196,7 @@ transform = Transform3D(-0.648216, -0.645292, -0.404246, -0.431431, -0.126211, 0
 shadow_enabled = true
 
 [node name="SpawnPoints" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 96.564, 147.771)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -51.5747, -44.6272)
 
 [node name="Marker3D" type="Marker3D" parent="SpawnPoints"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, -10, 30)
