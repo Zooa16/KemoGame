@@ -6176,5 +6176,4 @@ _spawnable_scenes = PackedStringArray("uid://cxrrxf305rbhf")
 spawn_path = NodePath("..")
 
 [node name="SpectatorCamera" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 50, 100)
 cull_mask = 1048573

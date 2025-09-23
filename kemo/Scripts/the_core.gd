@@ -1,6 +1,7 @@
 # the_core.gd
 extends Node
 
+# UI nodes
 @onready var timer_label: Label = $UI/MarginContainer/TimerLabel
 @onready var cards_label: Label = $UI/UI_Player/CardsCollectedLabel
 @onready var turn_timer: Timer = $TurnTimer
@@ -14,7 +15,7 @@ var player_spawn_points: Array = []
 var card_spawn_points: Array = []
 var max_cards_to_collect := 0
 
-# spectator
+# Spectator variables
 var spectator_delay := 0.5  # วินาที
 var spectator_target_id: int = -1
 var retry_timer := 0.0
@@ -26,6 +27,8 @@ var time_left := 0
 
 # Load your single card scene
 var card_scene = preload("res://Scenes/Cards.tscn")
+# Load your single player scene
+var player_scene = preload("res://multiplayerอย่าย้ายไฟล์/player.tscn")
 
 func _ready():
     turn_timer.timeout.connect(_on_TurnTimer_timeout)
@@ -69,24 +72,27 @@ func _ready():
         print("Role already revealed. Starting game directly.")
         start_turn_timer()
 
-
 # --------------------- Spectator ------------------------
 
 func become_spectator():
     print("--- Debug: become_spectator() ---")
     if Global.the_mission_team.is_empty():
         return
-
+        
     spectator_target_id = Global.the_mission_team.pick_random()
-    spectator_ready = false  # reset state
+    change_spectator_target(spectator_target_id)
+    
+func change_spectator_target(target_id: int):
+    spectator_target_id = target_id
+    spectator_ready = false
+    
     var spectator_cam = $SpectatorCamera
     spectator_cam.current = true
-
+    
     # fallback มุมกว้างก่อน
     spectator_cam.position = Vector3(0, 15, -15)
     spectator_cam.look_at(Vector3.ZERO, Vector3.UP)
-    print("Spectator will follow player:", spectator_target_id, " after delay")
-
+    
     # delay ก่อนจะตาม player จริง
     var delay_timer = get_tree().create_timer(spectator_delay)
     delay_timer.timeout.connect(func():
@@ -95,10 +101,9 @@ func become_spectator():
         print("Spectator is now following player:", spectator_target_id)
     )
 
-
 func _process(delta):
-    if spectator_target_id == -1 or not spectator_ready:
-        return  # ยังไม่พร้อมตาม player
+    if not spectator_ready:
+        return
 
     var spectator_cam = $SpectatorCamera
     var target_node = get_node_or_null("Player_" + str(spectator_target_id))
@@ -112,17 +117,9 @@ func _process(delta):
         retry_timer -= delta
         if retry_timer <= 0:
             if not Global.the_mission_team.is_empty():
-                spectator_target_id = Global.the_mission_team.pick_random()
-                spectator_ready = false
-                print("Retry: Switching spectator to player", spectator_target_id)
-
-                var delay_timer = get_tree().create_timer(spectator_delay)
-                delay_timer.timeout.connect(func():
-                    spectator_ready = true
-                    retry_timer = 3.0
-                    print("Spectator is now following player:", spectator_target_id)
-                )
-
+                var new_target_id = Global.the_mission_team.pick_random()
+                print("Retry: Switching spectator to player", new_target_id)
+                change_spectator_target(new_target_id)
 
 # --------------------- Role reveal ------------------------
 
@@ -144,13 +141,12 @@ func on_role_reveal_finished():
     print("Role reveal animation finished. Starting game timer.")
     start_turn_timer()
     
-
 # --------------------- Multiplayer ------------------------
 
 func _on_peer_connected(id: int):
     if Global.the_mission_team.has(id):
         spawn_player(id)
-        update_all_player_properties()
+        # ไม่ต้องเรียก update_all_player_properties() ตรงนี้แล้ว เพราะได้ย้ายไปทำใน spawn_player()
     
     if multiplayer.is_server():
         rpc_id(id, "update_timer_label", time_left)
@@ -160,7 +156,6 @@ func _on_peer_disconnected(id: int):
     if player:
         player.queue_free()
         print("Despawned player with ID: " + str(id))
-
 
 # --------------------- Player spawn ------------------------
 
@@ -180,7 +175,6 @@ func spawn_player(player_id: int):
         return
 
     var spawn_transform = get_player_spawn_point_transform(player_id)
-    var player_scene = preload("res://multiplayerอย่าย้ายไฟล์/player.tscn")
     var player_instance = player_scene.instantiate()
 
     player_instance.name = "Player_" + str(player_id)
@@ -188,11 +182,13 @@ func spawn_player(player_id: int):
     player_instance.set_multiplayer_authority(player_id)
     player_instance.scale = Vector3(0.3, 0.3, 0.3)
 
-    add_child(player_instance, true)
+    # แก้ไข: เปลี่ยนเป็น add_child() เพื่อซิงค์โหนด
+    add_child(player_instance)
 
     if multiplayer.is_server():
         player_instance.card_collected_updated.connect(Callable(self, "_on_player_card_collected_updated").bind(player_id))
-
+        
+    # แก้ไข: เรียก RPC เพื่ออัปเดตข้อมูลภายในฟังก์ชันนี้
     if Global.player_colors.has(player_id):
         player_instance.set_player_color.rpc(Global.player_colors[player_id])
     if Global.player_names.has(player_id):
@@ -206,7 +202,6 @@ func spawn_player(player_id: int):
             Global.leader_id = player_id
             player_instance.update_role_visibility()
             
-
 func update_all_player_properties():
     if Global.player_colors.is_empty() and Global.player_names.is_empty():
         return
@@ -219,7 +214,6 @@ func update_all_player_properties():
             
         if Global.player_names.has(player_id):
             node.set_player_name.rpc(Global.player_names[player_id])
-
 
 # --------------------- Cards ------------------------
 
@@ -247,7 +241,6 @@ func generate_random_number_cards():
 
     rpc("spawn_cards_with_numbers", numbers_to_spawn, positions_to_spawn)
 
-
 # --------------------- Timer ------------------------
 
 func start_turn_timer():
@@ -256,7 +249,9 @@ func start_turn_timer():
 
     time_left = turn_duration
     timer_label.visible = true
-    update_timer_label(time_left)
+    
+    # แก้ไข: ใช้ RPC เพื่อซิงค์เวลาเริ่มต้น
+    rpc("update_timer_label", time_left)
 
     turn_timer.wait_time = 1.0
     turn_timer.one_shot = false
