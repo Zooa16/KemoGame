@@ -189,27 +189,30 @@ func go_to_voting_phase():
 func generate_random_number_cards():
     if not multiplayer.is_server():
         return
-        
+
     var all_card_numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
     all_card_numbers.shuffle()
-    
+
     var available_spawn_points = card_spawn_points.duplicate()
     available_spawn_points.shuffle()
-    
+
     var numbers_to_spawn = []
     var positions_to_spawn = []
-    
+
     for i in range(4):
         numbers_to_spawn.append(all_card_numbers[i])
-        
+
         if i < available_spawn_points.size():
             positions_to_spawn.append(available_spawn_points[i].global_transform.origin)
-            
+
     print("Generated (unique) numbers: ", numbers_to_spawn)
     print("Generated unique positions: ", positions_to_spawn)
 
-    # 💡 CORRECTED: This RPC now tells all clients to spawn the cards
-    # This ensures a single set of cards is created for the entire game.
+    # ⭐ NEW: Assign the generated numbers to the Global singleton
+    Global.spawned_card_numbers = numbers_to_spawn
+
+#💡 CORRECTED: This RPC now tells all clients to spawn the cards
+#This ensures a single set of cards is created for the entire game.
     rpc("spawn_cards_with_numbers", numbers_to_spawn, positions_to_spawn)
 
 

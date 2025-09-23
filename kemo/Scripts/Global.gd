@@ -10,6 +10,8 @@ var player_colors: Dictionary = {}
 var player_names: Dictionary = {}
 var player_roles: Dictionary = {}
 
+var spawned_card_numbers: Array = []
+
 # เพิ่มตัวแปร the_mission_team: Array เพื่อเก็บรายชื่อผู้เล่นในทีมภารกิจ
 var the_mission_team: Array = []
 var no_mission_team: Array = []
