@@ -258,7 +258,7 @@ func set_mission_size_and_label():
     if not multiplayer.is_server():
         return
     
-    var weighted_sizes = [1]
+    var weighted_sizes = [2]
     var chosen_size = weighted_sizes[randi() % weighted_sizes.size()]
     
     Global.mission_size = chosen_size
