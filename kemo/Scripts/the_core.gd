@@ -1,4 +1,3 @@
-# the_core.gd
 extends Node
 
 # UI nodes
@@ -55,9 +54,11 @@ func _ready():
     print("Local Player ID: ", my_id)
     print("-----------------------------------")
     
+    # ⭐ แก้ไข: เมื่อเกมเริ่มต้น ให้เซิร์ฟเวอร์สร้างผู้เล่นของตัวเอง
+    # ส่วนผู้เล่นคนอื่นๆ จะถูกสร้างเมื่อเชื่อมต่อ
     if multiplayer.is_server():
-        for player_id in Global.the_mission_team:
-            spawn_player(player_id)
+        if Global.the_mission_team.has(my_id):
+            spawn_player(my_id)
         generate_random_number_cards()
     
     if Global.the_mission_team.has(my_id):
@@ -214,12 +215,15 @@ func on_role_reveal_finished():
     
 # --------------------- Multiplayer ------------------------
 
+# ⭐ แก้ไข: ให้เซิร์ฟเวอร์รับผิดชอบการสร้างผู้เล่นเมื่อมีการเชื่อมต่อใหม่เท่านั้น
 func _on_peer_connected(id: int):
-    if Global.the_mission_team.has(id):
-        spawn_player(id)
-    
+    print("Peer connected with ID:", id)
     if multiplayer.is_server():
-        rpc_id(id, "update_timer_label", time_left)
+        print("Server: New peer connected with ID ", id)
+        # ตรวจสอบว่า ID ผู้เล่นใหม่นี้อยู่ในทีมภารกิจหรือไม่
+        if Global.the_mission_team.has(id):
+            print("Server: Spawning player with ID ", id, " for mission team.")
+            spawn_player(id)
 
 func _on_peer_disconnected(id: int):
     var player = get_node_or_null("Player_" + str(id))
