@@ -10,13 +10,51 @@ var special_roles := {
 func start_game():
     print("Changing scene to game...")
     if get_tree():
+        # ⭐ IMPORTANT: รีเซ็ตค่า Global ต่างๆ เมื่อเริ่มเกมใหม่
+        Global.collected_cards_by_player.clear() # ล้างข้อมูลการ์ดที่เก็บได้
+        Global.the_mission_team.clear() # ล้างข้อมูลทีม
+        Global.no_mission_team.clear() # ล้างข้อมูลทีมที่ไม่เข้าร่วมภารกิจ
+        Global.eliminated_player_id = -1 # รีเซ็ตผู้เล่นที่ถูกคัดออก
+        Global.revealed_role = false # รีเซ็ตการเปิดเผยบทบาท
+        
+        # ⭐ NEW: จัดการหมายเลขรอบเกม
+        # ถ้าไม่มี Global.round_number (เกมเพิ่งเริ่ม) ให้ตั้งเป็น 1
+        if Global.round_number == 0:
+            Global.round_number = 1
+        else:
+            # ถ้าเกมวนลูป ให้เพิ่มหมายเลขรอบ
+            Global.round_number += 1
+        
         get_tree().change_scene_to_file("res://Scenes/game.tscn")
 
         if multiplayer.is_server():
             await get_tree().create_timer(0.2).timeout
-            # ⭐ เพิ่มเงื่อนไขเพื่อตรวจสอบว่าได้มีการสุ่มบทบาทไปแล้วหรือไม่
+            # ⭐ NEW: ตรวจสอบว่าได้มีการสุ่มบทบาทไปแล้วหรือไม่
             if Global.player_roles.is_empty():
                 assign_roles()
+            else:
+                # ⭐ NEW: ส่งสัญญาณให้ client ทุกคนรู้ว่าเริ่มรอบใหม่แล้ว
+                sync_game_start()
+            
+            # ⭐ NEW: ส่งหมายเลขรอบเกมไปให้ผู้เล่นทุกคน
+            rpc("sync_round_number", Global.round_number)
+
+@rpc("any_peer", "reliable", "call_local")
+func sync_round_number(number: int):
+    Global.round_number = number
+    
+    var game_node = get_tree().get_current_scene()
+    if game_node and game_node.has_method("update_round_label"):
+        game_node.update_round_label()
+
+# ⭐ NEW: RPC เพื่อซิงค์การเริ่มต้นเกม
+@rpc("any_peer", "reliable", "call_local")
+func sync_game_start():
+    # ใช้ฟังก์ชันนี้เพื่อซิงค์การ์ดและ UI ที่จำเป็นเมื่อเริ่มรอบใหม่
+    var game_node = get_tree().get_current_scene()
+    if is_instance_valid(game_node) and game_node.is_in_group("game_scene"):
+        game_node.spawn_cards()
+        game_node.start_turn_timer()
 
 func on_role_reveal_finished():
     if multiplayer.is_server():
@@ -28,7 +66,8 @@ func on_role_reveal_finished():
 func _ready():
     if multiplayer.is_server():
         print("GameManager ready on server.")
-
+        Global.round_number = 0 # ⭐ ตั้งค่าเริ่มต้นของรอบเกม
+        
 func assign_roles():
     if not multiplayer.is_server():
         return
@@ -54,7 +93,6 @@ func assign_roles():
         assigned_count += 1
     
     # 3. Choose a random leader.
-    # 👇 แก้ไขข้อผิดพลาด pick_random ด้วยการแปลงเป็น Array ก่อน
     var leader_peer_id = Array(connected_players_list).pick_random()
     Global.leader_id = leader_peer_id
     
@@ -69,29 +107,29 @@ func assign_roles():
     print("Assigned roles:", Global.player_roles)
 
     # 4. Propagate roles to all players.
-    # 👇 แก้ไขให้ส่ง leader_id ไปด้วย
     rpc("sync_player_roles", Global.player_roles, Global.leader_id)
+    
+    # ⭐ NEW: ส่งหมายเลขรอบเกมหลังการสุ่มบทบาท
+    rpc("sync_round_number", Global.round_number)
+    
+    # ⭐ NEW: ส่งสัญญาณให้ client ทุกคนรู้ว่าเริ่มรอบใหม่แล้ว
+    rpc("sync_game_start")
 
 @rpc("any_peer", "reliable", "call_local")
-# 👇 แก้ไขให้รับ leader_id เข้ามาด้วย
 func sync_player_roles(roles_dict: Dictionary, leader_id: int):
     Global.player_roles = roles_dict
-    Global.leader_id = leader_id # <-- ตั้งค่า leader_id ที่นี่
+    Global.leader_id = leader_id
     
-    # The `player_role` variable should be set for the local player.
     if Global.player_roles.has(multiplayer.get_unique_id()):
         Global.player_role = Global.player_roles[multiplayer.get_unique_id()]["base"]
     
-    # Update the local player's scene with the new role.
     var player_node = get_player_by_id(multiplayer.get_unique_id())
     if player_node:
-        # Pass both the base role and leader status to the Player node.
         player_node.set_role(Global.player_roles[multiplayer.get_unique_id()]["base"], Global.player_roles[multiplayer.get_unique_id()]["leader"])
     if not multiplayer.is_server() and not Global.revealed_role:
         var game_node = get_tree().get_root().get_node("game")
         if game_node:
             game_node.show_role_reveal()
-    # Update all player nodes' role visibility
     for node in get_tree().get_nodes_in_group("players"):
         node.update_role_visibility()
 
@@ -100,3 +138,57 @@ func get_player_by_id(id: int) -> Node:
         if player.get_multiplayer_authority() == id:
             return player
     return null
+
+@rpc("any_peer", "reliable", "call_local")
+func check_game_end_condition(is_success: bool):
+    if not multiplayer.is_server():
+        return
+        
+    var final_message: String = ""
+    var local_player_id = multiplayer.get_unique_id()
+    
+    # กำหนดกลุ่มบทบาท
+    var awakened_roles = ["Data Retriever", "Support", "The Oracle", "Hacker"]
+    var entity_roles = ["Tracer", "Enforcer", "System Controller"]
+    
+    # ตรวจสอบบทบาทของผู้เล่นที่เรียกใช้
+    var player_role = Global.player_roles.get(local_player_id).get("base")
+    
+    # ⭐ NEW: ตรวจสอบเงื่อนไขการจบเกม
+    if Global.mission_wins >= 3:
+        if player_role in awakened_roles:
+            final_message = "The matrix is broken, you guys have won."
+        elif player_role in entity_roles:
+            final_message = "The matrix is broken, you are dead."
+        
+        rpc("end_game_with_message", final_message)
+        
+    elif Global.mission_losses >= 3:
+        if player_role in awakened_roles:
+            final_message = "Mission failed, you are now being controlled by the Entities."
+        elif player_role in entity_roles:
+            final_message = "You win, the Awakened's are now under your control."
+            
+        rpc("end_game_with_message", final_message)
+    
+    else:
+        # ถ้าเกมยังไม่จบ ให้ดำเนินการต่อ
+        start_game()
+
+@rpc("any_peer", "reliable", "call_local")
+func end_game_with_message(message: String):
+    # เปลี่ยนฉากไปที่ฉากแสดงผลลัพธ์สุดท้าย
+    var game_scene = get_tree().get_current_scene()
+    if is_instance_valid(game_scene) and game_scene.has_method("end_game_final"):
+        game_scene.end_game_final(message)
+    else:
+        # ถ้าอยู่ในฉากอื่น ให้เปลี่ยนฉากและส่งข้อมูล
+        var final_scene = load("res://Scenes/round results.tscn").instantiate()
+        get_tree().get_root().add_child(final_scene)
+        
+        # ค้นหาและตั้งค่า Label
+        var label_node = final_scene.get_node_or_null("Label")
+        if label_node:
+            label_node.text = message
+            
+        get_tree().current_scene.queue_free()

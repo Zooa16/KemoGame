@@ -4,6 +4,7 @@ extends Node
 @onready var turn_timer: Timer = $TurnTimer
 @onready var cards_label: Label = $UI/CardsCollectedLabel
 
+@onready var round_label: Label = $UI/RoundLabel # ⭐ NEW: Node สำหรับแสดงหมายเลขรอบ
 # Player spawn point
 @onready var player_spawn_points_parent = $SpawnPoints
 var player_spawn_points: Array = []
@@ -47,6 +48,8 @@ func _ready():
             if player_id != multiplayer.get_unique_id():
                 spawn_player(player_id)
         generate_random_number_cards()
+        
+    update_round_label()
 # ฟังก์ชันใหม่สำหรับแสดงฉากเปิดเผยบทบาท
 func show_role_reveal():
     var role_reveal_scene = preload("res://Scenes/role_reveal.tscn").instantiate()
@@ -399,3 +402,7 @@ func _on_drop_cards_pressed() -> void:
     else:
         # If the player is a client, send an RPC to the host (peer ID 1).
         rpc_id(1, "drop_single_card_request", local_player_id)
+
+@rpc("any_peer", "reliable", "call_local")
+func update_round_label():
+    round_label.text = "Round " + str(Global.round_number)

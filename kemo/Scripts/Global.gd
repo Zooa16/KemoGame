@@ -3,6 +3,8 @@ extends Node
 
 var mission_size: int = 0
 
+var mission_wins: int = 0
+var mission_losses: int = 0
 # ⭐ NEW: ตัวแปรสำหรับเก็บผลลัพธ์ของภารกิจ
 var mission_success: bool = false
 
@@ -22,6 +24,7 @@ var collected_cards_by_player: Dictionary = {}
 var the_mission_team: Array = []
 var no_mission_team: Array = []
 
+var round_number: int = 1
 # List of all possible roles (accessible from anywhere)
 var roles: Array = [
     "Data Retriever",

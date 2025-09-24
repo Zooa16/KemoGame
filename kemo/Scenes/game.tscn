@@ -1,4 +1,4 @@
-[gd_scene load_steps=196 format=4 uid="uid://6erkhj0td6qu"]
+[gd_scene load_steps=197 format=4 uid="uid://6erkhj0td6qu"]
 
 [ext_resource type="Script" uid="uid://eyucjs1uuh75" path="res://Scripts/game.gd" id="1_0q11v"]
 [ext_resource type="PackedScene" uid="uid://cwn87tw3xwuj2" path="res://Asset 3D/city/use this for builder/building_b_without_base.tscn" id="2_sdta4"]
@@ -114,6 +114,11 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_5j8rd"]
 font_size = 64
+
+[sub_resource type="LabelSettings" id="LabelSettings_0q11v"]
+font_size = 48
+outline_size = 12
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Shader" id="Shader_0q11v"]
 code = "
@@ -584,6 +589,13 @@ offset_top = 792.0
 offset_right = 1501.0
 offset_bottom = 873.0
 text = "Drop Card"
+
+[node name="RoundLabel" type="Label" parent="UI"]
+offset_left = 11.0
+offset_right = 259.0
+offset_bottom = 64.0
+text = "Round : 1"
+label_settings = SubResource("LabelSettings_0q11v")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_53pxc")
