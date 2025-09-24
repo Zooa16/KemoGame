@@ -236,10 +236,14 @@ func get_player_spawn_point_transform(player_id: int) -> Transform3D:
     var index = player_id % player_spawn_points.size()
     return player_spawn_points[index].transform
 
+# ⭐ การแก้ไขที่สำคัญ: เพิ่ม decorator นี้เพื่อให้ฟังก์ชันถูกเรียกบนทุกเครื่อง
+@rpc("any_peer", "call_local")
 func spawn_player(player_id: int):
+    # ตรวจสอบว่า Node ผู้เล่นนั้นถูกสร้างขึ้นแล้วหรือยัง
     if get_node_or_null("Player_" + str(player_id)):
         return
-    
+
+    # ⭐ เพิ่มเงื่อนไขเพื่อตรวจสอบว่าผู้เล่นนี้อยู่ในทีมภารกิจหรือไม่
     if not Global.the_mission_team.has(player_id):
         print("Player ID ", player_id, " is not on the mission team. Not spawning.")
         return
@@ -249,39 +253,30 @@ func spawn_player(player_id: int):
 
     player_instance.name = "Player_" + str(player_id)
     player_instance.transform = spawn_transform
+    # ⭐ สำคัญ: ตั้งค่า authority ให้ถูกต้อง
     player_instance.set_multiplayer_authority(player_id)
     player_instance.scale = Vector3(0.3, 0.3, 0.3)
 
     add_child(player_instance)
 
+    # โค้ดส่วนนี้จะทำงานบนเซิร์ฟเวอร์เท่านั้น
     if multiplayer.is_server():
         player_instance.card_collected_updated.connect(Callable(self, "_on_player_card_collected_updated").bind(player_id))
-        
+    
+    # RPC สำหรับส่งข้อมูลสีและชื่อไปยังผู้เล่นทุกคน
     if Global.player_colors.has(player_id):
         player_instance.set_player_color.rpc(Global.player_colors[player_id])
     if Global.player_names.has(player_id):
         player_instance.set_player_name.rpc(Global.player_names[player_id])
 
+    # ส่งข้อมูลบทบาทไปยังผู้เล่นทุกคน
     if Global.player_roles.has(player_id):
         var role = Global.player_roles[player_id]
-        player_instance.set_role(role["base"], role["leader"])
+        player_instance.set_role.rpc_id(player_id, role["base"], role["leader"])
         
         if role["leader"]:
             Global.leader_id = player_id
             player_instance.update_role_visibility()
-            
-func update_all_player_properties():
-    if Global.player_colors.is_empty() and Global.player_names.is_empty():
-        return
-
-    for node in get_tree().get_nodes_in_group("players"):
-        var player_id = str(node.name).split("_")[1].to_int()
-        
-        if Global.player_colors.has(player_id):
-            node.set_player_color.rpc(Global.player_colors[player_id])
-            
-        if Global.player_names.has(player_id):
-            node.set_player_name.rpc(Global.player_names[player_id])
 
 # --------------------- Cards ------------------------
 
