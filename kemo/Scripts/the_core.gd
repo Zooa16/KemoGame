@@ -1,3 +1,4 @@
+# the_core.gd
 extends Node
 
 # UI nodes
@@ -55,9 +56,16 @@ func _ready():
     print("-----------------------------------")
     
     if multiplayer.is_server():
-        for player_id in Global.the_mission_team:
+        # ⭐ NEW: เปลี่ยนการ Spawn ให้ spawn ผู้เล่นทุกคน
+        # Spawn ตัวเองก่อน
+        spawn_player(my_id)
+        # แล้วจึงวนลูป spawn ผู้เล่นคนอื่นๆ ทั้งหมด
+        for player_id in multiplayer.get_peers():
             spawn_player(player_id)
         generate_random_number_cards()
+    else:
+        # ถ้าเป็นไคลเอนต์ ให้ spawn เฉพาะตัวละครของตัวเอง
+        spawn_player(my_id)
     
     if Global.the_mission_team.has(my_id):
         get_node("UI/UI_Spectator").visible = false
@@ -217,11 +225,9 @@ func on_role_reveal_finished():
 # --------------------- Multiplayer ------------------------
 
 func _on_peer_connected(id: int):
-    if Global.the_mission_team.has(id):
-        spawn_player(id)
-    
-    # ⭐ NEW: อัปเดตข้อมูลของผู้เล่นทุกคนเมื่อมีผู้เล่นใหม่เข้ามา
+    # ⭐ NEW: เปลี่ยนการ spawn ให้ทำงานเสมอเมื่อมีผู้เล่นใหม่
     if multiplayer.is_server():
+        spawn_player(id)
         update_all_player_properties()
         rpc_id(id, "update_timer_label", time_left)
 
@@ -244,10 +250,6 @@ func spawn_player(player_id: int):
     if get_node_or_null("Player_" + str(player_id)):
         return
     
-    if not Global.the_mission_team.has(player_id):
-        print("Player ID ", player_id, " is not on the mission team. Not spawning.")
-        return
-
     var spawn_transform = get_player_spawn_point_transform(player_id)
     var player_instance = player_scene.instantiate()
 
@@ -259,7 +261,9 @@ func spawn_player(player_id: int):
     add_child(player_instance)
 
     if multiplayer.is_server():
-        player_instance.card_collected_updated.connect(Callable(self, "_on_player_card_collected_updated").bind(player_id))
+        # ⭐ NEW: เพิ่มการตรวจสอบก่อนเชื่อมต่อ Signal เพื่อป้องกันข้อผิดพลาด
+        if player_instance.has_signal("card_collected_updated"):
+            player_instance.card_collected_updated.connect(Callable(self, "_on_player_card_collected_updated").bind(player_id))
         
     if Global.player_colors.has(player_id):
         player_instance.set_player_color.rpc(Global.player_colors[player_id])
@@ -312,7 +316,9 @@ func generate_random_number_cards():
     print("Generated (unique) numbers: ", numbers_to_spawn)
     print("Generated unique positions: ", positions_to_spawn)
 
-    rpc("spawn_cards_with_numbers", numbers_to_spawn, positions_to_spawn)
+    # ⭐ NEW: RPC call for spawning cards
+    if not rpc("spawn_cards_with_numbers", numbers_to_spawn, positions_to_spawn) == OK:
+        print("Error: Could not call RPC for spawning cards.")
 
 # --------------------- Timer ------------------------
 
