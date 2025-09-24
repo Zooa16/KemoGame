@@ -60,6 +60,5 @@ func show_role(role: String, is_leader: bool, duration: float = 6) -> void:
 
     # 6. Cleanup
     await tween.finished
-    emit_signal("role_reveal_finished")
     Global.revealed_role = true
     queue_free()

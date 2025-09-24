@@ -204,7 +204,7 @@ func _process(delta):
 
     if target_node:
         var target_pos = target_node.global_position
-        spectator_cam.position = target_pos + Vector3(0, 5, 8)
+        spectator_cam.position = target_pos + Vector3(0, 12, 8)
         spectator_cam.look_at(target_pos, Vector3.UP)
     else:
         # ลดเวลา retry

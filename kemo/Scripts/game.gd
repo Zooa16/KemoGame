@@ -50,6 +50,7 @@ func _ready():
         generate_random_number_cards()
         
     update_round_label()
+    start_turn_timer()
 # ฟังก์ชันใหม่สำหรับแสดงฉากเปิดเผยบทบาท
 func show_role_reveal():
     var role_reveal_scene = preload("res://Scenes/role_reveal.tscn").instantiate()

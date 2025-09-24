@@ -32,9 +32,6 @@ func start_game():
             # ⭐ NEW: ตรวจสอบว่าได้มีการสุ่มบทบาทไปแล้วหรือไม่
             if Global.player_roles.is_empty():
                 assign_roles()
-            else:
-                # ⭐ NEW: ส่งสัญญาณให้ client ทุกคนรู้ว่าเริ่มรอบใหม่แล้ว
-                sync_game_start()
             
             # ⭐ NEW: ส่งหมายเลขรอบเกมไปให้ผู้เล่นทุกคน
             rpc("sync_round_number", Global.round_number)
@@ -47,21 +44,6 @@ func sync_round_number(number: int):
     if game_node and game_node.has_method("update_round_label"):
         game_node.update_round_label()
 
-# ⭐ NEW: RPC เพื่อซิงค์การเริ่มต้นเกม
-@rpc("any_peer", "reliable", "call_local")
-func sync_game_start():
-    # ใช้ฟังก์ชันนี้เพื่อซิงค์การ์ดและ UI ที่จำเป็นเมื่อเริ่มรอบใหม่
-    var game_node = get_tree().get_current_scene()
-    if is_instance_valid(game_node) and game_node.is_in_group("game_scene"):
-        game_node.spawn_cards()
-        game_node.start_turn_timer()
-
-func on_role_reveal_finished():
-    if multiplayer.is_server():
-        print("Role reveal finished. Starting game timer...")
-        var game_node = get_tree().get_current_scene()
-        if game_node.has_method("start_turn_timer"):
-            game_node.start_turn_timer()
 
 func _ready():
     if multiplayer.is_server():
@@ -82,7 +64,6 @@ func assign_roles():
             role_pool.append(role)
     
     role_pool.shuffle()
-    
     Global.player_roles.clear()
     
     # 2. Assign a random base role to each player first.
