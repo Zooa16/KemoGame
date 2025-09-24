@@ -15,7 +15,7 @@ func start_game():
         Global.the_mission_team.clear() # ล้างข้อมูลทีม
         Global.no_mission_team.clear() # ล้างข้อมูลทีมที่ไม่เข้าร่วมภารกิจ
         Global.eliminated_player_id = -1 # รีเซ็ตผู้เล่นที่ถูกคัดออก
-        Global.revealed_role = false # รีเซ็ตการเปิดเผยบทบาท
+        
         
         # ⭐ NEW: จัดการหมายเลขรอบเกม
         # ถ้าไม่มี Global.round_number (เกมเพิ่งเริ่ม) ให้ตั้งเป็น 1
