@@ -22,10 +22,4 @@ func _ready():
 
 # ฟังก์ชันนี้จะถูกเรียกเมื่อตัวจับเวลาหมดเวลา
 func _on_scene_change_timer_timeout():
-    # ตรวจสอบว่ามี GameManager อยู่ใน Scene Tree หรือไม่
-    if get_tree().has_node("/root/GameManager"):
-        # เรียกใช้ฟังก์ชัน start_game() เพื่อเริ่มเกมใหม่ทั้งหมด
-        get_tree().get_root().get_node("GameManager").start_game()
-    else:
-        # หากไม่พบ GameManager ให้เปลี่ยนฉากโดยตรง
-        get_tree().change_scene_to_file("res://Scenes/game.tscn")
+    GameManager.start_game()
