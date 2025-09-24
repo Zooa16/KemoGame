@@ -1,4 +1,3 @@
-# the_core.gd
 extends Node
 
 # UI nodes
@@ -85,6 +84,7 @@ func _ready():
         print("Error: PasswordLabel node not found!")
         return
     update_password_display()
+
 # --------------------- Spectator ------------------------
 
 func become_spectator():
@@ -134,6 +134,7 @@ func _process(delta):
                 print("Retry: Switching spectator to player", new_target_id)
                 change_spectator_target(new_target_id)
     update_password_display()
+
 func _on_next_pressed():
     if Global.the_mission_team.is_empty():
         return
@@ -159,6 +160,7 @@ func _on_back_pressed():
     
     var new_target_id = mission_ids[prev_index]
     change_spectator_target(new_target_id)
+
 #--------------------- activate_computers ------------------------
 func activate_computers():
     if not multiplayer.is_server():
@@ -218,7 +220,9 @@ func _on_peer_connected(id: int):
     if Global.the_mission_team.has(id):
         spawn_player(id)
     
+    # ⭐ NEW: อัปเดตข้อมูลของผู้เล่นทุกคนเมื่อมีผู้เล่นใหม่เข้ามา
     if multiplayer.is_server():
+        update_all_player_properties()
         rpc_id(id, "update_timer_label", time_left)
 
 func _on_peer_disconnected(id: int):
@@ -270,10 +274,11 @@ func spawn_player(player_id: int):
             Global.leader_id = player_id
             player_instance.update_role_visibility()
             
+# ⭐ NEW: เพิ่มฟังก์ชันนี้เพื่อซิงค์ข้อมูลผู้เล่นทุกคน
 func update_all_player_properties():
     if Global.player_colors.is_empty() and Global.player_names.is_empty():
         return
-
+    
     for node in get_tree().get_nodes_in_group("players"):
         var player_id = str(node.name).split("_")[1].to_int()
         
@@ -288,7 +293,7 @@ func update_all_player_properties():
 func generate_random_number_cards():
     if not multiplayer.is_server():
         return
-        
+     
     var all_card_numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
     all_card_numbers.shuffle()
     
@@ -362,8 +367,10 @@ func end_mission(is_success: bool):
     # ⭐ NEW: เพิ่มการนับรอบที่ชนะหรือแพ้
     if is_success:
        Global.mission_wins += 1
+       print(Global.mission_wins)
     else:
        Global.mission_losses += 1
+       print(Global.mission_losses)
      # ⭐ NEW: ตรวจสอบเงื่อนไขจบเกม
     rpc_id(1, "check_game_end_condition", is_success)
     # ⭐ NEW: ฟังก์ชัน RPC เพื่อซิงค์ผลลัพธ์ภารกิจกับทุกไคลเอนต์
