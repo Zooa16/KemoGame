@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://kad3v4mikcsg"]
 
-[ext_resource type="Script" uid="uid://bwxjngyqto770" path="res://Scripts/start_menu.gd" id="1_jgtwh"]
-[ext_resource type="Texture2D" uid="uid://do58ihktgne7b" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Main menu/ฉากหลัง.png" id="2_a43kq"]
+[ext_resource type="Script" uid="uid://bwxjngyqto770" path="res://start_menu.gd" id="1_jgtwh"]
+[ext_resource type="Texture2D" uid="uid://bmoklj01xiqcp" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Main menu/ฉากหลัง.png" id="2_a43kq"]
 
 [sub_resource type="Theme" id="Theme_jgtwh"]
 
@@ -62,7 +62,7 @@ grow_vertical = 2
 script = ExtResource("1_jgtwh")
 
 [node name="TextureRect" type="TextureRect" parent="."]
-layout_mode = 0
+layout_mode = 1
 offset_top = -20.0
 offset_right = 1920.0
 offset_bottom = 1180.0

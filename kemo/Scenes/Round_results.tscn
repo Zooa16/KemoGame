@@ -1,9 +1,9 @@
 [gd_scene load_steps=12 format=3 uid="uid://b2q45jsn8sw8m"]
 
 [ext_resource type="Script" uid="uid://dye7yrujiupf1" path="res://Scripts/round_results.gd" id="1_c8cte"]
-[ext_resource type="Texture2D" uid="uid://bbmx3u2aoxgs0" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Idle/ตัว/1.png" id="2_bs3my"]
-[ext_resource type="Texture2D" uid="uid://d042uktg1jtdh" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/เพิ่มหัวเรื่อง (2).png" id="2_nisqo"]
-[ext_resource type="Texture2D" uid="uid://ssn8ww4o11m1" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Idle/สี/ไม่มีชื่อ 12_20250817171242.png" id="3_nisqo"]
+[ext_resource type="Texture2D" uid="uid://ftcpkn2akeh4" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Idle/ตัว/1.png" id="2_bs3my"]
+[ext_resource type="Texture2D" uid="uid://4pdcgutlryg2" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/เพิ่มหัวเรื่อง (2).png" id="2_nisqo"]
+[ext_resource type="Texture2D" uid="uid://cy6e8p2e7pcax" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Idle/สี/ไม่มีชื่อ 12_20250817171242.png" id="3_nisqo"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_c8cte"]
 font_size = 80
@@ -100,22 +100,15 @@ modulate = Color(1, 0, 0, 1)
 position = Vector2(964.5, 162)
 texture = ExtResource("2_nisqo")
 
-[node name="Player1" type="Control" parent="The entity team"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -27.0
-offset_top = -125.0
-offset_right = 172.0
-offset_bottom = 95.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(1.5, 1.5)
+[node name="HBoxContainer" type="HBoxContainer" parent="The entity team"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="player_name" type="Label" parent="The entity team/Player1"]
+[node name="Player1" type="Control" parent="The entity team/HBoxContainer"]
+layout_mode = 2
+
+[node name="player_name" type="Label" parent="The entity team/HBoxContainer/Player1"]
 layout_mode = 0
 offset_left = 13.0
 offset_top = 163.0
@@ -125,36 +118,24 @@ label_settings = SubResource("LabelSettings_3d1r5")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="body" type="TextureRect" parent="The entity team/Player1"]
+[node name="body" type="TextureRect" parent="The entity team/HBoxContainer/Player1"]
 layout_mode = 0
 offset_right = 640.0
 offset_bottom = 640.0
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("2_bs3my")
 
-[node name="Modulate" type="TextureRect" parent="The entity team/Player1"]
+[node name="Modulate" type="TextureRect" parent="The entity team/HBoxContainer/Player1"]
 layout_mode = 0
 offset_right = 640.0
 offset_bottom = 640.0
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("3_nisqo")
 
-[node name="Player2" type="Control" parent="The entity team"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -295.0
-offset_top = -125.0
-offset_right = -96.0
-offset_bottom = 95.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(1.5, 1.5)
+[node name="Player2" type="Control" parent="The entity team/HBoxContainer"]
+layout_mode = 2
 
-[node name="player_name" type="Label" parent="The entity team/Player2"]
+[node name="player_name" type="Label" parent="The entity team/HBoxContainer/Player2"]
 layout_mode = 0
 offset_left = 13.0
 offset_top = 163.0
@@ -164,36 +145,24 @@ label_settings = SubResource("LabelSettings_3d1r5")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="body" type="TextureRect" parent="The entity team/Player2"]
+[node name="body" type="TextureRect" parent="The entity team/HBoxContainer/Player2"]
 layout_mode = 0
 offset_right = 640.0
 offset_bottom = 640.0
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("2_bs3my")
 
-[node name="Modulate" type="TextureRect" parent="The entity team/Player2"]
+[node name="Modulate" type="TextureRect" parent="The entity team/HBoxContainer/Player2"]
 layout_mode = 0
 offset_right = 640.0
 offset_bottom = 640.0
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("3_nisqo")
 
-[node name="Player3" type="Control" parent="The entity team"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 239.0
-offset_top = -129.0
-offset_right = 438.0
-offset_bottom = 91.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(1.5, 1.5)
+[node name="Player3" type="Control" parent="The entity team/HBoxContainer"]
+layout_mode = 2
 
-[node name="player_name" type="Label" parent="The entity team/Player3"]
+[node name="player_name" type="Label" parent="The entity team/HBoxContainer/Player3"]
 layout_mode = 0
 offset_left = 13.0
 offset_top = 163.0
@@ -203,36 +172,24 @@ label_settings = SubResource("LabelSettings_3d1r5")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="body" type="TextureRect" parent="The entity team/Player3"]
+[node name="body" type="TextureRect" parent="The entity team/HBoxContainer/Player3"]
 layout_mode = 0
 offset_right = 640.0
 offset_bottom = 640.0
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("2_bs3my")
 
-[node name="Modulate" type="TextureRect" parent="The entity team/Player3"]
+[node name="Modulate" type="TextureRect" parent="The entity team/HBoxContainer/Player3"]
 layout_mode = 0
 offset_right = 640.0
 offset_bottom = 640.0
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("3_nisqo")
 
-[node name="Player4" type="Control" parent="The entity team"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -550.0
-offset_top = -129.0
-offset_right = -351.0
-offset_bottom = 91.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(1.5, 1.5)
+[node name="Player4" type="Control" parent="The entity team/HBoxContainer"]
+layout_mode = 2
 
-[node name="player_name" type="Label" parent="The entity team/Player4"]
+[node name="player_name" type="Label" parent="The entity team/HBoxContainer/Player4"]
 layout_mode = 0
 offset_left = 13.0
 offset_top = 163.0
@@ -242,14 +199,14 @@ label_settings = SubResource("LabelSettings_3d1r5")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="body" type="TextureRect" parent="The entity team/Player4"]
+[node name="body" type="TextureRect" parent="The entity team/HBoxContainer/Player4"]
 layout_mode = 0
 offset_right = 640.0
 offset_bottom = 640.0
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("2_bs3my")
 
-[node name="Modulate" type="TextureRect" parent="The entity team/Player4"]
+[node name="Modulate" type="TextureRect" parent="The entity team/HBoxContainer/Player4"]
 layout_mode = 0
 offset_right = 640.0
 offset_bottom = 640.0
@@ -273,22 +230,15 @@ modulate = Color(0, 0, 1, 1)
 position = Vector2(979, 142)
 texture = ExtResource("2_nisqo")
 
-[node name="Player1" type="Control" parent="The awakened team"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -27.0
-offset_top = -125.0
-offset_right = 172.0
-offset_bottom = 95.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(1.5, 1.5)
+[node name="HBoxContainer" type="HBoxContainer" parent="The awakened team"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="player_name" type="Label" parent="The awakened team/Player1"]
+[node name="Player1" type="Control" parent="The awakened team/HBoxContainer"]
+layout_mode = 2
+
+[node name="player_name" type="Label" parent="The awakened team/HBoxContainer/Player1"]
 layout_mode = 0
 offset_left = 13.0
 offset_top = 163.0
@@ -298,43 +248,100 @@ label_settings = SubResource("LabelSettings_3d1r5")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="body" type="TextureRect" parent="The awakened team/Player1"]
+[node name="body" type="TextureRect" parent="The awakened team/HBoxContainer/Player1"]
 layout_mode = 0
 offset_right = 640.0
 offset_bottom = 640.0
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("2_bs3my")
 
-[node name="Modulate" type="TextureRect" parent="The awakened team/Player1"]
+[node name="Modulate" type="TextureRect" parent="The awakened team/HBoxContainer/Player1"]
 layout_mode = 0
 offset_right = 640.0
 offset_bottom = 640.0
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("3_nisqo")
 
-[node name="Button_select_player" type="Button" parent="The awakened team/Player1"]
+[node name="Button_select_player" type="Button" parent="The awakened team/HBoxContainer/Player1"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 43.0
+offset_right = 169.0
+offset_bottom = 172.0
+
+[node name="Player2" type="Control" parent="The awakened team/HBoxContainer"]
+layout_mode = 2
+
+[node name="player_name" type="Label" parent="The awakened team/HBoxContainer/Player2"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 163.0
+offset_right = 183.0
+offset_bottom = 208.0
+label_settings = SubResource("LabelSettings_3d1r5")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="body" type="TextureRect" parent="The awakened team/HBoxContainer/Player2"]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 640.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_bs3my")
+
+[node name="Modulate" type="TextureRect" parent="The awakened team/HBoxContainer/Player2"]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 640.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_nisqo")
+
+[node name="Button_select_player" type="Button" parent="The awakened team/HBoxContainer/Player2"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 43.0
+offset_right = 169.0
+offset_bottom = 172.0
+
+[node name="Player3" type="Control" parent="The awakened team/HBoxContainer"]
+layout_mode = 2
+
+[node name="player_name" type="Label" parent="The awakened team/HBoxContainer/Player3"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 163.0
+offset_right = 183.0
+offset_bottom = 208.0
+label_settings = SubResource("LabelSettings_3d1r5")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="body" type="TextureRect" parent="The awakened team/HBoxContainer/Player3"]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 640.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_bs3my")
+
+[node name="Modulate" type="TextureRect" parent="The awakened team/HBoxContainer/Player3"]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 640.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_nisqo")
+
+[node name="Button_select_player" type="Button" parent="The awakened team/HBoxContainer/Player3"]
+layout_mode = 0
 offset_left = 24.0
 offset_top = 43.0
 offset_right = 169.0
 offset_bottom = 172.0
 flat = true
 
-[node name="Player2" type="Control" parent="The awakened team"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -295.0
-offset_top = -125.0
-offset_right = -96.0
-offset_bottom = 95.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(1.5, 1.5)
+[node name="Player4" type="Control" parent="The awakened team/HBoxContainer"]
+layout_mode = 2
 
-[node name="player_name" type="Label" parent="The awakened team/Player2"]
+[node name="player_name" type="Label" parent="The awakened team/HBoxContainer/Player4"]
 layout_mode = 0
 offset_left = 13.0
 offset_top = 163.0
@@ -344,43 +351,32 @@ label_settings = SubResource("LabelSettings_3d1r5")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="body" type="TextureRect" parent="The awakened team/Player2"]
+[node name="body" type="TextureRect" parent="The awakened team/HBoxContainer/Player4"]
 layout_mode = 0
 offset_right = 640.0
 offset_bottom = 640.0
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("2_bs3my")
 
-[node name="Modulate" type="TextureRect" parent="The awakened team/Player2"]
+[node name="Modulate" type="TextureRect" parent="The awakened team/HBoxContainer/Player4"]
 layout_mode = 0
 offset_right = 640.0
 offset_bottom = 640.0
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("3_nisqo")
 
-[node name="Button_select_player" type="Button" parent="The awakened team/Player2"]
+[node name="Button_select_player" type="Button" parent="The awakened team/HBoxContainer/Player4"]
+layout_mode = 0
 offset_left = 24.0
 offset_top = 43.0
 offset_right = 169.0
 offset_bottom = 172.0
 flat = true
 
-[node name="Player3" type="Control" parent="The awakened team"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 239.0
-offset_top = -129.0
-offset_right = 438.0
-offset_bottom = 91.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(1.5, 1.5)
+[node name="Player5" type="Control" parent="The awakened team/HBoxContainer"]
+layout_mode = 2
 
-[node name="player_name" type="Label" parent="The awakened team/Player3"]
+[node name="player_name" type="Label" parent="The awakened team/HBoxContainer/Player5"]
 layout_mode = 0
 offset_left = 13.0
 offset_top = 163.0
@@ -390,43 +386,32 @@ label_settings = SubResource("LabelSettings_3d1r5")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="body" type="TextureRect" parent="The awakened team/Player3"]
+[node name="body" type="TextureRect" parent="The awakened team/HBoxContainer/Player5"]
 layout_mode = 0
 offset_right = 640.0
 offset_bottom = 640.0
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("2_bs3my")
 
-[node name="Modulate" type="TextureRect" parent="The awakened team/Player3"]
+[node name="Modulate" type="TextureRect" parent="The awakened team/HBoxContainer/Player5"]
 layout_mode = 0
 offset_right = 640.0
 offset_bottom = 640.0
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("3_nisqo")
 
-[node name="Button_select_player" type="Button" parent="The awakened team/Player3"]
+[node name="Button_select_player" type="Button" parent="The awakened team/HBoxContainer/Player5"]
+layout_mode = 0
 offset_left = 24.0
 offset_top = 43.0
 offset_right = 169.0
 offset_bottom = 172.0
 flat = true
 
-[node name="Player4" type="Control" parent="The awakened team"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -550.0
-offset_top = -129.0
-offset_right = -351.0
-offset_bottom = 91.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(1.5, 1.5)
+[node name="Player6" type="Control" parent="The awakened team/HBoxContainer"]
+layout_mode = 2
 
-[node name="player_name" type="Label" parent="The awakened team/Player4"]
+[node name="player_name" type="Label" parent="The awakened team/HBoxContainer/Player6"]
 layout_mode = 0
 offset_left = 13.0
 offset_top = 163.0
@@ -436,113 +421,22 @@ label_settings = SubResource("LabelSettings_3d1r5")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="body" type="TextureRect" parent="The awakened team/Player4"]
+[node name="body" type="TextureRect" parent="The awakened team/HBoxContainer/Player6"]
 layout_mode = 0
 offset_right = 640.0
 offset_bottom = 640.0
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("2_bs3my")
 
-[node name="Modulate" type="TextureRect" parent="The awakened team/Player4"]
+[node name="Modulate" type="TextureRect" parent="The awakened team/HBoxContainer/Player6"]
 layout_mode = 0
 offset_right = 640.0
 offset_bottom = 640.0
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("3_nisqo")
 
-[node name="Button_select_player" type="Button" parent="The awakened team/Player4"]
-offset_left = 24.0
-offset_top = 43.0
-offset_right = 169.0
-offset_bottom = 172.0
-flat = true
-
-[node name="Player5" type="Control" parent="The awakened team"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 513.5
-offset_top = -129.0
-offset_right = 712.5
-offset_bottom = 91.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(1.5, 1.5)
-
-[node name="player_name" type="Label" parent="The awakened team/Player5"]
+[node name="Button_select_player" type="Button" parent="The awakened team/HBoxContainer/Player6"]
 layout_mode = 0
-offset_left = 13.0
-offset_top = 163.0
-offset_right = 183.0
-offset_bottom = 208.0
-label_settings = SubResource("LabelSettings_3d1r5")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="body" type="TextureRect" parent="The awakened team/Player5"]
-layout_mode = 0
-offset_right = 640.0
-offset_bottom = 640.0
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("2_bs3my")
-
-[node name="Modulate" type="TextureRect" parent="The awakened team/Player5"]
-layout_mode = 0
-offset_right = 640.0
-offset_bottom = 640.0
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("3_nisqo")
-
-[node name="Button_select_player" type="Button" parent="The awakened team/Player5"]
-offset_left = 24.0
-offset_top = 43.0
-offset_right = 169.0
-offset_bottom = 172.0
-flat = true
-
-[node name="Player6" type="Control" parent="The awakened team"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -807.5
-offset_top = -129.0
-offset_right = -608.5
-offset_bottom = 91.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(1.5, 1.5)
-
-[node name="player_name" type="Label" parent="The awakened team/Player6"]
-layout_mode = 0
-offset_left = 13.0
-offset_top = 163.0
-offset_right = 183.0
-offset_bottom = 208.0
-label_settings = SubResource("LabelSettings_3d1r5")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="body" type="TextureRect" parent="The awakened team/Player6"]
-layout_mode = 0
-offset_right = 640.0
-offset_bottom = 640.0
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("2_bs3my")
-
-[node name="Modulate" type="TextureRect" parent="The awakened team/Player6"]
-layout_mode = 0
-offset_right = 640.0
-offset_bottom = 640.0
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("3_nisqo")
-
-[node name="Button_select_player" type="Button" parent="The awakened team/Player6"]
 offset_left = 24.0
 offset_top = 43.0
 offset_right = 169.0

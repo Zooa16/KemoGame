@@ -27,34 +27,34 @@ var no_mission_team: Array = []
 var round_number: int = 1
 # List of all possible roles (accessible from anywhere)
 var roles: Array = [
-    "Data Retriever",
-    "Support",
-    "The Oracle",
-    "Tracer",
-    "Hacker",
-    "Enforcer",
-    "System Controller",
+	"Data Retriever",
+	"Support",
+	"The Oracle",
+	"Tracer",
+	"Hacker",
+	"Enforcer",
+	"System Controller",
 ]
 
 var role_colors := {
-    "Data Retriever": Color.BLUE,
-    "Support": Color.BLUE,
-    "The Oracle": Color.BLUE,
-    "Tracer": Color.RED,
-    "Hacker": Color.BLUE,
-    "Enforcer": Color.RED,
-    "System Controller": Color.RED,
-    "Leader": Color.YELLOW
+	"Data Retriever": Color.BLUE,
+	"Support": Color.BLUE,
+	"The Oracle": Color.BLUE,
+	"Tracer": Color.RED,
+	"Hacker": Color.BLUE,
+	"Enforcer": Color.RED,
+	"System Controller": Color.RED,
+	"Leader": Color.YELLOW
 }
 
 var role_counts := {
-    "Data Retriever": 1,
-    "Support": 3,
-    "The Oracle": 1,
-    "Tracer": 2,
-    "Hacker": 1,
-    "Enforcer": 1,
-    "System Controller": 1,
+	"Data Retriever": 1,
+	"Support": 3,
+	"The Oracle": 1,
+	"Tracer": 2,
+	"Hacker": 1,
+	"Enforcer": 1,
+	"System Controller": 1,
 }
 
 # Store the Leader separately
@@ -70,35 +70,35 @@ const MAX_PLAYERS := 10
 
 # NEW: ตัวแปรสำหรับเก็บ ID คอมพิวเตอร์ที่ถูกเปิดใช้งาน
 var computer_ids_to_activate: Array = []:
-    set(value):
-        computer_ids_to_activate = value
-        # DEBUG: print to confirm the value is set and signal is emitted
-        print("DEBUG: Global.computer_ids_to_activate was updated to ", value)
-        emit_signal("computer_ids_updated")
-        
+	set(value):
+		computer_ids_to_activate = value
+		# DEBUG: print to confirm the value is set and signal is emitted
+		print("DEBUG: Global.computer_ids_to_activate was updated to ", value)
+		emit_signal("computer_ids_updated")
+		
 signal computer_ids_updated # ต้องประกาศ signal ก่อนใช้งาน
 
 # ⭐ NEW: เพิ่มตัวแปรสำหรับเก็บรหัสผ่านที่กรอก
 var entered_password: String = "":
-    set(value):
-        entered_password = value
-        print("DEBUG: Global.entered_password was updated to ", value)
-        emit_signal("password_updated")
+	set(value):
+		entered_password = value
+		print("DEBUG: Global.entered_password was updated to ", value)
+		emit_signal("password_updated")
 
 # ⭐ NEW: เพิ่ม Signal สำหรับแจ้งเตือนเมื่อรหัสผ่านถูกอัปเดต
 signal password_updated
 
 
 func reset_global_data():
-    collected_cards_by_player.clear()
-    the_mission_team.clear()
-    no_mission_team.clear()
-    eliminated_player_id = -1
-    mission_wins = 0
-    mission_losses = 0
-    mission_success = false
-    revealed_role = false
-    player_roles.clear()
-    four_digit_code = ""
-    spawned_card_numbers = []
-    round_number = 1
+	collected_cards_by_player.clear()
+	the_mission_team.clear()
+	no_mission_team.clear()
+	eliminated_player_id = -1
+	mission_wins = 0
+	mission_losses = 0
+	mission_success = false
+	revealed_role = false
+	player_roles.clear()
+	four_digit_code = ""
+	spawned_card_numbers = []
+	round_number = 1
