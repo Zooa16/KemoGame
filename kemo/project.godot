@@ -24,6 +24,7 @@ Global="*res://Scripts/Global.gd"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
+window/size/mode=3
 window/stretch/mode="canvas_items"
 
 [filesystem]
@@ -32,7 +33,7 @@ import/blender/enabled=false
 
 [gui]
 
-theme/custom_font="uid://boc5tn7lpb57r"
+theme/custom_font="uid://dg8w1a2dddgfi"
 
 [input]
 

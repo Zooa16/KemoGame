@@ -15,6 +15,7 @@ var player_names: Dictionary = {}
 var player_roles: Dictionary = {}
 var four_digit_code: String = ""
 var spawned_card_numbers: Array = []
+var selected_hunter_id = -1
 
 # Dictionary to store collected card numbers per player
 # Key: player ID, Value: Array of collected card numbers
@@ -27,13 +28,13 @@ var no_mission_team: Array = []
 var round_number: int = 1
 # List of all possible roles (accessible from anywhere)
 var roles: Array = [
-	"Data Retriever",
-	"Support",
-	"The Oracle",
+	#"Data Retriever",
+	#"Support",
+	#"The Oracle",
 	"Tracer",
 	"Hacker",
-	"Enforcer",
-	"System Controller",
+	#"Enforcer",
+	#"System Controller",
 ]
 
 var role_colors := {
@@ -48,13 +49,13 @@ var role_colors := {
 }
 
 var role_counts := {
-	"Data Retriever": 1,
-	"Support": 3,
-	"The Oracle": 1,
+	#"Data Retriever": 1,
+	#"Support": 3,
+	#"The Oracle": 1,
 	"Tracer": 2,
 	"Hacker": 1,
-	"Enforcer": 1,
-	"System Controller": 1,
+	#"Enforcer": 1,
+	#"System Controller": 1,
 }
 
 # Store the Leader separately
