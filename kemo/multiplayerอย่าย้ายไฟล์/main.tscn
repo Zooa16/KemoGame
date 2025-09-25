@@ -108,6 +108,11 @@
 [ext_resource type="PackedScene" uid="uid://bq4ahigi5q6am" path="res://Scenes/เก้าอี้.tscn" id="111_yiwsw"]
 [ext_resource type="Texture2D" uid="uid://cjq4uotdm0fye" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Main menu/ตัวละครหน้าเเรก.png" id="112_bv6a1"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_036b0"]
+font_size = 24
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
 [sub_resource type="LabelSettings" id="LabelSettings_1u8hb"]
 font_size = 64
 outline_size = 8
@@ -151,11 +156,6 @@ corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
 shadow_size = 5
 shadow_offset = Vector2(0, 3.14)
-
-[sub_resource type="LabelSettings" id="LabelSettings_036b0"]
-font_size = 24
-outline_size = 2
-outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_tlwt5"]
 font_size = 48
@@ -603,6 +603,20 @@ script = ExtResource("1_0xm2m")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
+[node name="Status" type="Label" parent="CanvasLayer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_top = -224.0
+offset_right = 1.0
+offset_bottom = -190.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+label_settings = SubResource("LabelSettings_036b0")
+
 [node name="BlackScreen" type="TextureRect" parent="CanvasLayer"]
 offset_left = -7.0
 offset_right = 1920.0
@@ -713,21 +727,6 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = SubResource("StyleBoxFlat_emsru")
 text = "START"
-
-[node name="Status" type="Label" parent="CanvasLayer/HUD"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_top = -224.0
-offset_right = 1.0
-offset_bottom = -190.0
-grow_horizontal = 2
-grow_vertical = 0
-size_flags_horizontal = 4
-label_settings = SubResource("LabelSettings_036b0")
 
 [node name="player_count_label" type="Label" parent="CanvasLayer/HUD"]
 layout_mode = 1

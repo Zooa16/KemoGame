@@ -87,3 +87,18 @@ var entered_password: String = "":
 
 # ⭐ NEW: เพิ่ม Signal สำหรับแจ้งเตือนเมื่อรหัสผ่านถูกอัปเดต
 signal password_updated
+
+
+func reset_global_data():
+    collected_cards_by_player.clear()
+    the_mission_team.clear()
+    no_mission_team.clear()
+    eliminated_player_id = -1
+    mission_wins = 0
+    mission_losses = 0
+    mission_success = false
+    revealed_role = false
+    player_roles.clear()
+    four_digit_code = ""
+    spawned_card_numbers = []
+    round_number = 1

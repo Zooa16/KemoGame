@@ -113,12 +113,18 @@ func start_turn_timer():
     turn_timer.one_shot = false
     turn_timer.start()
 
+
 func _on_TurnTimer_timeout():
     if multiplayer.is_server():
         time_left -= 1
         if time_left < 0:
             turn_timer.stop()
-            rpc("go_to_Round_results")
+            var is_success = false
+            if Global.entered_password == Global.four_digit_code:
+                is_success = true
+            
+            # ส่งค่า is_success ไปกับ RPC
+            rpc("go_to_Round_results", is_success) 
         else:
             rpc("update_timer_label", time_left)
 
@@ -130,42 +136,22 @@ func update_timer_label(new_time: int):
     var seconds = int(time_left % 60)
     timer_label.text = "%02d:%02d" % [minutes, seconds]
 
-# ⭐ NEW: ฟังก์ชันที่ถูกเรียกเมื่อเกมไปถึงหน้าสรุปผล
+# โค้ดใหม่
 @rpc("any_peer", "call_local")
-func go_to_Round_results():
+func go_to_Round_results(is_success: bool):
     turn_timer.stop()
-    # Host จะทำการตรวจสอบรหัสผ่าน
-    if multiplayer.is_server():
-        var is_success = false
-        # ⭐ แก้ไขการเปรียบเทียบให้เป็น String vs String
-        if Global.entered_password == Global.four_digit_code:
-            is_success = true
-        end_mission(is_success)
-        # เรียก RPC เพื่อส่งผลลัพธ์ไปยังทุกคน
-        rpc("sync_mission_result", is_success)
+    
+    # โค้ดนี้จะทำงานบนทุกเครื่อง (โฮสต์และไคลเอนต์)
+    Global.mission_success = is_success
+    if is_success:
+        Global.mission_wins += 1
+    else:
+        Global.mission_losses += 1
+        
+    print("ปัจจุบัน: ชนะ " + str(Global.mission_wins) + " ครั้ง, แพ้ " + str(Global.mission_losses) + " ครั้ง")
 
     get_tree().change_scene_to_file("res://Scenes/Round_results.tscn")
     
-func end_mission(is_success: bool):
-    Global.mission_success = is_success
-    # ⭐ NEW: เพิ่มการนับรอบที่ชนะหรือแพ้
-    if is_success:
-       Global.mission_wins += 1
-       print(Global.mission_wins)
-    else:
-       Global.mission_losses += 1
-       print(Global.mission_losses)
-     # ⭐ NEW: ตรวจสอบเงื่อนไขจบเกม
-    rpc_id(1, "check_game_end_condition", is_success)
-    # ⭐ NEW: ฟังก์ชัน RPC เพื่อซิงค์ผลลัพธ์ภารกิจกับทุกไคลเอนต์
-
-@rpc("any_peer", "reliable", "call_local")
-func sync_mission_result(is_success: bool):
-    # อัปเดตตัวแปรใน Global เพื่อให้ฉาก "Round_results" อ่านค่าได้
-    Global.mission_success = is_success
-
-
-
 # --------------------- Spectator ------------------------
 
 func become_spectator():
