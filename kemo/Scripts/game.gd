@@ -351,6 +351,9 @@ func process_card_collection(card_path: String, peer_id: int):
 	var log_message = "COLLECTED: %s collected card: %s" % [player_name, card_node.name]
 	Global.add_to_message_log(log_message)
 	
+	# ⭐ NEW: Synchronize the game log after a card is collected
+	send_log_to_clients()
+
 	# ⭐ CORRECTED: Use the correct variable name: collected_cards_by_player
 	if not Global.collected_cards_by_player.has(peer_id):
 		Global.collected_cards_by_player[peer_id] = []
@@ -431,7 +434,7 @@ func drop_single_card_request(player_id: int):
 	var dropped_card_name = player_node.collected_cards.pop_back()
 	
 	# =======================================================
-	# ⭐ NEW/FIX: REMOVE CARD NUMBER FROM GLOBAL DICTIONARY (Host Only)
+	# ⭐ FIX: REMOVE CARD NUMBER FROM GLOBAL DICTIONARY (Host Only)
 	# =======================================================
 	if Global.collected_cards_by_player.has(player_id) and not Global.collected_cards_by_player[player_id].is_empty():
 		# ลบหมายเลขการ์ดล่าสุดออกจาก Array ใน Global (ใช้ pop_back เพื่อให้สอดคล้องกับการลบใน collected_cards)
@@ -442,12 +445,15 @@ func drop_single_card_request(player_id: int):
 		rpc("sync_card_collection", Global.collected_cards_by_player)
 	else:
 		print("WARNING (Host): Global collected card list is empty or missing for Player %s, cannot remove card number." % player_id)
-	
+
 	# ⭐ NEW: บันทึก Log การดรอปการ์ด
 	var player_name = Global.player_names.get(player_id, "ID:" + str(player_id))
 	var log_message = "DROPPED: %s dropped card: %s" % [player_name, dropped_card_name]
 	Global.add_to_message_log(log_message)
 	print("DEBUG (Host): Player %s dropped card %s. Logging complete." % [player_id, dropped_card_name])
+	
+	# ⭐ NEW: Synchronize the game log after the action is complete
+	send_log_to_clients() # ⬅️ เพิ่มการเรียกซิงค์ Log
 	
 	var player_position = player_node.global_transform.origin
 	var player_forward_dir = -player_node.global_transform.basis.z.normalized()
@@ -502,3 +508,24 @@ func _on_drop_cards_pressed() -> void:
 func update_round_label():
 	round_label.text = "Round " + str(Global.round_number)
 	print("DEBUG: Round label updated to Round %s" % Global.round_number)
+
+# -------------------------
+# NEW: MESSAGE LOG SYNCHRONIZATION
+# -------------------------
+
+# ⭐ NEW: ฟังก์ชันที่ถูกเรียกโดย Host เพื่อส่ง Log ไปให้ทุก Client
+func send_log_to_clients():
+	# Host เท่านั้นที่สามารถเรียก RPC นี้ได้
+	if not multiplayer.is_server():
+		return
+	
+	# เรียก RPC เพื่อส่ง Array log ทั้งหมดไปยังทุก Peer
+	rpc("sync_message_log", Global.message_log)
+	print("DEBUG (Host): Triggered synchronization of message log to all clients.")
+
+# ⭐ NEW: ฟังก์ชัน RPC ที่จะถูกรันบนทุก Client (และ Host ด้วย) เพื่ออัปเดต Log
+@rpc("any_peer", "reliable", "call_local")
+func sync_message_log(log_array: Array):
+	# Client/Host อัปเดต Array Log ใน Global ของตัวเอง
+	Global.message_log = log_array
+	print("DEBUG (Client/Host): Message log synchronized. Total entries: ", log_array.size())
