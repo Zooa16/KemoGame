@@ -1,9 +1,46 @@
-[gd_scene load_steps=3 format=3 uid="uid://b2q45jsn8sw8m"]
+[gd_scene load_steps=12 format=3 uid="uid://b2q45jsn8sw8m"]
 
 [ext_resource type="Script" uid="uid://dye7yrujiupf1" path="res://Scripts/round_results.gd" id="1_c8cte"]
+[ext_resource type="Texture2D" uid="uid://bbmx3u2aoxgs0" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Idle/ตัว/1.png" id="2_bs3my"]
+[ext_resource type="Texture2D" uid="uid://d042uktg1jtdh" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/เพิ่มหัวเรื่อง (2).png" id="2_nisqo"]
+[ext_resource type="Texture2D" uid="uid://ssn8ww4o11m1" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Idle/สี/ไม่มีชื่อ 12_20250817171242.png" id="3_nisqo"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_c8cte"]
 font_size = 80
+
+[sub_resource type="LabelSettings" id="LabelSettings_3d1r5"]
+font_size = 24
+outline_size = 12
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nisqo"]
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3d1r5"]
+bg_color = Color(0.218546, 0.717988, 0, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.14)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ysgo1"]
+bg_color = Color(0.831373, 0, 0.105882, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.14)
+
+[sub_resource type="Theme" id="Theme_6ffh6"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_dsbcu"]
+font_size = 32
 
 [node name="RoleReveal" type="CanvasLayer"]
 script = ExtResource("1_c8cte")
@@ -38,9 +75,522 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -91.0
-offset_top = -329.0
+offset_top = -81.0
 offset_right = 92.0
-offset_bottom = -246.0
+offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "BACK"
+
+[node name="The entity team" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -861.0
+offset_top = 13.0
+offset_right = 1110.0
+offset_bottom = 309.0
+grow_horizontal = 2
+scale = Vector2(0.9, 0.9)
+size_flags_horizontal = 4
+
+[node name="laser2" type="Sprite2D" parent="The entity team"]
+modulate = Color(1, 0, 0, 1)
+position = Vector2(964.5, 162)
+texture = ExtResource("2_nisqo")
+
+[node name="Player1" type="Control" parent="The entity team"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -27.0
+offset_top = -125.0
+offset_right = 172.0
+offset_bottom = 95.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+
+[node name="player_name" type="Label" parent="The entity team/Player1"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 163.0
+offset_right = 183.0
+offset_bottom = 208.0
+label_settings = SubResource("LabelSettings_3d1r5")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="body" type="TextureRect" parent="The entity team/Player1"]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 640.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_bs3my")
+
+[node name="Modulate" type="TextureRect" parent="The entity team/Player1"]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 640.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_nisqo")
+
+[node name="Player2" type="Control" parent="The entity team"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -295.0
+offset_top = -125.0
+offset_right = -96.0
+offset_bottom = 95.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+
+[node name="player_name" type="Label" parent="The entity team/Player2"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 163.0
+offset_right = 183.0
+offset_bottom = 208.0
+label_settings = SubResource("LabelSettings_3d1r5")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="body" type="TextureRect" parent="The entity team/Player2"]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 640.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_bs3my")
+
+[node name="Modulate" type="TextureRect" parent="The entity team/Player2"]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 640.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_nisqo")
+
+[node name="Player3" type="Control" parent="The entity team"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 239.0
+offset_top = -129.0
+offset_right = 438.0
+offset_bottom = 91.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+
+[node name="player_name" type="Label" parent="The entity team/Player3"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 163.0
+offset_right = 183.0
+offset_bottom = 208.0
+label_settings = SubResource("LabelSettings_3d1r5")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="body" type="TextureRect" parent="The entity team/Player3"]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 640.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_bs3my")
+
+[node name="Modulate" type="TextureRect" parent="The entity team/Player3"]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 640.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_nisqo")
+
+[node name="Player4" type="Control" parent="The entity team"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -550.0
+offset_top = -129.0
+offset_right = -351.0
+offset_bottom = 91.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+
+[node name="player_name" type="Label" parent="The entity team/Player4"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 163.0
+offset_right = 183.0
+offset_bottom = 208.0
+label_settings = SubResource("LabelSettings_3d1r5")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="body" type="TextureRect" parent="The entity team/Player4"]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 640.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_bs3my")
+
+[node name="Modulate" type="TextureRect" parent="The entity team/Player4"]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 640.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_nisqo")
+
+[node name="The awakened team" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -868.0
+offset_top = 685.0
+offset_right = 1103.0
+offset_bottom = 981.0
+grow_horizontal = 2
+scale = Vector2(0.9, 0.9)
+
+[node name="laser" type="Sprite2D" parent="The awakened team"]
+modulate = Color(0, 0, 1, 1)
+position = Vector2(979, 142)
+texture = ExtResource("2_nisqo")
+
+[node name="Player1" type="Control" parent="The awakened team"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -27.0
+offset_top = -125.0
+offset_right = 172.0
+offset_bottom = 95.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+
+[node name="player_name" type="Label" parent="The awakened team/Player1"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 163.0
+offset_right = 183.0
+offset_bottom = 208.0
+label_settings = SubResource("LabelSettings_3d1r5")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="body" type="TextureRect" parent="The awakened team/Player1"]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 640.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_bs3my")
+
+[node name="Modulate" type="TextureRect" parent="The awakened team/Player1"]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 640.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_nisqo")
+
+[node name="Button_select_player" type="Button" parent="The awakened team/Player1"]
+offset_left = 24.0
+offset_top = 43.0
+offset_right = 169.0
+offset_bottom = 172.0
+flat = true
+
+[node name="Player2" type="Control" parent="The awakened team"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -295.0
+offset_top = -125.0
+offset_right = -96.0
+offset_bottom = 95.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+
+[node name="player_name" type="Label" parent="The awakened team/Player2"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 163.0
+offset_right = 183.0
+offset_bottom = 208.0
+label_settings = SubResource("LabelSettings_3d1r5")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="body" type="TextureRect" parent="The awakened team/Player2"]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 640.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_bs3my")
+
+[node name="Modulate" type="TextureRect" parent="The awakened team/Player2"]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 640.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_nisqo")
+
+[node name="Button_select_player" type="Button" parent="The awakened team/Player2"]
+offset_left = 24.0
+offset_top = 43.0
+offset_right = 169.0
+offset_bottom = 172.0
+flat = true
+
+[node name="Player3" type="Control" parent="The awakened team"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 239.0
+offset_top = -129.0
+offset_right = 438.0
+offset_bottom = 91.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+
+[node name="player_name" type="Label" parent="The awakened team/Player3"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 163.0
+offset_right = 183.0
+offset_bottom = 208.0
+label_settings = SubResource("LabelSettings_3d1r5")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="body" type="TextureRect" parent="The awakened team/Player3"]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 640.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_bs3my")
+
+[node name="Modulate" type="TextureRect" parent="The awakened team/Player3"]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 640.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_nisqo")
+
+[node name="Button_select_player" type="Button" parent="The awakened team/Player3"]
+offset_left = 24.0
+offset_top = 43.0
+offset_right = 169.0
+offset_bottom = 172.0
+flat = true
+
+[node name="Player4" type="Control" parent="The awakened team"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -550.0
+offset_top = -129.0
+offset_right = -351.0
+offset_bottom = 91.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+
+[node name="player_name" type="Label" parent="The awakened team/Player4"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 163.0
+offset_right = 183.0
+offset_bottom = 208.0
+label_settings = SubResource("LabelSettings_3d1r5")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="body" type="TextureRect" parent="The awakened team/Player4"]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 640.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_bs3my")
+
+[node name="Modulate" type="TextureRect" parent="The awakened team/Player4"]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 640.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_nisqo")
+
+[node name="Button_select_player" type="Button" parent="The awakened team/Player4"]
+offset_left = 24.0
+offset_top = 43.0
+offset_right = 169.0
+offset_bottom = 172.0
+flat = true
+
+[node name="Player5" type="Control" parent="The awakened team"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 513.5
+offset_top = -129.0
+offset_right = 712.5
+offset_bottom = 91.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+
+[node name="player_name" type="Label" parent="The awakened team/Player5"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 163.0
+offset_right = 183.0
+offset_bottom = 208.0
+label_settings = SubResource("LabelSettings_3d1r5")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="body" type="TextureRect" parent="The awakened team/Player5"]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 640.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_bs3my")
+
+[node name="Modulate" type="TextureRect" parent="The awakened team/Player5"]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 640.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_nisqo")
+
+[node name="Button_select_player" type="Button" parent="The awakened team/Player5"]
+offset_left = 24.0
+offset_top = 43.0
+offset_right = 169.0
+offset_bottom = 172.0
+flat = true
+
+[node name="Player6" type="Control" parent="The awakened team"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -807.5
+offset_top = -129.0
+offset_right = -608.5
+offset_bottom = 91.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+
+[node name="player_name" type="Label" parent="The awakened team/Player6"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 163.0
+offset_right = 183.0
+offset_bottom = 208.0
+label_settings = SubResource("LabelSettings_3d1r5")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="body" type="TextureRect" parent="The awakened team/Player6"]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 640.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_bs3my")
+
+[node name="Modulate" type="TextureRect" parent="The awakened team/Player6"]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 640.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_nisqo")
+
+[node name="Button_select_player" type="Button" parent="The awakened team/Player6"]
+offset_left = 24.0
+offset_top = 43.0
+offset_right = 169.0
+offset_bottom = 172.0
+flat = true
+
+[node name="Select_panel" type="Panel" parent="."]
+self_modulate = Color(0.111197, 0.111197, 0.111197, 1)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 537.0
+offset_top = -451.0
+offset_right = 1080.0
+offset_bottom = -209.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.7, 0.7)
+theme_override_styles/panel = SubResource("StyleBoxFlat_nisqo")
+
+[node name="Select" type="Button" parent="Select_panel"]
+layout_mode = 0
+offset_left = 52.0
+offset_top = 67.0
+offset_right = 195.0
+offset_bottom = 202.0
+theme_override_font_sizes/font_size = 64
+theme_override_styles/normal = SubResource("StyleBoxFlat_3d1r5")
+text = "✓"
+
+[node name="Cancel" type="Button" parent="Select_panel"]
+layout_mode = 0
+offset_left = 336.0
+offset_top = 67.0
+offset_right = 479.0
+offset_bottom = 202.0
+theme_override_font_sizes/font_size = 64
+theme_override_styles/normal = SubResource("StyleBoxFlat_ysgo1")
+text = "✘"
+
+[node name="Label" type="Label" parent="Select_panel"]
+layout_mode = 0
+offset_left = 133.0
+offset_top = 13.0
+offset_right = 403.0
+offset_bottom = 58.0
+theme = SubResource("Theme_6ffh6")
+text = "Are you sure ?"
+label_settings = SubResource("LabelSettings_dsbcu")
