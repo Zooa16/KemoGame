@@ -105,3 +105,24 @@ func reset_global_data():
 	four_digit_code = ""
 	spawned_card_numbers = []
 	round_number = 1
+	
+
+# -------------------------
+# NEW: LOGGING FUNCTION (Host/Server only)
+# -------------------------
+func add_to_message_log(message: String) -> void:
+	# ⭐ แก้ไขเงื่อนไขการตรวจสอบเครือข่ายสำหรับ Godot 4
+	# ตรวจสอบว่าเป็น Editor หรือ ไม่มี Peer (ไม่ได้เชื่อมต่อ) หรือ เป็น Server (Host)
+	if Engine.is_editor_hint() or (multiplayer.get_multiplayer_peer() == null) or multiplayer.is_server():
+		# ใช้ Time.get_time_string_from_system() เพื่อเพิ่ม Timestamp
+		var timestamp = Time.get_time_string_from_system() 
+		var log_entry = "[%s] %s" % [timestamp, message]
+		
+		# บันทึกเข้า Array log
+		message_log.append(log_entry)
+		
+		# แสดงผลในคอนโซลของ Host
+		print("GAME LOG (Host): ", log_entry)
+	else:
+		# ป้องกัน Client ไม่ให้เรียกฟังก์ชันนี้โดยตรงโดยไม่ตั้งใจ
+		print("WARNING: Client tried to call add_to_message_log directly.")
