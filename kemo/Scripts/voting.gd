@@ -123,7 +123,6 @@ func _on_select_button_pressed():
 		Select_panel.visible = false
 		has_voted = true
 		Voting_topic.text = "You have voted!"
-
 func _on_cancel_button_pressed():
 	Select_panel.visible = false
 	if current_highlighted_node:
@@ -149,6 +148,7 @@ func _on_skip_button_pressed():
 		selected_player_id = 0
 
 func setup_player_ui():
+	# แก้ไข: ใช้ Global.player_names.keys() เพื่อให้แน่ใจว่าลูปทำงานกับผู้เล่นที่ยังมีอยู่จริง
 	var active_players = Global.player_names.keys()
 	
 	for i in range(active_players.size()):
@@ -163,8 +163,9 @@ func setup_player_ui():
 		
 		if ui_node and name_label and modulate_node:
 			ui_node.visible = true
-			name_label.text = Global.player_names[peer_id]
-			modulate_node.modulate = Global.player_colors[peer_id]
+			# แก้ไข: ใช้ .get() เพื่อเข้าถึง Dictionary อย่างปลอดภัย
+			name_label.text = Global.player_names.get(peer_id, "Unknown Player")
+			modulate_node.modulate = Global.player_colors.get(peer_id, Color.WHITE)
 			
 			ui_node.gui_input.connect(func(event):
 				if event is InputEventMouseButton and event.pressed:
@@ -186,7 +187,10 @@ func send_vote(target_id: int):
 
 @rpc("any_peer")
 func receive_vote(voter_id: int, voted_id: int):
-	show_selected_rpc(voter_id)
+	# แก้ไข: เพิ่มการตรวจสอบเพื่อความปลอดภัย
+	if Global.player_names.has(voter_id):
+		show_selected_rpc(voter_id)
+
 	if not multiplayer.is_server():
 		return
 		
@@ -273,10 +277,6 @@ func calculate_and_show_results():
 	# ส่งข้อมูลไปยังไคลเอนต์ผ่าน RPC
 	rpc("show_final_result", result_text, Global.eliminated_player_id, result_type, max_votes, skip_count)
 	
-	# ลบโค้ดส่วนนี้ออก เพราะเราจะไปเปลี่ยนฉากในฟังก์ชันใหม่ที่เหมาะสมกว่า
-	# if multiplayer.is_server():
-	#     rpc("fade_out_and_change_scene", "res://Scenes/Voting2.tscn")
-	
 	# 🌟 NEW: เรียกฟังก์ชันสำหรับจัดการการเปลี่ยนฉาก
 	start_proceeding_timer()
 	
@@ -287,6 +287,7 @@ func calculate_and_show_results():
 # ----------------------------------------------------
 @rpc("any_peer", "call_local")
 func show_selected_rpc(voter_id: int):
+	# แก้ไข: ใช้ .get() เพื่อเข้าถึง Dictionary อย่างปลอดภัย
 	var ui_index = player_id_to_ui_index.get(voter_id)
 	if ui_index != null:
 		var selected_icon = Selected.get(ui_index)
@@ -341,6 +342,7 @@ func show_final_result(result_text: String, eliminated_id: int, result_type: Str
 	if result_type == "eliminated":
 		if eliminated_id != -1: # เช็คว่ามีคนถูกคัดออกจริง ๆ
 			Eliminated_player_ui.visible = true
+			# แก้ไข: ใช้ .get() เพื่อเข้าถึง Dictionary อย่างปลอดภัย
 			var name_to_display = Global.player_names.get(eliminated_id, "Unknown Player")
 			Eliminated_player_name.text = name_to_display
 			Eliminated_player_Modulate.modulate = Global.player_colors.get(eliminated_id, Color.WHITE)

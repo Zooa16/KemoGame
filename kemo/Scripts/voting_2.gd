@@ -1,4 +1,3 @@
-# voting2.gd
 extends Control
 
 #--------------------------------------------------------------------------------------------------------------#
@@ -114,8 +113,10 @@ func _ready():
 		ui_node.gui_input.connect(func(event):
 			if event is InputEventMouseButton and event.pressed:
 				if event.button_index == MOUSE_BUTTON_LEFT:
+					# แก้ไข: ตรวจสอบว่า player_id ยังมีอยู่จริง
 					var player_id = ui_node.get_meta("player_id")
-					_on_player_ui_pressed(player_id)
+					if player_id != -1 and Global.player_names.has(player_id):
+						_on_player_ui_pressed(player_id)
 		)
 
 	Select_button.pressed.connect(_on_select_button_pressed)
@@ -167,20 +168,16 @@ func hide_all_vote_icons():
 		icon.visible = false
 
 func initialize_player_ui():
-	# 🌟 แก้ไข: ปรับการคำนวณ voting_player_count ให้ถูกต้อง
 	voting_player_count = Global.player_names.size()
 	
-	# ลบผู้เล่นที่ถูกคัดออกจากการนับจำนวนผู้โหวต
-	if Global.eliminated_player_id != -1:
+	# ปรับการคำนวณ voting_player_count ให้แม่นยำขึ้น
+	if Global.player_names.has(Global.eliminated_player_id):
 		voting_player_count -= 1
 		
-	# ลบ Leader ออกจากการนับจำนวนผู้โหวต
-	if Global.leader_id != -1:
-		# ตรวจสอบว่า Leader ไม่ใช่คนเดียวกับผู้เล่นที่ถูกคัดออก
-		if Global.leader_id != Global.eliminated_player_id:
-			voting_player_count -= 1
-			
-	# โค้ดที่เหลือเหมือนเดิม
+	# Leader จะไม่โหวตทีมตัวเอง
+	if Global.player_names.has(Global.leader_id) and Global.leader_id != Global.eliminated_player_id:
+		voting_player_count -= 1
+	
 	for i in range(1, Global.MAX_PLAYERS + 1):
 		player_ui_nodes[i].visible = false
 		Leader_icon[i].visible = false
@@ -188,16 +185,23 @@ func initialize_player_ui():
 		player_ui_nodes[i].set_meta("player_id", -1)
 
 	var ui_index = 1
-	for player_id in Global.player_names:
+	var active_players_sorted = Global.player_names.keys().duplicate()
+	active_players_sorted.sort()
+	
+	for player_id in active_players_sorted:
+		if player_id == Global.eliminated_player_id:
+			continue
+			
 		player_id_to_ui_index[player_id] = ui_index
 		
 		player_ui_nodes[ui_index].visible = true
 		player_ui_nodes[ui_index].set_meta("player_id", player_id)
 		
-		player_name_labels[ui_index].text = Global.player_names[player_id]
+		# แก้ไข: ใช้ .get() เพื่อเข้าถึง Dictionary อย่างปลอดภัย
+		player_name_labels[ui_index].text = Global.player_names.get(player_id, "Unknown Player")
 		
 		if player_modulate_nodes.has(ui_index):
-			player_modulate_nodes[ui_index].modulate = Global.player_colors[player_id]
+			player_modulate_nodes[ui_index].modulate = Global.player_colors.get(player_id, Color.WHITE)
 		
 		if player_id == Global.leader_id:
 			Leader_icon[ui_index].visible = true
@@ -233,10 +237,42 @@ func _on_Timer_timeout():
 	
 	if time_left <= 0:
 		turn_timer.stop()
-		if team_votes.size() < voting_player_count:
-			rpc("show_final_team_vote_result", 2)
-		else:
-			calculate_team_vote_result()
+		calculate_team_vote_result()
+		
+func calculate_team_vote_result():
+	if not multiplayer.is_server():
+		return
+		
+	var agree_count = 0
+	var disagree_count = 0
+	
+	# นับคะแนนโหวตเฉพาะผู้เล่นที่ยังอยู่ในเกม
+	for player_id in Global.player_names.keys():
+		if player_id == Global.eliminated_player_id:
+			continue
+		if player_id == Global.leader_id:
+			continue
+		
+		var vote = team_votes.get(player_id)
+		if vote == "agree":
+			agree_count += 1
+		elif vote == "disagree":
+			disagree_count += 1
+	
+	var is_team_accepted = agree_count > disagree_count
+	
+	Global.no_mission_team.clear()
+	var all_players = Global.player_names.keys()
+	for player_id in all_players:
+		if not Global.the_mission_team.has(player_id):
+			Global.no_mission_team.append(player_id)
+			
+	rpc("sync_global_teams", Global.the_mission_team, Global.no_mission_team)
+
+	if is_team_accepted:
+		rpc("show_final_team_vote_result", 1)
+	else:
+		rpc("show_final_team_vote_result", 0)
 
 @rpc("any_peer", "call_local")
 func update_timer_label(new_time: int):
@@ -250,6 +286,7 @@ func update_timer_label(new_time: int):
 	
 	if new_time <= 0:
 		timer_label.text = "Time's up!"
+		# ซ่อนปุ่มโหวตสำหรับทุกคนเมื่อหมดเวลา
 		Agree_button.visible = false
 		Disagree_button.visible = false
 		Select_panel.visible = false
@@ -294,7 +331,6 @@ func _update_team_ui_visibility(size: int):
 			print("CLIENT/HOST: The_Mission_team_ui[", i, "] is set to visible: ", The_Mission_team_ui[i].visible)
 
 func _on_player_ui_pressed(player_id: int):
-	# เปลี่ยนฟังก์ชันนี้ให้เป็น async
 	_on_player_ui_pressed_async(player_id)
 	
 func _on_player_ui_pressed_async(player_id: int):
@@ -310,7 +346,6 @@ func _on_player_ui_pressed_async(player_id: int):
 	
 	Select_panel.visible = false
 	
-	# 🌟 ใช้ await กับ create_timer()
 	await get_tree().create_timer(0.2).timeout
 	
 	Select_panel.visible = true
@@ -442,40 +477,9 @@ func receive_team_vote(voter_id: int, vote: String):
 	if team_votes.size() == voting_player_count:
 		turn_timer.stop()
 		calculate_team_vote_result()
-
-func calculate_team_vote_result():
-	if not multiplayer.is_server():
-		return
-	
-	var agree_count = 0
-	var disagree_count = 0
-	
-	for vote in team_votes.values():
-		if vote == "agree":
-			agree_count += 1
-		else:
-			disagree_count += 1
-
-	var is_team_accepted = agree_count > disagree_count
-	
-	# 🌟 แก้ไข: กำหนดค่า Global.no_mission_team บนเซิร์ฟเวอร์
-	Global.no_mission_team.clear()
-	var all_players = Global.player_names.keys()
-	for player_id in all_players:
-		if not Global.the_mission_team.has(player_id):
-			Global.no_mission_team.append(player_id)
-			
-	# 🌟 แก้ไข: ซิงค์ข้อมูลทีมก่อนเปลี่ยนฉาก
-	rpc("sync_global_teams", Global.the_mission_team, Global.no_mission_team)
-	
-	print("SERVER: Players not on the mission team:", Global.no_mission_team)
-
-	if is_team_accepted:
-		rpc("show_final_team_vote_result", 1)
 	else:
-		rpc("show_final_team_vote_result", 0)
+		print("SERVER: Not all players have voted yet. Current votes: %d, Total voting players: %d" % [team_votes.size(), voting_player_count])
 	
-# 🌟 เพิ่มฟังก์ชันใหม่: ซิงค์ข้อมูลทีมทั่วทั้งเครือข่าย
 @rpc("any_peer", "reliable", "call_local")
 func sync_global_teams(the_mission_team: Array, no_mission_team: Array):
 	Global.the_mission_team = the_mission_team
@@ -528,7 +532,7 @@ func random_select_mission_team():
 		return
 	
 	var available_players = []
-	for player_id in Global.player_names:
+	for player_id in Global.player_names.keys():
 		if player_id != Global.eliminated_player_id:
 			available_players.append(player_id)
 		
@@ -538,13 +542,11 @@ func random_select_mission_team():
 	
 	Global.the_mission_team = selected_random_team
 	
-	# 🌟 แก้ไข: กำหนดค่า Global.no_mission_team บนเซิร์ฟเวอร์
 	Global.no_mission_team.clear()
-	for player_id in Global.player_names:
+	for player_id in Global.player_names.keys():
 		if not selected_random_team.has(player_id):
 			Global.no_mission_team.append(player_id)
 			
-	# 🌟 แก้ไข: ซิงค์ข้อมูลทีมก่อนเปลี่ยนฉาก
 	rpc("sync_global_teams", Global.the_mission_team, Global.no_mission_team)
 	
 	rpc("change_scene_based_on_role", true)
@@ -559,12 +561,10 @@ func change_scene_based_on_role(is_team_accepted: bool):
 			tween.tween_property(self, "modulate", Color(0, 0, 0, 1), fade_out_duration)
 			await tween.finished
 	
-	# ถ้าทีมถูกยอมรับ ให้ทุกคนย้ายไปที่ฉาก the_core.tscn เสมอ
 	if is_team_accepted:
 		print("CLIENT/HOST: The team was accepted. Changing to the_core.tscn.")
 		get_tree().change_scene_to_file("res://Scenes/the_core.tscn")
 	else:
-		# ถ้าทีมถูกปฏิเสธ ให้รีเซ็ตการเลือกทีมและอยู่ในฉากเดิม
 		print("CLIENT/HOST: The team was rejected. Resetting and staying in the current scene.")
 		var tree_reset = get_tree()
 		if tree_reset:

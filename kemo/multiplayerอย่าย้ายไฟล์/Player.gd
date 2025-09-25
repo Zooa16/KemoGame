@@ -238,3 +238,8 @@ func play_anim_all(anim_name: String):
 func set_flip_all(flip: bool):
 	set_flip_all_rpc(flip)
 	set_flip_all_rpc.rpc(flip)
+
+# ในสคริปต์ Player.gd
+func get_player_name() -> String:
+	# สมมติว่าคุณมีตัวแปรชื่อผู้เล่น
+	return Global.player_names.get(multiplayer.get_unique_id(), "Player")

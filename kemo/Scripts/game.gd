@@ -1,10 +1,11 @@
+# game.gd
 extends Node
 
 @onready var timer_label: Label = $UI/MarginContainer/TimerLabel
 @onready var turn_timer: Timer = $TurnTimer
 @onready var cards_label: Label = $UI/CardsCollectedLabel
 
-@onready var round_label: Label = $UI/RoundLabel # ⭐ NEW: Node สำหรับแสดงหมายเลขรอบ
+@onready var round_label: Label = $UI/RoundLabel 
 # Player spawn point
 @onready var player_spawn_points_parent = $SpawnPoints
 var player_spawn_points: Array = []
@@ -15,7 +16,7 @@ var card_spawn_points: Array = []
 var max_cards_to_collect := 4
 
 # 3 minutes per turn
-var turn_duration := 15
+var turn_duration := 180
 var time_left := 0
 
 # Create an array to hold the numbers of the spawned cards
@@ -26,6 +27,12 @@ var spawned_cards_positions = []
 
 # Load your single card scene
 var card_scene = preload("res://Scenes/Cards.tscn")
+
+# -------------------------
+# NEW: Position Timer for logging
+# -------------------------
+@onready var position_timer: Timer = $PositionTimer # ต้องเพิ่ม Node Timer ใน Scene
+const POSITION_LOG_INTERVAL := 60.0 # Log ทุก 60 วินาที
 
 func _ready():
 	turn_timer.timeout.connect(_on_TurnTimer_timeout)
@@ -44,13 +51,63 @@ func _ready():
 	spawn_player(multiplayer.get_unique_id())
 
 	if multiplayer.is_server():
+		print("DEBUG (Host): Initializing server settings and spawning peers.")
 		for player_id in multiplayer.get_peers():
 			if player_id != multiplayer.get_unique_id():
 				spawn_player(player_id)
 		generate_random_number_cards()
 		
+		# ⭐ NEW: Start the position logging timer on the host
+		start_position_timer()
+		
 	update_round_label()
 	start_turn_timer()
+
+# -------------------------
+# NEW: Position Logging Functions (Host only)
+# -------------------------
+func start_position_timer():
+	if not multiplayer.is_server():
+		return
+		
+	print("DEBUG (Host): Starting position log timer (interval: %s seconds)." % POSITION_LOG_INTERVAL)
+	position_timer.timeout.connect(_on_position_timer_timeout)
+	position_timer.wait_time = POSITION_LOG_INTERVAL
+	position_timer.one_shot = false
+	position_timer.start()
+
+func _on_position_timer_timeout():
+	if not multiplayer.is_server():
+		return # ให้ Host เท่านั้นที่ทำงาน
+		
+	var positions_data = []
+	
+	# รวบรวม ID ผู้เล่นทั้งหมด (รวม Host ID 1)
+	var all_peers = multiplayer.get_peers()
+	all_peers.append(multiplayer.get_unique_id())
+	
+	for peer_id in all_peers:
+		# สมมติว่า Player Node ชื่อ "Player_<ID>"
+		var player_node = get_node_or_null("Player_" + str(peer_id))
+		
+		if is_instance_valid(player_node) and player_node.has_method("get_player_name"):
+			var player_name = Global.player_names.get(peer_id, "ID:" + str(peer_id))
+			var pos: Vector3
+			
+			# ดึงตำแหน่งจาก global_position/global_transform
+			if player_node is CharacterBody3D or player_node is Node3D:
+				pos = player_node.global_transform.origin
+			else:
+				continue
+				
+			# บันทึกเฉพาะตำแหน่ง x และ z เป็น vector(x,z)
+			positions_data.append("%s: (%.1f, %.1f)" % [player_name, pos.x, pos.z])
+			
+	var log_entry = "POSITIONS: " + ", ".join(positions_data)
+	Global.add_to_message_log(log_entry) # ⬅️ บันทึกตำแหน่ง
+	print("DEBUG (Host): Logged all player positions.")
+
+
 # ฟังก์ชันใหม่สำหรับแสดงฉากเปิดเผยบทบาท
 func show_role_reveal():
 	var role_reveal_scene = preload("res://Scenes/role_reveal.tscn").instantiate()
@@ -70,10 +127,11 @@ func show_role_reveal():
 
 # ฟังก์ชันที่จะถูกเรียกเมื่อฉากเปิดเผยบทบาทเสร็จสิ้น
 func on_role_reveal_finished():
-	print("Role reveal animation finished. Starting game timer.")
+	print("DEBUG: Role reveal animation finished. Starting game timer.")
 	start_turn_timer()
 
 func _on_peer_connected(id: int):
+	print("DEBUG: Peer connected with ID:", id)
 	spawn_player(id)
 	update_all_player_properties()
 	
@@ -88,13 +146,14 @@ func _on_peer_connected(id: int):
 		rpc_id(id, "update_timer_label", time_left)
 
 func _on_peer_disconnected(id: int):
+	print("DEBUG: Peer disconnected with ID:", id)
 	# This line looks for the player node and assigns it to a local variable.
 	var player = get_node_or_null("Player_" + str(id))
 	# This check ensures the code only runs if the player node was found.
 	if player:
 		# The 'player' variable is now correctly defined and can be used here.
 		player.queue_free()
-		print("Despawned player with ID: " + str(id))
+		print("DEBUG: Despawned player with ID: " + str(id))
 
 func get_player_spawn_point_transform(player_id: int) -> Transform3D:
 	if player_spawn_points.is_empty():
@@ -118,6 +177,7 @@ func spawn_player(player_id: int):
 	player_instance.scale = Vector3(0.3, 0.3, 0.3)
 
 	add_child(player_instance, true)
+	print("DEBUG: Spawned player Node 'Player_%s' at %s" % [player_id, spawn_transform.origin])
 
 	# ⭐ NEW: Connect the signal from the newly spawned player to handle UI updates
 	if multiplayer.is_server():
@@ -165,12 +225,15 @@ func start_turn_timer():
 	turn_timer.wait_time = 1.0
 	turn_timer.one_shot = false
 	turn_timer.start()
+	print("DEBUG (Host): Turn timer started with %s seconds." % turn_duration)
+
 
 func _on_TurnTimer_timeout():
 	if multiplayer.is_server():
 		time_left -= 1
 		if time_left < 0:
 			turn_timer.stop()
+			print("DEBUG (Host): Turn timer finished. Going to voting phase.")
 			rpc("go_to_voting_phase")
 		else:
 			rpc("update_timer_label", time_left)
@@ -187,8 +250,9 @@ func update_timer_label(new_time: int):
 func go_to_voting_phase():
 	turn_timer.stop()
 	get_tree().change_scene_to_file("res://Scenes/voting.tscn")
+	print("DEBUG: Changing scene to voting phase.")
 
- #New and corrected function to allow duplicate cards but at unique locations.
+#New and corrected function to allow duplicate cards but at unique locations.
 # This function generates unique card numbers and positions.
 func generate_random_number_cards():
 	if not multiplayer.is_server():
@@ -209,8 +273,8 @@ func generate_random_number_cards():
 		if i < available_spawn_points.size():
 			positions_to_spawn.append(available_spawn_points[i].global_transform.origin)
 
-	print("Generated (unique) numbers: ", numbers_to_spawn)
-	print("Generated unique positions: ", positions_to_spawn)
+	print("DEBUG (Host): Generated (unique) numbers: ", numbers_to_spawn)
+	print("DEBUG (Host): Generated unique positions: ", positions_to_spawn)
 
 	# ⭐ NEW: Assign the generated numbers to the Global singleton
 	Global.spawned_card_numbers = numbers_to_spawn
@@ -220,7 +284,7 @@ func generate_random_number_cards():
 	for num in numbers_to_spawn:
 		four_digit_code += str(num)
 	Global.four_digit_code = four_digit_code
-	print("Combined 4-digit code: ", Global.four_digit_code)
+	print("DEBUG (Host): Combined 4-digit code: ", Global.four_digit_code)
 
 	rpc("spawn_cards_with_numbers", numbers_to_spawn, positions_to_spawn)
 
@@ -249,6 +313,7 @@ func spawn_cards_with_numbers(numbers: Array, positions: Array):
 		if is_instance_valid(card_node):
 			card_node.global_transform.origin = positions[i]
 			card_node.visible = true
+			print("DEBUG (Client/Host): Spawned Card %s at position %s" % [card_number, positions[i]])
 
 
 # This function handles the full card collection process on the server.
@@ -261,25 +326,37 @@ func process_card_collection(card_path: String, peer_id: int):
 	var player_node = get_node_or_null("Player_" + str(peer_id))
 	var card_node = get_node_or_null(card_path)
 
-	if not player_node or player_node.collected_cards.size() >= player_node.max_cards_to_collect:
-		print("Player has reached card limit or player node not found.")
+	if not player_node:
+		print("DEBUG (Host): Player node not found for ID:", peer_id)
+		return
+
+	if player_node.collected_cards.size() >= player_node.max_cards_to_collect:
+		print("DEBUG (Host): Player ", peer_id, " has reached card limit.")
 		return
 
 	if not is_instance_valid(card_node) or card_node.is_collected:
-		print("Server: Card not found or already collected.")
+		print("DEBUG (Host): Card %s not found or already collected." % card_path)
 		return
 
 	# Add the card to the player's inventory on the server.
 	player_node.collected_cards.append(card_node.name)
-	print("Server: Player ", peer_id, " collected card ", card_node.name)
+	print("DEBUG (Host): Player ", peer_id, " collected card ", card_node.name)
 
 	# Get the card number from its name (e.g., "Card1" -> 1)
-	var card_number = int(card_node.name.replace("Card", ""))
+	var card_number_str = card_node.name.replace("Card", "")
+	var card_number: int = int(card_number_str) if card_number_str.is_valid_int() else -1
 
+	# ⭐ NEW: บันทึก Log การเก็บการ์ด
+	var player_name = Global.player_names.get(peer_id, "ID:" + str(peer_id))
+	var log_message = "COLLECTED: %s collected card: %s" % [player_name, card_node.name]
+	Global.add_to_message_log(log_message)
+	
 	# ⭐ CORRECTED: Use the correct variable name: collected_cards_by_player
 	if not Global.collected_cards_by_player.has(peer_id):
 		Global.collected_cards_by_player[peer_id] = []
 	Global.collected_cards_by_player[peer_id].append(card_number)
+	print("DEBUG (Host): Global collected cards updated: ", Global.collected_cards_by_player)
+
 
 	# ⭐ CORRECTED: RPC with the correct variable name
 	rpc("sync_card_collection", Global.collected_cards_by_player)
@@ -296,7 +373,7 @@ func sync_card_collection(collected_cards_dict: Dictionary):
 	# Update the global dictionary on all clients.
 	# ⭐ CORRECTED: Use the correct variable name: collected_cards_by_player
 	Global.collected_cards_by_player = collected_cards_dict
-	print("Synchronized Global.collected_cards_by_player: ", Global.collected_cards_by_player)
+	print("DEBUG: Synchronized Global.collected_cards_by_player: ", Global.collected_cards_by_player)
 
 # This function is now the central point for updating UI on all clients.
 # It receives a signal from the local Player script.
@@ -304,6 +381,8 @@ func _on_player_card_collected_updated(collected_count: int, player_id: int):
 	# This function is ONLY called on the server to relay the update.
 	# The server will now tell the specific player to update their UI.
 	rpc_id(player_id, "update_cards_ui_for_peer", collected_count)
+	print("DEBUG (Host): Relaying UI update for Player %s with count %s" % [player_id, collected_count])
+
 
 # This is the function that is called on each client to update their own UI.
 # This function is now correctly called by the server to update the UI
@@ -319,16 +398,13 @@ func update_cards_ui_for_peer(count: int):
 	else:
 		cards_label.show()
 	cards_label.text = "%d/%d Cards collected!" % [count, 3]
+	print("DEBUG (Local): UI updated. Cards collected: %s" % count)
 	
 	# ⭐ CORRECTED: The Drop Card button visibility is now handled correctly.
 	# We call the function on the local player's node to update the UI.
 	var local_player = get_node_or_null("Player_" + str(multiplayer.get_unique_id()))
 	if local_player:
 		local_player.update_drop_button_visibility()
-
-
-# Handles the button press on the local client.
-# Handles the button press on the local client.
 
 
 #This function only runs on the server.
@@ -341,18 +417,37 @@ func drop_single_card_request(player_id: int):
 		
 	var player_node = get_node_or_null("Player_" + str(player_id))
 	if not player_node:
-		print("Server: Player node not found for ID: ", player_id)
+		print("DEBUG (Host): Player node not found for ID: ", player_id)
 		return
 	
 	# Check if the player has any cards to drop.
 	if player_node.collected_cards.is_empty():
-		print("Server: Player has no cards to drop.")
+		print("DEBUG (Host): Player has no cards to drop.")
 		# Update the UI to reflect an empty inventory
 		rpc_id(player_id, "update_cards_ui_for_peer", 0)
 		return
 		
-	# ⭐ CORRECTED: Get the last card from the collected_cards array (LIFO).
+	# ⭐ CORRECTED: Get the last card name from the player's node list (LIFO).
 	var dropped_card_name = player_node.collected_cards.pop_back()
+	
+	# =======================================================
+	# ⭐ NEW/FIX: REMOVE CARD NUMBER FROM GLOBAL DICTIONARY (Host Only)
+	# =======================================================
+	if Global.collected_cards_by_player.has(player_id) and not Global.collected_cards_by_player[player_id].is_empty():
+		# ลบหมายเลขการ์ดล่าสุดออกจาก Array ใน Global (ใช้ pop_back เพื่อให้สอดคล้องกับการลบใน collected_cards)
+		var dropped_card_number = Global.collected_cards_by_player[player_id].pop_back()
+		print("DEBUG (Host): Removed card number %s from Global.collected_cards_by_player for Player %s." % [dropped_card_number, player_id])
+		
+		# ซิงค์การเปลี่ยนแปลงของ collected_cards_by_player ไปยังทุก Peer
+		rpc("sync_card_collection", Global.collected_cards_by_player)
+	else:
+		print("WARNING (Host): Global collected card list is empty or missing for Player %s, cannot remove card number." % player_id)
+	
+	# ⭐ NEW: บันทึก Log การดรอปการ์ด
+	var player_name = Global.player_names.get(player_id, "ID:" + str(player_id))
+	var log_message = "DROPPED: %s dropped card: %s" % [player_name, dropped_card_name]
+	Global.add_to_message_log(log_message)
+	print("DEBUG (Host): Player %s dropped card %s. Logging complete." % [player_id, dropped_card_name])
 	
 	var player_position = player_node.global_transform.origin
 	var player_forward_dir = -player_node.global_transform.basis.z.normalized()
@@ -391,10 +486,9 @@ func show_dropped_cards_rpc(card_names: Array, positions: Array):
 			card_node.rpc("show_card", new_position)
 
 
-
-
 func _on_drop_cards_pressed() -> void:
 	var local_player_id = multiplayer.get_unique_id() # Get the local player's ID.
+	print("DEBUG (Local): Drop Cards button pressed by ID:", local_player_id)
 
 	# Check if the local player is the host (peer ID 1).
 	if multiplayer.is_server():
@@ -407,3 +501,4 @@ func _on_drop_cards_pressed() -> void:
 @rpc("any_peer", "reliable", "call_local")
 func update_round_label():
 	round_label.text = "Round " + str(Global.round_number)
+	print("DEBUG: Round label updated to Round %s" % Global.round_number)

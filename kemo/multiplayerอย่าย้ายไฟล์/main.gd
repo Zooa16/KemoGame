@@ -79,7 +79,7 @@ func _process(_delta):
 	if is_counting_down:
 		var time_left_int = int(game_start_timer.time_left)
 		if time_left_int >= 0:
-			status.text = "เกมจะเริ่มใน " + str(time_left_int + 1) + "..."
+			status.text = "The game will start in " + str(time_left_int + 1) + "..."
 
 func _unhandled_input(_event):
 	if Input.is_action_just_pressed("quit"):
@@ -88,12 +88,13 @@ func _unhandled_input(_event):
 func _on_host_button_pressed():
 	main_menu.hide()
 	background.hide()
-	
 	status.text = "Attempting to host..."
 
-	enet_peer.create_server(PORT)
+	# สร้าง enet_peer ใหม่เสมอ ก่อน create_server
+	enet_peer = ENetMultiplayerPeer.new()
+	enet_peer.create_server(PORT, MAX_PLAYERS)
 	multiplayer.multiplayer_peer = enet_peer
-	
+
 	host_id = multiplayer.get_unique_id()
 	Global.player_names[host_id] = Global.my_player_name
 
@@ -136,47 +137,55 @@ func _on_join_button_pressed():
 	Show_Hide_ID_Button.text = "Show"
 	is_id_hidden = true
 
+# ----------------- add_player (ปรับ spawn index ให้ปลอดภัยขึ้น) -----------------
 func add_player(peer_id):
 	if connected_players.has(peer_id):
 		return
-	
+
 	if connected_players.size() >= MAX_PLAYERS:
 		print("Room is full.")
-		enet_peer.disconnect_peer(peer_id, true)
+		if enet_peer:
+			enet_peer.disconnect_peer(peer_id, true)
 		return
-	
+
+	# ถ้าเป็น host ให้เลือกสี
 	if multiplayer.is_server():
 		var available_colors = []
 		for c in PLAYER_COLORS:
 			if not used_colors.has(c):
 				available_colors.append(c)
-		
-		var selected_color: Color
+
 		if not available_colors.is_empty():
-			selected_color = available_colors[randi() % available_colors.size()]
+			var selected_color: Color = available_colors[randi() % available_colors.size()]
 			used_colors[selected_color] = peer_id
 			Global.player_colors[peer_id] = selected_color
 
+	# เพิ่มเข้า connected list ก่อน ให้ index หาได้
 	connected_players.append(peer_id)
-	
-	var spawn_position: Vector3
-	if multiplayer.is_server():
-		var spawn_index = peer_id % lobby_spawn_points.size()
-		spawn_position = lobby_spawn_points[spawn_index].global_position
-	else:
-		spawn_position = Vector3.ZERO
 
+	# คำนวณ spawn position แบบปลอดภัย:
+	var spawn_position: Vector3 = Vector3.ZERO
+	if multiplayer.is_server() and lobby_spawn_points.size() > 0:
+		# หา index ของ peer ใน connected_players (reliable แม้ peer_id จะไม่ต่อเนื่อง)
+		var idx = connected_players.find(peer_id)
+		if idx == -1:
+			idx = 0
+		var spawn_index = idx % lobby_spawn_points.size()
+		spawn_position = lobby_spawn_points[spawn_index].global_position
+
+	# instantiate player
 	var player = Player.instantiate()
 	player.name = str(peer_id)
 	if player.has_method("set_multiplayer_authority"):
 		player.set_multiplayer_authority(peer_id)
 	if not player.is_in_group("players"):
 		player.add_to_group("players")
-	
+
 	player.scale = Vector3(0.3, 0.3, 0.3)
 	add_child(player)
-	
+
 	if multiplayer.is_server():
+		# ส่งข้อมูลให้ client ที่เข้ามาใหม่
 		sync_player_list.rpc(connected_players)
 		sync_player_colors.rpc(Global.player_colors)
 		sync_player_names.rpc_id(peer_id, Global.player_names)
@@ -185,9 +194,11 @@ func add_player(peer_id):
 		set_all_player_positions.rpc_id(peer_id, peer_id, spawn_position)
 		sync_room_name.rpc(current_room_name)
 
+	# วางตำแหน่งตัวละคร (หลังใส่ลง scene แล้ว)
 	player.global_position = spawn_position
 
 	update_player_ui()
+
 
 func remove_player(peer_id):
 	connected_players.erase(peer_id)
@@ -283,7 +294,7 @@ func _on_countdown_timeout():
 func _on_copy_button_pressed():
 	# การคัดลอกยังคงใช้ room_code จริง ไม่ว่ามันจะถูกซ่อนหรือไม่
 	DisplayServer.clipboard_set(str(room_code))
-	status.text = "รหัสห้องถูกคัดลอกแล้ว!"
+	status.text = "The room code has been copied!"
 
 # NEW: ฟังก์ชันสำหรับแสดง/ซ่อน ID ห้อง
 func _on_show_hide_id_button_pressed():
@@ -295,13 +306,46 @@ func _on_show_hide_id_button_pressed():
 		Idroom_label.text = "ID ROOM: " + str(room_code)
 		Show_Hide_ID_Button.text = "Hide"
 
-# NEW: ฟังก์ชันสำหรับออกจากห้อง
+# ----------------- _on_leave_room_button_pressed -----------------
 func _on_leave_room_button_pressed():
-	multiplayer.multiplayer_peer.close()
+	# ปิด peer ปัจจุบัน (ถ้ามี) และตัดการอ้างอิงกับ multiplayer
+	if multiplayer.multiplayer_peer:
+		multiplayer.multiplayer_peer.close()
+		multiplayer.multiplayer_peer = null
+
+	# ลบ player instances ที่ spawn อยู่
+	for player in get_tree().get_nodes_in_group("players"):
+		player.queue_free()
+
+	# ล้างข้อมูล session ที่เกี่ยวข้อง
+	connected_players.clear()
+	used_colors.clear()
+	Global.player_colors.clear()
+	Global.player_names.clear()
+	host_id = 0
+	room_code = 0
+	current_room_name = ""
+	is_counting_down = false
+	game_start_timer.stop()
+	start_button.hide()
+
+	# เตรียม enet_peer ใหม่สำหรับการใช้งานครั้งหน้า
+	enet_peer = ENetMultiplayerPeer.new()
+
+	# UI Reset
 	main_menu.show()
 	hud.hide()
 	background.show()
-	status.text = "ออกจากห้องแล้ว"
+
+	# ถ้ามี state อื่นๆ ใน Global ให้ reset ด้วย
+	if Global.has_method("reset_global_data"):
+		Global.reset_global_data()
+
+	status.text = "Left the room"
+	update_player_ui()
+
+
+
 
 @rpc("authority", "reliable")
 func set_room_code(code: int):

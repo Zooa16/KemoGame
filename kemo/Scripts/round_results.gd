@@ -127,7 +127,7 @@ func update_result_display():
 			result_label.text  = "Mission accomplished!" + str(Global.mission_wins) + "/3"
 		else:
 			result_label.modulate = Color.RED
-			result_label.text = "Mission failed...  " + str(Global.mission_losses) + "/3"
+			result_label.text = "Mission failed...  " + str(Global.mission_losses) + "/3"
 		
 		back_to_menu_button.visible = false
 		next_round_timer.wait_time = 5.0
@@ -141,8 +141,9 @@ func _show_matrix_alert(local_player_id):
 func _start_oracle_selection(local_player_id):
 	if multiplayer.is_server():
 		var entity_players = []
+		# แก้ไข: ใช้ .keys() เพื่อวนลูปใน Dictionary อย่างปลอดภัย
 		for player_id in Global.player_roles.keys():
-			var p_role = Global.player_roles[player_id].get("base", "Unknown")
+			var p_role = Global.player_roles.get(player_id, {}).get("base", "Unknown")
 			if p_role in entity_roles:
 				entity_players.append(player_id)
 		
@@ -161,42 +162,46 @@ func _update_team_displays():
 	var awakened_team_index = 1
 	var entity_team_index = 1
 	
+	# แก้ไข: วนลูปเฉพาะผู้เล่นที่ยังมีอยู่ใน Global.player_roles อย่างปลอดภัย
 	for player_id in Global.player_roles.keys():
-		var player_role = Global.player_roles[player_id].get("base", "Unknown")
+		var player_role_dict = Global.player_roles.get(player_id, {})
+		var player_role = player_role_dict.get("base", "Unknown")
 		var player_name = Global.player_names.get(player_id, "Unknown")
 		var player_color = Global.player_colors.get(player_id, Color.WHITE)
 		
 		if player_role in awakened_roles:
 			if awakened_team_index <= The_awakened_team_ui.size():
 				var ui_node = The_awakened_team_ui[awakened_team_index]
-				var name_label = playername_The_awakened_team_[awakened_team_index]
-				var modulate_node = playermodulate_The_awakened_team_[awakened_team_index]
-				
-				name_label.text = player_name
-				modulate_node.modulate = player_color
-				ui_node.visible = true
-				ui_node.modulate = Color(1, 1, 1, 0)
-				ui_node.set_meta("player_id", player_id)
+				var name_label = playername_The_awakened_team_.get(awakened_team_index)
+				var modulate_node = playermodulate_The_awakened_team_.get(awakened_team_index)
 
-				var tween = get_tree().create_tween()
-				tween.tween_property(ui_node, "modulate", Color(1, 1, 1, 1), 0.5).set_delay(0.2 * (awakened_team_index - 1))
-				
-				awakened_team_index += 1
+				if name_label and modulate_node:
+					name_label.text = player_name
+					modulate_node.modulate = player_color
+					ui_node.visible = true
+					ui_node.modulate = Color(1, 1, 1, 0)
+					ui_node.set_meta("player_id", player_id)
+
+					var tween = get_tree().create_tween()
+					tween.tween_property(ui_node, "modulate", Color(1, 1, 1, 1), 0.5).set_delay(0.2 * (awakened_team_index - 1))
+					
+					awakened_team_index += 1
 		elif player_role in entity_roles:
 			if entity_team_index <= The_entity_team_ui.size():
-				var ui_node = The_entity_team_ui[entity_team_index]
-				var name_label = playername_The_entity_team[entity_team_index]
-				var modulate_node = playermodulate_The_entity_team[entity_team_index]
-				
-				name_label.text = player_name
-				modulate_node.modulate = player_color
-				ui_node.visible = true
-				ui_node.modulate = Color(1, 1, 1, 0)
+				var ui_node = The_entity_team_ui.get(entity_team_index)
+				var name_label = playername_The_entity_team.get(entity_team_index)
+				var modulate_node = playermodulate_The_entity_team.get(entity_team_index)
 
-				var tween = get_tree().create_tween()
-				tween.tween_property(ui_node, "modulate", Color(1, 1, 1, 1), 0.5).set_delay(0.2 * (entity_team_index - 1))
-				
-				entity_team_index += 1
+				if name_label and modulate_node:
+					name_label.text = player_name
+					modulate_node.modulate = player_color
+					ui_node.visible = true
+					ui_node.modulate = Color(1, 1, 1, 0)
+
+					var tween = get_tree().create_tween()
+					tween.tween_property(ui_node, "modulate", Color(1, 1, 1, 1), 0.5).set_delay(0.2 * (entity_team_index - 1))
+					
+					entity_team_index += 1
 
 	for i in range(awakened_team_index, The_awakened_team_ui.size() + 1):
 		if The_awakened_team_ui.has(i):
@@ -219,10 +224,11 @@ func handle_oracle_selection(selected_entity_id: int):
 func show_select_oracle_buttons():
 	print("DEBUG: RPC show_select_oracle_buttons called on client ID: ", multiplayer.get_unique_id())
 	for i in The_awakened_team_ui.keys():
-		var ui_node = The_awakened_team_ui[i]
-		if ui_node.visible:
+		var ui_node = The_awakened_team_ui.get(i)
+		var select_button = button_select_player_in_awakened_team.get(i)
+
+		if ui_node and select_button and ui_node.visible:
 			var player_id = ui_node.get_meta("player_id")
-			var select_button = button_select_player_in_awakened_team[i]
 			
 			if not select_button.pressed.is_connected(Callable(self, "_on_player_selected")):
 				select_button.pressed.connect(Callable(self, "_on_player_selected").bind(player_id))
@@ -256,15 +262,13 @@ func check_oracle_role(selected_id: int):
 			print("DEBUG: The Oracle was not selected. Awakened win.")
 			win_type = "AwakenedWin"
 		
-		# ⭐ แก้ไข: Host ส่งผลลัพธ์ไปยัง Client ทั้งหมด
+		# แก้ไข: Host ส่งผลลัพธ์ไปยัง Client ทั้งหมด
 		rpc("show_final_results", win_type)
-		# ⭐ แก้ไข: Host แสดงผลลัพธ์ของตัวเอง
+		# แก้ไข: Host แสดงผลลัพธ์ของตัวเอง
 		show_final_results(win_type)
 	else:
-		# ⭐ NEW DEBUG: ตรวจสอบว่า Client ได้รับ RPC นี้หรือไม่
 		print("DEBUG: Client received check_oracle_role RPC, but ignoring as it's not the host.")
 
-# ⭐ เพิ่ม @rpc("any_peer") เพื่อให้สามารถเรียกใช้งานบนทุก Peer ได้
 @rpc("any_peer")
 func show_final_results(win_type: String):
 	print("DEBUG: show_final_results called with win_type: ", win_type, " on player ID: ", multiplayer.get_unique_id())
@@ -278,7 +282,6 @@ func show_final_results(win_type: String):
 	else:
 		result_label.text = "Game Over"
 
-# ⭐ NEW: ฟังก์ชันรวมสำหรับแสดงผลลัพธ์ชัยชนะของ Awakened
 func _show_awakened_win_sequence():
 	print("DEBUG: Starting Awakened win sequence.")
 	_start_typing_effect("The penguins are free.", Color.GREEN, Callable(self, "_show_awakened_win_part2"))
@@ -291,7 +294,6 @@ func _show_awakened_win_part3():
 	print("DEBUG: Showing Awakened win part 3.")
 	_wait_and_call(1.5, Callable(self, "_start_typing_effect").bind("Mission Complete.", Color.GREEN, Callable(self, "_show_back_to_menu_button")))
 
-# ⭐ NEW: ฟังก์ชันรวมสำหรับแสดงผลลัพธ์ชัยชนะของ Entities
 func _show_entity_win_sequence():
 	print("DEBUG: Starting Entity win sequence.")
 	_start_typing_effect("The Awakened's are now under your control.", Color.RED, Callable(self, "_show_entity_win_part2"))
