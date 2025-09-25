@@ -496,13 +496,13 @@ func show_final_team_vote_result(result: int):
 	Voting_results.visible = true
 	if result == 1:
 		Voting_results.modulate = Color.SEA_GREEN
-		Voting_results.text = "This team was chosen to go on a mission!"
+		Voting_results.text = "This team was chosen \nto go on a mission!"
 	elif result == 0:
 		Voting_results.modulate = Color.RED
-		Voting_results.text = "The team was rejected. Try again."
+		Voting_results.text = "The team was rejected. \nTry again."
 	elif result == 2:
 		Voting_results.modulate = Color.ORANGE
-		Voting_results.text = "Time's up! A team has been randomly selected!"
+		Voting_results.text = "Time's up! \nA team has been \nrandomly selected!"
 	
 	proceeding_timer.wait_time = 5.0
 	proceeding_timer.one_shot = true

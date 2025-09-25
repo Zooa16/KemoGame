@@ -285,7 +285,7 @@ func _show_awakened_win_sequence():
 
 func _show_awakened_win_part2():
 	print("DEBUG: Showing Awakened win part 2.")
-	_wait_and_call(1.5, Callable(self, "_start_typing_effect").bind("You are the architects of the new world.", Color.GREEN, Callable(self, "_show_awakened_win_part3")))
+	_wait_and_call(1.5, Callable(self, "_start_typing_effect").bind("You are the architects \nof the new world.", Color.GREEN, Callable(self, "_show_awakened_win_part3")))
 
 func _show_awakened_win_part3():
 	print("DEBUG: Showing Awakened win part 3.")
@@ -302,7 +302,7 @@ func _show_entity_win_part2():
 
 func _show_entity_win_part3():
 	print("DEBUG: Showing Entity win part 3.")
-	_wait_and_call(1.5, Callable(self, "_start_typing_effect").bind("The puppets are back in their strings.", Color.RED, Callable(self, "_show_entity_win_part4")))
+	_wait_and_call(1.5, Callable(self, "_start_typing_effect").bind("The puppets are back \nin their strings.", Color.RED, Callable(self, "_show_entity_win_part4")))
 
 func _show_entity_win_part4():
 	print("DEBUG: Showing Entity win part 4.")
