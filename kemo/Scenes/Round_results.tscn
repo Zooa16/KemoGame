@@ -1,9 +1,9 @@
 [gd_scene load_steps=9 format=3 uid="uid://b2q45jsn8sw8m"]
 
 [ext_resource type="Script" uid="uid://dye7yrujiupf1" path="res://Scripts/round_results.gd" id="1_c8cte"]
-[ext_resource type="Texture2D" uid="uid://b3xdxh2owvyc8" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Idle/ตัว/1.png" id="2_bs3my"]
-[ext_resource type="Texture2D" uid="uid://boec7xb21t7i2" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/เพิ่มหัวเรื่อง (2).png" id="2_nisqo"]
-[ext_resource type="Texture2D" uid="uid://drqymcg5u3tvl" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Idle/สี/ไม่มีชื่อ 12_20250817171242.png" id="3_nisqo"]
+[ext_resource type="Texture2D" uid="uid://wmqmpplgqt4u" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Idle/ตัว/1.png" id="2_bs3my"]
+[ext_resource type="Texture2D" uid="uid://bxwljamlvd7l3" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/เพิ่มหัวเรื่อง (2).png" id="2_nisqo"]
+[ext_resource type="Texture2D" uid="uid://bsdwj1ch82fia" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Player/Idle/สี/ไม่มีชื่อ 12_20250817171242.png" id="3_nisqo"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_c8cte"]
 font_size = 80
@@ -21,7 +21,7 @@ corner_radius_bottom_right = 72
 corner_radius_bottom_left = 72
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3d1r5"]
-bg_color = Color(0.17323768, 0.17288241, 0.33204007, 1)
+bg_color = Color(0.173238, 0.172882, 0.33204, 1)
 corner_radius_top_left = 32
 corner_radius_top_right = 32
 corner_radius_bottom_right = 32
@@ -68,16 +68,16 @@ size_flags_horizontal = 4
 
 [node name="HBoxContainer" type="HBoxContainer" parent="The entity team"]
 layout_mode = 0
-offset_left = 461.11115
-offset_top = 66.66667
-offset_right = 1229.1111
-offset_bottom = 106.66667
+offset_left = 461.111
+offset_top = 66.6667
+offset_right = 1229.11
+offset_bottom = 106.667
 theme_override_constants/separation = 256
 alignment = 1
 
 [node name="laser2" type="Sprite2D" parent="The entity team/HBoxContainer"]
 modulate = Color(1, 0, 0, 1)
-position = Vector2(503.38885, 95.33336)
+position = Vector2(503.389, 95.3334)
 texture = ExtResource("2_nisqo")
 
 [node name="Player1" type="Control" parent="The entity team/HBoxContainer"]
@@ -207,10 +207,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -728.8333
-offset_top = -80.222244
-offset_right = 551.16675
-offset_bottom = -40.222244
+offset_left = -728.833
+offset_top = -80.2222
+offset_right = 551.167
+offset_bottom = -40.2222
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 256
@@ -218,7 +218,7 @@ alignment = 1
 
 [node name="laser" type="Sprite2D" parent="The awakened team/HBoxContainer"]
 modulate = Color(0, 0, 1, 1)
-position = Vector2(722.3334, 74.22223)
+position = Vector2(722.333, 74.2222)
 texture = ExtResource("2_nisqo")
 
 [node name="Player1" type="Control" parent="The awakened team/HBoxContainer"]
@@ -249,7 +249,7 @@ scale = Vector2(0.3, 0.3)
 texture = ExtResource("3_nisqo")
 
 [node name="Button_select_player" type="Button" parent="The awakened team/HBoxContainer/Player1"]
-modulate = Color(0, 0.8901961, 0, 0.4117647)
+modulate = Color(0, 0.890196, 0, 0.411765)
 layout_mode = 0
 offset_left = 24.0
 offset_top = 43.0
@@ -285,7 +285,7 @@ scale = Vector2(0.3, 0.3)
 texture = ExtResource("3_nisqo")
 
 [node name="Button_select_player" type="Button" parent="The awakened team/HBoxContainer/Player2"]
-modulate = Color(0, 0.8901961, 0, 0.4117647)
+modulate = Color(0, 0.890196, 0, 0.411765)
 layout_mode = 0
 offset_left = 24.0
 offset_top = 43.0
@@ -321,7 +321,7 @@ scale = Vector2(0.3, 0.3)
 texture = ExtResource("3_nisqo")
 
 [node name="Button_select_player" type="Button" parent="The awakened team/HBoxContainer/Player3"]
-modulate = Color(0, 0.8901961, 0, 0.4117647)
+modulate = Color(0, 0.890196, 0, 0.411765)
 layout_mode = 0
 offset_left = 24.0
 offset_top = 43.0
@@ -357,7 +357,7 @@ scale = Vector2(0.3, 0.3)
 texture = ExtResource("3_nisqo")
 
 [node name="Button_select_player" type="Button" parent="The awakened team/HBoxContainer/Player4"]
-modulate = Color(0, 0.8901961, 0, 0.4117647)
+modulate = Color(0, 0.890196, 0, 0.411765)
 layout_mode = 0
 offset_left = 24.0
 offset_top = 43.0
@@ -393,7 +393,7 @@ scale = Vector2(0.3, 0.3)
 texture = ExtResource("3_nisqo")
 
 [node name="Button_select_player" type="Button" parent="The awakened team/HBoxContainer/Player5"]
-modulate = Color(0, 0.8901961, 0, 0.4117647)
+modulate = Color(0, 0.890196, 0, 0.411765)
 layout_mode = 0
 offset_left = 24.0
 offset_top = 43.0
@@ -429,7 +429,7 @@ scale = Vector2(0.3, 0.3)
 texture = ExtResource("3_nisqo")
 
 [node name="Button_select_player" type="Button" parent="The awakened team/HBoxContainer/Player6"]
-modulate = Color(0, 0.8901961, 0, 0.4117647)
+modulate = Color(0, 0.890196, 0, 0.411765)
 layout_mode = 0
 offset_left = 24.0
 offset_top = 43.0

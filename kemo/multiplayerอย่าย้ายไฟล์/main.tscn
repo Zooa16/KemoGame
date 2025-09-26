@@ -67,18 +67,18 @@
 [ext_resource type="PackedScene" uid="uid://djdoe57ix8dh5" path="res://Asset 3D/city/use this for builder/monkeybar_b.tscn" id="70_wbxom"]
 [ext_resource type="PackedScene" uid="uid://dkrnxuv51eyh0" path="res://Asset 3D/city/use this for builder/coin_stack_medium.tscn" id="71_fcwga"]
 [ext_resource type="PackedScene" uid="uid://hhtygqdo4htb" path="res://Asset 3D/city/use this for builder/walkbase.tscn" id="72_tia8x"]
-[ext_resource type="PackedScene" uid="uid://dr7hb3nrbd2cd" path="res://Asset 3D/city/KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx/wall_doorway.fbx" id="73_h368c"]
+[ext_resource type="PackedScene" uid="uid://bmoehyuagq1ye" path="res://Asset 3D/city/KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx/wall_doorway.fbx" id="73_h368c"]
 [ext_resource type="PackedScene" uid="uid://b6k6shru5q68j" path="res://Asset 3D/city/use this for builder/wall.tscn" id="74_xy6aj"]
-[ext_resource type="Texture2D" uid="uid://bvph3icnfcxav" path="res://Asset 3D/city/Chairs/Office_Chair_Black_01.png" id="76_4rmdo"]
-[ext_resource type="ArrayMesh" uid="uid://ps028nlar5t5" path="res://Asset 3D/city/Chairs/Office_Chair_Black_01.obj" id="77_366kq"]
-[ext_resource type="ArrayMesh" uid="uid://div6ov4ddsopv" path="res://Asset 3D/city/Tables/Office_Table_Brown_2x2_01.obj" id="80_d55e0"]
-[ext_resource type="ArrayMesh" uid="uid://bkwo8hhkffxk2" path="res://Asset 3D/city/Chairs/Misc/Electronics/Office_Misc_TV_Stand_02.obj" id="81_01v3f"]
-[ext_resource type="ArrayMesh" uid="uid://bbi7a65muoher" path="res://Asset 3D/city/Tables/Office_Table_Brown_2x2_02.obj" id="82_ph1vc"]
-[ext_resource type="ArrayMesh" uid="uid://cxoa7j3yio4g3" path="res://Asset 3D/city/Chairs/Office_Couch_White_01.obj" id="83_vpb6b"]
-[ext_resource type="ArrayMesh" uid="uid://deofihjjmvaqe" path="res://Asset 3D/city/Chairs/Misc/Trashcans/Office_Misc_Traschcan_Recycle_Blue.obj" id="84_2dtyu"]
-[ext_resource type="ArrayMesh" uid="uid://uwsk4tejkisr" path="res://Asset 3D/city/Chairs/Misc/Fragments/Office_Misc_Piece_Door_Frame_01.obj" id="85_ke17x"]
-[ext_resource type="ArrayMesh" uid="uid://vq63evtmkwvc" path="res://Asset 3D/city/Chairs/Misc/Electronics/Office_Misc_Console_GameQoob.obj" id="86_8osn4"]
-[ext_resource type="ArrayMesh" uid="uid://dg3h2w432772d" path="res://Asset 3D/city/Chairs/Misc/Electronics/Office_Misc_TV_Stand_03.obj" id="87_50j2v"]
+[ext_resource type="Texture2D" uid="uid://ct56oqxawkild" path="res://Asset 3D/city/Chairs/Office_Chair_Black_01.png" id="76_4rmdo"]
+[ext_resource type="ArrayMesh" uid="uid://b1ifk7umptlac" path="res://Asset 3D/city/Chairs/Office_Chair_Black_01.obj" id="77_366kq"]
+[ext_resource type="ArrayMesh" uid="uid://w2nh46ieenbg" path="res://Asset 3D/city/Tables/Office_Table_Brown_2x2_01.obj" id="80_d55e0"]
+[ext_resource type="ArrayMesh" uid="uid://cfvw0feis6e4w" path="res://Asset 3D/city/Chairs/Misc/Electronics/Office_Misc_TV_Stand_02.obj" id="81_01v3f"]
+[ext_resource type="ArrayMesh" uid="uid://dn24dne5qjfe5" path="res://Asset 3D/city/Tables/Office_Table_Brown_2x2_02.obj" id="82_ph1vc"]
+[ext_resource type="ArrayMesh" uid="uid://bjludegsnor55" path="res://Asset 3D/city/Chairs/Office_Couch_White_01.obj" id="83_vpb6b"]
+[ext_resource type="ArrayMesh" uid="uid://ct5alniesffx3" path="res://Asset 3D/city/Chairs/Misc/Trashcans/Office_Misc_Traschcan_Recycle_Blue.obj" id="84_2dtyu"]
+[ext_resource type="ArrayMesh" uid="uid://dbdo3auio4hmc" path="res://Asset 3D/city/Chairs/Misc/Fragments/Office_Misc_Piece_Door_Frame_01.obj" id="85_ke17x"]
+[ext_resource type="ArrayMesh" uid="uid://4h4cs4olwbt7" path="res://Asset 3D/city/Chairs/Misc/Electronics/Office_Misc_Console_GameQoob.obj" id="86_8osn4"]
+[ext_resource type="ArrayMesh" uid="uid://0ifvmrt7qjli" path="res://Asset 3D/city/Chairs/Misc/Electronics/Office_Misc_TV_Stand_03.obj" id="87_50j2v"]
 [ext_resource type="PackedScene" uid="uid://bhquf8uiv8ul3" path="res://Asset 3D/city/use this for builder/wall_tiled_doorway.tscn" id="88_gjo5k"]
 [ext_resource type="PackedScene" uid="uid://oc7worcxpecy" path="res://Asset 3D/city/use this for builder/cabinet_bathroom.tscn" id="89_3t1w2"]
 [ext_resource type="PackedScene" uid="uid://bjnve28vk53s" path="res://Asset 3D/city/use this for builder/mirror.tscn" id="90_kys8o"]
@@ -90,23 +90,23 @@
 [ext_resource type="PackedScene" uid="uid://cimeeccyp0dxc" path="res://Asset 3D/city/use this for builder/ducky.tscn" id="96_hm257"]
 [ext_resource type="PackedScene" uid="uid://dx1xprt5c1i43" path="res://Asset 3D/city/use this for builder/candle.tscn" id="97_grty2"]
 [ext_resource type="PackedScene" uid="uid://8qre63omj1st" path="res://Asset 3D/city/use this for builder/bath.tscn" id="98_ancsn"]
-[ext_resource type="PackedScene" uid="uid://d2w6yy865jhnq" path="res://Asset 3D/city/Tiny_Treats_Bubbly_Bathroom_1.0_FREE/Assets/fbx/slippers.fbx" id="99_dw4va"]
-[ext_resource type="ArrayMesh" uid="uid://5wy0xpmj2l4e" path="res://Asset 3D/city/Tables/Fragments/Office_Table_Piece_Brown_01.obj" id="100_y7wft"]
-[ext_resource type="ArrayMesh" uid="uid://cycqshatcvdae" path="res://Asset 3D/city/Tables/Fragments/Office_Table_Piece_Brown_02.obj" id="101_rbxf1"]
-[ext_resource type="ArrayMesh" uid="uid://ccoiuren5c8xj" path="res://Asset 3D/city/Tables/Fragments/Office_Table_Piece_Brown_03.obj" id="102_d5dc5"]
-[ext_resource type="ArrayMesh" uid="uid://lqt4arq54u58" path="res://Asset 3D/city/Cubicles/Fragments/Office_Cubicle_Piece_Dark_Edge_01.obj" id="103_ipbsv"]
-[ext_resource type="ArrayMesh" uid="uid://bdnojqx6y4x0l" path="res://Asset 3D/city/Cubicles/Fragments/Office_Cubicle_Piece_Dark_Edge_02.obj" id="104_g5e2t"]
-[ext_resource type="ArrayMesh" uid="uid://cdwn6tf1dy316" path="res://Asset 3D/city/Chairs/Misc/Electronics/Office_Misc_Console_Swotch_02.obj" id="105_2jrok"]
-[ext_resource type="ArrayMesh" uid="uid://686abfpsi546" path="res://Asset 3D/city/Chairs/Misc/Electronics/Office_Misc_Console_Swotch_04.obj" id="106_1a7xe"]
-[ext_resource type="Texture2D" uid="uid://ghxuqma0pnfw" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Main menu/เพิ่มหัวเรื่อง.png" id="107_1u8hb"]
-[ext_resource type="ArrayMesh" uid="uid://dwcx7kmuvdwge" path="res://Asset 3D/city/Chairs/Misc/Electronics/Office_Misc_Printer.obj" id="107_5u470"]
-[ext_resource type="ArrayMesh" uid="uid://ciumtxabfi2bn" path="res://Asset 3D/city/Chairs/Misc/Electronics/Office_Misc_TV_Stand_01.obj" id="108_wvbuk"]
-[ext_resource type="Texture2D" uid="uid://lgt4ejdw4pbw" path="res://Asset 3D/city/Tiny_Treats_Bubbly_Bathroom_1.0_FREE/Assets/fbx/tiny_treats_texture_1.png" id="109_exw4q"]
-[ext_resource type="ArrayMesh" uid="uid://ci3cmel0l4885" path="res://Asset 3D/city/Chairs/Misc/Electronics/Office_Misc_TV_Wall_02.obj" id="109_sqme2"]
+[ext_resource type="PackedScene" uid="uid://bhuite1jwtwxd" path="res://Asset 3D/city/Tiny_Treats_Bubbly_Bathroom_1.0_FREE/Assets/fbx/slippers.fbx" id="99_dw4va"]
+[ext_resource type="ArrayMesh" uid="uid://conqv5hm5sr78" path="res://Asset 3D/city/Tables/Fragments/Office_Table_Piece_Brown_01.obj" id="100_y7wft"]
+[ext_resource type="ArrayMesh" uid="uid://b7l0hevijj06f" path="res://Asset 3D/city/Tables/Fragments/Office_Table_Piece_Brown_02.obj" id="101_rbxf1"]
+[ext_resource type="ArrayMesh" uid="uid://dot375tfoqmnm" path="res://Asset 3D/city/Tables/Fragments/Office_Table_Piece_Brown_03.obj" id="102_d5dc5"]
+[ext_resource type="ArrayMesh" uid="uid://cgmtw43i8acn4" path="res://Asset 3D/city/Cubicles/Fragments/Office_Cubicle_Piece_Dark_Edge_01.obj" id="103_ipbsv"]
+[ext_resource type="ArrayMesh" uid="uid://le0hil325lja" path="res://Asset 3D/city/Cubicles/Fragments/Office_Cubicle_Piece_Dark_Edge_02.obj" id="104_g5e2t"]
+[ext_resource type="ArrayMesh" uid="uid://bc2nnjppdcfet" path="res://Asset 3D/city/Chairs/Misc/Electronics/Office_Misc_Console_Swotch_02.obj" id="105_2jrok"]
+[ext_resource type="ArrayMesh" uid="uid://brxjluvq8ad8h" path="res://Asset 3D/city/Chairs/Misc/Electronics/Office_Misc_Console_Swotch_04.obj" id="106_1a7xe"]
+[ext_resource type="Texture2D" uid="uid://djoa6y7t64mpp" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Main menu/เพิ่มหัวเรื่อง.png" id="107_1u8hb"]
+[ext_resource type="ArrayMesh" uid="uid://c37qbixwm2tlr" path="res://Asset 3D/city/Chairs/Misc/Electronics/Office_Misc_Printer.obj" id="107_5u470"]
+[ext_resource type="ArrayMesh" uid="uid://c5ght47kwy1n" path="res://Asset 3D/city/Chairs/Misc/Electronics/Office_Misc_TV_Stand_01.obj" id="108_wvbuk"]
+[ext_resource type="Texture2D" uid="uid://citofn3s08rfl" path="res://Asset 3D/city/Tiny_Treats_Bubbly_Bathroom_1.0_FREE/Assets/fbx/tiny_treats_texture_1.png" id="109_exw4q"]
+[ext_resource type="ArrayMesh" uid="uid://wcr0wlb6dal4" path="res://Asset 3D/city/Chairs/Misc/Electronics/Office_Misc_TV_Wall_02.obj" id="109_sqme2"]
 [ext_resource type="PackedScene" uid="uid://cjuvawewp610x" path="res://Scenes/ผ้าม้าน.tscn" id="110_bv6a1"]
-[ext_resource type="ArrayMesh" uid="uid://cg52hf1j0vgev" path="res://Asset 3D/city/Chairs/Misc/Electronics/Office_Misc_TV_Wall_03.obj" id="110_keemd"]
+[ext_resource type="ArrayMesh" uid="uid://c0d2kkcsbjiid" path="res://Asset 3D/city/Chairs/Misc/Electronics/Office_Misc_TV_Wall_03.obj" id="110_keemd"]
 [ext_resource type="PackedScene" uid="uid://bq4ahigi5q6am" path="res://Scenes/เก้าอี้.tscn" id="111_yiwsw"]
-[ext_resource type="Texture2D" uid="uid://dhuxk1h30ln6w" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Main menu/ตัวละครหน้าเเรก.png" id="112_bv6a1"]
+[ext_resource type="Texture2D" uid="uid://djh3s3gjpx3ra" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/Main menu/ตัวละครหน้าเเรก.png" id="112_bv6a1"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_036b0"]
 font_size = 24
@@ -556,8 +556,8 @@ void sky() {
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_yoesh"]
 width = 840
 height = 840
-noise = SubResource("FastNoiseLite_le6i1")
 seamless = true
+noise = SubResource("FastNoiseLite_le6i1")
 
 [sub_resource type="Gradient" id="Gradient_1u8hb"]
 
@@ -566,9 +566,9 @@ seamless = true
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_1sua8"]
 width = 840
 height = 840
-noise = SubResource("FastNoiseLite_vyqlt")
-color_ramp = SubResource("Gradient_1u8hb")
 seamless = true
+color_ramp = SubResource("Gradient_1u8hb")
+noise = SubResource("FastNoiseLite_vyqlt")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jp2w5"]
 shader = SubResource("Shader_vjs6b")

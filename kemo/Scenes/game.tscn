@@ -1,9 +1,9 @@
 [gd_scene load_steps=204 format=4 uid="uid://6erkhj0td6qu"]
 
 [ext_resource type="Script" uid="uid://eyucjs1uuh75" path="res://Scripts/game.gd" id="1_0q11v"]
-[ext_resource type="Texture2D" uid="uid://duibse62gbnj" path="res://multiplayerอย่าย้ายไฟล์/asset/เพิ่มหัวเรื่อง (2).png" id="2_l2fsf"]
+[ext_resource type="Texture2D" uid="uid://nl8gwl0ndrop" path="res://multiplayerอย่าย้ายไฟล์/asset/เพิ่มหัวเรื่อง (2).png" id="2_l2fsf"]
 [ext_resource type="PackedScene" uid="uid://cwn87tw3xwuj2" path="res://Asset 3D/city/use this for builder/building_b_without_base.tscn" id="2_sdta4"]
-[ext_resource type="Texture2D" uid="uid://bqcuxdt5fsb5m" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/เพิ่มหัวเรื่อง (4).png" id="3_30egb"]
+[ext_resource type="Texture2D" uid="uid://ckjkophcvwhke" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/เพิ่มหัวเรื่อง (4).png" id="3_30egb"]
 [ext_resource type="PackedScene" uid="uid://benqb0nbxpx4u" path="res://Asset 3D/city/use this for builder/building_c_without_base.tscn" id="3_nbx4s"]
 [ext_resource type="PackedScene" uid="uid://boym5jkd8smrx" path="res://Asset 3D/city/use this for builder/building_a_without_base.tscn" id="4_l2fsf"]
 [ext_resource type="PackedScene" uid="uid://chvs62i0dd7q0" path="res://Asset 3D/city/use this for builder/building_d_without_base.tscn" id="5_30egb"]
@@ -74,19 +74,19 @@
 [ext_resource type="PackedScene" uid="uid://djdoe57ix8dh5" path="res://Asset 3D/city/use this for builder/monkeybar_b.tscn" id="70_y3p0a"]
 [ext_resource type="PackedScene" uid="uid://dkrnxuv51eyh0" path="res://Asset 3D/city/use this for builder/coin_stack_medium.tscn" id="71_fx2mn"]
 [ext_resource type="PackedScene" uid="uid://hhtygqdo4htb" path="res://Asset 3D/city/use this for builder/walkbase.tscn" id="72_53pxc"]
-[ext_resource type="PackedScene" uid="uid://dr7hb3nrbd2cd" path="res://Asset 3D/city/KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx/wall_doorway.fbx" id="73_dmajg"]
+[ext_resource type="PackedScene" uid="uid://bmoehyuagq1ye" path="res://Asset 3D/city/KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx/wall_doorway.fbx" id="73_dmajg"]
 [ext_resource type="PackedScene" uid="uid://b6k6shru5q68j" path="res://Asset 3D/city/use this for builder/wall.tscn" id="74_oruia"]
-[ext_resource type="Texture2D" uid="uid://bvph3icnfcxav" path="res://Asset 3D/city/Chairs/Office_Chair_Black_01.png" id="76_uowyd"]
-[ext_resource type="ArrayMesh" uid="uid://ps028nlar5t5" path="res://Asset 3D/city/Chairs/Office_Chair_Black_01.obj" id="77_tps5l"]
-[ext_resource type="ArrayMesh" uid="uid://div6ov4ddsopv" path="res://Asset 3D/city/Tables/Office_Table_Brown_2x2_01.obj" id="80_yrbgf"]
-[ext_resource type="ArrayMesh" uid="uid://bkwo8hhkffxk2" path="res://Asset 3D/city/Chairs/Misc/Electronics/Office_Misc_TV_Stand_02.obj" id="81_5j8rd"]
-[ext_resource type="ArrayMesh" uid="uid://bbi7a65muoher" path="res://Asset 3D/city/Tables/Office_Table_Brown_2x2_02.obj" id="82_cyjfv"]
-[ext_resource type="ArrayMesh" uid="uid://cxoa7j3yio4g3" path="res://Asset 3D/city/Chairs/Office_Couch_White_01.obj" id="83_3fru1"]
-[ext_resource type="ArrayMesh" uid="uid://deofihjjmvaqe" path="res://Asset 3D/city/Chairs/Misc/Trashcans/Office_Misc_Traschcan_Recycle_Blue.obj" id="84_846i3"]
-[ext_resource type="ArrayMesh" uid="uid://uwsk4tejkisr" path="res://Asset 3D/city/Chairs/Misc/Fragments/Office_Misc_Piece_Door_Frame_01.obj" id="85_mlnoo"]
-[ext_resource type="ArrayMesh" uid="uid://vq63evtmkwvc" path="res://Asset 3D/city/Chairs/Misc/Electronics/Office_Misc_Console_GameQoob.obj" id="86_547jv"]
+[ext_resource type="Texture2D" uid="uid://ct56oqxawkild" path="res://Asset 3D/city/Chairs/Office_Chair_Black_01.png" id="76_uowyd"]
+[ext_resource type="ArrayMesh" uid="uid://b1ifk7umptlac" path="res://Asset 3D/city/Chairs/Office_Chair_Black_01.obj" id="77_tps5l"]
+[ext_resource type="ArrayMesh" uid="uid://w2nh46ieenbg" path="res://Asset 3D/city/Tables/Office_Table_Brown_2x2_01.obj" id="80_yrbgf"]
+[ext_resource type="ArrayMesh" uid="uid://cfvw0feis6e4w" path="res://Asset 3D/city/Chairs/Misc/Electronics/Office_Misc_TV_Stand_02.obj" id="81_5j8rd"]
+[ext_resource type="ArrayMesh" uid="uid://dn24dne5qjfe5" path="res://Asset 3D/city/Tables/Office_Table_Brown_2x2_02.obj" id="82_cyjfv"]
+[ext_resource type="ArrayMesh" uid="uid://bjludegsnor55" path="res://Asset 3D/city/Chairs/Office_Couch_White_01.obj" id="83_3fru1"]
+[ext_resource type="ArrayMesh" uid="uid://ct5alniesffx3" path="res://Asset 3D/city/Chairs/Misc/Trashcans/Office_Misc_Traschcan_Recycle_Blue.obj" id="84_846i3"]
+[ext_resource type="ArrayMesh" uid="uid://dbdo3auio4hmc" path="res://Asset 3D/city/Chairs/Misc/Fragments/Office_Misc_Piece_Door_Frame_01.obj" id="85_mlnoo"]
+[ext_resource type="ArrayMesh" uid="uid://4h4cs4olwbt7" path="res://Asset 3D/city/Chairs/Misc/Electronics/Office_Misc_Console_GameQoob.obj" id="86_547jv"]
 [ext_resource type="PackedScene" uid="uid://b21m5qb6udqu4" path="res://Scenes/computer.tscn" id="86_sdta4"]
-[ext_resource type="ArrayMesh" uid="uid://dg3h2w432772d" path="res://Asset 3D/city/Chairs/Misc/Electronics/Office_Misc_TV_Stand_03.obj" id="87_yqlei"]
+[ext_resource type="ArrayMesh" uid="uid://0ifvmrt7qjli" path="res://Asset 3D/city/Chairs/Misc/Electronics/Office_Misc_TV_Stand_03.obj" id="87_yqlei"]
 [ext_resource type="PackedScene" uid="uid://bhquf8uiv8ul3" path="res://Asset 3D/city/use this for builder/wall_tiled_doorway.tscn" id="88_dijad"]
 [ext_resource type="PackedScene" uid="uid://oc7worcxpecy" path="res://Asset 3D/city/use this for builder/cabinet_bathroom.tscn" id="89_30mw1"]
 [ext_resource type="PackedScene" uid="uid://bjnve28vk53s" path="res://Asset 3D/city/use this for builder/mirror.tscn" id="90_6vsn0"]
@@ -98,19 +98,19 @@
 [ext_resource type="PackedScene" uid="uid://cimeeccyp0dxc" path="res://Asset 3D/city/use this for builder/ducky.tscn" id="96_k02b7"]
 [ext_resource type="PackedScene" uid="uid://dx1xprt5c1i43" path="res://Asset 3D/city/use this for builder/candle.tscn" id="97_odyt4"]
 [ext_resource type="PackedScene" uid="uid://8qre63omj1st" path="res://Asset 3D/city/use this for builder/bath.tscn" id="98_ahcil"]
-[ext_resource type="PackedScene" uid="uid://d2w6yy865jhnq" path="res://Asset 3D/city/Tiny_Treats_Bubbly_Bathroom_1.0_FREE/Assets/fbx/slippers.fbx" id="99_widkh"]
-[ext_resource type="ArrayMesh" uid="uid://5wy0xpmj2l4e" path="res://Asset 3D/city/Tables/Fragments/Office_Table_Piece_Brown_01.obj" id="100_l06gn"]
-[ext_resource type="ArrayMesh" uid="uid://cycqshatcvdae" path="res://Asset 3D/city/Tables/Fragments/Office_Table_Piece_Brown_02.obj" id="101_wc11i"]
-[ext_resource type="ArrayMesh" uid="uid://ccoiuren5c8xj" path="res://Asset 3D/city/Tables/Fragments/Office_Table_Piece_Brown_03.obj" id="102_tmut4"]
-[ext_resource type="ArrayMesh" uid="uid://lqt4arq54u58" path="res://Asset 3D/city/Cubicles/Fragments/Office_Cubicle_Piece_Dark_Edge_01.obj" id="103_2j6bp"]
-[ext_resource type="ArrayMesh" uid="uid://bdnojqx6y4x0l" path="res://Asset 3D/city/Cubicles/Fragments/Office_Cubicle_Piece_Dark_Edge_02.obj" id="104_rrcml"]
-[ext_resource type="ArrayMesh" uid="uid://cdwn6tf1dy316" path="res://Asset 3D/city/Chairs/Misc/Electronics/Office_Misc_Console_Swotch_02.obj" id="105_tf6al"]
-[ext_resource type="ArrayMesh" uid="uid://686abfpsi546" path="res://Asset 3D/city/Chairs/Misc/Electronics/Office_Misc_Console_Swotch_04.obj" id="106_gahuk"]
-[ext_resource type="ArrayMesh" uid="uid://dwcx7kmuvdwge" path="res://Asset 3D/city/Chairs/Misc/Electronics/Office_Misc_Printer.obj" id="107_k128u"]
-[ext_resource type="ArrayMesh" uid="uid://ciumtxabfi2bn" path="res://Asset 3D/city/Chairs/Misc/Electronics/Office_Misc_TV_Stand_01.obj" id="108_i3ji6"]
-[ext_resource type="Texture2D" uid="uid://lgt4ejdw4pbw" path="res://Asset 3D/city/Tiny_Treats_Bubbly_Bathroom_1.0_FREE/Assets/fbx/tiny_treats_texture_1.png" id="109_nbx4s"]
-[ext_resource type="ArrayMesh" uid="uid://ci3cmel0l4885" path="res://Asset 3D/city/Chairs/Misc/Electronics/Office_Misc_TV_Wall_02.obj" id="109_pqtg3"]
-[ext_resource type="ArrayMesh" uid="uid://cg52hf1j0vgev" path="res://Asset 3D/city/Chairs/Misc/Electronics/Office_Misc_TV_Wall_03.obj" id="110_ekra1"]
+[ext_resource type="PackedScene" uid="uid://bhuite1jwtwxd" path="res://Asset 3D/city/Tiny_Treats_Bubbly_Bathroom_1.0_FREE/Assets/fbx/slippers.fbx" id="99_widkh"]
+[ext_resource type="ArrayMesh" uid="uid://conqv5hm5sr78" path="res://Asset 3D/city/Tables/Fragments/Office_Table_Piece_Brown_01.obj" id="100_l06gn"]
+[ext_resource type="ArrayMesh" uid="uid://b7l0hevijj06f" path="res://Asset 3D/city/Tables/Fragments/Office_Table_Piece_Brown_02.obj" id="101_wc11i"]
+[ext_resource type="ArrayMesh" uid="uid://dot375tfoqmnm" path="res://Asset 3D/city/Tables/Fragments/Office_Table_Piece_Brown_03.obj" id="102_tmut4"]
+[ext_resource type="ArrayMesh" uid="uid://cgmtw43i8acn4" path="res://Asset 3D/city/Cubicles/Fragments/Office_Cubicle_Piece_Dark_Edge_01.obj" id="103_2j6bp"]
+[ext_resource type="ArrayMesh" uid="uid://le0hil325lja" path="res://Asset 3D/city/Cubicles/Fragments/Office_Cubicle_Piece_Dark_Edge_02.obj" id="104_rrcml"]
+[ext_resource type="ArrayMesh" uid="uid://bc2nnjppdcfet" path="res://Asset 3D/city/Chairs/Misc/Electronics/Office_Misc_Console_Swotch_02.obj" id="105_tf6al"]
+[ext_resource type="ArrayMesh" uid="uid://brxjluvq8ad8h" path="res://Asset 3D/city/Chairs/Misc/Electronics/Office_Misc_Console_Swotch_04.obj" id="106_gahuk"]
+[ext_resource type="ArrayMesh" uid="uid://c37qbixwm2tlr" path="res://Asset 3D/city/Chairs/Misc/Electronics/Office_Misc_Printer.obj" id="107_k128u"]
+[ext_resource type="ArrayMesh" uid="uid://c5ght47kwy1n" path="res://Asset 3D/city/Chairs/Misc/Electronics/Office_Misc_TV_Stand_01.obj" id="108_i3ji6"]
+[ext_resource type="Texture2D" uid="uid://citofn3s08rfl" path="res://Asset 3D/city/Tiny_Treats_Bubbly_Bathroom_1.0_FREE/Assets/fbx/tiny_treats_texture_1.png" id="109_nbx4s"]
+[ext_resource type="ArrayMesh" uid="uid://wcr0wlb6dal4" path="res://Asset 3D/city/Chairs/Misc/Electronics/Office_Misc_TV_Wall_02.obj" id="109_pqtg3"]
+[ext_resource type="ArrayMesh" uid="uid://c0d2kkcsbjiid" path="res://Asset 3D/city/Chairs/Misc/Electronics/Office_Misc_TV_Wall_03.obj" id="110_ekra1"]
 [ext_resource type="PackedScene" uid="uid://cjuvawewp610x" path="res://Scenes/ผ้าม้าน.tscn" id="110_l2fsf"]
 [ext_resource type="PackedScene" uid="uid://bq4ahigi5q6am" path="res://Scenes/เก้าอี้.tscn" id="111_30egb"]
 [ext_resource type="Script" uid="uid://dfecqfpqfilqu" path="res://Scripts/teleporter.gd" id="113_lv8wl"]
@@ -138,7 +138,7 @@ corner_radius_bottom_left = 64
 font_color = Color(1, 1, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jkdvu"]
-bg_color = Color(0, 0, 0, 0.70980394)
+bg_color = Color(0, 0, 0, 0.709804)
 corner_radius_top_left = 32
 corner_radius_top_right = 32
 corner_radius_bottom_right = 32
@@ -238,8 +238,8 @@ void sky() {
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_sdta4"]
 width = 840
 height = 840
-noise = SubResource("FastNoiseLite_wvvf3")
 seamless = true
+noise = SubResource("FastNoiseLite_wvvf3")
 
 [sub_resource type="Gradient" id="Gradient_776w0"]
 
@@ -248,9 +248,9 @@ seamless = true
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_nbx4s"]
 width = 840
 height = 840
-noise = SubResource("FastNoiseLite_y3p0a")
-color_ramp = SubResource("Gradient_776w0")
 seamless = true
+color_ramp = SubResource("Gradient_776w0")
+noise = SubResource("FastNoiseLite_y3p0a")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fx2mn"]
 shader = SubResource("Shader_0q11v")
@@ -672,8 +672,8 @@ offset_right = 1794.5
 offset_bottom = 959.5
 
 [node name="เพิ่มหัวเรื่อง(2)" type="Sprite2D" parent="UI/Notebook_Panel"]
-position = Vector2(190.50002, 61)
-scale = Vector2(0.35351563, 0.32854164)
+position = Vector2(190.5, 61)
+scale = Vector2(0.353516, 0.328542)
 texture = ExtResource("2_l2fsf")
 
 [node name="เพิ่มหัวเรื่อง(4)" type="Sprite2D" parent="UI/Notebook_Panel"]
@@ -6627,46 +6627,236 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.48518, 1.67062, 414.229)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -11.5093, 28.2483)
 
 [node name="Marker3D" type="Marker3D" parent="CardSpawnPoints"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.38183)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 31.568)
 
 [node name="Marker3D2" type="Marker3D" parent="CardSpawnPoints"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.51293, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.2646, 0, 11.8252)
 
 [node name="Marker3D3" type="Marker3D" parent="CardSpawnPoints"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.48148, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.48148, 0, -25.0475)
 
 [node name="Marker3D4" type="Marker3D" parent="CardSpawnPoints"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.64163, 0, 2.53342)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.8987, 0, 2.53342)
 
 [node name="Marker3D5" type="Marker3D" parent="CardSpawnPoints"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.4443, 0, 2.42305)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.4924, 0, -56.9532)
 
 [node name="Marker3D6" type="Marker3D" parent="CardSpawnPoints"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.62883, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.2217, 0, 0)
 
 [node name="Marker3D7" type="Marker3D" parent="CardSpawnPoints"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.52809, 0, 2.54546)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -48.0645, 0, -21.0008)
 
 [node name="Marker3D8" type="Marker3D" parent="CardSpawnPoints"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.53667)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -53.6646, 0, 4.53667)
 
 [node name="Marker3D9" type="Marker3D" parent="CardSpawnPoints"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.58715, 0, 4.50107)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -59.0628, 0, -66.4353)
 
 [node name="Marker3D10" type="Marker3D" parent="CardSpawnPoints"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.30081, 0, 4.56301)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 47.113, 0, -84.37)
+
+[node name="Marker3D11" type="Marker3D" parent="CardSpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60.6851, 0, 37.5039)
+
+[node name="Marker3D12" type="Marker3D" parent="CardSpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.2162, -0.115498, -79.089)
+
+[node name="Marker3D13" type="Marker3D" parent="CardSpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.263, 0, -64.9863)
+
+[node name="Marker3D14" type="Marker3D" parent="CardSpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.959, 0, -29.7982)
+
+[node name="Marker3D15" type="Marker3D" parent="CardSpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.0679, 0, -70.7436)
+
+[node name="Marker3D16" type="Marker3D" parent="CardSpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.473, 0, -68.0038)
+
+[node name="Marker3D17" type="Marker3D" parent="CardSpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.8994, 0, -76.7612)
+
+[node name="Marker3D18" type="Marker3D" parent="CardSpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.0352, 0, -66.8511)
+
+[node name="Marker3D19" type="Marker3D" parent="CardSpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.9131, -0.158512, -58.3363)
+
+[node name="Marker3D20" type="Marker3D" parent="CardSpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.42898, 0, -48.6253)
+
+[node name="Marker3D21" type="Marker3D" parent="CardSpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -21.8127)
+
+[node name="Marker3D22" type="Marker3D" parent="CardSpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -47.9136, 0, -26.3263)
+
+[node name="Marker3D23" type="Marker3D" parent="CardSpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63.1646, 0, 2.45821)
+
+[node name="Marker3D24" type="Marker3D" parent="CardSpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.541033, 6.7442, 349.319)
+
+[node name="Marker3D25" type="Marker3D" parent="CardSpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.40023, 6.55613, -30.3396)
+
+[node name="Marker3D26" type="Marker3D" parent="CardSpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.80685, -0.82149, 165.511)
+
+[node name="Marker3D27" type="Marker3D" parent="CardSpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3218, 202.626)
+
+[node name="Marker3D28" type="Marker3D" parent="CardSpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.9193, -0.115513, -13.4813)
+
+[node name="Marker3D29" type="Marker3D" parent="CardSpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.3633, 0, -23.9929)
+
+[node name="Marker3D30" type="Marker3D" parent="CardSpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.899, 0, 17.669)
+
+[node name="Marker3D31" type="Marker3D" parent="CardSpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.2173, 0, 31.0257)
+
+[node name="Marker3D32" type="Marker3D" parent="CardSpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.9354, 0, -19.017)
+
+[node name="Marker3D33" type="Marker3D" parent="CardSpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.6608, 0, -25.3837)
+
+[node name="Marker3D34" type="Marker3D" parent="CardSpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.4657, 0, -80.0705)
+
+[node name="Marker3D35" type="Marker3D" parent="CardSpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.314, 0, 3.51867)
+
+[node name="Marker3D36" type="Marker3D" parent="CardSpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.3156, 0.236048, -18.7758)
+
+[node name="Marker3D37" type="Marker3D" parent="CardSpawnPoints"]
+
+[node name="Marker3D38" type="Marker3D" parent="CardSpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.383, 0.0561285, -11.152)
+
+[node name="Marker3D39" type="Marker3D" parent="CardSpawnPoints"]
+
+[node name="Marker3D40" type="Marker3D" parent="CardSpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -52.5366, 0, 30.8613)
+
+[node name="Marker3D41" type="Marker3D" parent="CardSpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.5082, 0, 35.7286)
+
+[node name="Marker3D42" type="Marker3D" parent="CardSpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.36392, 0, 23.5344)
+
+[node name="Marker3D43" type="Marker3D" parent="CardSpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.1168, 0, -35.7718)
+
+[node name="Marker3D44" type="Marker3D" parent="CardSpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63.449, 0, -24.9859)
+
+[node name="Marker3D45" type="Marker3D" parent="CardSpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.9521, 0, -58.1679)
+
+[node name="Marker3D46" type="Marker3D" parent="CardSpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.8885, 0, -22.2979)
+
+[node name="Marker3D47" type="Marker3D" parent="CardSpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60.0059, 0, 0)
+
+[node name="Marker3D48" type="Marker3D" parent="CardSpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.6927, 0, 19.9365)
+
+[node name="Marker3D49" type="Marker3D" parent="CardSpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.5246, 0, -4.73717)
+
+[node name="Marker3D50" type="Marker3D" parent="CardSpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.7919, 0, 18.3551)
+
+[node name="Marker3D51" type="Marker3D" parent="CardSpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 18.8476)
+
+[node name="Marker3D52" type="Marker3D" parent="CardSpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.0229, 0, -26.6999)
+
+[node name="Marker3D53" type="Marker3D" parent="CardSpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -85.5586)
+
+[node name="Marker3D54" type="Marker3D" parent="CardSpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.9526, 0, 36.1933)
+
+[node name="Marker3D55" type="Marker3D" parent="CardSpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.6706, 0, -53.6321)
+
+[node name="Marker3D56" type="Marker3D" parent="CardSpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 59.8184, 0, -67.017)
+
+[node name="Marker3D57" type="Marker3D" parent="CardSpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50.0481, 0, -75.4341)
+
+[node name="Marker3D58" type="Marker3D" parent="CardSpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.6377, 0, -42.1597)
+
+[node name="Marker3D59" type="Marker3D" parent="CardSpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.4561, 0.56363, -83.144)
+
+[node name="Marker3D60" type="Marker3D" parent="CardSpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60.49, 0, -83.2548)
+
+[node name="Marker3D61" type="Marker3D" parent="CardSpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -84.2917)
+
+[node name="Marker3D62" type="Marker3D" parent="CardSpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.4026, 0, -19.1857)
+
+[node name="Marker3D63" type="Marker3D" parent="CardSpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.4814, 0, -4.6043)
+
+[node name="Marker3D64" type="Marker3D" parent="CardSpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.4871, 0, -30.6665)
+
+[node name="Marker3D65" type="Marker3D" parent="CardSpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 59.7037, -0.115038, -32.2645)
+
+[node name="Marker3D66" type="Marker3D" parent="CardSpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50.8916, 1.07792, 22.8099)
+
+[node name="Marker3D67" type="Marker3D" parent="CardSpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.556, 0, 17.8024)
+
+[node name="Marker3D68" type="Marker3D" parent="CardSpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.313, 0, -72.8657)
+
+[node name="Marker3D69" type="Marker3D" parent="CardSpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.1974, 0, -51.1898)
+
+[node name="Marker3D70" type="Marker3D" parent="CardSpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.2724, -0.454443, -56.4266)
+
+[node name="Marker3D71" type="Marker3D" parent="CardSpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.92278, 0, -33.9021)
+
+[node name="Marker3D72" type="Marker3D" parent="CardSpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70.2626, 34.6777, -90.4916)
+
+[node name="Marker3D73" type="Marker3D" parent="CardSpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.89148, 0, -83.4393)
+
+[node name="Marker3D74" type="Marker3D" parent="CardSpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.6891, 0, 17.8365)
 
 [node name="COMPUTER" parent="." instance=ExtResource("86_sdta4")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 4.856962, -13.772733, 182.59566)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4.85696, -13.7727, 182.596)
 
 [node name="COMPUTER2" parent="." instance=ExtResource("86_sdta4")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 4.856962, -13.772733, 188.35321)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4.85696, -13.7727, 188.353)
 
 [node name="COMPUTER3" parent="." instance=ExtResource("86_sdta4")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.29473, -13.772733, 188.1582)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5.29473, -13.7727, 188.158)
 
 [node name="COMPUTER4" parent="." instance=ExtResource("86_sdta4")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.29473, -13.772733, 193.97493)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5.29473, -13.7727, 193.975)
 
 [node name="PositionTimer" type="Timer" parent="."]
 
