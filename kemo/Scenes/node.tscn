@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bs87jr8jchycb"]
+
+[ext_resource type="AudioStream" uid="uid://ccbdm6erduufi" path="res://Phantom Circuitry (1).mp3" id="1_5g7os"]
+
+[node name="MusicController" type="Node"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_5g7os")
+volume_db = -18.868
+autoplay = true
