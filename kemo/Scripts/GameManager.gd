@@ -47,11 +47,6 @@ func sync_round_number(number: int):
 
 func _ready():
 	if multiplayer.is_server():
-		print("GameManager ready on server.")
-	else:
-		# Client ส่ง ready signal ไปหา host
-		rpc_id(1, "client_ready")
-	if multiplayer.is_server():
 		
 		print("GameManager ready on server.")
 		Global.round_number = 0 # ⭐ ตั้งค่าเริ่มต้นของรอบเกม
