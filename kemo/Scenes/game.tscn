@@ -1,7 +1,9 @@
-[gd_scene load_steps=198 format=4 uid="uid://6erkhj0td6qu"]
+[gd_scene load_steps=204 format=4 uid="uid://6erkhj0td6qu"]
 
 [ext_resource type="Script" uid="uid://eyucjs1uuh75" path="res://Scripts/game.gd" id="1_0q11v"]
+[ext_resource type="Texture2D" uid="uid://duibse62gbnj" path="res://multiplayerอย่าย้ายไฟล์/asset/เพิ่มหัวเรื่อง (2).png" id="2_l2fsf"]
 [ext_resource type="PackedScene" uid="uid://cwn87tw3xwuj2" path="res://Asset 3D/city/use this for builder/building_b_without_base.tscn" id="2_sdta4"]
+[ext_resource type="Texture2D" uid="uid://bqcuxdt5fsb5m" path="res://multiplayerอย่าย้ายไฟล์/asset/Asset 2D/เพิ่มหัวเรื่อง (4).png" id="3_30egb"]
 [ext_resource type="PackedScene" uid="uid://benqb0nbxpx4u" path="res://Asset 3D/city/use this for builder/building_c_without_base.tscn" id="3_nbx4s"]
 [ext_resource type="PackedScene" uid="uid://boym5jkd8smrx" path="res://Asset 3D/city/use this for builder/building_a_without_base.tscn" id="4_l2fsf"]
 [ext_resource type="PackedScene" uid="uid://chvs62i0dd7q0" path="res://Asset 3D/city/use this for builder/building_d_without_base.tscn" id="5_30egb"]
@@ -120,6 +122,27 @@ font_size = 64
 font_size = 48
 outline_size = 12
 outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_sdta4"]
+font_size = 32
+outline_size = 12
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lyo7a"]
+corner_radius_top_left = 64
+corner_radius_top_right = 64
+corner_radius_bottom_right = 64
+corner_radius_bottom_left = 64
+
+[sub_resource type="LabelSettings" id="LabelSettings_lv8wl"]
+font_color = Color(1, 1, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jkdvu"]
+bg_color = Color(0, 0, 0, 0.70980394)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
 
 [sub_resource type="Shader" id="Shader_0q11v"]
 code = "
@@ -585,10 +608,10 @@ offset_right = 96.72
 offset_bottom = 38.7599
 
 [node name="Drop Cards" type="Button" parent="UI"]
-offset_left = 1323.0
-offset_top = 792.0
-offset_right = 1501.0
-offset_bottom = 873.0
+offset_left = 50.0
+offset_top = 921.0
+offset_right = 228.0
+offset_bottom = 1002.0
 text = "Drop Card"
 
 [node name="RoundLabel" type="Label" parent="UI"]
@@ -597,6 +620,66 @@ offset_right = 259.0
 offset_bottom = 64.0
 text = "Round : 1"
 label_settings = SubResource("LabelSettings_0q11v")
+
+[node name="Label_POSITION" type="Label" parent="UI"]
+offset_left = 1519.0
+offset_top = 401.0
+offset_right = 1872.0
+offset_bottom = 444.0
+label_settings = SubResource("LabelSettings_sdta4")
+horizontal_alignment = 1
+
+[node name="Notebook_Button" type="Button" parent="UI"]
+offset_left = 1559.0
+offset_top = 800.0
+offset_right = 1672.0
+offset_bottom = 906.0
+scale = Vector2(2, 2)
+theme_override_styles/normal = SubResource("StyleBoxFlat_lyo7a")
+text = "Notebook"
+
+[node name="Label" type="Label" parent="UI/Notebook_Button"]
+layout_mode = 0
+offset_left = -4.0
+offset_top = 107.0
+offset_right = 191.0
+offset_bottom = 176.0
+text = "press E to use
+ "
+label_settings = SubResource("LabelSettings_lv8wl")
+
+[node name="Notebook_Panel" type="Panel" parent="UI"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -920.5
+offset_top = -401.0
+offset_right = 920.5
+offset_bottom = 516.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_jkdvu")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Notebook_Panel"]
+layout_mode = 0
+offset_left = 42.5
+offset_top = 101.5
+offset_right = 1794.5
+offset_bottom = 959.5
+
+[node name="เพิ่มหัวเรื่อง(2)" type="Sprite2D" parent="UI/Notebook_Panel"]
+position = Vector2(190.50002, 61)
+scale = Vector2(0.35351563, 0.32854164)
+texture = ExtResource("2_l2fsf")
+
+[node name="เพิ่มหัวเรื่อง(4)" type="Sprite2D" parent="UI/Notebook_Panel"]
+position = Vector2(1777.5, 869)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("3_30egb")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_53pxc")
@@ -6575,6 +6658,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.30081, 0, 4.56301)
 
 [node name="COMPUTER" parent="." instance=ExtResource("86_sdta4")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 4.856962, -13.772733, 182.59566)
+
+[node name="COMPUTER2" parent="." instance=ExtResource("86_sdta4")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 4.856962, -13.772733, 188.35321)
+
+[node name="COMPUTER3" parent="." instance=ExtResource("86_sdta4")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.29473, -13.772733, 188.1582)
+
+[node name="COMPUTER4" parent="." instance=ExtResource("86_sdta4")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.29473, -13.772733, 193.97493)
 
 [node name="PositionTimer" type="Timer" parent="."]
 

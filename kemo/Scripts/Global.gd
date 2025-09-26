@@ -31,11 +31,11 @@ var round_number: int = 1
 # List of all possible roles (accessible from anywhere)
 var roles: Array = [
 	"Data Retriever",
-	"Support",
+	#"Support",
 	"The Oracle",
-	"Tracer",
+	#"Tracer",
 	"Hacker",
-	"Enforcer",
+	#"Enforcer",
 	"System Controller",
 ]
 
@@ -51,12 +51,12 @@ var role_colors := {
 }
 
 var role_counts := {
-	"Data Retriever": 1,
-	"Support": 3,
+	#"Data Retriever": 1,
+	#"Support": 3,
 	"The Oracle": 1,
-	"Tracer": 2,
+	#"Tracer": 2,
 	"Hacker": 1,
-	"Enforcer": 1,
+	#"Enforcer": 1,
 	"System Controller": 1,
 }
 

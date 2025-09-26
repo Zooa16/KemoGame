@@ -36,10 +36,10 @@ func _on_confirm_button_pressed():
 	if original_name_length > MAX_NAME_LENGTH:
 		player_name = player_name.substr(0, MAX_NAME_LENGTH)
 		status.modulate = Color.RED
-		status.text = "ข้อความเกิน %d ตัวอักษร! ชื่อถูกตัดแล้ว" % MAX_NAME_LENGTH
+		status.text = "Over %d remaining! This name already." % MAX_NAME_LENGTH
 	else:
 		status.modulate = Color.GREEN
-		status.text = "เปลี่ยนชื่อสำเร็จ!"
+		status.text = "Name changed successfully!"
 		
 	# กำหนดชื่อใหม่ให้กับ Global
 	Global.my_player_name = player_name

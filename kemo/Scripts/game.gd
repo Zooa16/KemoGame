@@ -1,4 +1,3 @@
-# game.gd
 extends Node
 
 @onready var timer_label: Label = $UI/MarginContainer/TimerLabel
@@ -6,6 +5,7 @@ extends Node
 @onready var cards_label: Label = $UI/CardsCollectedLabel
 
 @onready var round_label: Label = $UI/RoundLabel 
+@onready var Label_POSITION: Label =$UI/Label_POSITION
 # Player spawn point
 @onready var player_spawn_points_parent = $SpawnPoints
 var player_spawn_points: Array = []
@@ -34,7 +34,28 @@ var card_scene = preload("res://Scenes/Cards.tscn")
 @onready var position_timer: Timer = $PositionTimer # ต้องเพิ่ม Node Timer ใน Scene
 const POSITION_LOG_INTERVAL := 60.0 # Log ทุก 60 วินาที
 
+# -------------------------
+# ⭐ NEW: Notebook UI Variables (ตามที่ร้องขอ)
+# -------------------------
+@onready var Notebook_Button = $UI/Notebook_Button
+@onready var Notebook_Panel = $UI/Notebook_Panel
+@onready var Notebook_VBoxContainer = $UI/Notebook_Panel/VBoxContainer
+
+const NOTEBOOK_MAX_LOG_ENTRIES := 40
+var notebook_last_log_size := 0
+
+
 func _ready():
+	if not multiplayer.is_server():
+		rpc_id(1, "client_ready")  # 1 คือ host
+	# -------------------------
+	# ⭐ MODIFIED: Notebook Initialization (ย้ายขึ้นมา)
+	# -------------------------
+	Notebook_Panel.hide()
+	Notebook_Button.pressed.connect(_on_notebook_button_pressed)
+	# ซ่อนไว้ก่อนจนกว่าจะได้รับข้อมูลบทบาท
+	Notebook_Button.hide() 
+	
 	turn_timer.timeout.connect(_on_TurnTimer_timeout)
 	
 	for child in player_spawn_points_parent.get_children():
@@ -60,11 +81,105 @@ func _ready():
 		# ⭐ NEW: Start the position logging timer on the host
 		start_position_timer()
 		
+		# ⭐ FIX 1/3: Host ส่งข้อมูลบทบาททั้งหมดไปยังทุก Peer ทันที
+		sync_player_roles.rpc(Global.player_roles)
+		
 	update_round_label()
 	start_turn_timer()
 
 # -------------------------
-# NEW: Position Logging Functions (Host only)
+# ⭐ NEW: Notebook Visibility Logic
+# -------------------------
+# updated check function: รองรับทั้ง key เป็น int หรือ string
+func check_and_show_notebook_button():
+	Notebook_Button.hide()
+	var local_id = multiplayer.get_unique_id()
+
+	# try int key first, then string key (RPC อาจแปลง key เป็น string)
+	var role_data = {}
+	if Global.player_roles.has(local_id):
+		role_data = Global.player_roles[local_id]
+	elif Global.player_roles.has(str(local_id)):
+		role_data = Global.player_roles[str(local_id)]
+	else:
+		role_data = {}
+
+	var base_role = ""
+	if typeof(role_data) == TYPE_DICTIONARY:
+		base_role = role_data.get("base", "")
+
+	var allowed_roles = ["Hacker", "Data Retriever", "System Controller"]
+
+	if base_role in allowed_roles:
+		Notebook_Button.show()
+		print("DEBUG (Local): Player role is %s. Notebook button shown." % base_role)
+	else:
+		print("DEBUG (Local): Player role is %s. Notebook button hidden." % base_role)
+
+func _on_notebook_button_pressed():
+	# สลับการแสดงผล Panel
+	Notebook_Panel.visible = not Notebook_Panel.visible
+	if Notebook_Panel.visible:
+		# อัปเดต Log ทันทีเมื่อเปิด
+		update_notebook_display()
+
+# -------------------------
+# ⭐ NEW: Notebook Log Display Functions
+# -------------------------
+func update_notebook_display():
+	var current_log = Global.message_log
+	var new_log_size = current_log.size()
+	
+	if new_log_size <= notebook_last_log_size:
+		# ไม่มีข้อความใหม่
+		return
+		
+	# 1. สร้าง Label สำหรับข้อความใหม่ที่เพิ่มเข้ามา
+	for i in range(notebook_last_log_size, new_log_size):
+		var log_entry = current_log[i]
+		
+		# สร้าง Label ใหม่
+		var new_label = Label.new()
+		new_label.text = log_entry
+		new_label.autowrap_mode = TextServer.AUTOWRAP_WORD
+		
+		# เพิ่ม Label เข้าไปใน VBoxContainer
+		Notebook_VBoxContainer.add_child(new_label)
+		
+	# 2. จัดการจำนวนข้อความไม่ให้เกิน MAX_LOG_ENTRIES (40)
+	var children_count = Notebook_VBoxContainer.get_child_count()
+	if children_count > NOTEBOOK_MAX_LOG_ENTRIES:
+		var excess_count = children_count - NOTEBOOK_MAX_LOG_ENTRIES
+		
+		# ลบข้อความที่เก่าที่สุด (ซึ่งคือ Child ตัวแรก ๆ ใน VBoxContainer)
+		for i in range(excess_count):
+			var oldest_label = Notebook_VBoxContainer.get_child(0)
+			oldest_label.queue_free()
+			
+	# 3. อัปเดตขนาด Log ล่าสุดที่ทราบ
+	notebook_last_log_size = new_log_size
+
+# -------------------------
+# ⭐ MODIFIED: _process (เพิ่ม Notebook Update)
+# -------------------------
+func _process(_delta):
+	# 1. Position Update for Local Player UI (โค้ดเดิม)
+	var local_player_id = multiplayer.get_unique_id()
+	var player_node_name = "Player_" + str(local_player_id)
+	var local_player = get_node_or_null(player_node_name)
+	
+	if is_instance_valid(local_player):
+		var pos: Vector3 = local_player.global_transform.origin
+		Label_POSITION.text = "POS: X: %.1f, Z: %.1f" % [pos.x, pos.z]
+	else:
+		Label_POSITION.text = "POS: Loading..."
+		
+	# 2. ⭐ NEW: ตรวจสอบและอัปเดต Notebook Log หากเปิดอยู่
+	if Notebook_Panel.visible and Global.message_log.size() != notebook_last_log_size:
+		update_notebook_display()
+
+# -------------------------
+# NEW: Position Logging Functions (Host only) (รวมการแก้ไขที่ขาดไป)
 # -------------------------
 func start_position_timer():
 	if not multiplayer.is_server():
@@ -106,6 +221,9 @@ func _on_position_timer_timeout():
 	var log_entry = "POSITIONS: " + ", ".join(positions_data)
 	Global.add_to_message_log(log_entry) # ⬅️ บันทึกตำแหน่ง
 	print("DEBUG (Host): Logged all player positions.")
+	
+	# ⭐ แก้ไขที่ขาดไป: ส่ง Log ไปยัง Client ทั้งหมด
+	send_log_to_clients()
 
 
 # ฟังก์ชันใหม่สำหรับแสดงฉากเปิดเผยบทบาท
@@ -140,6 +258,9 @@ func _on_peer_connected(id: int):
 		# ส่งข้อมูลการ์ดที่ถูกสร้างไปให้ไคลเอนต์คนใหม่
 		if not spawned_cards_numbers.is_empty():
 			rpc_id(id, "spawn_cards_with_numbers", spawned_cards_numbers, spawned_cards_positions)
+
+		# ⭐ FIX 2/3: Host ส่งข้อมูลบทบาททั้งหมดไปยัง Client ที่เพิ่งเชื่อมต่อ
+		rpc_id(id, "sync_player_roles", Global.player_roles)
 
 	# Server tells the new player the remaining time
 	if multiplayer.is_server():
@@ -192,6 +313,10 @@ func spawn_player(player_id: int):
 	if Global.player_roles.has(player_id):
 		var role = Global.player_roles[player_id]
 		player_instance.set_role(role["base"], role["leader"])
+		
+		# ⭐ MODIFIED: เพิ่มการตรวจสอบปุ่ม Notebook ทันทีหลังตั้งค่าบทบาท (ถ้าข้อมูลมีอยู่แล้ว)
+		if player_id == multiplayer.get_unique_id():
+			check_and_show_notebook_button()
 		
 		# ⭐ ลบโค้ดแสดงบทบาทที่ซ้ำซ้อนออกไป
 		if role["leader"]:
@@ -346,9 +471,9 @@ func process_card_collection(card_path: String, peer_id: int):
 	var card_number_str = card_node.name.replace("Card", "")
 	var card_number: int = int(card_number_str) if card_number_str.is_valid_int() else -1
 
-	# ⭐ NEW: บันทึก Log การเก็บการ์ด
+	# ⭐ MODIFIED: บันทึก Log การเก็บการ์ดแบบไม่เปิดเผยหมายเลขการ์ด
 	var player_name = Global.player_names.get(peer_id, "ID:" + str(peer_id))
-	var log_message = "COLLECTED: %s collected card: %s" % [player_name, card_node.name]
+	var log_message = "COLLECTED: %s collected a card." % player_name
 	Global.add_to_message_log(log_message)
 	
 	# ⭐ NEW: Synchronize the game log after a card is collected
@@ -446,9 +571,9 @@ func drop_single_card_request(player_id: int):
 	else:
 		print("WARNING (Host): Global collected card list is empty or missing for Player %s, cannot remove card number." % player_id)
 
-	# ⭐ NEW: บันทึก Log การดรอปการ์ด
+	# ⭐ MODIFIED: บันทึก Log การดรอปการ์ดแบบไม่เปิดเผยหมายเลขการ์ด
 	var player_name = Global.player_names.get(player_id, "ID:" + str(player_id))
-	var log_message = "DROPPED: %s dropped card: %s" % [player_name, dropped_card_name]
+	var log_message = "DROPPED: %s dropped a card." % player_name
 	Global.add_to_message_log(log_message)
 	print("DEBUG (Host): Player %s dropped card %s. Logging complete." % [player_id, dropped_card_name])
 	
@@ -529,3 +654,15 @@ func sync_message_log(log_array: Array):
 	# Client/Host อัปเดต Array Log ใน Global ของตัวเอง
 	Global.message_log = log_array
 	print("DEBUG (Client/Host): Message log synchronized. Total entries: ", log_array.size())
+
+# -------------------------
+# ⭐ FIX 3/3: ROLE SYNCHRONIZATION
+# -------------------------
+
+# ฟังก์ชัน RPC เพื่อรับและอัปเดตข้อมูลบทบาท
+@rpc("any_peer", "reliable", "call_local")
+func sync_player_roles(roles_dict: Dictionary):
+	Global.player_roles = roles_dict
+	print("DEBUG (Client/Host): Synchronized Global.player_roles: ", Global.player_roles)
+	# หลังจากได้รับบทบาทแล้ว ให้อัปเดตการแสดงปุ่มทันที
+	check_and_show_notebook_button()

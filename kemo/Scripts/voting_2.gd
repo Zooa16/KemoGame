@@ -10,6 +10,9 @@ extends Control
 
 var time_left := 0
 
+# ⭐ NEW: บทบาทฝ่าย Entity ที่ The Oracle ต้องมองเห็นเป็นสีแดง
+const REVEALED_ENTITY_ROLES = ["Tracer", "Enforcer", "System Controller"]
+
 #--------------------------------------------------------------------------------------------------------------#
 # การอ้างอิงถึง Node UI (ใช้ @onready เพื่อให้มั่นใจว่า Node ถูกโหลดแล้ว)
 #--------------------------------------------------------------------------------------------------------------#
@@ -188,20 +191,44 @@ func initialize_player_ui():
 	var active_players_sorted = Global.player_names.keys().duplicate()
 	active_players_sorted.sort()
 	
+	var my_role = Global.player_role # ⭐ NEW: ดึงบทบาทของผู้ชม (Local Player)
+
 	for player_id in active_players_sorted:
 		if player_id == Global.eliminated_player_id:
 			continue
 			
 		player_id_to_ui_index[player_id] = ui_index
 		
-		player_ui_nodes[ui_index].visible = true
-		player_ui_nodes[ui_index].set_meta("player_id", player_id)
+		var ui_node = player_ui_nodes[ui_index]
+		var name_label = player_name_labels[ui_index]
+		var modulate_node = player_modulate_nodes[ui_index]
+
+		ui_node.visible = true
+		ui_node.set_meta("player_id", player_id)
 		
-		# แก้ไข: ใช้ .get() เพื่อเข้าถึง Dictionary อย่างปลอดภัย
-		player_name_labels[ui_index].text = Global.player_names.get(player_id, "Unknown Player")
+		# 1. กำหนดค่าเริ่มต้นของชื่อและสี
+		var player_name = Global.player_names.get(player_id, "Unknown Player")
+		name_label.text = player_name
+		name_label.modulate = Color.WHITE # ตั้งสีชื่อเป็นสีขาวเริ่มต้น
 		
-		if player_modulate_nodes.has(ui_index):
-			player_modulate_nodes[ui_index].modulate = Global.player_colors.get(player_id, Color.WHITE)
+		modulate_node.modulate = Global.player_colors.get(player_id, Color.WHITE)
+		
+		# ⭐ 2. ตรวจสอบ Logic สำหรับ The Oracle
+		if my_role == "The Oracle":
+			# ดึงข้อมูลบทบาทของผู้เล่นที่ถูกมอง
+			var target_role_data = Global.player_roles.get(player_id)
+			if target_role_data == null:
+				# ลองดึงในรูปแบบ String Key ในกรณีที่ Dictionary มีการจัดเก็บ key เป็น String
+				target_role_data = Global.player_roles.get(str(player_id))
+			
+			if target_role_data:
+				var target_base_role = target_role_data.get("base", "")
+					
+				# ถ้าบทบาทของผู้ถูกมองอยู่ในกลุ่ม Entity ที่ต้องเปิดเผย
+				if target_base_role in REVEALED_ENTITY_ROLES:
+					# เปลี่ยนชื่อที่แสดงให้เป็นบทบาท และเปลี่ยนเป็นสีแดง
+					name_label.text = target_base_role 
+					name_label.modulate = Color.RED
 		
 		if player_id == Global.leader_id:
 			Leader_icon[ui_index].visible = true

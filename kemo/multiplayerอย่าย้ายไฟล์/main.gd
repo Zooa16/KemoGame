@@ -20,7 +20,7 @@ extends Node
 # NEW: เพิ่มปุ่มแสดง/ซ่อน ID ห้อง
 @onready var Show_Hide_ID_Button = $CanvasLayer/HUD/VBoxContainer/HBoxContainer2/Show_Hide_ID_Button
 
-var countdown_duration = 1.0#--------------------------------------------***
+var countdown_duration = 5.0#--------------------------------------------***
 var is_counting_down = false
 var is_id_hidden = true # NEW: ตัวแปรสำหรับสถานะการซ่อน ID
 

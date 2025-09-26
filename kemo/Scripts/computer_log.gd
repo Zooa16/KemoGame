@@ -5,7 +5,7 @@ extends Area3D
 @onready var Close_Button = $Close_Button
 
 # ⭐ ตัวแปรใหม่: จำกัดจำนวนข้อความสูงสุด
-const MAX_LOG_ENTRIES := 20
+const MAX_LOG_ENTRIES := 40
 # ⭐ ตัวแปรใหม่: เก็บขนาดของ log ล่าสุดที่ทราบ เพื่อตรวจสอบการอัปเดต
 var last_log_size := 0
 

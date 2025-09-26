@@ -39,6 +39,68 @@ var current_anim: String = ""
 signal card_collected_updated(collected_count)
 
 
+# ⭐ NEW: บทบาทเป้าหมายที่ The Oracle ต้องมองเห็น
+const REVEAL_ROLE_TARGETS = [
+	"Tracer",
+	"Enforcer",
+	"System Controller",
+]
+# ⭐ NEW: ตัวแปรสำหรับเก็บชื่อผู้เล่นเดิม เพื่อสลับกลับไปมา
+var original_player_name: String = ""
+
+func _process(delta):
+	# 1. ตรวจสอบว่าผู้เล่นนี้ไม่ใช่ผู้เล่นในเครื่อง (Local Player)
+	if is_multiplayer_authority():
+		return # ออกจาก Loop ถ้าเป็นผู้เล่นในเครื่อง (ไม่ต้องทำอะไรกับตัวเอง)
+		
+	# ตรวจสอบว่าชื่อเดิม (original_player_name) ถูกตั้งค่าแล้ว
+	if original_player_name == "":
+		return
+
+	# ⭐ แก้ไข: ดึงบทบาทของผู้เล่นคนอื่น (The Target) จาก Global.player_roles โดยตรง
+	var target_peer_id = get_multiplayer_authority()
+	var role_data = Global.player_roles.get(target_peer_id)
+	
+	# รองรับกรณีที่ key ใน Global.player_roles ถูกแปลงเป็น String (เกิดได้จากการส่งผ่าน RPC)
+	if role_data == null:
+		role_data = Global.player_roles.get(str(target_peer_id))
+
+	# 2. ถ้าข้อมูลบทบาทยังไม่ถูกซิงค์ ให้รอ
+	if role_data == null: 
+		return # ออกจาก loop ถ้าข้อมูลยังไม่พร้อม
+		
+	var target_role = role_data.get("base", "") # ดึงบทบาทหลัก (base role)
+	if target_role == "":
+		return # ออกจาก loop ถ้าบทบาทหลักยังว่าง
+
+	# Logic การเปิดเผยบทบาทสำหรับ The Oracle
+	var my_role = Global.player_role # บทบาทของผู้เล่นในเครื่อง (The Viewer)
+	
+	# ⭐ DEBUG 1: ตรวจสอบบทบาทของผู้ชมและผู้ถูกมอง
+	# ควรเห็นข้อความนี้บ่อยๆ สำหรับผู้เล่นคนอื่นๆ ที่คุณกำลังมองอยู่
+	# print("DEBUG (Player ID: ", get_multiplayer_authority(), "): Viewer Role: ", my_role, ", Target Role: ", target_role)
+	
+	if my_role == "The Oracle":
+		# print("DEBUG (Oracle View): I am The Oracle. Checking target role...")
+		
+		# 2. ตรวจสอบว่าบทบาทของผู้เล่นที่ถูกมอง (The Target) อยู่ในกลุ่มเป้าหมายหรือไม่
+		if target_role in REVEAL_ROLE_TARGETS:
+			# ถ้าใช่ ให้ตั้งค่าข้อความของ Label เป็น 'บทบาท' แทน 'ชื่อ'
+			player_name_label.text = target_role
+			# ถ้าต้องการสีแดงตามคำขอเดิม ให้ใช้ modulate:
+			player_name_label.modulate = Color.RED 
+			# print("DEBUG (Oracle View): Target ", target_role, " FOUND! Revealing role.")
+		else:
+			# ถ้าไม่ใช่บทบาทเป้าหมาย ให้แสดงชื่อผู้เล่นปกติ
+			player_name_label.text = original_player_name
+			player_name_label.modulate = Color.BLACK  
+			# print("DEBUG (Oracle View): Target ", target_role, " is safe. Showing name.")
+	else:
+		# ถ้าผู้เล่นในเครื่องไม่ใช่ The Oracle ให้แสดงชื่อปกติเสมอ
+		player_name_label.text = original_player_name
+		player_name_label.modulate = Color.WHITE # รีเซ็ตสีเป็นขาว
+		# print("DEBUG: I am NOT Oracle. Name is WHITE.")
+
 func _enter_tree():
 	set_multiplayer_authority(str(name).to_int())
 
@@ -56,12 +118,12 @@ func _ready():
 	if role_label:
 		role_label.text = ""
 		role_label.visible = false
-  
+	
 	if role_label2:
 		role_label2.text = ""
 		role_label2.visible = false
 	
-	# ⭐ NEW: Call the update function to set the initial visibility.
+	# ⭐ NEW: Call the update 
 	update_drop_button_visibility()
 
 # ---------------- ROLE HANDLING ----------------
@@ -88,7 +150,7 @@ func set_role(new_role: String, is_leader: bool = false):
 			var reveal_scene = preload("res://Scenes/role_reveal.tscn").instantiate()
 			get_tree().root.add_child(reveal_scene)
 			reveal_scene.show_role(new_role, is_leader)
-	  
+	
 			if multiplayer.is_server():
 				var gm_node = get_tree().get_root().get_node("GameManager")
 				if gm_node:
@@ -117,7 +179,7 @@ func update_role_visibility():
 			
 
 #---------------- CARD INVENTORY ----------------
-# ⭐ NEW: RPC function to add a card to the player's inventory
+# ⭐ NEW: RPC function to add a 
 @rpc("any_peer", "call_local")
 func add_card(card_id: String):
 	# This function is called by the server on the client's instance.
@@ -216,10 +278,13 @@ func set_flip_all_rpc(flip: bool):
 	animation_body.flip_h = flip
 	animation_color.flip_h = flip
 
+# ⭐ แก้ไข: เพิ่มการเก็บชื่อเดิม
 @rpc("any_peer", "reliable", "call_local")
 func set_player_name(new_name: String):
 	if player_name_label:
 		player_name_label.text = new_name
+		# เก็บชื่อผู้เล่นเดิมไว้
+		original_player_name = new_name
 
 @rpc("any_peer", "reliable", "call_local")
 func set_player_color(new_color: Color):
