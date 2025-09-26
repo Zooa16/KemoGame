@@ -50,7 +50,7 @@ func _ready():
 		print("GameManager ready on server.")
 	else:
 		# Client ส่ง ready signal ไปหา host
-		rpc_id(1, "client_ready")  # 1 = host (server)
+		rpc_id(1, "client_ready")
 	if multiplayer.is_server():
 		
 		print("GameManager ready on server.")
@@ -107,16 +107,27 @@ func sync_player_roles(roles_dict: Dictionary, leader_id: int):
 	Global.player_roles = roles_dict
 	Global.leader_id = leader_id
 	
-	if Global.player_roles.has(multiplayer.get_unique_id()):
-		Global.player_role = Global.player_roles[multiplayer.get_unique_id()]["base"]
+	var my_id = multiplayer.get_unique_id()
 	
-	var player_node = get_player_by_id(multiplayer.get_unique_id())
+	if Global.player_roles.has(my_id):
+		# ⭐ FIX: ดึงค่าบทบาทอย่างปลอดภัย
+		Global.player_role = Global.player_roles.get(my_id, {}).get("base", "")
+	else:
+		# ⭐ FIX: ถ้าไม่มี ID ใน Global.player_roles ให้ตั้งค่าเป็น String ว่างแทน Nil
+		Global.player_role = ""
+	
+	var player_node = get_player_by_id(my_id)
 	if player_node:
-		player_node.set_role(Global.player_roles[multiplayer.get_unique_id()]["base"], Global.player_roles[multiplayer.get_unique_id()]["leader"])
+		# ตรวจสอบก่อนเรียก set_role
+		var my_role_data = Global.player_roles.get(my_id)
+		if my_role_data:
+			player_node.set_role(my_role_data.get("base", ""), my_role_data.get("leader", false))
+			
 	if not multiplayer.is_server() and not Global.revealed_role:
 		var game_node = get_tree().get_root().get_node("game")
 		if game_node:
 			game_node.show_role_reveal()
+			
 	for node in get_tree().get_nodes_in_group("players"):
 		node.update_role_visibility()
 
